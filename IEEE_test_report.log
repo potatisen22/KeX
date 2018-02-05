@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.5)  5 FEB 2018 11:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2018.2.5)  5 FEB 2018 13:11
 entering extended mode
 **./IEEE_test_report.tex
 (IEEE_test_report.tex
-LaTeX2e <2017-04-15>
-Babel <3.15> and hyphenation patterns for 75 language(s) loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\ieeetran\IEEEtran.cls"
+LaTeX2e <2017/01/01> patch level 1
+Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
+(C:\Users\Vilhelm\AppData\Roaming\MiKTeX\2.9\tex\latex\ieeetran\IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/
@@ -149,17 +149,17 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 294.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 316.
-[1{C:/Users/vilhe/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+[1{C:/Users/Vilhelm/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 
 ]
 (IEEE_test_report.aux) ) 
 Here is how much of TeX's memory you used:
- 1073 strings out of 493312
- 19603 string characters out of 3138900
- 75821 words of memory out of 3000000
- 4677 multiletter control sequences out of 15000+200000
+ 1072 strings out of 493333
+ 19533 string characters out of 3139189
+ 75332 words of memory out of 3000000
+ 4658 multiletter control sequences out of 15000+200000
  43411 words of font info for 80 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
  28i,7n,19p,214b,209s stack positions out of 5000i,500n,10000p,200000b,50000s
