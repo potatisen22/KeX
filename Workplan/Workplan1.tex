@@ -25,13 +25,13 @@
 	
 	\bigskip
 	\section{Background}
-		Unmanned aerial vehicles, also known as UAVs, are becoming nowadays more and more popular because they are small, cheap to produce, have low operating and maintenance cost, have great maneuverability, can perform steady flight operations and are able to enter high-risk areas without having to compromise human safety. Most applications that involve UAVs have been used in open areas without any obstacles and with a human in control of the UAV. But in recent years people have come up with more modern applications of UAVs that will need this UAVs to fly autonomously in densely populated areas, with a lot of other autonomous UAVs around, e.g. Amazon Prime Air delivery system, AltiGator drones services for inspection and data adquisition, or multi-UAVs used to deploy an aerial communications network. This places high demands on UAVs’ obstacle avoidance capabilities for both moving and static obstacles.
+		Unmanned aerial vehicles, also known as UAVs, are becoming nowadays more and more popular because they are small, cheap to produce, have low operating and maintenance cost, have great maneuverability, can perform steady flight operations and are able to enter high-risk areas without having to compromise human safety. Most applications that involve UAVs have been used in open areas without any obstacles and with a human in control of the UAV. But in recent years people have come up with more modern applications of UAVs that will need UAVs to fly autonomously in densely populated areas, with a lot of other autonomous UAVs around, e.g. Amazon Prime Air delivery system, AltiGator drones services for inspection and data adquisition, or multi-UAVs used to deploy an aerial communications network. This places high demands on UAVs’ obstacle avoidance capabilities for both moving and static obstacles.
 		
 		\vspace{1em}
 		There are many different manufacturers and a vast amount of different UAV models, all with different motors, weights, sensors and lift-to-weight ratio. To make a standard autonomous flight applicable to all these kinds of UAVs, a simple and easy-to-implement multi-UAV mathematical model, that will still be able to avoid obstacles with as few sensors as possible, is needed.  
 		
 		\vspace{1em}
-		This project aims to study and develop a mathematical model of a quadrotor UAV and the available sensors in it.  From the trajectory and pose tracking a state feedback controller will be designed. In order to facilitate the multi-UAV navigation potential fields or an A* algorithm will be used to make several quads fly to their goals mantaining collision avoidance with respect to other quads and obstacles. To check the validity of the models, a simulated test environment in MatLab filled with a random reasonable amount of static obstacles and autonomous UAVs will be used.
+		This project aims to study and develop a mathematical model of a quadrotor UAV and the available sensors in it.  From the trajectory and pose tracking a state feedback controller will be designed. In order to facilitate the multi-UAV navigation potential fields or an A* algorithm will be used to make several quads fly to their goals while maintaining collision avoidance with respect to other quads and obstacles. To check the validity of the models, a simulated test environment in MatLab filled with a random reasonable amount of static obstacles and autonomous UAVs will be used.
 		
 		
 	\section{Work tree}
@@ -65,7 +65,11 @@
 			\includegraphics[width=.8\linewidth]{Workplan_work_tree/simulation_work_tree_diagram}
 			\caption{Expanded work tree for the simulation section}
 		\end{figure}
-
+		
+		\paragraph{} We will Have a more detailed part of the simulation part of the work tree in status report 1 and a more detailed part of the report and peer-review part in status report 2.
+		
+		\vspace{1em}
+		When we have completed a section on the work tree we will give a small presentation to our supervisor about that section. we'll present the model we came up with, the goals we had for that part of the project and then motivate that we have completed said goals. This will give us a chance to show that we really understand what we've done and will probably help with the report later on since it'll give us a chance to explain what we have done, just like we will do in the report.  
 			
 	
 	\section{Risks}
@@ -73,17 +77,19 @@
 			Risks & P & C & R & Counter measure \\ \hline
 			Diseases in the group  & 2 & 2 & 4 & Reactive: Rearrange workload \\ & & & & Proactive: Nothing \\ \hline
 			Loss of documents and information & 2 & 4 & 8 & Reactive: recollect information again \\ & & & & Proactive: Have bakups for everything, use Google Drive and GitHub \\ \hline
-			Running out of time & 4 & 2 & 8 & Reactive: Re-evaluate work plan and consult with supervisor \\ & & & & Proactive:  Have a good work plan, check on each other if we'll complete deadlines in time, check more the closer to the deadline \\ \hline
-			Bad communication with supervisor & 2 & 2 & 4 & Reactive: Send reminders if we get no answer in x amount of time. Ask supervisor how long should x be. Plan accordingly \\ & & & & Proactive: Schedule meetings now (once a week for example) and modify these dates if there is no need to meet\\ \hline
+			Running out of time & 4 & 2 & 8 & Reactive: Re-evaluate work plan and consult with supervisor \\ & & & & Proactive:  Have a good work plan, check on each other if we'll complete deadlines in time, check more when deadlines are closing in \\ \hline
+			Bad communication with supervisor & 2 & 2 & 4 & Reactive: Send reminders if we get no answer in x amount of time. \\ & & & & Proactive: Schedule meetings now (once a week for example) and modify these dates if there is no need to meet. Ask supervisor how long 'x amount of time' should be. Plan accordingly\\ \hline
 			
 			
 				
 		\end{tabular}		
 
 	\section{Goals}
+		\paragraph{Risks} Ask Supervisor how long 'x amount of time' should be and agree on a schedule for weekly meetings with supervisor
+		 
 		\paragraph{Literature.} Present a paper/combination of papers that describe the modelling of the UAVs, sensors and tracking. Observe how it is done in the community, categorize these papers and reflect on what is our contribution with respect to the rest. 
 		
-		\paragraph {Mathematical Model.} Have a robust model for the kinematics and dynamics of the UAV, and its sensors.
+		\paragraph{Mathematical Model.} Have a robust model for the kinematics and dynamics of the UAV, and its sensors.
 			
 		\paragraph{Control.} Be able to control the trajectory and stability of the UAV.
 			
@@ -95,8 +101,7 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{img/timeline}
-			\caption{Timeline for the project}
+			\caption{Time line for the project}
 		\end{figure}
-	
 	
 \end{document}

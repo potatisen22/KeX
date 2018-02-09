@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2018.2.5)  9 FEB 2018 01:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2018.2.5)  9 FEB 2018 09:49
 entering extended mode
 **./Workplan1.tex
 (Workplan1.tex
@@ -588,11 +588,11 @@ Package pdftex.def Info: Workplan_work_tree/simulation_work_tree_diagram.pdf us
 ed on input line 65.
 (pdftex.def)             Requested size: 341.43437pt x 96.87474pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 72.
+(Font)              <7> on input line 76.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 72.
+(Font)              <5> on input line 76.
 
-Overfull \hbox (2.64938pt too wide) in paragraph at lines 72--82
+Overfull \hbox (2.64938pt too wide) in paragraph at lines 76--86
 [] 
  []
 
@@ -602,7 +602,7 @@ ram.pdf> <./Workplan_work_tree/simulation_work_tree_diagram.pdf>]
 <img/timeline.png, id=44, 1182.4175pt x 599.23875pt>
 File: img/timeline.png Graphic file (type png)
  <use img/timeline.png>
-Package pdftex.def Info: img/timeline.png used on input line 97.
+Package pdftex.def Info: img/timeline.png used on input line 103.
 (pdftex.def)             Requested size: 426.79135pt x 216.2927pt.
 
 [3] [4 <./img/timeline.png>] (Workplan1.aux) ) 
@@ -613,14 +613,14 @@ Here is how much of TeX's memory you used:
  5963 multiletter control sequences out of 15000+200000
  7588 words of font info for 27 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,9n,28p,938b,223s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,9n,28p,933b,223s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.p
 fb>
-Output written on Workplan1.pdf (4 pages, 218834 bytes).
+Output written on Workplan1.pdf (4 pages, 220407 bytes).
 PDF statistics:
  69 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
