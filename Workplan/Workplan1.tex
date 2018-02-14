@@ -31,37 +31,60 @@
 		There are many different manufacturers and a vast amount of different UAV models, all with different motors, weights, sensors and lift-to-weight ratio. To make a standard autonomous flight applicable to all these kinds of UAVs, a simple and easy-to-implement multi-UAV mathematical model, that will still be able to avoid obstacles with as few sensors as possible, is needed.  
 		
 		\vspace{1em}
-		This project aims to study and develop a mathematical model of a quadrotor UAV and the available sensors in it.  From the trajectory and pose tracking a state feedback controller will be designed. In order to facilitate the multi-UAV navigation potential fields or an A* algorithm will be used to make several quads fly to their goals while maintaining collision avoidance with respect to other quads and obstacles. To check the validity of the models, a simulated test environment in MatLab filled with a random reasonable amount of static obstacles and autonomous UAVs will be used.
+		This project aims to study and develop a mathematical model of a quadrotor UAV and the available sensors in it.  From the trajectory and pose tracking a state feedback controller will be designed. In order to facilitate the multi-UAV navigation, potential fields or an A* algorithm will be used to make several quads fly to their goals while maintaining collision avoidance with respect to other quads and obstacles. To check the validity of the models, a simulated test environment in MatLab filled with a random reasonable amount of static obstacles and autonomous UAVs will be used.
 
-
-
+	
+	%i know that the structure given to us is different but i would consider putting here the project model: work tree section
 	\section{Goals}		 %mesurable goals!!! 
-		\paragraph{Literature.} Present a paper/combination of papers that describe the modelling of the UAVs, sensors and tracking. Observe how it is done in the community, categorize these papers and reflect on what is our contribution with respect to the rest.\\  $\rightarrow$ The literature goal can be completed when the literature proposed by the supervisor and other interesting documents proposed by the students have been all read, understood and classified (which parts belong or have been used for the modelling of the quad, of the sensors or for the tracking). %not measurable
-		
+	
+		\paragraph{Literature.} Present a paper/combination of papers that describe the modelling of the UAVs, sensors and tracking. Observe how it is done in the community, categorize these papers and reflect on what is our contribution with respect to the rest.\\  
+		$\rightarrow$ The literature goal can be completed when the literature proposed by the supervisor and other interesting documents proposed by the students have been all read, understood and classified, so there are at least 3 papers analysed and compared for each section (modelling of the quad, of the sensors or for the tracking).
+	
 		\paragraph{Mathematical Model.} Have a robust model for the kinematics and dynamics of the UAV, and its sensors.\\
 		$\rightarrow$ The mathematical model goal can be completed when we can describe our UAV with a matrix that includes its position, its linear velocity, its angles (roll, yaw and pitch) and its angular velocity, all of them related to a certain fixed reference frame that we can relate with, for example, the initial frame. Also, when we have derived an equation for each of the necessary sensors: IMU sensor (accelerometer and gyroscope), an 360 degree proximity sensor and GPS. %think we can work on this one
-			
+		
 		\paragraph{Control.} Be able to control the trajectory and stability of the UAV. \\
-		$\rightarrow$ The control goal can be considered as completed when we are able, for a certain desirable movement of the UAV, to obtain the appropiate force of thrusters for the UAV to achieve the desired position as fast as possible. This should be achived with a state feedback controller that satisfies the robustness criteria, is observable, controllable and stable (check poles). %specific amount of time to be defined, I think it's mesurable now
-			
-		\paragraph{	Multi-agent case.} Apply and expand  on the model and the control proposed for one UAV, but for a variable number of UAVs.\\
-		$\rightarrow$ The multi-agent case goal can be completed when 
+		$\rightarrow$ The control goal can be considered as completed when we are able, for a certain desirable movement of the UAV, to obtain the appropiate force of thrusters for the UAV to achieve the desired position as the UAV stays stable and follows the trajectory vector obtained from the potential fields, optimising the time-response to as fast as possible. This should be achived with a state feedback controller that satisfies the robustness criteria, is observable, controllable and stable (check poles). %specific amount of time to be defined, I think it's mesurable now
 		
-		\paragraph{Simulation.} Verify that all the previous steps have been appropriately carried out so the main purpose of the project is achieved. Extract results.
+		\paragraph{Multi-agent case.} Apply and expand  on the model and the control proposed for one UAV, but for a variable number of UAVs.\\
+		$\rightarrow$ The multi-agent case goal can be completed when the mathematical model and the state feedback controller are %dont really know what to put on this one
 		
-		\paragraph{Risks.} Ask Supervisor how long 'x amount of time' should be and agree on a schedule for weekly meetings with supervisor
-%should not have a paragraph named risks, we have to move this
-	\section{Organization}	
-	\begin{tabular}{|L {5.0cm}|C{5.0cm}|R{5.0cm}|}
-		%make a table over our organization	
-	
-	\end{tabular}
+		\paragraph{Simulation.} Verify that all the previous steps have been appropriately carried out so the main purpose of the project is achieved. Extract results. \\
+		$\rightarrow$ The simulation goal can be completed when we are finished translating the mathematical model and the control to MatLab language and we can test the proper functioning of these with numerical examples. Then we need to test, at least in a 2D simulation and preferrably in a 3D simulation, how a reandom but reasonable number of UAVs can move in an environment also filled with static obstacles, and we have at least the 95\% of our UAVs arriving to their goals without getting stucked, and none of them collides with any obstacle. % is 95% a reasonable amount? chris said they arent usually getting stucked but we dont know the exact probability. We will be able to have a certain number after the simulations but we should have a minimum I think.
+
+		\vspace{2em}
+		%Previously this paragraph was in the project model: work tree section. I think it's more useful to have it here
+		 When we have completed the goals for a section (the sections are the same as in the basic work tree) we will give a small presentation to our supervisor about that section. We will present the goals we aimed at for that part of the project, the model we came up with or the results we had, and then motivate that we have completed the said goals. This will give us a chance to show that we really understand what we have done and will probably help with the report later on since it'll give us a chance to explain what we have done and why we have come up with those results, just like we will do in the report.  
+
+	\section{Organization}
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			%make a table over our organization	
+			Member name & E-mail & Telephone number & Position \\ \hline
+			Christos Verginis & cverginis@kth.se & 0704438285 & Supervisor \\ \hline
+			Vilhelm Dinevik & vdinevik@kth.se & & Student\\ \hline
+			Paula Carbó & paulacc@kth.se & +34 626329389 & Student\\ \hline
+		\end{tabular}
 		
+		\bigskip
+		
+		%we can work a bit more on this tomorrow
+		\begin{tabular}{|C{6cm}|C{4cm}|}
+			Responsibility & Responsible \\ \hline
+			Communication with supervisor & Paula Carbó \\ \hline
+			Documentation and backups & Vilhelm Dinevik \\ \hline
+			Schedule and deadlines & Paula Carbó \\ \hline
+			Report writing and following up & Vilhelm Dinevik \\ \hline
+		\end{tabular}
+		
+	\end{center}
+
 	\section{Project Model: Work tree}
 		\begin{figure}[H]
 				\centering
 				\includegraphics[width=1.15\linewidth]{Workplan_work_tree/basic_work_tree_diagram}
 				\caption{Basic work tree}
+				\label{fig:work_tree_basic}
 		\end{figure}
 		\begin{figure}[H]
 			\centering
@@ -91,8 +114,6 @@
 		
 		\paragraph{} We will have a more detailed part of the simulation part of the work tree in status report 1 and a more detailed part of the report and peer-review part in status report 2.
 		
-		\vspace{1em}
-		When we have completed a section on the work tree we will give a small presentation to our supervisor about that section. We will present the model we came up with or the results we had, the goals we aimed at for that part of the project and then motivate that we have completed said goals. This will give us a chance to show that we really understand what we've done and will probably help with the report later on since it'll give us a chance to explain what we have done, just like we will do in the report.  
 			
 
 	
@@ -115,13 +136,20 @@
 			Simulation & & & &  Reactive:\\
 			& & & & Proactive: \\ \hline 
 			      
-			
-			
-				
 		\end{tabular}		
  
 	\section{Documentation/Communication rules}
-	We will use Github and Google drive for documentation, all code and everything written i latex will be stored on github, the rest will be stored on google drive.
+	\begin{itemize}
+			\item We will use Github and Google drive for documentation. MatLab, Latex and any other code will be stored on GitHub, and the rest will be stored on Google Drive.
+			
+			\item Meetings with supervisor are scheduled once a week, on Thursdays morning. The time and the confirmation for the next week are decided at the end of each meeting. In the case a meeting is cancelled, the designated responsible for communication with supervisor is in charge of scheduling another meeting for the next week or the week after. The purpose of these meetings is ask the supervisor questions or doubts, explain how the project is advancing, present goals accomplished in the case a section of the project plan is finished, check results and ask for how to improve them.
+			
+			\item Meetings with both students are not fixedly scheduled but regularly scheduled, at least once or twice a week depending on the availability of each one. The purpose of these meetings is advance on the project, distribute work to do for each section in the case the workload could be splitted, check the deadlines for the documents and make sure the work plan is being followed according to the planned schedule, and prepare questions for the supervisor in the case there was any.
+			
+			%anything else on this section?
+	\end{itemize}
+
+	
 	\section{Appendix}
 	
 	\subsection{Time line}
