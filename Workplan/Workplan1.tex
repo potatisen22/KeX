@@ -35,14 +35,14 @@
 
 
 
-	\section{Goals}		 
-		\paragraph{Literature.} Present a paper/combination of papers that describe the modelling of the UAVs, sensors and tracking. Observe how it is done in the community, categorize these papers and reflect on what is our contribution with respect to the rest.\\  $\rightarrow$ The literature goal can be completed when the literature proposed by the supervisor and other interesting documents proposed by the students have been all read, understood and classified (which parts belong or have been used for the modelling of the quad, of the sensors or for the tracking).
+	\section{Goals}		 %mesurable goals!!! 
+		\paragraph{Literature.} Present a paper/combination of papers that describe the modelling of the UAVs, sensors and tracking. Observe how it is done in the community, categorize these papers and reflect on what is our contribution with respect to the rest.\\  $\rightarrow$ The literature goal can be completed when the literature proposed by the supervisor and other interesting documents proposed by the students have been all read, understood and classified (which parts belong or have been used for the modelling of the quad, of the sensors or for the tracking). %not measurable
 		
 		\paragraph{Mathematical Model.} Have a robust model for the kinematics and dynamics of the UAV, and its sensors.\\
-		$\rightarrow$ The mathematical model goal can be completed when we can describe our UAV with a matrix that includes its position, its linear velocity, its angles (roll, yaw and pitch) and its angular velocity, all of them related to a certain fixed reference frame that we can relate with, for example, the initial frame. Also, when we have derived an equation for each of the necessary sensors: IMU sensor (accelerometer and gyroscope), an 360 degree proximity sensor and GPS.
+		$\rightarrow$ The mathematical model goal can be completed when we can describe our UAV with a matrix that includes its position, its linear velocity, its angles (roll, yaw and pitch) and its angular velocity, all of them related to a certain fixed reference frame that we can relate with, for example, the initial frame. Also, when we have derived an equation for each of the necessary sensors: IMU sensor (accelerometer and gyroscope), an 360 degree proximity sensor and GPS. %think we can work on this one
 			
 		\paragraph{Control.} Be able to control the trajectory and stability of the UAV. \\
-		$\rightarrow$ The control goal can be considered as completed when we are able, for a certain desirable movement of the UAV, to obtain the appropiate force of thrusters for the UAV to achieve the desired position as fast as possible. %specific amount of time to be defined. 
+		$\rightarrow$ The control goal can be considered as completed when we are able, for a certain desirable movement of the UAV, to obtain the appropiate force of thrusters for the UAV to achieve the desired position as fast as possible. This should be achived with a state feedback controller that satisfies the robustness criteria, is observable, controllable and stable (check poles). %specific amount of time to be defined, I think it's mesurable now
 			
 		\paragraph{	Multi-agent case.} Apply and expand  on the model and the control proposed for one UAV, but for a variable number of UAVs.\\
 		$\rightarrow$ The multi-agent case goal can be completed when 
@@ -50,8 +50,12 @@
 		\paragraph{Simulation.} Verify that all the previous steps have been appropriately carried out so the main purpose of the project is achieved. Extract results.
 		
 		\paragraph{Risks.} Ask Supervisor how long 'x amount of time' should be and agree on a schedule for weekly meetings with supervisor
-
+%should not have a paragraph named risks, we have to move this
 	\section{Organization}	
+	\begin{tabular}{|L {5.0cm}|C{5.0cm}|R{5.0cm}|}
+		%make a table over our organization	
+	
+	\end{tabular}
 		
 	\section{Project Model: Work tree}
 		\begin{figure}[H]
@@ -99,6 +103,18 @@
 			Loss of documents and information & 2 & 4 & 8 & Reactive: recollect information again \\ & & & & Proactive: Have bakups for everything, use Google Drive and GitHub \\ \hline
 			Running out of time & 4 & 2 & 8 & Reactive: Re-evaluate work plan and consult with supervisor \\ & & & & Proactive:  Have a good work plan, check on each other if we'll complete deadlines in time, check more when deadlines are closing in \\ \hline
 			Bad communication with supervisor & 2 & 2 & 4 & Reactive: Send reminders if we get no answer in x amount of time. \\ & & & & Proactive: Schedule meetings now (once a week for example) and modify these dates if there is no need to meet. Ask supervisor how long 'x amount of time' should be. Plan accordingly\\ \hline
+			Bad UAV Model & 3 & 3 & 9 & Reactive: Redesign UAV model?
+			\\ & & & & Proactive: Test the calculated model with 3 individual tests of simple rotation and movement around and along one axis in a 3D space where the starting and final position is known either on paper or with matlab, check that you get the expected outcome. \\ \hline
+			Bad sensor Model & & & & Reactive: %write something HERE! 
+			\\ & & & & Proactive: \\ \hline
+			Faulty state feedback controller & 4 & 3 & 12 & Reactive: Redesign the whole controller. damage control!\\ & & & & Proactive: Check the Observability, Controllability, Robustness Criteria and pole placement of the designed State feedback controller\\ \hline
+			Potential Field/ A*-algorithm & & & & Reactive:\\
+			& & & & Proactive:  \\ \hline %No idea what to write here, how to check if stuff goes haywire
+			Multi-agent case & & & & Reactive:\\
+			& & & & Proactive: \\ \hline
+			Simulation & & & &  Reactive:\\
+			& & & & Proactive: \\ \hline 
+			      
 			
 			
 				
