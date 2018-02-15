@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  15 FEB 2018 16:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  15 FEB 2018 17:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -428,18 +428,18 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 ) (./Workplan1.aux)
 \openout1 = `Workplan1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
  (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count93
@@ -534,127 +534,136 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 24.
+(Font)              <12> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 24.
+(Font)              <8> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 24.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+(Font)              <6> on input line 25.
+(./Workplan1.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 8.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 8.
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 40.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 40.
+\tf@toc=\write3
+\openout3 = `Workplan1.toc'.
+
  [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<Workplan_work_tree/basic_work_tree_diagram.pdf, id=11, 1063.44005pt x 68.30719
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 43.
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
+
+[2]
+Overfull \hbox (21.54716pt too wide) in paragraph at lines 74--91
+ [] 
+ []
+
+[3]
+Overfull \hbox (23.37357pt too wide) in paragraph at lines 97--105
+ [] 
+ []
+
+[4]
+Overfull \hbox (11.18443pt too wide) in paragraph at lines 118--148
+[] 
+ []
+
+[5]
+Overfull \vbox (36.96695pt too high) has occurred while \output is active []
+
+
+[6] <img/timeline.png, id=27, 1038.37938pt x 596.72937pt>
+File: img/timeline.png Graphic file (type png)
+
+<use img/timeline.png>
+Package pdftex.def Info: img/timeline.png used on input line 171.
+(pdftex.def)             Requested size: 426.79135pt x 245.26157pt.
+
+<Workplan_work_tree/basic_work_tree_diagram.pdf, id=29, 1063.44005pt x 68.30719
 pt>
 File: Workplan_work_tree/basic_work_tree_diagram.pdf Graphic file (type pdf)
  <use Workplan_work_tree/basic_work_tree_diagram.pdf>
 Package pdftex.def Info: Workplan_work_tree/basic_work_tree_diagram.pdf used on
- input line 83.
+ input line 179.
 (pdftex.def)             Requested size: 490.80743pt x 31.52591pt.
 
-Overfull \hbox (64.01608pt too wide) in paragraph at lines 83--84
+Overfull \hbox (64.01608pt too wide) in paragraph at lines 179--180
  [][] 
  []
 
 
-<Workplan_work_tree/literature_work_tree_diagram.pdf, id=12, 473.28117pt x 128.
+<Workplan_work_tree/literature_work_tree_diagram.pdf, id=30, 473.28117pt x 128.
 65866pt>
 File: Workplan_work_tree/literature_work_tree_diagram.pdf Graphic file (type pd
 f)
  <use Workplan_work_tree/literature_work_tree_diagram.pdf>
 Package pdftex.def Info: Workplan_work_tree/literature_work_tree_diagram.pdf us
-ed on input line 89.
+ed on input line 185.
 (pdftex.def)             Requested size: 341.43437pt x 92.8226pt.
-
-<Workplan_work_tree/modelling_work_tree_diagram.pdf, id=13, 373.69713pt x 99.82
+ [7 <./img/timeline.png>]
+<Workplan_work_tree/modelling_work_tree_diagram.pdf, id=36, 373.69713pt x 99.82
 596pt>
 File: Workplan_work_tree/modelling_work_tree_diagram.pdf Graphic file (type pdf
 )
  <use Workplan_work_tree/modelling_work_tree_diagram.pdf>
 Package pdftex.def Info: Workplan_work_tree/modelling_work_tree_diagram.pdf use
-d on input line 94.
+d on input line 190.
 (pdftex.def)             Requested size: 341.43437pt x 91.20885pt.
- [2 <./Workplan_work_tree/basic_work_tree_diagram.pdf>]
-<Workplan_work_tree/control_work_tree_diagram.pdf, id=23, 523.02605pt x 99.8259
+
+<Workplan_work_tree/control_work_tree_diagram.pdf, id=37, 523.02605pt x 99.8259
 6pt>
 File: Workplan_work_tree/control_work_tree_diagram.pdf Graphic file (type pdf)
  <use Workplan_work_tree/control_work_tree_diagram.pdf>
 Package pdftex.def Info: Workplan_work_tree/control_work_tree_diagram.pdf used 
-on input line 99.
+on input line 195.
 (pdftex.def)             Requested size: 341.43437pt x 65.1694pt.
 
-<Workplan_work_tree/multiagent_work_tree_diagram.pdf, id=24, 338.17844pt x 59.9
+<Workplan_work_tree/multiagent_work_tree_diagram.pdf, id=38, 338.17844pt x 59.9
 1785pt>
 File: Workplan_work_tree/multiagent_work_tree_diagram.pdf Graphic file (type pd
 f)
  <use Workplan_work_tree/multiagent_work_tree_diagram.pdf>
 Package pdftex.def Info: Workplan_work_tree/multiagent_work_tree_diagram.pdf us
-ed on input line 104.
+ed on input line 200.
 (pdftex.def)             Requested size: 341.43437pt x 60.49825pt.
 
-<Workplan_work_tree/simulation_work_tree_diagram.pdf, id=25, 359.46999pt x 101.
+<Workplan_work_tree/simulation_work_tree_diagram.pdf, id=39, 359.46999pt x 101.
 99203pt>
 File: Workplan_work_tree/simulation_work_tree_diagram.pdf Graphic file (type pd
 f)
  <use Workplan_work_tree/simulation_work_tree_diagram.pdf>
 Package pdftex.def Info: Workplan_work_tree/simulation_work_tree_diagram.pdf us
-ed on input line 109.
+ed on input line 205.
 (pdftex.def)             Requested size: 341.43437pt x 96.87474pt.
-
-Overfull \hbox (11.18443pt too wide) in paragraph at lines 117--147
-[] 
- []
-
-[3 <./Workplan_work_tree/literature_work_tree_diagram.pdf> <./Workplan_work_tre
-e/modelling_work_tree_diagram.pdf> <./Workplan_work_tree/control_work_tree_diag
-ram.pdf> <./Workplan_work_tree/multiagent_work_tree_diagram.pdf> <./Workplan_wo
-rk_tree/simulation_work_tree_diagram.pdf>]
-Overfull \vbox (36.56696pt too high) has occurred while \output is active []
-
-
-[4] <img/timeline.png, id=52, 1038.37938pt x 596.72937pt>
-File: img/timeline.png Graphic file (type png)
-
-<use img/timeline.png>
-Package pdftex.def Info: img/timeline.png used on input line 170.
-(pdftex.def)             Requested size: 426.79135pt x 245.26157pt.
-
-Overfull \hbox (21.54716pt too wide) in paragraph at lines 175--192
- [] 
- []
-
-[5 <./img/timeline.png>]
-Overfull \hbox (23.37357pt too wide) in paragraph at lines 198--206
- [] 
- []
-
-[6] (./Workplan1.aux) ) 
+ [8 <./Workplan_work_tree/basic_work_tree_diagram.pdf> <./Workplan_work_tree/li
+terature_work_tree_diagram.pdf> <./Workplan_work_tree/modelling_work_tree_diagr
+am.pdf> <./Workplan_work_tree/control_work_tree_diagram.pdf> <./Workplan_work_t
+ree/multiagent_work_tree_diagram.pdf> <./Workplan_work_tree/simulation_work_tre
+e_diagram.pdf>] [9] (./Workplan1.aux) ) 
 Here is how much of TeX's memory you used:
- 2493 strings out of 492995
- 35295 string characters out of 6132704
- 118161 words of memory out of 5000000
+ 2496 strings out of 492995
+ 35327 string characters out of 6132704
+ 123161 words of memory out of 5000000
  6007 multiletter control sequences out of 15000+600000
  7895 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,10n,28p,931b,221s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb>
-Output written on Workplan1.pdf (6 pages, 207134 bytes).
+</usr/local/texlive/2017/texmf-dist/font
+s/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb>
+Output written on Workplan1.pdf (9 pages, 225478 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 92 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

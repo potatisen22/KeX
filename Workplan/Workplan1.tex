@@ -20,10 +20,14 @@
 
 \author{Vilhelm Dinevik \\ Paula Carbó}
 \date{\today}
+
 \begin{document}
 	\maketitle
+	%\newpage
 	
 	\bigskip
+	\tableofcontents
+	\newpage
 	\section{Background}
 		Unmanned aerial vehicles, also known as UAVs, are becoming nowadays more and more popular because they are small, cheap to produce, have low operating and maintenance cost, have great maneuverability, can perform steady flight operations and are able to enter high-risk areas without having to compromise human safety. Most applications that involve UAVs have been used in open areas without any obstacles and with a human in control of the UAV. But in recent years people have come up with more modern applications of UAVs that will need UAVs to fly autonomously in densely populated areas, with a lot of other autonomous UAVs around, e.g. Amazon Prime Air delivery system, AltiGator drones services for inspection and data adquisition, or multi-UAVs used to deploy an aerial communications network. This places high demands on UAVs’ obstacle avoidance capabilities for both moving and static obstacles.
 		
@@ -47,11 +51,12 @@
 		
 		\item When the simulation is completed it should verifie that all the previous steps have been appropriately carried out so the main purpose of the project is achieved. Extract results. \\
 		$\rightarrow$ The simulation goal can be tested by testing the proper functioning of the mathematical models that have been implemented with numerical examples. Then we need to test our model, at least in a 2D-simulation and preferably in a 3D-simulation, and we have at least 95\% of our UAVs arriving to their goals without getting stuck and no collisions. 
+		
 		\vspace{2em}
 		%Previously this paragraph was in the project model: work tree section. I think it's more useful to have it here
 		 When we have completed the goals for a section in the first level of the work tree we will give a small presentation to our supervisor about that section. We will present the goals we aimed at for that part of the project, the model we came up with or the results we had, and then motivate that we have completed the said goals. This will give us a chance to show that we really understand what we have done and will probably help with the report later on since it'll give us a chance to explain what we have done and why we have come up with those results, just like we will do in the report. The report should be done by the 30th of April, and the rest of the deadlines are specified in the 
 	\end{itemize}
-	\bigskip
+
 	\section{Organization}
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|} \hline
@@ -61,60 +66,56 @@
 			Vilhelm Dinevik & vdinevik@kth.se & & Student\\ \hline
 			Paula Carbó & paulacc@kth.se & +34 626329389 & Student\\ \hline
 		\end{tabular}
-		
-		\bigskip
-		
-		%we can work a bit more on this tomorrow
-		\begin{tabular}{|C{6cm}|C{4cm}|} \hline
-			Responsibility & Responsible \\ \hline
-			Communication with supervisor & Paula Carbó \\ \hline
-			Documentation and backups & Vilhelm Dinevik \\ \hline
-			Schedule and deadlines & Paula Carbó \\ \hline
-			Report writing and follow-up & Vilhelm Dinevik \\ \hline
-			Regularly meeting for both students & Paula Carbó \\ \hline
-		\end{tabular}
-		
 	\end{center}
-
-	\bigskip
-	\section{Project Model: Work tree}
-		\begin{figure}[H]
-				\centering
-				\includegraphics[width=1.15\linewidth]{Workplan_work_tree/basic_work_tree_diagram}
-				\caption{Basic work tree}
-				\label{fig:work_tree_basic}
-		\end{figure}
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=.8\linewidth]{Workplan_work_tree/literature_work_tree_diagram}
-			\caption{Expanded work tree for the literature section}
-		\end{figure}
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=.8\linewidth]{Workplan_work_tree/modelling_work_tree_diagram}
-			\caption{Expanded work tree for the modelling section}
-		\end{figure}
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=.8\linewidth]{Workplan_work_tree/control_work_tree_diagram}
-			\caption{Expanded work tree for the single-quad control section}
-		\end{figure}
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=.8\linewidth]{Workplan_work_tree/multiagent_work_tree_diagram}
-			\caption{Expanded work tree for the multi-agent case section}
-		\end{figure}
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=.8\linewidth]{Workplan_work_tree/simulation_work_tree_diagram}
-			\caption{Expanded work tree for the simulation section}
-		\end{figure}
+	
+	
+	\section{Project Model}
+				\begin{center}
+			\begin{tabular}{|C{2cm}|C{2cm}|C{7cm}|C{3cm}|} \hline
+				Phase & Sub-phases & Description & Schedule\\ \hline
+				Modelling & Quad & Complete the UAV (kinematics and dynamics) mathematical modelling goal. It is done in parallel with the sensors sub-phase. &  1-Feb $\rightarrow$ 4-March  \\ \cline{2-4}
+				& Sensors & Complete modelling all the sensors that should be used as to complete the modelling goal. It is done in parallel with the quad sub-phase. & 1-Feb $\rightarrow$ 4-March \\ \hline
+				
+				Control & Tracking & Make a controller that makes our UAV go in a certain direction with stability. It is the first step of out control phase since it is more related with the previous phase. &  26-Feb $\rightarrow$ 16-Mar\\ \cline{2-4}
+				&Navigation & Starts after the tracking so we can work with the potential fields method to obtain the direction the UAV needs to follow, and then check how the tracking is done. When this sub-phasre and the tracking are completed and checked with the simulation, the goal for the control is achieved. & 5-Mar $\rightarrow$ 23-Mar \\ \hline
+				
+				Multi-agent case & Model & Starts after the single case modelling and control are finished and tested. Work on the model for a multi-UAV scenario. & 26-Mar $\rightarrow$ 6-Apr\\ \cline{2-4}
+				&Control & Work on the control for a multi-UAV scenario. The multi-agent case goal is completed after this sub-phase and the model are finished and its effectivity has been checked with a simulation. & 26-Mar $\rightarrow$ 6-Apr \\ \hline
+				
+				Simulation & & Simulation starts when modelling is finished as to check its validity and complete the modelling goal. Simulation is resumed again when the control has finished to check again its validity and the same for the multi-agent case. Finally, a week is spent to put together all the other parts, and finish all the program and the interface so the simulation goal can be achieved. & 12-Mar $\rightarrow$ 13-Apr \\ \hline
+				
+				Report & & The report is roughly written during all the other phases, but in the end we will leave 3  weeks specially to focus on finishing the report. It may be modified after the presentation with the feedback, and it should be on time for the final report deadline & 9-Apr $\rightarrow$ 27-Apr \& 8-May $\rightarrow$ 23-May \\ \hline
+				
+				Presentation & & A whole week is spent when the preliminary report is finished as to make the presentation as best as possible to fit the time we have available. & 30-Apr $\rightarrow$ 4-May \\ \hline
+			\end{tabular}
+		\end{center}
+		\bigskip
+		In the case the schedule was not kept, certain phases will overlap another ones, but we will not delay the next phase, so the workload will increase. 
 		
-		\paragraph{} We will have a more detailed part of the simulation part of the work tree in status report 1 and a more detailed part of the report and peer-review part in status report 2. 
-
+		\begin{center}	
+			\bigskip
+			\begin{tabular}{|C{3cm}|C{3cm}|C{8.5cm}|} \hline
+				Milestone & Deadline & Goals \\ \hline
+				Status report 1 & 12-Mar & For the first status report, we will have done all the modeling and a half part of the control, which is the main core of the project.\\ \hline
+				Status report 2 & 9-Apr & For status report 2, we will be almost done with the final part of the simulation so the project itself will be almost completed. We will focus on organizing and structuring all our work in the report. So the preliminary final report can continue on this second status report. \\ \hline
+				Preliminary final report & 30-Apr & It would have been a while since the simulation phase ended and we had time to work exclusively on the report for two weeks, so the report will be correcly structured, al the pases would be explained and the results and conclusions will also be added.\\ \hline
+				Presentation & 8-May & We will have a whole week to prepare for the presentation, which means detecting the most important parts that we should include in our slides, the parts that have to be explained the most, what we can skip, and how to organise all this information so it can be easily understood by the audience. The slides also have to be done.\\ \hline
+				Final report & 23-May & Improving the report thanks to the feedback obtained with the preliminary report and the presentation.\\ \hline
+			\end{tabular}
+		
+			\vspace{3em}
+			\begin{tabular}{|C{6cm}|C{4cm}|} \hline
+				Responsibility & Responsible \\ \hline
+				Communication with supervisor & Paula Carbó \\ \hline
+				Documentation and backups & Vilhelm Dinevik \\ \hline
+				Schedule and deadlines & Paula Carbó \\ \hline
+				Report writing and follow-up & Vilhelm Dinevik \\ \hline
+				Regularly meeting for both students & Paula Carbó \\ \hline
+			\end{tabular}
+		\end{center}
 	
 	\section{Risk analysis}
-		\begin{tabular}{|L {2.5cm}|C{0.4cm}|C{0.4cm}|C{0.4cm}|R{9.5cm}|}			
+		\begin{tabular}{|L {2.5cm}|C{0.4cm}|C{0.4cm}|C{0.4cm}|R{9.5cm}|} \hline			
 			Risks & P & C & R & Counter measure \\ \hline
 			Diseases in the group  & 2 & 2 & 4 & Reactive: Rearrange workload \\ & & & & Proactive: Nothing \\ \hline
 			Loss of documents and information & 2 & 4 & 8 & Reactive: recollect information again \\ & & & & Proactive: Have bakups for everything, use Google Drive and GitHub \\ \hline
@@ -170,39 +171,41 @@
 			\includegraphics[width=\linewidth]{img/timeline}
 			\caption{Time line for the project}
 		\end{figure}
-		\begin{center}
-			\bigskip
-			\begin{tabular}{|C{2cm}|C{2cm}|C{7cm}|C{3cm}|}
-				Phase & Sub phases & Description & Schedule\\ \hline
-				Modelling & Quad & Complete the UAV (kinematics and dynamics) mathematical modelling goal. &  1-Feb $\rightarrow$ 4-March  \\ \cline{2-4}
-				& Sensors & Complete modelling all the sensors that should be used as to complete the modelling goal. & 1-Feb $\rightarrow$ 4-March \\ \hline
-				
-				Control & Tracking & Make a controller that makes our UAV go in a certain direction with stability. &  26-Feb $\rightarrow$ 16-Mar\\ \cline{2-4}
-				&Navigation & Work with the potential fields method to obtain the direction the UAV needs to follow. When this sub phasre and the tracking are completed and checked with the simulation, the goal for the control is achieved. & 5-Mar $\rightarrow$ 23-Mar \\ \hline
-				
-				Multi-agent case & Model & Work on the model for a multi-UAV scenario. & 26-Mar $\rightarrow$ 6-Apr\\ \cline{2-4}
-				&Control & Work on the control for a multi-UAV scenario. The multi-agent case goal is completed after this sub phase and the model are finished and its effectivity has been checked with a simulation. & 26-Mar $\rightarrow$ 6-Apr \\ \hline
-				
-				Simulation & & Simulation starts when modelling is finished as to check its validity and complete the modelling goal. Simulation is resumed again when the control has finished to check again its validity and the same for the multi-agent case. Finally, a week is spent to put together all the other parts, and finish all the program and the interface so the simulation goal can be achieved. & 12-Mar $\rightarrow$ 13-Apr \\ \hline
-				
-				Report & & The report is roughly written during all the other phases, but in the end we will leave 3  weeks specially to focus on finishing the report. It may be modified after the presentation with the feedback, and it should be on time for the final report deadline & 9-Apr $\rightarrow$ 27-Apr \& 8-May $\rightarrow$ 23-May \\ \hline
-				
-				Presentation & & A whole week is spent when the preliminary report is finished as to make the presentation as best as possible to fit the time we have available. & 30-Apr $\rightarrow$ 4-May \\ \hline
-			\end{tabular}
-		\end{center}
-			\bigskip
-			In the case the schedule was not kept, certain phases will overlap another ones, but we will not delay the next phase, so the workload will increase. 
-			
-		\begin{center}	
-			\bigskip
-			\begin{tabular}{|C{3cm}|C{3cm}|C{8.5cm}|}
-				Milestone & Deadline & Goals \\ \hline
-				Status report 1 & 12-Mar & For the first status report, we will have done all the modeling and a great part of the control, which is the main core of the project.\\ \hline
-				Status report 2 & 9-Apr & For status report 2, we will be almost done with the final part of the simulation so the project itself will be almost completed. We will focus on organizing and structuring all our work in the report. \\ \hline
-				Preliminary final report & 30-Apr & \\ \hline
-				Presentation & 8-May & \\ \hline
-				Final report & 23-May & \\ \hline
-			\end{tabular}
-		\end{center}	
-	\subsection{Resource plan}
+		This time line is a visual complement to the table in the project model section. In the mentioned table there is already an explanation on how are the phases related to each other and the milestones.
+		
+	\subsection{Work tree for the project model}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1.15\linewidth]{Workplan_work_tree/basic_work_tree_diagram}
+			\caption{First row of work tree}
+			\label{fig:work_tree_basic}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.8\linewidth]{Workplan_work_tree/literature_work_tree_diagram}
+			\caption{Expanded work tree for the literature section}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.8\linewidth]{Workplan_work_tree/modelling_work_tree_diagram}
+			\caption{Expanded work tree for the modelling section}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.8\linewidth]{Workplan_work_tree/control_work_tree_diagram}
+			\caption{Expanded work tree for the single-quad control section}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.8\linewidth]{Workplan_work_tree/multiagent_work_tree_diagram}
+			\caption{Expanded work tree for the multi-agent case section}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.8\linewidth]{Workplan_work_tree/simulation_work_tree_diagram}
+			\caption{Expanded work tree for the simulation section}
+		\end{figure}
+		
+		\paragraph{} We will have a more detailed part of the simulation part of the work tree in status report 1 and a more detailed part of the report and peer-review part in status report 2. 
+		
 \end{document}
