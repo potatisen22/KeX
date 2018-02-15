@@ -34,31 +34,28 @@
 		This project aims to study and develop a mathematical model of a quadrotor UAV and the available sensors in it.  From the trajectory and pose tracking a state feedback controller will be designed. In order to facilitate the multi-UAV navigation, potential fields or an A* algorithm will be used to make several quads fly to their goals while maintaining collision avoidance with respect to other quads and obstacles. To check the validity of the models, a simulated test environment in MatLab filled with a random reasonable amount of static obstacles and autonomous UAVs will be used.
 
 	\bigskip
-	\section{Goals}		 %mesurable goals!!! 
+	\section{Goals}	 
+	\begin{itemize}
+		\item Present a paper/combination of papers that describe the modelling of the UAVs, sensors and tracking. Observe how it is done in the community, categorize these papers and reflect on what our paper contributes with.\\  
+		$\rightarrow$ The literature goal can be considered complete when the literature proposed by the supervisor and other interesting documents proposed by the students have been all read, understood and classified, so there are at least 3 papers analysed and compared for each section (modelling of the quad, of the sensors or for the tracking). %not really good enough, don't know what to change it to tho
 	
-		\paragraph{Literature.} Present a paper/combination of papers that describe the modelling of the UAVs, sensors and tracking. Observe how it is done in the community, categorize these papers and reflect on what is our contribution with respect to the rest.\\  
-		$\rightarrow$ The literature goal can be completed when the literature proposed by the supervisor and other interesting documents proposed by the students have been all read, understood and classified, so there are at least 3 papers analysed and compared for each section (modelling of the quad, of the sensors or for the tracking).
-	
-		\paragraph{Mathematical Model.} Have a robust model for the kinematics and dynamics of the UAV, and its sensors.\\
+		\item Mathematical Model. Have a robust model for the kinematics and dynamics of the UAV, and its sensors.\\
 		$\rightarrow$ The mathematical model goal can be completed when we can describe our UAV with a matrix that includes its position, its linear velocity, its angles (roll, yaw and pitch) and its angular velocity, all of them related to a certain fixed reference frame that we can relate with, for example, the initial frame. Also, when we have derived an equation for each of the necessary sensors: IMU sensor (accelerometer and gyroscope), an 360 degree proximity sensor and GPS. Each model will be tested 3 times on MatLab and the results will be compared to the ones that should be expected.
 		
-		\paragraph{Control.} Be able to control the trajectory and stability of the UAV. \\
-		$\rightarrow$ The control goal can be considered as completed when we are able, for a certain desirable movement of the UAV, to obtain the appropiate force of thrusters for the UAV to achieve the desired position as the UAV stays stable and follows the trajectory vector obtained from the potential fields, optimising the time-response to as fast as possible. This should be achived with a state feedback controller that satisfies the robustness criteria, is observable, controllable and stable (check poles). %specific amount of time to be defined, I think it's mesurable now
+		\item the goals for the Control should be to be able to control the trajectory and stability of the UAV. \\
+		$\rightarrow$ The control goal can be considered as completed when we are able, for a certain desirable movement of the UAV, to obtain the appropriate force of thrusters for the UAV to achieve the desired position as the UAV stays stable and follows the trajectory vector obtained from the potential fields. The state feedback controller should also satisfy the robustness criteria, observability, controllability and be stable (check poles).
 		
-		\paragraph{Multi-agent case.} Apply and expand  on the model and the control proposed for one UAV, but for a variable number of UAVs.\\
-		$\rightarrow$ The multi-agent case goal can be completed when the mathematical model and the state feedback controller are %dont really know what to put on this one
-		
-		\paragraph{Simulation.} Verify that all the previous steps have been appropriately carried out so the main purpose of the project is achieved. Extract results. \\
-		$\rightarrow$ The simulation goal can be completed when we are finished translating the mathematical model and the control to MatLab language and we can test the proper functioning of these with numerical examples. Then we need to test, at least in a 2D simulation and preferrably in a 3D simulation, how a reandom but reasonable number of UAVs can move in an environment also filled with static obstacles, and we have at least the 95\% of our UAVs arriving to their goals without getting stucked, and none of them collides with any obstacle. % is 95% a reasonable amount? chris said they arent usually getting stucked but we dont know the exact probability. We will be able to have a certain number after the simulations but we should have a minimum I think.
+		\item When the simulation is completed it should verifie that all the previous steps have been appropriately carried out so the main purpose of the project is achieved. Extract results. \\
+		$\rightarrow$ The simulation goal can be tested by testing the proper functioning of the mathematical models that have been implemented with numerical examples. Then we need to test our model, at least in a 2D-simulation and preferably in a 3D-simulation, and we have at least 95\% of our UAVs arriving to their goals without getting stuck and no collisions. % is 95% a reasonable amount? chris said they arent usually getting stucked but we dont know the exact probability. We will be able to have a certain number after the simulations but we should have a minimum I think.
 
 		\vspace{2em}
 		%Previously this paragraph was in the project model: work tree section. I think it's more useful to have it here
-		 When we have completed the goals for a section (the sections are the same as in the basic work tree) we will give a small presentation to our supervisor about that section. We will present the goals we aimed at for that part of the project, the model we came up with or the results we had, and then motivate that we have completed the said goals. This will give us a chance to show that we really understand what we have done and will probably help with the report later on since it'll give us a chance to explain what we have done and why we have come up with those results, just like we will do in the report.  
-
+		 When we have completed the goals for a section in the first level of the work tree we will give a small presentation to our supervisor about that section. We will present the goals we aimed at for that part of the project, the model we came up with or the results we had, and then motivate that we have completed the said goals. This will give us a chance to show that we really understand what we have done and will probably help with the report later on since it'll give us a chance to explain what we have done and why we have come up with those results, just like we will do in the report.  
+	\end{itemize}
 	\bigskip
 	\section{Organization}
 	\begin{center}
-		\begin{tabular}{|c|c|c|c|}
+		\begin{tabular}{|c|c|c|c|} \hline
 			%make a table over our organization	
 			Member name & E-mail & Telephone number & Position \\ \hline
 			Christos Verginis & cverginis@kth.se & 0704438285 & Supervisor \\ \hline
@@ -69,7 +66,7 @@
 		\bigskip
 		
 		%we can work a bit more on this tomorrow
-		\begin{tabular}{|C{6cm}|C{4cm}|}
+		\begin{tabular}{|C{6cm}|C{4cm}|} \hline
 			Responsibility & Responsible \\ \hline
 			Communication with supervisor & Paula Carbó \\ \hline
 			Documentation and backups & Vilhelm Dinevik \\ \hline
@@ -142,12 +139,15 @@
 			& & & & Proactive: Make sure the mathematical model of the UAV is general enough as to suit different kinds of quads easily.\\ \hline
 			
 			Simulation & & & &  Reactive: Consider rewriting the modelling, controller and/or the potential fields method\\
-			& & & & Proactive: Choose a reasonable linear velocity so it is impossible for two UAVs to collide even if they encounter each other in the opposite direction. Make it easy to extract information and data from the simulation, like the time a flight lasted by the stright distaince between starting point and goal.\\ \hline 
+			& & & & Proactive: Choose a reasonable linear velocity so it is impossible for two UAVs to collide even if they encounter each other in the opposite direction. Make it easy to extract information and data from the simulation, like the time a flight lasted by the stright distaince between starting point and goal.\\ \hline
+			
+			Bugs in the matlab code & 4 & 1 & 4 & Reactive: find the section of the bug and implement rubber duck debugging, use each other as the rubber duck. \\
+			& & & & Proactive: for every new part that we implement in the code we should retell what that part do and explain it row by row to each other. \\ \hline
 			      
 		\end{tabular}		
 		
 		\bigskip
-		Each risk has a certain responsible, specified on the organization section. In case a certain risk has nobody responsible for it, then it means both students need to make sure they are following the proactive measures and also both will need to apply the reactive measure in case the risk ends up happening.  
+		Every group member is individually responsible for seeing to that the group actually execute proactive countermeasures. Which group member is responsible for what is specified in the organization section. In case a certain risk has no one responsible for it, then it means both students need to make sure they are following the proactive measures and also both will need to apply the reactive measure in case the risk ends up happening.  
  
 	\section{Documentation/Communication rules}
 	\begin{itemize}
