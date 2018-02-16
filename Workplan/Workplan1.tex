@@ -37,7 +37,7 @@
 		\vspace{1em}
 		This project aims to study and develop a mathematical model of a quadrotor UAV and the available sensors in it.  From the trajectory and pose tracking a state feedback controller will be designed. In order to facilitate the multi-UAV navigation, potential fields or an A* algorithm will be used to make several quads fly to their goals while maintaining collision avoidance with respect to other quads and obstacles. To check the validity of the models, a simulated test environment in MatLab filled with a random reasonable amount of static obstacles and autonomous UAVs will be used.
 
-	\bigskip
+	\newpage
 	\section{Goals}	 
 	\begin{itemize}
 		\item Present a paper/combination of papers that describe the modelling of the UAVs, sensors and tracking. Observe how it is done in the community, categorize these papers and reflect on what our paper contributes with.\\  
@@ -54,19 +54,21 @@
 		
 		\vspace{2em}
 		%Previously this paragraph was in the project model: work tree section. I think it's more useful to have it here
-		 When we have completed the goals for a section in the first level of the work tree we will give a small presentation to our supervisor about that section. We will present the goals we aimed at for that part of the project, the model we came up with or the results we had, and then motivate that we have completed the said goals. This will give us a chance to show that we really understand what we have done and will probably help with the report later on since it'll give us a chance to explain what we have done and why we have come up with those results, just like we will do in the report. The report should be done by the 30th of April, and the rest of the deadlines are specified in the 
+		 When we have completed the goals for a section in the first level of the work tree we will give a small presentation to our supervisor about that section. We will present the goals we aimed at for that part of the project, the model we came up with or the results we had, and then motivate that we have completed the said goals. This will give us a chance to show that we really understand what we have done and will probably help with the report later on since it'll give us a chance to explain what we have done and why we have come up with those results, just like we will do in the report. The report should be done by the 30th of April, and the rest of the deadlines are specified in the Project Model section.
 	\end{itemize}
-
+	\vspace{2em}
 	\section{Organization}
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|} \hline
 			%make a table over our organization	
 			Member name & E-mail & Telephone number & Position \\ \hline
 			Christos Verginis & cverginis@kth.se & 0704438285 & Supervisor \\ \hline
-			Vilhelm Dinevik & vdinevik@kth.se & & Student\\ \hline
+			Vilhelm Dinevik & vdinevik@kth.se & 0700905145 & Student\\ \hline
 			Paula Carbó & paulacc@kth.se & +34 626329389 & Student\\ \hline
 		\end{tabular}
 	\end{center}
+	\newpage
+	
 	
 	
 	\section{Project Model}
@@ -124,22 +126,22 @@
 			
 			Bad communication with supervisor & 2 & 2 & 4 & Reactive: Send reminders if we get no answer in x amount of time. \\ & & & & Proactive: Schedule meetings now (once a week for example) and modify these dates if there is no need to meet. Ask supervisor how long 'x amount of time' should be. Plan accordingly\\ \hline
 			
-			Inappropriate UAV Model & 3 & 3 & 9 & Reactive: Redesign UAV model?
+			Inappropriate UAV Model & 3 & 3 & 9 & Reactive: Find out what the problem is and redesign UAV model
 			\\ & & & & Proactive: Test the calculated model with 3 individual tests of simple rotation and movement around and along one axis in a 3D space where the starting and final position is known either on paper or with matlab, check that you get the expected outcome. \\ \hline
 			
-			Inappropriate sensor Model & & & & Reactive: Check again datasheets for each sensor, obtain the model again, check if other sensors would be more suitable for the UAV application.
-			\\ & & & & Proactive: Study exactly what we need to control our drone and obtain the minimum number of sensors that can provide us this data. Choose the best sensors according to their technical specifications so they suit the UAV application the most.\\ \hline
+			Inappropriate sensor Model & 3 & 3 & 9 & Reactive: Check datasheets for each sensor, obtain the model again. Check if other sensors would be more suitable for the UAV application.
+			\\ & & & & Proactive: Study exactly how we need to control our drone and obtain the minimum number of sensors that can provide us this data. Run tests when a sensor is modeled with a known result and see if the results are the same.\\ \hline
 			
 			Faulty state feedback controller & 4 & 3 & 12 & Reactive: Redesign the whole controller. damage control!\\ & & & & Proactive: Check the Observability, Controllability, Robustness Criteria and pole placement of the designed State feedback controller.\\ \hline
 			
-			Potential Field/ A*-algorithm & & & & Reactive: Rewrite the potential fields method, try other algorithms if these two do not work properly.\\
-			& & & & Proactive:  \\ \hline %No idea what to write here, how to check if stuff goes haywire
+			Potential Field/ A*-algorithm & 3 & 4 & 12 & Reactive: Rewrite the potential fields method\\
+			& & & & Proactive: make simple tests with known vector fields/results to check that we follow the correct trajectory to the goal \\ \hline %No idea what to write here, how to check if stuff goes haywire
 			
-			Multi-agent case & & & & Reactive: Rewrite the modelling.\\
-			& & & & Proactive: Make sure the mathematical model of the UAV is general enough as to suit different kinds of quads easily.\\ \hline
+			Multi-agent case & 4 & 2 & 8 & Reactive: Remodel the multi-agent case.\\
+			& & & & Proactive: Make sure the mathematical model of the UAV is general enough as to suit different kinds of quads easily. test the completed Multi-agent case in simple obstacle free simulations in matlab to see that it works.\\ \hline
 			
-			Simulation & & & &  Reactive: Consider rewriting the modelling, controller and/or the potential fields method\\
-			& & & & Proactive: Choose a reasonable linear velocity so it is impossible for two UAVs to collide even if they encounter each other in the opposite direction. Make it easy to extract information and data from the simulation, like the time a flight lasted by the stright distaince between starting point and goal.\\ \hline
+			Simulation & 4 & 2 & 8 &  Reactive: Check for weird data and try to figure out what the problem is, check that the modelling, controller and/or the potential fields are correctly implemented.\\
+			& & & & Proactive: Choose a reasonable linear velocity so it is impossible for two UAVs to collide even if they encounter each other in the opposite direction. Make it easy to extract information and data from the simulation, analyse the data.\\ \hline
 			
 			Bugs in the matlab code & 4 & 1 & 4 & Reactive: find the section of the bug and implement rubber duck debugging, use each other as the rubber duck. \\
 			& & & & Proactive: for every new part that we implement in the code we should retell what that part do and explain it row by row to each other. \\ \hline
