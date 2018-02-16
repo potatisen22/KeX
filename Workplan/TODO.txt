@@ -1,9 +1,10 @@
 DONE! (I think we deleted the reference at some point) Move workt tree to appendix, check the reference to work tree
 DONE! move the milesontes, time table and responsibility table to the project model part
-grade the risks!
+DONE! grade the risks!
 Fix the Litterature part of the goals, it's not very easy to understand it and i don't think it's really measurable
 
 ADD stuff that you come up with below:
-Vilhelm add your phone number to the table in the organization section!
+DONE! Vilhelm add your phone number to the table in the organization section!
 DONE! Finish milestones table in the project plan section
 rearrange things so it looks better visually
+rephrase some goals, check grammar and check risks again
