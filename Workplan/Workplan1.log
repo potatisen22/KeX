@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2018.2.5)  16 FEB 2018 09:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2018.2.5)  16 FEB 2018 15:52
 entering extended mode
 **./Workplan1.tex
 (Workplan1.tex
@@ -565,7 +565,7 @@ Overfull \hbox (11.18443pt too wide) in paragraph at lines 120--150
  []
 
 [5]
-Overfull \vbox (36.96695pt too high) has occurred while \output is active []
+Overfull \vbox (48.86691pt too high) has occurred while \output is active []
 
 
 [6] <img/timeline.png, id=26, 1038.37938pt x 596.72937pt>
@@ -650,7 +650,7 @@ sfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Workplan1.pdf (9 pages, 240130 bytes).
+Output written on Workplan1.pdf (9 pages, 240408 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
