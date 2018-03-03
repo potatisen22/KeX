@@ -1,6 +1,7 @@
 clc;
 close all;
 clear all;
+%angles and velocities ar measurable
 fi = pi %rotation about x2-axis (angle between Y2 and Y3 in Y-Z plane
 tetha =pi %rotation about y1-axis (angle between Z1 and Z2) in X-Z plane
 psi =pi %rotation about ze-axis (angle between Xe and X1) in Y-X plane
