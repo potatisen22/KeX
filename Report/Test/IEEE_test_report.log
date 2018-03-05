@@ -1,10 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2018.2.5)  5 FEB 2018 13:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  5 MAR 2018 17:54
 entering extended mode
-**./IEEE_test_report.tex
-(IEEE_test_report.tex
-LaTeX2e <2017/01/01> patch level 1
-Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
-(C:\Users\Vilhelm\AppData\Roaming\MiKTeX\2.9\tex\latex\ieeetran\IEEEtran.cls
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**IEEE_test_report.tex
+(./IEEE_test_report.tex
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/IEEEtran/IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/
@@ -17,7 +19,7 @@ Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 \@IEEEtrantmptoksA=\toks14
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 503.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 8.5in x 11in (letter) paper.
@@ -111,7 +113,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \IEEEPARstartletwidth=\dimen125
 \c@IEEEbiography=\count93
 \@IEEEtranrubishbin=\box27
-) (IEEE_test_report.aux)
+) (./IEEE_test_report.aux)
 \openout1 = `IEEE_test_report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -149,28 +151,29 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 294.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 316.
-[1{C:/Users/Vilhelm/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+[1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 
 ]
-(IEEE_test_report.aux) ) 
+(./IEEE_test_report.aux) ) 
 Here is how much of TeX's memory you used:
- 1072 strings out of 493333
- 19533 string characters out of 3139189
- 75332 words of memory out of 3000000
- 4658 multiletter control sequences out of 15000+200000
- 43411 words of font info for 80 fonts, out of 3000000 for 9000
+ 1071 strings out of 492995
+ 19560 string characters out of 6132704
+ 76084 words of memory out of 5000000
+ 4680 multiletter control sequences out of 15000+600000
+ 43411 words of font info for 80 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 28i,7n,19p,214b,209s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.en
-c}<C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/tim
-es/utmri8a.pfb>
-Output written on IEEE_test_report.pdf (1 page, 50727 bytes).
+ 28i,7n,19p,211b,209s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/b
+ase/8r.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texliv
+e/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on IEEE_test_report.pdf (1 page, 47815 bytes).
 PDF statistics:
- 23 PDF objects out of 1000 (max. 8388607)
+ 25 PDF objects out of 1000 (max. 8388607)
+ 17 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
