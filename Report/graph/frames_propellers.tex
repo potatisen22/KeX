@@ -1,0 +1,35 @@
+% !TeX root=../Report.tex 
+\begin{tikzpicture}
+	\draw[line width=0.25mm, name path=eldownleft] (0,0) ellipse (0.6 and 0.3);
+	\draw[line width=0.25mm, name path=eldownright] (4,0) ellipse(0.6 and 0.3);
+	\draw[line width=0.25mm, name path=elupright] (4,2) ellipse (0.6 and 0.3);
+	\draw[line width=0.25mm, name path=elupleft] (0,2) ellipse (0.6 and 0.3);
+	
+	\path [name path= downleft] (0,0) -- (2,1);
+	\path [name path= upleft] (0,2) -- (2,1);
+	\path [name path= downright] (4,0) -- (2,1);
+	\path [name path= upright] (4,2) -- (2,1);
+	
+	\draw [name intersections={of=eldownleft and downleft}][line width=0.25mm] (intersection-1) --(2,1);
+	\draw [name intersections={of=eldownright and downright}][line width=0.25mm] (intersection-1) -- (2,1);
+	\draw [name intersections={of=elupright and upright}][line width=0.25mm] (intersection-1) -- (2,1);
+	\draw [name intersections={of=elupleft and upleft}][line width=0.25mm] (intersection-1) -- (2,1);
+	
+	\draw[line width=0.45mm,-latex] (0,0) -- (0,1) node [above] {$F_3$};
+	\draw[line width=0.45mm,-latex] (4,0) -- (4,1) node [above] {$F_2$};;
+	\draw[line width=0.45mm,-latex] (0,2) -- (0,3) node [above] {$F_4$};;
+	\draw[line width=0.45mm,-latex] (4,2) -- (4,3) node [above] {$F_1$};;
+	
+	\draw[line width=0.25mm, ->] (0,0.7) [partial ellipse=40:-230:0.5 and 0.2];
+	\draw[line width=0.25mm, ->] (4,0.7) [partial ellipse=-230:40:0.5 and 0.2];
+	\draw[line width=0.25mm, ->] (0,2.7) [partial ellipse=-230:40:0.5 and 0.2];
+	\draw[line width=0.25mm, ->] (4,2.7) [partial ellipse=40:-230:0.5 and 0.2];
+	
+	\draw [name intersections={of=elupright and upright}][line width=0.6mm, -latex] (2,1) -- ($(2,1)!0.7!(intersection-1)$) node [xshift=-4mm, yshift=2mm] {$x_B$};
+	\draw [name intersections={of=elupleft and upleft}][line width=0.6mm, -latex] (2,1) -- ($(2,1)!0.7!(intersection-1)$) node [xshift=4mm, yshift=2mm] {$y_B$};
+	\draw [line width=0.6mm, -latex] (2,1) -- (2,2.3) node [above] {$z_B$};
+	
+	
+	
+\end{tikzpicture}
+

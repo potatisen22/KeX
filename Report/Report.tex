@@ -10,7 +10,15 @@
 
 \usepackage{graphicx}
 \usepackage{bm}
+\usepackage{tikz}
+\usetikzlibrary{intersections, calc}
 \graphicspath{ {img/} }
+
+\tikzset{
+	partial ellipse/.style args={#1:#2:#3}{
+		insert path={+ (#1:#3) arc (#1:#2:#3)}
+	}
+}
 
 \begin{document}
 % paper title
@@ -206,10 +214,10 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 	\subsection{Overview}
 		
 		\begin{figure}
-		\centering
-		\includegraphics[width=.5\linewidth]{frames_rotors}
-		\caption{Quadrotor with propellers and the two reference frames}
-		\label{fig:frames_rotors}
+			\centering
+			\input{graph/frames_propellers}
+			\caption{Quadrotor with propellers and the two reference frames}
+			\label{fig:frames_rotors}
 		\end{figure}
 
 	The UAV is a rigid body quadcopter, with a cross-shaped body and four electrical propellers. Front and rear rotors rotate in a clockwise direction, while right and left rotors do it in a counterclockwise direction, as we can see in \figurename \ref{fig:frames_rotors}. 
@@ -218,46 +226,55 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 	To describe the motion of a 6 DOF rigid body, two right-hand reference frames can be defined: the Earth frame and the body frame, as we can see in \figurename \ref{fig:frames_rotors}. The Earth frame is static, with the $x_E$ axis pointing towards the North, the $y_E$ axis pointing towards the West, and $z_E$ pointing upwards w.r.t. the Earth. The body frame is attached to the body, with the $x_B$ axis pointing towards the quadrotor's front, the $y_B$ axis pointing towards the left, and the $z_B$ axis pointing upwards. In this case, the axis origin $o_B$ coincides with the quadrotor's structure center. 
 	
 	 \begin{equation} \label{eq:rotx}
-	 	\textbf{R}_x (\phi)=
+	 	\bm{R}_x (\phi)=
 	 	\left[ {\begin{array}{ccc}
 	 		1 & 0 & 0 \\
-	 		0 & cos(\phi) & -sin(\phi) \\
-	 		0 &  sin(\phi) & cos(\phi) \\ 
+	 		0 & \cos(\phi) & -\sin(\phi) \\
+	 		0 &  \sin(\phi) & \cos(\phi) \\ 
 	 		\end{array} } \right]
 	 \end{equation}  
 
 	
 	\begin{equation} \label{eq:roty}
-	\textbf{R}_y (\theta)=
+	\bm{R}_y (\theta)=
 	\left[ {\begin{array}{ccc}
-		cos(\theta) & 0 & sin(\theta) \\
+		\cos(\theta) & 0 & \sin(\theta) \\
 		0 & 1 & 0 \\
-		-sin(\theta) &  0 & cos(\theta) \\ 
+		-\sin(\theta) &  0 & \cos(\theta) \\ 
 		\end{array} } \right]
 	 \end{equation}  
 	
 	\begin{equation} \label{eq:rotz}
-	\textbf{R}_z (\psi)=
+	\bm{R}_z (\psi)=
 	\left[ {\begin{array}{ccc}
-		cos(\psi) & -sin(\psi) & 0 \\
-		sin(\psi) & cos(\psi) & 0 \\
+		\cos(\psi) & -\sin(\psi) & 0 \\
+		\sin(\psi) & \cos(\psi) & 0 \\
 		0 &  0 & 1 \\ 
 		\end{array} } \right]
 	 \end{equation}  
 	 
 	Rotation matrix
 	\begin{equation} \label{eq:rot}
-		\textbf{R}_\Theta (\phi, \theta, \psi) = 	\textbf{R}_x (\phi) \cdot \textbf{R}_y (\theta) \cdot \textbf{R}_z (\psi)
+		\bm{R}_\Theta (\phi, \theta, \psi) = 	\bm{R}_x (\phi)  \bm{R}_y (\theta)  \bm{R}_z (\psi)
 	\end{equation}  
 	
 	Transfer matrix
 	\begin{equation} \label{eq:transf}
-		\textbf{T}_\Theta (\phi,\theta )= \left[ {\begin{array}{ccc}
-		1 & sin(\phi) \cdot tan(\theta) & cos(\phi) \cdot tan(\theta) \\
-		0 & cos(\phi) & -sin(\phi) \\
-		0 &  sin(\phi)/cos(\theta) & cos(\phi)/cos(\theta)  \\ 
+		\bm{T}_\Theta (\phi,\theta )= \left[ {\begin{array}{ccc}
+		1 & \sin(\phi) \cdot \tan(\theta) & \cos(\phi) \cdot \tan (\theta) \\
+		0 & \cos(\phi) & -\sin(\phi) \\
+		0 &  \sin(\phi)/\cos(\theta) & \cos(\phi)/\cos(\theta)  \\ 
 		\end{array} } \right]
 	\end{equation}  
+	
+	Generalized matrix
+	\begin{equation} \label{eq:gen}
+		\bm{J}_\Theta (\phi,\theta, \psi)= \left[ {\begin{array}{cc}
+			\bm{R}_\Theta &  \mathbf{0}_{3\times 3} \\
+			\mathbf{0}_{3\times 3} & \bm{T}_\Theta \\
+			\end{array} } \right]
+	\end{equation}  
+	Where the notation $\mathbf{0}_{3\times 3}$ means a matrix filled with zeros with a $3 \times 3$ dimension.
 	
 	Generalized position: linear and angular position, in the Earth frame
 	\begin{equation} \label{eq:pos}
@@ -277,6 +294,12 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 		\end{array}\right] ^T 
 	\end{equation}
 	
+	In order to relate the derivate of the generalized position in the Earth frame with the generalized velocity on the body frame there is the following equation:
+	\begin{equation} \label{eq:derivpos_earth_body}
+		\bm{\dot \xi} =  \bm{J}_\Theta \	\bm{\nu}
+	\end{equation}
+
+
 	
 	\subsection{Dynamics}
 
@@ -286,6 +309,7 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 
 \section{Conclusion}
 It's bloody impossible to do this.
+
 
 
 
