@@ -28,5 +28,6 @@ Ixx = 2;
 Iyy = 2;
 Izz = 1;
 I = [Ixx,0,0;0,Iyy,0;0,0,Izz]; %inertia matrix is diagonal with our definition of the quadrotor
+%% 
 Ftaub = [0,0,-m*9.82,0,0,0]' %input!
-dVbdwb=inv([m.*eye(3),zeros(3);zeros(3),I])*[Ftaub]-[cross(wb,(m.*Vb))';cross(wb,(I*wb'))']%(I*wb) dotproduct?, [Fb,taub] second term correct?
+dVbdwb=inv([m.*eye(3),zeros(3);zeros(3),I])*[Ftaub]-[cross(wb,(m.*Vb))';cross(wb,(I*wb'))']
