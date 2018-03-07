@@ -25,10 +25,13 @@
 	\draw[line width=0.25mm, ->] (0,2.7) [partial ellipse=-230:40:0.5 and 0.2];
 	\draw[line width=0.25mm, ->] (4,2.7) [partial ellipse=40:-230:0.5 and 0.2];
 	
-	\draw [name intersections={of=elupright and upright}][line width=0.6mm, -latex] (2,1) -- ($(2,1)!0.7!(intersection-1)$) node [xshift=-4mm, yshift=2mm] {$x_B$};
-	\draw [name intersections={of=elupleft and upleft}][line width=0.6mm, -latex] (2,1) -- ($(2,1)!0.7!(intersection-1)$) node [xshift=4mm, yshift=2mm] {$y_B$};
-	\draw [line width=0.6mm, -latex] (2,1) -- (2,2.3) node [above] {$z_B$};
+	\draw [name intersections={of=elupright and upright}][line width=0.6mm, -latex] (2,1) -- ($(2,1)!0.7!(intersection-1)$) node [xshift=-4mm, yshift=2mm] {$x_{\scriptscriptstyle B}$};
+	\draw [name intersections={of=elupleft and upleft}][line width=0.6mm, -latex] (2,1) -- ($(2,1)!0.7!(intersection-1)$) node [xshift=4mm, yshift=2mm] {$y_{\scriptscriptstyle B}$};
+	\draw [line width=0.6mm, -latex] (2,1) node [yshift=-4mm] {$o_{\scriptscriptstyle B}$} -- (2,2.3) node [above] {$z_{\scriptscriptstyle B}$};
 	
+	\draw [line width=0.6mm, -latex] (3.97,-3) node [left] {$o_{\scriptscriptstyle E}$} -- (5.7,-3) node [above] {$x_{\scriptscriptstyle E}$};
+	\draw [line width=0.6mm, -latex] (4,-3) -- (4,-1.7) node [above] {$z_{\scriptscriptstyle E}$};
+	\draw [line width=0.6mm, -latex] (4,-3) -- (5.3,-2.3) node [above] {$y_{\scriptscriptstyle E}$};
 	
 	
 \end{tikzpicture}

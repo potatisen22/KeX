@@ -212,7 +212,6 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 
 \section{Quadcopter modelling}
 	\subsection{Overview}
-		
 		\begin{figure}
 			\centering
 			\input{graph/frames_propellers}
@@ -220,20 +219,51 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 			\label{fig:frames_rotors}
 		\end{figure}
 
-	The UAV is a rigid body quadcopter, with a cross-shaped body and four electrical propellers. Front and rear rotors rotate in a clockwise direction, while right and left rotors do it in a counterclockwise direction, as we can see in \figurename \ref{fig:frames_rotors}. 
-	\subsection{Notation}
-	\subsection{Kinematics}
-	To describe the motion of a 6 DOF rigid body, two right-hand reference frames can be defined: the Earth frame and the body frame, as we can see in \figurename \ref{fig:frames_rotors}. The Earth frame is static, with the $x_E$ axis pointing towards the North, the $y_E$ axis pointing towards the West, and $z_E$ pointing upwards w.r.t. the Earth. The body frame is attached to the body, with the $x_B$ axis pointing towards the quadrotor's front, the $y_B$ axis pointing towards the left, and the $z_B$ axis pointing upwards. In this case, the axis origin $o_B$ coincides with the quadrotor's structure center. 
-	
-	 \begin{equation} \label{eq:rotx}
-	 	\bm{R}_x (\phi)=
-	 	\left[ {\begin{array}{ccc}
-	 		1 & 0 & 0 \\
-	 		0 & \cos(\phi) & -\sin(\phi) \\
-	 		0 &  \sin(\phi) & \cos(\phi) \\ 
-	 		\end{array} } \right]
-	 \end{equation}  
+		\begin{figure}
+			\centering
+			\input{graph/roll_pitch_yaw}
+			\caption{Euler angles with respect to Earth frame.}
+			\label{fig:roll_pitch_yaw}
+		\end{figure}
 
+	The UAV is a rigid body quadcopter, with a cross-shaped body and four electrical propellers. Front and rear rotors rotate in a clockwise direction, while right and left rotors do it in a counterclockwise direction, can be seen in \figurename \ref{fig:frames_rotors}. Its motion has 6 degrees of freedom and there are only 4 propellers, therefore the system is underactuated. 
+	
+	\subsection{Notation}
+	
+	\subsection{Kinematics}
+	To describe the motion of the UAV, two right-hand reference frames can be defined: the Earth frame and the body frame, as can be seen in \figurename{\ref{fig:frames_rotors}}. 
+	
+	The Earth frame is static, with the $x_E$ axis pointing towards the North, the $y_E$ axis pointing towards the West, and $z_E$ pointing upwards w.r.t. the Earth. The body frame is attached to the UAV, with the $x_B$ axis pointing towards the quadrotor's front, the $y_B$ axis pointing towards the left, and the $z_B$ axis pointing upwards. In this case, the axis origin $o_B$ coincides with the quadrotor's structure center.
+	
+	The generalized position $\bm{\xi}$ contains the linear and angular position and it is described in the Earth frame, as in (\ref{eq:pos}). The linear position $\bm{x}^E$ of the UAV is the vector between the origin of the Earth frame $o_E$ and the origin of the body frame $o_B$, and the Euler angles $\bm{\eta}^E$ are defined as stated in \figurename{\ref{fig:roll_pitch_yaw}}.
+	 
+	\begin{equation} \label{eq:pos}
+	\bm{\xi} = \left[ \begin{array}{cc}
+	\bm{x}^E & \bm{\eta}^E \\
+	\end{array}\right]^T = \left[ \begin{array}{cccccc}
+	x & y & z & \phi & \theta & \psi\\
+	\end{array}\right] ^T
+	\end{equation}  
+	
+	The generalized velocity $\bm{\nu}$ (\ref{eq:vel}) contains the linear and angular velocity, and it is expressed in the body frame.
+	\begin{equation} \label{eq:vel}
+	\bm{\nu} = \left[ \begin{array}{cc}
+	\bm{v}^B & \bm{\omega}^B \\
+	\end{array}\right]^T = \left[ \begin{array}{cccccc}
+	u & v & w & p & q & r\\
+	\end{array}\right] ^T 
+	\end{equation}
+	
+	Three rotation matrixes around each of the $x, y, z$ axes can be defined according to (\ref{eq:rotx}, \ref{eq:roty}, \ref{eq:rotz}).
+	
+	\begin{equation} \label{eq:rotx}
+		\bm{R}_x (\phi)=
+		\left[ {\begin{array}{ccc}
+		1 & 0 & 0 \\
+		0 & \cos(\phi) & -\sin(\phi) \\
+		0 &  \sin(\phi) & \cos(\phi) \\ 
+		\end{array} } \right]
+	\end{equation}  
 	
 	\begin{equation} \label{eq:roty}
 	\bm{R}_y (\theta)=
@@ -242,7 +272,7 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 		0 & 1 & 0 \\
 		-\sin(\theta) &  0 & \cos(\theta) \\ 
 		\end{array} } \right]
-	 \end{equation}  
+	\end{equation}  
 	
 	\begin{equation} \label{eq:rotz}
 	\bm{R}_z (\psi)=
@@ -251,14 +281,15 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 		\sin(\psi) & \cos(\psi) & 0 \\
 		0 &  0 & 1 \\ 
 		\end{array} } \right]
-	 \end{equation}  
-	 
-	Rotation matrix
+	\end{equation}  
+	
+	The complete rotation matrix $\bm{R}_\Theta$, that expresses the rotation from the body frame to the Earth frame, can be obtained by multiplying these three matrixes, as in (\ref{eq:rot}).
+	
 	\begin{equation} \label{eq:rot}
 		\bm{R}_\Theta (\phi, \theta, \psi) = 	\bm{R}_x (\phi)  \bm{R}_y (\theta)  \bm{R}_z (\psi)
 	\end{equation}  
 	
-	Transfer matrix
+	The transfer matrix $\bm{T}_\Theta$ that allows to change between the angular velocity in the body frame $\bm{\omega}^B$ and the Euler rates in the Earth frame $\bm{\dot \eta}^E$  can be determined and is as shown on (\ref{eq:transf}).
 	\begin{equation} \label{eq:transf}
 		\bm{T}_\Theta (\phi,\theta )= \left[ {\begin{array}{ccc}
 		1 & \sin(\phi) \cdot \tan(\theta) & \cos(\phi) \cdot \tan (\theta) \\
@@ -267,40 +298,30 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 		\end{array} } \right]
 	\end{equation}  
 	
-	Generalized matrix
+	A generalized matrix $\bm{J}_\Theta$ can be built joining the rotation and the transfer matrix (\ref{eq:rot}, \ref{eq:transf}), as shown in (\ref{eq:gen}).
+	
 	\begin{equation} \label{eq:gen}
 		\bm{J}_\Theta (\phi,\theta, \psi)= \left[ {\begin{array}{cc}
 			\bm{R}_\Theta &  \mathbf{0}_{3\times 3} \\
 			\mathbf{0}_{3\times 3} & \bm{T}_\Theta \\
 			\end{array} } \right]
 	\end{equation}  
+	
 	Where the notation $\mathbf{0}_{3\times 3}$ means a matrix filled with zeros with a $3 \times 3$ dimension.
-	
-	Generalized position: linear and angular position, in the Earth frame
-	\begin{equation} \label{eq:pos}
-		\bm{\xi} = \left[ \begin{array}{cc}
-		\bm{x}^E & \bm{\eta}^E \\
-		\end{array}\right]^T = \left[ \begin{array}{cccccc}
-			x & y & z & \phi & \theta & \psi\\
-		\end{array}\right] ^T
-	\end{equation}  
-	
-	Generalized velocity: linear and angular velocity, in the body frame
-	\begin{equation} \label{eq:vel}
-		\bm{\nu} = \left[ \begin{array}{cc}
-		\bm{v}^B & \bm{\omega}^B \\
-		\end{array}\right]^T = \left[ \begin{array}{cccccc}
-		u & v & w & p & q & r\\
-		\end{array}\right] ^T 
-	\end{equation}
-	
-	In order to relate the derivate of the generalized position in the Earth frame with the generalized velocity on the body frame there is the following equation:
+
+	In order to relate the derivate of the generalized position in the Earth frame with the generalized velocity on the body frame, the transfer matrix (\ref{eq:transf}) can be used, and that is the final model of the quadrotor's kinematics.
 	\begin{equation} \label{eq:derivpos_earth_body}
-		\bm{\dot \xi} =  \bm{J}_\Theta \	\bm{\nu}
+		\bm{\dot \xi} %= \left[ {\begin{array}{c}
+		%	\dot x\\
+		%	\dot y\\
+		%	\dot z\\
+		%	\dot \phi\\
+		%	\dot \theta\\
+		%	\dot \psi\\
+		%	\end{array} } \right]
+		 = \bm{J}_\Theta \ \bm{\nu}
 	\end{equation}
 
-
-	
 	\subsection{Dynamics}
 
 \section{Sensors}
