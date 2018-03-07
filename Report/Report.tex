@@ -231,7 +231,9 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 	\subsection{Notation}
 	
 	\subsection{Kinematics}
-	To describe the motion of the UAV, two right-hand reference frames can be defined: the Earth frame and the body frame, as can be seen in \figurename{\ref{fig:frames_rotors}}. 
+	To describe the motion of the UAV without the forces and torques acting on it, a kinematic model for it will be developed.
+	
+	Two right-hand reference frames need to be defined: the Earth frame and the body frame, as can be seen in \figurename{\ref{fig:frames_rotors}}. 
 	
 	The Earth frame is static, with the $x_E$ axis pointing towards the North, the $y_E$ axis pointing towards the West, and $z_E$ pointing upwards w.r.t. the Earth. The body frame is attached to the UAV, with the $x_B$ axis pointing towards the quadrotor's front, the $y_B$ axis pointing towards the left, and the $z_B$ axis pointing upwards. In this case, the axis origin $o_B$ coincides with the quadrotor's structure center.
 	
@@ -254,7 +256,7 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 	\end{array}\right] ^T 
 	\end{equation}
 	
-	Three rotation matrixes around each of the $x, y, z$ axes can be defined according to (\ref{eq:rotx}, \ref{eq:roty}, \ref{eq:rotz}).
+	Three rotation matrixes around each of the $x, y, z$ axes can be defined according to (\ref{eq:rotx}, \ref{eq:roty}, \ref{eq:rotz}) respectively.
 	
 	\begin{equation} \label{eq:rotx}
 		\bm{R}_x (\phi)=
@@ -289,7 +291,7 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 		\bm{R}_\Theta (\phi, \theta, \psi) = 	\bm{R}_x (\phi)  \bm{R}_y (\theta)  \bm{R}_z (\psi)
 	\end{equation}  
 	
-	The transfer matrix $\bm{T}_\Theta$ that allows to change between the angular velocity in the body frame $\bm{\omega}^B$ and the Euler rates in the Earth frame $\bm{\dot \eta}^E$  can be determined and is as shown on (\ref{eq:transf}).
+	The transfer matrix $\bm{T}_\Theta$ that allows to change between the angular velocity in the body frame $\bm{\omega}^B$ and the Euler rates in the Earth frame $\bm{\dot \eta}^E$  can be determined and is as shown in (\ref{eq:transf}).
 	\begin{equation} \label{eq:transf}
 		\bm{T}_\Theta (\phi,\theta )= \left[ {\begin{array}{ccc}
 		1 & \sin(\phi) \cdot \tan(\theta) & \cos(\phi) \cdot \tan (\theta) \\
@@ -323,6 +325,7 @@ This project aims to study and develop a mathematical model of a quadrotor UAV a
 	\end{equation}
 
 	\subsection{Dynamics}
+	The dynamic model for the UAV will relate the acceleration of the vehicle with the force provided by the propellers. 
 
 \section{Sensors}
 
