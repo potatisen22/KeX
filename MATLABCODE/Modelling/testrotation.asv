@@ -33,6 +33,6 @@ fz = 37 %forces in z-direction
 tx = 0%torque around x-axis
 ty = 0%torque around y-axis
 tz = 0%torque around z-axis
-Ftaub = [0,0,fz,tx,ty,tz]' + [0,0,-m*9.82,0,0,0]' %input! first vector is from motors second vector is outer forces,  
+Ftaub = [0,0,fz,tx,ty,tz]' + [0,0,-m*9.82,0,0,0]' %input! first vector is from motors second vector is outer forces, altough  
 dVbdwb=inv([m.*eye(3),zeros(3);zeros(3),I])*[Ftaub]-[cross(wb,(m.*Vb))';cross(wb,(I*wb'))']
 %dxi = dVbdwb + dxi ? 
