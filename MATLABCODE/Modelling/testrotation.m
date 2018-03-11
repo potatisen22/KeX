@@ -6,9 +6,9 @@ clear all;
 fi = pi %rotation about x2-axis (angle between Y2 and Y3 in Y-Z plane
 tetha =pi %rotation about y1-axis (angle between Z1 and Z2) in X-Z plane
 psi =pi %rotation about ze-axis (angle between Xe and X1) in Y-X plane
-dfi =0.02 %time derivative of fi
-dtetha =0.02 %time derivative of tetha
-dpsi =0.02 %time derivative of my
+dfi =0.0 %time derivative of fi
+dtetha =0.0 %time derivative of tetha
+dpsi =0.0 %time derivative of my
 eta = [fi, tetha,psi]'
 deta = [dfi,dtetha,dpsi]' %NOT ANGULAR VELOCITY VECTOR!
 
@@ -48,5 +48,6 @@ ty = 0%torque around y-axis
 tz = 0%torque around z-axis
 %% Dynamics
 Ftaub = [0,0,fz,tx,ty,tz]' + [0,0,-m*9.82,0,0,0]' %input! first vector is from motors second vector is outer forces,  
-dVbdwb=inv([m.*eye(3),zeros(3);zeros(3),I])*[Ftaub]-[cross(wb,(m.*Vb))';cross(wb,(I*wb'))']
+dVbdwb=inv([m.*eye(3),zeros(3);zeros(3),I])*[Ftaub]-[cross(omegab,(m.*vb))' cross(omegab,(I*omegab))']'
+
 %dxi = dVbdwb + dxi ? 
