@@ -3,7 +3,7 @@ clc;
 clear all;
 close all;
 tstep = 0.05; %time step
-v = 0;
+v = 5;
 x = 0;
 y = 0;
 z = 0;
@@ -11,15 +11,16 @@ d = 0.5; %distance to change from conic to parabolic well
 qgoal= [10,10,10]; %in earth frame
 qp = [x,y,z]; %should import form modell, current position
 rhogoal = norm(qp-qgoal); %distance to goal
-xi = 1; %scale factor for attractive potential
-eta = 1; %scale factor for repulsive potential
-p0 = 2; %sphere of influense for repulsive potential
-objpos =[1,1.5,1]; %obstacleposition
+xi = 3; %scale factor for attractive potential
+eta = 3; %scale factor for repulsive potential
+p0 = 4; %sphere of influense for repulsive potential
+objpos =[1.5,1.5,1.5]; %obstacleposition
 scatter(objpos(1),objpos(2),20,'*r')
 hold on
 scatter(qp(1),qp(2))
 hold on
 scatter(qgoal(1),qgoal(2))
+Fdir = [0,0,0];
 while rhogoal > 0.1
     gradrhogoal = (qp-qgoal)/rhogoal; %gradient of rhogoal
     if rhogoal > d
@@ -27,7 +28,7 @@ while rhogoal > 0.1
         Fatt = -d*xi*(qp-qgoal)/rhogoal;
     else
         Uatt =  d*xi*rhogoal; %attractive potential if we are close to goal.
-        Fatt = d*xi*rhogoal;
+        Fatt = -d*xi*rhogoal;
     end
     rhoq = norm(qp-objpos);%distance to obstacles
     if rhoq < p0
@@ -39,9 +40,10 @@ while rhogoal > 0.1
     end
     U = Uatt+Urep;
     F = Fatt+Frep;
-    v = F*tstep + v;
-    qp = v*tstep + qp;
+    Fdir = [Fdir; F/norm(F)];
+    vvec = F/norm(F).*v;
+    qp = vvec*tstep + qp;
     scatter(qp(1),qp(2),3,'b')
     hold on
-    rhogoal = norm(qp-qgoal); %distance to goal
+    rhogoal = norm(qp-qgoal) %distance to goal
 end
