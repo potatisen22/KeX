@@ -25,9 +25,9 @@ xi = 1; %scale factor for attractive potential
 eta = 0.5; %scale factor for repulsive potential
 p0 = 2; %radius of sphere of influence for repulsive potential
 
-%Generating # of obstacles between min and max
-min = 300;
-max= 500;
+%Generating random # of obstacles between min and max
+min = 100;
+max= 300;
 [totalobst,obstpos] = obstaclegenerator(min,max);
 
 
@@ -40,15 +40,15 @@ while rhogoal > 0.1
     [Uatt, Fatt] = attractive(d, xi, qp, qgoal, rhogoal);
     
     %Repulsive force and potential calculation
-    [Ureptot, Freptot] = repulsive(p0, eta, qp, totalobst, obstpos);
+    [Ureptotstatic, Freptotstatic] = repulsive(p0, eta, qp, totalobst, obstpos);
     
     %Total force and potential -> attractive + repulsive
-    U = Uatt+Ureptot;
-    F = Fatt+Freptot;
+    U = Uatt+Ureptotstatic;
+    F = Fatt+Freptotstatic;
     
     %Moving vehicle according to the force vector obtained
     Fdir = [Fdir; F/norm(F)];
-    vvec = F.*tstep; %+ v0;
+    vvec = F.*tstep %+ v0;
     qp = F*tstep + qp;
     scatter3(qp(1),qp(2),qp(3), 3,'b')
     hold on
