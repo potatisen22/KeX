@@ -1,9 +1,9 @@
-function [totalobst,obstpos] = obstaclegenerator(min,max)
+function [totalobst,obstpos] = obstaclegenerator(min,max, drones, goaldrones)
     %Generate obstacles
     totalobst = randi([min,max],1,1);
     obstpos = zeros(totalobst,3);
     for i=1:totalobst
-         obstpos(i,:)= randi([1,9],1,3);
+         obstpos(i,:) = randi([1,9],1,3);
     end
     
     %Print obstacles
