@@ -1,0 +1,9 @@
+use A and B found online for now, maybe use something else later
+
+
+find an L vector with good pole placement to get it to the form
+
+xdot = (A-BL)x + B*rtilde
+
+get the G(s) from the system, implement it into 
+Y(s) = G(s)*U(s)
