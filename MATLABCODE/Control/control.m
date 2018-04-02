@@ -71,8 +71,26 @@ sizeCont = size(Cont)
 %needs to be full rank
 rankCont = rank(Cont)
 
-%% LQR control
-%Q = 
-%R = 
-%[K,S,e] = lqr(A,B,Q,R) 
 
+
+%% linear control, not working tried alot of different poles
+D = 0;
+sys = ss(A,B,C,D)
+p = [-30+10*i -30-10*i -35+5*i -35-5*i -20+2*i -20-2*i -50+8*i -50-8*i -55 -70 -65 -90]%closed systems poles
+q =[-1 -5 -8 -10 -13 -15 -20 -25 -30 -40 -50 -55] %pole placement for observer, should be far left b/c no error
+K = place(A,B,p)
+L = place(A',C',q)'
+rsys = reg(sys,K,L)
+%% LQR control
+Ts = 0.1
+q = 500 %gain
+Q = (C'*C)*q
+R = eye(4)
+[Kd,S,e] = lqrd(A,B,Q,R,Ts) 
+Ac = [(A-B*Kd)];
+Bc = [B];
+Cc = [C];
+Dc = [D];
+sys_cl = ss(Ac,Bc,Cc,Dc)
+H = tf(sys_cl)
+linearSystemAnalyzer(sys_cl)
