@@ -82,15 +82,16 @@ K = place(A,B,p)
 L = place(A',C',q)'
 rsys = reg(sys,K,L)
 %% LQR control
-Ts = 0.1
-q = 500 %gain
-Q = (C'*C)*q
-R = eye(4)
-[Kd,S,e] = lqrd(A,B,Q,R,Ts) 
+D = 0;
+Ts = 0.1;
+q = 500; %gain
+Q = (C'*C)*q;
+R = eye(4);
+[Kd,S,e] = lqrd(A,B,Q,R,Ts); 
 Ac = [(A-B*Kd)];
 Bc = [B];
 Cc = [C];
 Dc = [D];
 sys_cl = ss(Ac,Bc,Cc,Dc)
 H = tf(sys_cl)
-linearSystemAnalyzer(sys_cl)
+%linearSystemAnalyzer(sys_cl)
