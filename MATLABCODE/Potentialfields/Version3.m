@@ -1,5 +1,9 @@
-%add radius to everything
+%TO DO LIST
 %implement ODE
+%make it so obstacles can't appear near initial position/goal of drones
+%how to optimise the program?
+%find best value for constants
+%method to find if there's a collision or not
 
 clc;
 clear all;
@@ -18,8 +22,9 @@ p0 = 2; %radius of sphere of influence for repulsive potential
 
 %Generating random # of drones (initial pos+goal) between min and max
 min = 3;
-max = 5;
-[totaldrones, drones, goaldrones, colordrones] = uavgenerator (min, max);
+max = 7;
+raddrones = 0.2;
+[totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (min, max, raddrones);
 
 %Generating random # of obstacles between min and max
 %The obstacles can't be in the same position as the drones' initial
@@ -56,10 +61,8 @@ while(~ isequal(finished,completed))
             %Moving vehicle according to the force vector obtained
             vvec = F.*tstep;
             drones(i,:) = F*tstep + drones(i,:);
-            
-            scatter3(drones(i,1),drones(i,2),drones(i,3),3,colordrones(i,:))
-            hold on
+            printspherecolor(drones(i,:), raddrones, colordrones(i,:))
         end
     end
-    pause(0.001)
+    pause(0.01)
 end

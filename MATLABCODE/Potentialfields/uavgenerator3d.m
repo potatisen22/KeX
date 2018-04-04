@@ -1,4 +1,4 @@
-function [totaldrones, inidrones, goaldrones, colordrones] = uavgenerator (min, max)
+function [totaldrones, inidrones, goaldrones, colordrones] = uavgenerator3d (min, max, raddrones)
     %Generate UAVs
     totaldrones = randi([min,max],1,1);
     inidrones = zeros(totaldrones,3);
@@ -14,8 +14,7 @@ function [totaldrones, inidrones, goaldrones, colordrones] = uavgenerator (min, 
     
     %Print initial positions and goals
     for i=1:totaldrones
-        scatter3(inidrones(i,1),inidrones(i,2),inidrones(i,3),3,colordrones(i,:))
-        hold on
+        printspherecolor(inidrones(i,:), raddrones, colordrones(i,:))
         scatter3(goaldrones(i,1),goaldrones(i,2),goaldrones(i,3),3,colordrones(i,:))
         hold on
 
