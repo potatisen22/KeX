@@ -38,21 +38,21 @@ B = [0,0,0,0;
  C= [1,0,0,0,0,0,0,0,0,0,0,0;
      0,1,0,0,0,0,0,0,0,0,0,0;
      0,0,1,0,0,0,0,0,0,0,0,0;
-     0,0,0,0,0,0,0,0,0,0,0,0;
-     0,0,0,0,0,0,0,0,0,0,0,0;
-     0,0,0,0,0,0,0,0,0,0,0,0;
-     0,0,0,0,0,0,0,0,0,0,0,0;
-     0,0,0,0,0,0,0,0,0,0,0,0;
-     0,0,0,0,0,0,0,0,0,0,0,0;
-     0,0,0,0,0,0,0,0,0,0,0,0;
-     0,0,0,0,0,0,0,0,0,0,0,0;
+     0,0,0,1,0,0,0,0,0,0,0,0;
+     0,0,0,0,1,0,0,0,0,0,0,0;
+     0,0,0,0,0,1,0,0,0,0,0,0;
+     0,0,0,0,0,0,1,0,0,0,0,0;
+     0,0,0,0,0,0,0,1,0,0,0,0;
+     0,0,0,0,0,0,0,0,1,0,0,0;
+     0,0,0,0,0,0,0,0,0,1,0,0;
+     0,0,0,0,0,0,0,0,0,0,1,0;
      0,0,0,0,0,0,0,0,0,0,0,1];
  
  %% Checking observability and controllability
  %Building observability matrix
  Obs = [C];
  for i=1:11
- Obs = [Obs;(C*(A.^i))]
+ Obs = [Obs;(C*(A^i))]
  end
 %Size needs to be 144x12
 sizeObs = size(Obs)
@@ -63,7 +63,7 @@ rankObs = rank(Obs)
  %Building controllability matrix
  Cont = [B];
 for i=1:11
- Cont = [Cont,((A.^i)*B)];
+ Cont = [Cont,((A^i)*B)];
 end
 %Size needs to be 12x48
 sizeCont = size(Cont)
@@ -71,7 +71,14 @@ sizeCont = size(Cont)
 %needs to be full rank
 rankCont = rank(Cont)
 
+%The other way (easier) to check controllabillity and observabillity
+Co = ctrb(A,B);
+%Length of uncontrollable states, should be zero
+unco = length(A) - rank(Co)
 
+Ob = obsv(A,C);
+%Length of unobservable states, should be zero
+unob = length(A)-rank(Ob)
 
 %% linear control, not working tried alot of different poles
 %  D = 0;
