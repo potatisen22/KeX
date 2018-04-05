@@ -93,5 +93,15 @@ Bc = [B];
 Cc = [C];
 Dc = [D];
 sys_cl = ss(Ac,Bc,Cc,Dc)
-H = tf(sys_cl)
-%linearSystemAnalyzer(sys_cl)
+H = tf(sys_cl);
+for i = 1:12
+    step(H(i,1))
+    hold on
+    step(H(i,2))
+    hold on
+    step(H(i,3))
+    hold on
+    step(H(i,4))
+    hold on
+end
+    %linearSystemAnalyzer(sys_cl)
