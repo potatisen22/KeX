@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=30mm,
+	right=30mm,
+	top=20mm,
+}
+\usepackage{xcolor}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\title{Status report 2 for project A3: Motion Control of Unmanned Aerial Vehicle}
+
+\author{Vilhelm Dinevik \\ Paula Carbó \\ Sup. Christos Verginis}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	%\newpage
+	
+	\bigskip
+	\tableofcontents
+	\newpage
+\section{Status of the project}
+In this section we will review the advances that have been done on the project and the changes that will be done to the initial worplan.  \\
+
+%According to our project model in the workplan done by both students and approved by the supervisor, we have our project divided in some general phases: literature, modelling, control, multi-agent case and simulation. \\
+%
+%The first weeks consisted on getting familiar with the topic, the methodology used and knowing exactly what we should do and how it should be done to complete the project. We read some papers regarding all the parts that formed our project in order to get a grasp of the general situation, and therefore started with the literature goal. \\
+%
+%The second part of the project, the modelling, has been completed, since we have been able to understand how the quadcopter is modelled in all the literature presented, we have used the most adequate modelling for our application and we have written down a great part of the modelling for the final report and also the MatLab code for it. This code has been reviewed by both students and also tested with some simple calculations, but it will only be completely tested when in the simulation phase. \\
+%
+%Also right now we are in the control phase, and most of the literature for it has also been read and understood. This phase may be delayed a bit from the original schedule but considering that it is also the main core of the project and the part that will take more time of it, this delay is comprehensible and probably the first time goal was too optimistic. The time plan has been changed and there are no problems with it, since extra time had been initially added to some other phases. \\
+
+After the first status report, we kept working on the project as planned. 
+
+\section{Problems and action plan}
+
+There were no remarkable problems in this first part of the project development, and therefore there is no action plan to counteract them. The risk analysis we did for the workplan keeps being taken into account and the proactive measures for the most importan risks are and will be done.
+
+\section{Project changes from project plan}
+As we said in the first section, there are no major changes from the project plan since we consider that the phases were well designed and separated. The main issue is rearranging a bit the time plan so we can still accomplish the desired goals in time. We think we underestimated the time it would take to do the multi-agent case so we decided to take some time from the control/navigation part and put it in the multi-agent case instead. We don't have further problems and simply some dates have been arranged.
+
+\newpage
+\appendix
+\section{Updated time plan}
+
+The changes had been marked in \textcolor{red}{red}. \\
+
+The goals for the milestones have also been updated thanks to the feedback we got from the final workplan delivered.
+	\begin{center}
+	\begin{tabular}[H]{|C{2cm}|C{2cm}|C{7cm}|C{3cm}|} \hline
+		Phase & Sub-phases & Description & Schedule\\ \hline
+		Modelling & Quad & Complete the UAV (kinematics and dynamics) mathematical modelling goal. It is done in parallel with the sensors sub-phase. &  1-Feb $\rightarrow$ 4-March  \\ \cline{2-4}
+		& Sensors & Complete modelling all the sensors that should be used as to complete the modelling goal. It is done in parallel with the quad sub-phase. & 1-Feb $\rightarrow$ 4-March \\ \hline
+		
+		Control & Tracking & Make a controller that makes our UAV go in a certain direction with stability. It is the first step of out control phase since it is more related with the previous phase. &  5-Mar $\rightarrow$ \textcolor{red}{9-Apr}\\ \cline{2-4}
+		&Navigation & Starts in parallel with the tracking so we can work with the potential fields method to obtain the direction the UAV needs to follow, and then check how the tracking is done. When this sub-phase and the tracking are completed and checked with the simulation, the goal for the control is achieved. & 8-Mar $\rightarrow$ 23-Mar \\ \hline
+		
+		Multi-agent case & Model & Starts after the single case modelling and control are finished and tested. Work on the model for a multi-UAV scenario. & 23-Mar $\rightarrow$ 6-Apr\\ \cline{2-4}
+		&Control & Work on the control for a multi-UAV scenario. The multi-agent case goal is completed after this sub-phase and the model are finished and its effectivity has been checked with a simulation. & 23-Mar $\rightarrow$ 6-Apr \\ \hline
+		
+		Simulation & & Simulation starts when modelling is finished as to check its validity and complete the modelling goal. Simulation is resumed again when the control has finished to check again its validity and the same for the multi-agent case. Finally, a week is spent to put together all the other parts, and finish all the program and the interface so the simulation goal can be achieved. & 12-Mar $\rightarrow$ 13-Apr \\ \hline
+		
+		Report & & The report is roughly written during all the other phases, but in the end we will leave 3  weeks specially to focus on finishing the report. It may be modified after the presentation with the feedback, and it should be on time for the final report deadline & 9-Apr $\rightarrow$ 27-Apr \& 8-May $\rightarrow$ 23-May \\ \hline
+		
+		Presentation & & A whole week is spent when the preliminary report is finished as to make the presentation as best as possible to fit the time we have available. & 30-Apr $\rightarrow$ 4-May \\ \hline
+	\end{tabular}
+	\end{center}
+
+	\begin{center}	
+	\bigskip
+	\begin{tabular}{|C{3cm}|C{3cm}|C{8.5cm}|} \hline
+		Milestone & Deadline & Goals \\ \hline
+		Status report 1 & 12-Mar & For the first status report, we will have done all the modeling and completed the modelling goal. Also, the control part will be half done, which is the main core of the project. This status report will be a good opportunity to validate the workplan done and check if the time plan is realistic or not.\\ \hline
+		Status report 2 & 9-Apr & For status report 2, we will be almost done with the final part of the simulation so the project itself will be almost completed. We will have completed the modelling and the control goals, and the simulation goal will also be almost completed. We will focus on organizing and structuring all our work in the report. So the preliminary final report can continue on this second status report. \\ \hline
+		Preliminary final report & 30-Apr & It would have been a while since the simulation phase ended and we had time to work exclusively on the report for two weeks, so the report will be correcly structured, all the phases would be explained and the results and conclusions will also be added. By this time all the goals will be completed thus they will be defended in this preliminary version of the final report.\\ \hline
+		Presentation & 8-May & We will have a whole week to prepare for the presentation, which means detecting the most important parts that we should include in our slides, the parts that have to be explained the most, what we can skip, and how to organise all this information so it can be easily understood by the audience. The slides also have to be done.\\ \hline
+		Final report & 23-May & Improving the report thanks to the feedback obtained with the preliminary report and the presentation.\\ \hline
+	\end{tabular}
+\end{center}	
+
+\end{document}

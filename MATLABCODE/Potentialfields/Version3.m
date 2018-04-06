@@ -1,10 +1,9 @@
 %TO DO LIST
-%repulsive surface with other drones too
+%DONE repulsive surface with other drones too
 %implement ODE
-%make it so obstacles can't appear near initial position/goal of drones
-%how to optimise the program?
-%find best value for constants
+%DONE make it so obstacles can't appear near initial position/goal of drones
 %method to find if there's a collision or not
+
 %for the report
 %plot distances to the goal (t)
 %plot distances between drones -> they should always be positive
@@ -29,7 +28,7 @@ p0 = 2; %radius of sphere of influence for repulsive potential
 %Generating random # of drones (initial pos+goal) between min and max
 min = 3;
 max = 7;
-raddrones = 0.2;
+raddrones = 0.3;
 [totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (min, max, raddrones);
 
 %Generating random # of obstacles between min and max
@@ -39,7 +38,7 @@ raddrones = 0.2;
 %and drones/goals between 0 and 1, and 9 and 10 respectively
 min = 50;
 max= 100;
-[totalobst, obstpos, obstrad] = obstaclegenerator3d(min, max, totaldrones, drones, goaldrones);
+[totalobst, obstpos, obstrad] = obstaclegenerator3d(min, max, totaldrones, drones, goaldrones, raddrones);
 
 finished = zeros(totaldrones, 1);
 completed = ones(totaldrones,1);
@@ -58,7 +57,7 @@ while(~ isequal(finished,completed))
             %Dynamic repulsive force and potential calculation
             totalobstdrones = totaldrones-1;
             obstdronespos = drones([1:i-1,i+1:totaldrones],:);
-            [Ureptotdynamic, Freptotdynamic] = repulsive(p0, eta, drones(i,:), totalobstdrones, obstdronespos);
+            [Ureptotdynamic, Freptotdynamic] = repulsivesurface(p0, eta, drones(i,:), totalobstdrones, obstdronespos, raddrones*ones(totalobstdrones,1));
             
             %Total force and potential -> attractive + repulsive
             U = Uatt + Ureptotstatic + Ureptotdynamic;
