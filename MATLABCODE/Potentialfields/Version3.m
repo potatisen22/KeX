@@ -2,7 +2,7 @@
 %DONE repulsive surface with other drones too
 %implement ODE
 %DONE make it so obstacles can't appear near initial position/goal of drones
-%method to find if there's a collision or not
+%method to find if there's a collision or not ->plot distances
 
 %for the report
 %plot distances to the goal (t)
@@ -26,19 +26,35 @@ eta = 5; %scale factor for repulsive potential
 p0 = 2; %radius of sphere of influence for repulsive potential
 
 %Generating random # of drones (initial pos+goal) between min and max
-min = 3;
-max = 7;
-raddrones = 0.3;
-[totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (min, max, raddrones);
+%min = 3;
+%max = 7;
+%raddrones = 0.3;
+%[totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (min, max, raddrones);
 
 %Generating random # of obstacles between min and max
 %The obstacles can't be in the same position as the drones' initial
 %position or their goals
 %Currently this is solved because obstacles can only appear between 1 and 9
 %and drones/goals between 0 and 1, and 9 and 10 respectively
-min = 50;
-max= 100;
-[totalobst, obstpos, obstrad] = obstaclegenerator3d(min, max, totaldrones, drones, goaldrones, raddrones);
+%min = 50;
+%max= 100;
+%[totalobst, obstpos, obstrad] = obstaclegenerator3d(min, max, totaldrones, drones, goaldrones, raddrones);
+
+%Multi drone avoidance
+% raddrones = 0.3;
+% totaldrones = 3;
+% drones = [0, 0, 0;
+%           3, 3, 3,
+%           0, 3, 0];
+% goaldrones = [2.8, 2.8, 2;
+%               0, 0, 0.5,
+%               3, 0, 1.5];
+% colordrones = [0.1, 0.1, 0.1;
+%                0.9, 0.9, 0.9;
+%                0.5, 0.2, 0.1];
+% totalobst = 1; 
+% obstpos = [7, 7, 7];
+% obstrad = 0.4;
 
 finished = zeros(totaldrones, 1);
 completed = ones(totaldrones,1);

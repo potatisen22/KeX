@@ -32,22 +32,23 @@
 \section{Status of the project}
 In this section we will review the advances that have been done on the project and the changes that will be done to the initial worplan.  \\
 
-%According to our project model in the workplan done by both students and approved by the supervisor, we have our project divided in some general phases: literature, modelling, control, multi-agent case and simulation. \\
-%
-%The first weeks consisted on getting familiar with the topic, the methodology used and knowing exactly what we should do and how it should be done to complete the project. We read some papers regarding all the parts that formed our project in order to get a grasp of the general situation, and therefore started with the literature goal. \\
-%
-%The second part of the project, the modelling, has been completed, since we have been able to understand how the quadcopter is modelled in all the literature presented, we have used the most adequate modelling for our application and we have written down a great part of the modelling for the final report and also the MatLab code for it. This code has been reviewed by both students and also tested with some simple calculations, but it will only be completely tested when in the simulation phase. \\
-%
-%Also right now we are in the control phase, and most of the literature for it has also been read and understood. This phase may be delayed a bit from the original schedule but considering that it is also the main core of the project and the part that will take more time of it, this delay is comprehensible and probably the first time goal was too optimistic. The time plan has been changed and there are no problems with it, since extra time had been initially added to some other phases. \\
+After the first status report, we kept working on the project as planned. The modelling part was finished and we had already been introduced to the control part since we had read most of the literature recommended for it. The navigation control for a single drone was done easily in few days and thanks to the help of the supervisor, so we continued working on the tracking part of the control, and started with the multi agent case. \\
 
-After the first status report, we kept working on the project as planned. 
+Regarding the navigation sub-phase of the control, the potential field method was studied from three different papers, and then implemented in MatLab to check its validity. After some work and a meeting with the supervisor to check some problems we faced, the code for a simple case worked as expected. We had a 2D environment with one vehicle and one obstacle, both represented by a point in space. This code was expanded in the multi-agent case part. \\
+
+For tracking part of the control phase, we had some problems understanding the literature to the fullest and writing the MatLab code for it, so this part of the project has lasted a lot more than expected. We also needed some help from the supervisor, but finally we are done with almost all of the goals required to complete the control phase of the project. The time plan has been updated in consequence, but still, since we had planned everything with enough time, there is no bigger repercussion in the other phases of the project. \\
+
+Finally, for the multi-agent case, the basic potential fields code was expanded. We have recreated a 3D environment where a random number of shperical obstacles are generated. There, a multiple number of UAVs have to fly to their goals, while evading other obstacles and vehicles. The code for the multi-agent case needs a bit more of development that will also help achieve the simulaiton goal, but the main code has been revised by the supervisor. \\
+
+Finally what is left to do is finish the tracking part of the control and complete the simulation goal, which is basically unifying all the code we developed for the different parts of the project, get results and extract conclusions. 
+
 
 \section{Problems and action plan}
 
-There were no remarkable problems in this first part of the project development, and therefore there is no action plan to counteract them. The risk analysis we did for the workplan keeps being taken into account and the proactive measures for the most importan risks are and will be done.
+There were no remarkable problems in this second part of the project development, and therefore there is no action plan to counteract them. The risk analysis we did for the workplan keeps being taken into account and the proactive measures for the most importan risks are and will be done.
 
 \section{Project changes from project plan}
-As we said in the first section, there are no major changes from the project plan since we consider that the phases were well designed and separated. The main issue is rearranging a bit the time plan so we can still accomplish the desired goals in time. We think we underestimated the time it would take to do the multi-agent case so we decided to take some time from the control/navigation part and put it in the multi-agent case instead. We don't have further problems and simply some dates have been arranged.
+We don't have major problems and simply some dates have been arranged. We consider that we are following quite well the schedule and that we will be able to finish on time.  Also, we will still have some days to check and go over all the code as to reassure its robustness.
 
 \newpage
 \appendix
@@ -62,7 +63,7 @@ The goals for the milestones have also been updated thanks to the feedback we go
 		Modelling & Quad & Complete the UAV (kinematics and dynamics) mathematical modelling goal. It is done in parallel with the sensors sub-phase. &  1-Feb $\rightarrow$ 4-March  \\ \cline{2-4}
 		& Sensors & Complete modelling all the sensors that should be used as to complete the modelling goal. It is done in parallel with the quad sub-phase. & 1-Feb $\rightarrow$ 4-March \\ \hline
 		
-		Control & Tracking & Make a controller that makes our UAV go in a certain direction with stability. It is the first step of out control phase since it is more related with the previous phase. &  5-Mar $\rightarrow$ \textcolor{red}{9-Apr}\\ \cline{2-4}
+		Control & Tracking & Make a controller that makes our UAV go in a certain direction with stability. It is the first step of out control phase since it is more related with the previous phase. &  5-Mar $\rightarrow$ \textcolor{red}{12-Apr}\\ \cline{2-4}
 		&Navigation & Starts in parallel with the tracking so we can work with the potential fields method to obtain the direction the UAV needs to follow, and then check how the tracking is done. When this sub-phase and the tracking are completed and checked with the simulation, the goal for the control is achieved. & 8-Mar $\rightarrow$ 23-Mar \\ \hline
 		
 		Multi-agent case & Model & Starts after the single case modelling and control are finished and tested. Work on the model for a multi-UAV scenario. & 23-Mar $\rightarrow$ 6-Apr\\ \cline{2-4}
