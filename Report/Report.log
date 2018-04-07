@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  9 MAR 2018 17:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  7 APR 2018 22:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -554,14 +554,19 @@ Missing character: There is no ; in font nullfont!
 tex/updmap/pdftex.map}
 
 
-] (./Report.bbl
+]
+Underfull \hbox (badness 10000) in paragraph at lines 329--330
+
+ []
+
+(./Report.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
 ) [2] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
  13056 strings out of 492995
- 268901 string characters out of 6132704
+ 268902 string characters out of 6132704
  327590 words of memory out of 5000000
  16356 multiletter control sequences out of 15000+600000
  44282 words of font info for 89 fonts, out of 8000000 for 9000
@@ -582,7 +587,7 @@ cal/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texliv
 e/2017/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (2 pages, 144825 bytes).
+Output written on Report.pdf (2 pages, 147519 bytes).
 PDF statistics:
  71 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream

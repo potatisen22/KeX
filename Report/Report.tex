@@ -317,21 +317,37 @@
 	\end{equation}
 	
 	\subsection{Dynamics}
-	The dynamic model for the UAV will relate the acceleration of the vehicle with the force and torques provided by the propellers. The Newton-Euler formulation allows to express the variables in the body frame, as in equations (\ref{eq:newton_euler_forces}) and (\ref{eq:newton_euler_torques}), as clearly stated by Bresciani in \cite{mod_control_bresciani}.
+	The dynamic model for the UAV relates the acceleration of the vehicle with the forces and torques acting on the quadrotor. The Newton-Euler formulation allows to express the variables in the body frame, as in equations (\ref{eq:newton_euler_forces}) and (\ref{eq:newton_euler_torques}), as clearly stated by Bresciani in \cite{mod_control_bresciani}.
 	\begin{equation} \label{eq:newton_euler_forces}
 	\bm{F}^B = m ( \bm{\dot v}^B + \bm{\omega}^B \times \bm{v}^B)
 	\end{equation}
 	\begin{equation} \label{eq:newton_euler_torques}
-	\bm{T}_\Theta \  \bm{\tau}^B = \bm{I} \ \bm{\dot \omega}^B + \bm{\omega}^B \times (\bm{I} \ \bm{\omega}^B)
+	\bm{\tau}^B = \bm{I} \ \bm{\dot \omega}^B + \bm{\omega}^B \times (\bm{I} \ \bm{\omega}^B)
 	\end{equation}
 	
 	\section{Sensors}
+	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that will make this possible, it is really important that the vehicle can acquire precise information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also about the objects the vehicle may encounter throughput its path, as to make the navigation safe, and prevent and block possible crashes.\\
+
+		\subsection{Inertial Measurement Unit}
+		This module is in charge of measuring almost all the variables related to the movement of the vehicle. Usually inside this module  a 3-axis accelerometer, a 3-axis gyroscope and a 3-axis magnetometer can be found.
+		
+		\subsection{GPS receiver}
+		
+		\subsection{Infrared sensors}
+		
+		\subsection{Ultrasound sensors}
 	
 	\section{Quadcopter control}
 	
-	\section{Conclusion}
+	\section{Quadcopter navigation}
+	
+	\section{Simulation}
+	
+	
+	\section{Results and conclusion}
 	It's bloody impossible to do this.
 	
+	\section{Future development}
 	
 	
 	
