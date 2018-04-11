@@ -2,7 +2,7 @@
 %DONE repulsive surface with other drones too
 %implement ODE
 %DONE make it so obstacles can't appear near initial position/goal of drones
-%method to find if there's a collision or not ->plot distances
+%DONE method to find if there's a collision or not ->plot distances
 
 %for the report
 %plot distances to the goal (t)
@@ -25,42 +25,70 @@ xi = 1; %scale factor for attractive potential
 eta = 5; %scale factor for repulsive potential
 p0 = 2; %radius of sphere of influence for repulsive potential
 
+%Figures to plot
+%Real time environment with drones flying to goals
+%Figure 1
+figure('Name','Environment','NumberTitle','off')
+
+%Distance from drone surface to goal
+%Figure 2
+figure('Name','Distance from drone surface to goal (time)','NumberTitle','off')
+
+%Distance of drones to closest static or dynamic obstacle, taking radius into account
+%Figure 3
+figure('Name','Distance from drone surface to obstacle surface (time)','NumberTitle','off')
+
+
 %Generating random # of drones (initial pos+goal) between min and max
-%min = 3;
-%max = 7;
+%mindrones = 3;
+%maxdrones = 7;
 %raddrones = 0.3;
-%[totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (min, max, raddrones);
+%figure(1)
+%[totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (mindrones, maxdrones, raddrones);
 
 %Generating random # of obstacles between min and max
-%The obstacles can't be in the same position as the drones' initial
-%position or their goals
-%Currently this is solved because obstacles can only appear between 1 and 9
-%and drones/goals between 0 and 1, and 9 and 10 respectively
-%min = 50;
-%max= 100;
-%[totalobst, obstpos, obstrad] = obstaclegenerator3d(min, max, totaldrones, drones, goaldrones, raddrones);
+%minobst = 50;
+%maxobst = 100;
+%figure(1)
+%[totalobst, obstpos, obstrad] = obstaclegenerator3d(minobst, maxobst, totaldrones, drones, goaldrones, raddrones);
 
 %Multi drone avoidance
-% raddrones = 0.3;
-% totaldrones = 3;
-% drones = [0, 0, 0;
+% raddrones = single(0.3);
+% totaldrones = single(3);
+% drones = single([0, 0, 0;
 %           3, 3, 3,
-%           0, 3, 0];
-% goaldrones = [2.8, 2.8, 2;
+%           0, 3, 0]);
+% goaldrones = single([2.8, 2.8, 2;
 %               0, 0, 0.5,
-%               3, 0, 1.5];
-% colordrones = [0.1, 0.1, 0.1;
+%               3, 0, 1.5]);
+% colordrones = single([0.1, 0.1, 0.1;
 %                0.9, 0.9, 0.9;
-%                0.5, 0.2, 0.1];
-% totalobst = 1; 
-% obstpos = [7, 7, 7];
-% obstrad = 0.4;
+%                0.5, 0.2, 0.1]);
+% totalobst = single(1); 
+% obstpos = single([7, 7, 7]);
+% obstrad = single(0.4);
 
-finished = zeros(totaldrones, 1);
-completed = ones(totaldrones,1);
+%Local minima problem with drone and obstacle
+raddrones = single(0.3);
+totaldrones = single(1);
+drones = single([0, 0, 0]);
+goaldrones = single([5, 5, 5]);
+colordrones = single([0.4, 0.2, 0.7]);
+figure(1)
+printspherecolor(drones, raddrones, colordrones)
+scatter3(goaldrones(1,1),goaldrones(1,2),goaldrones(1,3),3,colordrones)
+hold on
+totalobst = single(1); 
+obstpos = single([2.5, 2.5, 2.5]);
+obstrad = single(1);
+printsphere(obstpos, obstrad)
+
+finished = single(zeros(totaldrones, 1));
+completed = single(ones(totaldrones,1));
+iteration=1;
 while(~ isequal(finished,completed))
     for i=1:totaldrones
-        rhogoal = norm(drones(i,:)-goaldrones(i,:));
+        rhogoal = single(norm(drones(i,:)-goaldrones(i,:)));
         if(rhogoal < 0.1)
             finished(i,1) = 1;
         else
@@ -68,12 +96,12 @@ while(~ isequal(finished,completed))
             [Uatt, Fatt] = attractive(d, xi, drones(i,:), goaldrones(i,:), rhogoal);
 
             %Static repulsive force and potential calculation
-            [Ureptotstatic, Freptotstatic] = repulsivesurface(p0, eta, drones(i,:), totalobst, obstpos, obstrad);
+            [Ureptotstatic, Freptotstatic, closestdiststat] = repulsivesurface(p0, eta, drones(i,:), raddrones, totalobst, obstpos, obstrad);
             
             %Dynamic repulsive force and potential calculation
             totalobstdrones = totaldrones-1;
             obstdronespos = drones([1:i-1,i+1:totaldrones],:);
-            [Ureptotdynamic, Freptotdynamic] = repulsivesurface(p0, eta, drones(i,:), totalobstdrones, obstdronespos, raddrones*ones(totalobstdrones,1));
+            [Ureptotdynamic, Freptotdynamic, closestdistdynam] = repulsivesurface(p0, eta, drones(i,:), raddrones, totalobstdrones, obstdronespos, raddrones*ones(totalobstdrones,1));
             
             %Total force and potential -> attractive + repulsive
             U = Uatt + Ureptotstatic + Ureptotdynamic;
@@ -82,8 +110,22 @@ while(~ isequal(finished,completed))
             %Moving vehicle according to the force vector obtained
             vvec = F.*tstep;
             drones(i,:) = F*tstep + drones(i,:);
+            figure(1)
             printspherecolor(drones(i,:), raddrones, colordrones(i,:))
+            
+            %Printing distance to goal from the surface of the drone
+            disttogoal = norm(drones(i,:)-goaldrones(i,:)-raddrones);
+            figure(2)
+            scatter(iteration*tstep, disttogoal, 10, colordrones(i,:))
+            hold on
+            
+            %Printing distance to closest obstacle, dynamic or static
+            closestdist = min(closestdiststat, closestdistdynam)- raddrones;
+            figure(3)
+            scatter(iteration*tstep, closestdist, 10, colordrones(i,:))
+            hold on
         end
     end
     pause(0.01)
+    iteration = iteration + 1 ;
 end
