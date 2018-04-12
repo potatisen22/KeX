@@ -2,13 +2,13 @@ clc;
 clear all;
 close all;
 %% Linear state space equation dx = Ax + Bu
-%Constants 
 g = 9.8; %Gravity
 Ix=1; %Inertia x
 Iy=1; %Intertia y
 Iz=2; %Intertia z
 m=3; %mass of the quadrotor
-
+xr = %x-vector, reference values
+xhat = %x-vector in feedback loop
 A = [0,0,0,1,0,0,0,0,0,0,0,0;
      0,0,0,0,1,0,0,0,0,0,0,0;
      0,0,0,0,0,1,0,0,0,0,0,0;
@@ -81,6 +81,12 @@ Ob = obsv(A,C);
 unob = length(A)-rank(Ob)
 
 %% LQR control
+%Constants, G(s)*U(s) = Y(s), R(s)-Y(s) = E(s)  
+%xvector is input from modell and potentialfields
+for i = 1:12
+   Rs(i) = laplace(x(i)) 
+    
+end
 C = eye(12);
 D = 0;
 Ts = 0.1;
@@ -94,24 +100,20 @@ Cc = [C];
 Dc = [D];
 sys_cl = ss(Ac,Bc,Cc,Dc);
 H = tf(sys_cl);
-clf
-for i = 1:12
-    t = 0:0.01:4;
-    u = sin(10*t);
-    figure(i)
-    %lsim(H(i,1)+H(i,2)+H(i,3)+H(i,4),u,t)
-    step(H(i,1)+H(i,2)+H(i,3)+H(i,4))
-    hold on
-end
-    
+% clf
 % for i = 1:12
-%     step(H(i,1))
-%     hold on
-%     step(H(i,2))
-%     hold on
-%     step(H(i,3))
-%     hold on
-%     step(H(i,4))
+%     t = 0:0.01:4;
+%     u = sin(10*t);
+%     figure(i)
+%     %lsim(H(i,1)+H(i,2)+H(i,3)+H(i,4),u,t)
+%     step(H(i,1)+H(i,2)+H(i,3)+H(i,4))
 %     hold on
 % end
-    %linearSystemAnalyzer(sys_cl)
+for i = 1:12
+    Fs = H(i,1)+H(i,2)+H(i,3)+H(i,4);
+    Gs = 
+    G0=Gs*Fs;
+    Gcl = G0/(1+G0);
+    Ys(i)=Es(i)*Gcl;
+end
+output = ilaplace(Ys)

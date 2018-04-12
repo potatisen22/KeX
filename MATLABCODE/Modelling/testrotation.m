@@ -49,5 +49,4 @@ tz = 0%torque around z-axis
 %% Dynamics
 Ftaub = [0,0,fz,tx,ty,tz]' + [0,0,-m*9.82,0,0,0]' %input! first vector is from motors second vector is outer forces,  
 dVbdwb=inv([m.*eye(3),zeros(3);zeros(3),I])*[Ftaub]-[cross(omegab,(m.*vb))' cross(omegab,(I*omegab))']'
-
 %dxi = dVbdwb + dxi ? 
