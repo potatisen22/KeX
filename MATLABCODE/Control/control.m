@@ -7,8 +7,6 @@ Ix=1; %Inertia x
 Iy=1; %Intertia y
 Iz=2; %Intertia z
 m=3; %mass of the quadrotor
-xr = %x-vector, reference values
-xhat = %x-vector in feedback loop
 A = [0,0,0,1,0,0,0,0,0,0,0,0;
      0,0,0,0,1,0,0,0,0,0,0,0;
      0,0,0,0,0,1,0,0,0,0,0,0;
@@ -83,13 +81,13 @@ unob = length(A)-rank(Ob)
 %% LQR control
 %Constants, G(s)*U(s) = Y(s), R(s)-Y(s) = E(s)  
 %xvector is input from modell and potentialfields
-for i = 1:12
-   Rs(i) = laplace(x(i)) 
-    
-end
+% for i = 1:12
+%    Rs(i) = laplace(x(i)) 
+%     
+% end
 C = eye(12);
 D = 0;
-Ts = 0.1;
+Ts = 0.001;
 q = 100; %gain
 Q = (C'*C)*q;
 R = eye(4);
@@ -99,7 +97,11 @@ Bc = [B];
 Cc = [C];
 Dc = [D];
 sys_cl = ss(Ac,Bc,Cc,Dc);
-H = tf(sys_cl);
+x0 = ones(1,12);  % initial state
+figure(1)
+initial(sys_cl,x0)
+grid
+ %H = tf(sys_cl);
 % clf
 % for i = 1:12
 %     t = 0:0.01:4;
@@ -109,11 +111,9 @@ H = tf(sys_cl);
 %     step(H(i,1)+H(i,2)+H(i,3)+H(i,4))
 %     hold on
 % end
-for i = 1:12
-    Fs = H(i,1)+H(i,2)+H(i,3)+H(i,4);
-    Gs = 
-    G0=Gs*Fs;
-    Gcl = G0/(1+G0);
-    Ys(i)=Es(i)*Gcl;
-end
-output = ilaplace(Ys)
+% for i = 1:12
+%     Gcl = H(i,1)+H(i,2)+H(i,3)+H(i,4);
+%     Es(i) = Rs(i) - Ys(i)
+%     Ys(i)=Rs(i)*Gcl;
+% end
+% output = ilaplace(Ys)
