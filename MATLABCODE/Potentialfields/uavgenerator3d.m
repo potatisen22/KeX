@@ -15,7 +15,7 @@ function [totaldrones, inidrones, goaldrones, colordrones] = uavgenerator3d (min
     %Print initial positions and goals
     for i=1:totaldrones
         printspherecolor(inidrones(i,:), raddrones, colordrones(i,:))
-        scatter3(goaldrones(i,1),goaldrones(i,2),goaldrones(i,3),3,colordrones(i,:))
+        scatter3(goaldrones(i,1),goaldrones(i,2),goaldrones(i,3),40, colordrones(i,:), 'filled', 'd')
         hold on
 
     end

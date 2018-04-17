@@ -33,11 +33,17 @@ figure('Name','Environment','NumberTitle','off')
 %Distance from drone surface to goal
 %Figure 2
 figure('Name','Distance from drone surface to goal (time)','NumberTitle','off')
+grid on
 
 %Distance of drones to closest static or dynamic obstacle, taking radius into account
 %Figure 3
 figure('Name','Distance from drone surface to obstacle surface (time)','NumberTitle','off')
+grid on
 
+%Velocity (norm)
+%Figure 4
+figure('Name','Norm of velocity (time)','NumberTitle','off')
+grid on
 
 %Generating random # of drones (initial pos+goal) between min and max
 %mindrones = 3;
@@ -69,19 +75,19 @@ figure('Name','Distance from drone surface to obstacle surface (time)','NumberTi
 % obstrad = single(0.4);
 
 %Local minima problem with drone and obstacle
-raddrones = single(0.3);
-totaldrones = single(1);
-drones = single([0, 0, 0]);
-goaldrones = single([5, 5, 5]);
-colordrones = single([0.4, 0.2, 0.7]);
-figure(1)
-printspherecolor(drones, raddrones, colordrones)
-scatter3(goaldrones(1,1),goaldrones(1,2),goaldrones(1,3),3,colordrones)
-hold on
-totalobst = single(1); 
-obstpos = single([2.5, 2.5, 2.5]);
-obstrad = single(1);
-printsphere(obstpos, obstrad)
+%raddrones = single(0.3);
+%totaldrones = single(1);
+%drones = single([0, 0, 0]);
+%goaldrones = single([5, 5, 5]);
+%colordrones = single([0.4, 0.2, 0.7]);
+%figure(1)
+%printspherecolor(drones, raddrones, colordrones)
+%scatter3(goaldrones(1,1),goaldrones(1,2),goaldrones(1,3),3,colordrones)
+%hold on
+%totalobst = single(1); 
+%obstpos = single([2.5, 2.5, 2.5]);
+%obstrad = single(1);
+%printsphere(obstpos, obstrad)
 
 finished = single(zeros(totaldrones, 1));
 completed = single(ones(totaldrones,1));
@@ -108,8 +114,8 @@ while(~ isequal(finished,completed))
             F = Fatt + Freptotstatic + Freptotdynamic;
 
             %Moving vehicle according to the force vector obtained
-            vvec = F.*tstep;
-            drones(i,:) = F*tstep + drones(i,:);
+            vvec = F*tstep;
+            drones(i,:) = vvec + drones(i,:);
             figure(1)
             printspherecolor(drones(i,:), raddrones, colordrones(i,:))
             
@@ -118,12 +124,22 @@ while(~ isequal(finished,completed))
             figure(2)
             scatter(iteration*tstep, disttogoal, 10, colordrones(i,:))
             hold on
+            grid on
             
             %Printing distance to closest obstacle, dynamic or static
             closestdist = min(closestdiststat, closestdistdynam)- raddrones;
             figure(3)
             scatter(iteration*tstep, closestdist, 10, colordrones(i,:))
             hold on
+            grid on
+            
+            %Printing velocity (norm)
+            vel = norm(vvec);
+            figure(4)
+            scatter(iteration*tstep, vel, 10, colordrones(i,:))
+            hold on
+            grid on
+            
         end
     end
     pause(0.01)

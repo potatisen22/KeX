@@ -13,9 +13,9 @@ z = 0;
 d = 0.5; %distance to change from conic to parabolic well
 
 %Constants for all the vehicles
-xi = 15; %scale factor for attractive potential
-eta = 15; %scale factor for repulsive potential
-p0 = 2; %radius of sphere of influence for repulsive potential
+xi = 10; %scale factor for attractive potential
+eta = 10; %scale factor for repulsive potential
+p0 = 2;%radius of sphere of influence for repulsive potential
 
 %Figures to plot
 %Real time environment with drones flying to goals
@@ -133,18 +133,21 @@ while(~ isequal(finished,completed))
             figure(2)
             scatter(iteration*tstep, disttogoal, 10, colordrones(i,:))
             hold on
+            grid on
             
             %Printing distance to closest obstacle, dynamic or static
             closestdist = min(closestdiststat, closestdistdynam)- raddrones;
             figure(3)
             scatter(iteration*tstep, closestdist, 10, colordrones(i,:))
             hold on
+            grid on
             
             %Printing velocity (norm)
-            n = norm(vvec);
+            vel = norm(vvec);
             figure(4)
-            scatter(iteration*tstep, n, 10, colordrones(i,:))
+            scatter(iteration*tstep, vel, 10, colordrones(i,:))
             hold on
+            grid on
         end
     end
     pause(0.01)
