@@ -329,7 +329,15 @@
 	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that will make this possible, it is really important that the vehicle can acquire precise information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also about the objects the vehicle may encounter throughput its path, as to make the navigation safe, and prevent and block possible crashes.\\
 
 		\subsection{Inertial Measurement Unit}
-		This module is in charge of measuring almost all the variables related to the movement of the vehicle. Usually inside this module  a 3-axis accelerometer, a 3-axis gyroscope and a 3-axis magnetometer can be found.
+		This module is in charge of measuring almost all the variables related to the movement of the vehicle. Usually inside this module  a 3-axis accelerometer, a 3-axis gyroscope and a 3-axis magnetometer can be found. The most affordable ones are those that cointain simply this three sensors integrated in the same circuit board by the manufacturer. The most expensive and precise IMUs integrate specially designed sensors and sometimes include a GPS, a RS232 transceiver and a processor, that runs a real-time Kalman filter in order to provide the most accurate data directly to the CPU. \\
+		
+		The sensors analised are the most accessible ones because of their simplicity, price and availability of open source libraries.\\
+		
+		\subsubsection{ADXL345 - Triple axis accelerometer} This digital sensor measures proper acceleration along the three axes in the body frame. the static acceleration of gravity in tiltsensing applications, 
+		
+		\subsubsection{ ITG3205- Triple axis gyroscope} 
+		
+		\subsubsection{HMC5883l - Triple axis magnetometer}
 		
 		\subsection{GPS receiver}
 		
