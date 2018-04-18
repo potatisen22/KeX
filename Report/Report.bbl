@@ -25,4 +25,9 @@
 T.~Bresciani, ``\BIBforeignlanguage{eng}{Modelling, identification and control
   of a quadrotor helicopter},'' 2008, student Paper.
 
+\bibitem{modelling_control_mahony}
+R.~Mahony, V.~Kumar, and P.~Corke, ``Multirotor aerial vehicles: Modeling,
+  estimation, and control of quadrotor,'' \emph{IEEE Robotics Automation
+  Magazine}, vol.~19, no.~3, pp. 20--32, Sept 2012.
+
 \end{thebibliography}

@@ -7,13 +7,12 @@
 \fi
 
 \hyphenation{op-tical net-works semi-conduc-tor}
-
 \usepackage{graphicx}
 \usepackage{bm}
 \usepackage{tikz}
 \usetikzlibrary{intersections, calc}
 \graphicspath{ {img/} }
-
+\newcommand*{\subb}[1]{_{\mathrm{#1}}}
 \tikzset{
 	partial ellipse/.style args={#1:#2:#3}{
 		insert path={+ (#1:#3) arc (#1:#2:#3)}
@@ -325,19 +324,24 @@
 	\bm{\tau}^B = \bm{I} \ \bm{\dot \omega}^B + \bm{\omega}^B \times (\bm{I} \ \bm{\omega}^B)
 	\end{equation}
 	
-	\section{Sensors}
+	\section{Measuring the UAV state}
 	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that will make this possible, it is really important that the vehicle can acquire precise information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also about the objects the vehicle may encounter throughput its path, as to make the navigation safe, and prevent and block possible crashes.\\
 
 		\subsection{Inertial Measurement Unit}
 		This module is in charge of measuring almost all the variables related to the movement of the vehicle. Usually inside this module  a 3-axis accelerometer, a 3-axis gyroscope and a 3-axis magnetometer can be found. The most affordable ones are those that cointain simply this three sensors integrated in the same circuit board by the manufacturer. The most expensive and precise IMUs integrate specially designed sensors and sometimes include a GPS, a RS232 transceiver and a processor, that runs a real-time Kalman filter in order to provide the most accurate data directly to the CPU. \\
 		
-		The sensors analised are the most accessible ones because of their simplicity, price and availability of open source libraries.\\
+
+		\subsubsection{Triple axis accelerometer} This sensor measures proper acceleration along the three axes on the body frame if the accelerometer's axes match these. It can measure dynamic acceleration as a result of the motion of the drone.  As shown in (\ref{eq:imu_accel}), the rotation matrix is used to change from acceleration provided by the IMU to the acceleration in the Earth frame \cite{modelling_control_mahony}.\\
+		\begin{equation} \label{eq:imu_accel}
+		\bm{a}\subb{IMU}= \bm{R}^T_\Theta \ (\bm{\ddot{x}}^E - g \bm{\vec{z}})
+		\end{equation}
 		
-		\subsubsection{ADXL345 - Triple axis accelerometer} This digital sensor measures proper acceleration along the three axes in the body frame. the static acceleration of gravity in tiltsensing applications, 
+		\subsubsection{Triple axis gyroscope} This sensor can measure angular rates in its three axes. Therefore, it  gives the angular velocity of the body frame relative to the Earth frame, expressed in the body frame (\ref{eq:imu_gyro}).\\
+		\begin{equation} \label{eq:imu_gyro}
+		\bm{\omega}\subb{IMU}= \bm{\omega}^B 
+		\end{equation}
 		
-		\subsubsection{ ITG3205- Triple axis gyroscope} 
-		
-		\subsubsection{HMC5883l - Triple axis magnetometer}
+		\subsubsection{Triple axis magnetometer}
 		
 		\subsection{GPS receiver}
 		
