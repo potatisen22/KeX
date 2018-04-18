@@ -225,18 +225,18 @@
 		\label{fig:roll_pitch_yaw}
 	\end{figure}
 	
-	The UAV is a rigid body quadcopter, with a cross-shaped body and four electrical propellers. Front and rear rotors rotate in a clockwise direction, while right and left rotors do it in a counterclockwise direction, can be seen in \figurename \ref{fig:frames_rotors}. Its motion has 6 degrees of freedom and there are only 4 propellers, therefore the system is underactuated. 
+	The UAV is a rigid body quadcopter, with a cross-shaped body and four electrical propellers. Front and rear rotors rotate in a clockwise direction, while right and left rotors rotate in a counterclockwise direction, this is illustrated in \figurename \ref{fig:frames_rotors}. Its motion has 6 degrees of freedom but there are only 4 propellers, therefore the system is underactuated. 
 	
 	\subsection{Notation}
 	
 	\subsection{Kinematics}
-	To describe the motion of the UAV without the forces and torques acting on it, a kinematic model for it will be developed.
+	We developed a kinematic model for the UAV to describe its motion.
 	
-	Two right-hand reference frames need to be defined: the Earth frame and the body frame, as can be seen in \figurename{\ref{fig:frames_rotors}}. 
+	Two right-hand reference frames was defined: the Earth frame and the body frame, as can be seen in \figurename{\ref{fig:frames_rotors}}. 
 	
-	The Earth frame is static, with the $x_E$ axis pointing towards the North, the $y_E$ axis pointing towards the West, and $z_E$ pointing upwards w.r.t. the Earth. The body frame is attached to the UAV, with the $x_B$ axis pointing towards the quadrotor's front, the $y_B$ axis pointing towards the left, and the $z_B$ axis pointing upwards. In this case, the axis origin $o_B$ coincides with the quadrotor's structure center.
+	The Earth frame is static, with the $x_E$ axis pointing towards the North, the $y_E$ axis pointing towards the West, and $z_E$ pointing upwards w.r.t. the Earth. The body frame is attached to the UAV, with the $x_B$ axis pointing towards the quadrotor's front, the $y_B$ axis pointing towards the left, and the $z_B$ axis pointing upwards. In this case, the axis origin $o_B$ coincides with the quadrotor's center of mass.
 	
-	The generalized position $\bm{\xi}$ contains the linear and angular position and it is described in the Earth frame, as in (\ref{eq:pos}). The linear position $\bm{x}^E$ of the UAV is the vector between the origin of the Earth frame $o_E$ and the origin of the body frame $o_B$, and the Euler angles $\bm{\eta}^E$ are defined as stated in \figurename{\ref{fig:roll_pitch_yaw}}.
+	The generalized position $\bm{\xi}$ contains the linear and angular position and is described in the Earth frame, as in (\ref{eq:pos}). The linear position $\bm{x}^E$ of the UAV is the vector between the origin of the Earth frame $o_E$ and the origin of the body frame $o_B$, and the Euler angles $\bm{\eta}^E$ are defined as stated in \figurename{\ref{fig:roll_pitch_yaw}}.
 	\begin{equation} \label{eq:pos}
 	\bm{\xi} = \left[ \begin{array}{cc}
 	\bm{x}^E & \bm{\eta}^E \\
@@ -350,16 +350,16 @@
 		\subsection{Ultrasound sensors}
 	
 	\section{Quadcopter control}
-	The controller used in this project to check that our drone is controllable and observable is an LQ-controller. An LQR utilizes a cost function and tries to minimize said cost function. the reason behind using a LQR is that it usually has smaller errors than a normal PID-controller [SOURCE] and since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting an error as small as possible.   
+	The controller used in this project is an LQ-controller. The controller is used to check that our mathematical model of the UAV is controllable and observable.  An LQR utilizes a cost function and minimises said cost function. the reason behind using a LQR is that it usually has smaller errors than a normal PID-controller [SOURCE] and since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting an error as small as possible.   
 	\section{Quadcopter navigation}
 	
 	\section{Simulation}
 	
 	
-	\section{Results and conclusion}
+	\section{Results}
 	It's bloody impossible to do this.
 	
-	\section{Future development}
+	\section{Discussion, conclusion and Future development}
 	
 	
 	
