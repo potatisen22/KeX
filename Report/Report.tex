@@ -230,9 +230,9 @@
 	\subsection{Notation}
 	
 	\subsection{Kinematics}
-	We developed a kinematic model for the UAV to describe its motion.
+	In order to describe its motion, a kinematic model for the UAV was developed.
 	
-	Two right-hand reference frames was defined: the Earth frame and the body frame, as can be seen in \figurename{\ref{fig:frames_rotors}}. 
+	Two right-hand reference frames are defined: the Earth frame and the body frame, as can be seen in \figurename{\ref{fig:frames_rotors}}. 
 	
 	The Earth frame is static, with the $x_E$ axis pointing towards the North, the $y_E$ axis pointing towards the West, and $z_E$ pointing upwards w.r.t. the Earth. The body frame is attached to the UAV, with the $x_B$ axis pointing towards the quadrotor's front, the $y_B$ axis pointing towards the left, and the $z_B$ axis pointing upwards. In this case, the axis origin $o_B$ coincides with the quadrotor's center of mass.
 	
@@ -325,7 +325,7 @@
 	\end{equation}
 	
 	\section{Measuring the UAV state}
-	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that will make this possible, it is really important that the vehicle can acquire precise information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also about the objects the vehicle may encounter throughput its path, as to make the navigation safe, and prevent and block possible crashes.\\
+	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that makes this possible, it is really important that the vehicle can acquire precise information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also about the objects the vehicle may encounter throughput its path, as to make the navigation safe and prevent and block possible crashes.\\
 
 		\subsection{Inertial Measurement Unit}
 		This module is in charge of measuring almost all the variables related to the movement of the vehicle. Usually inside this module  a 3-axis accelerometer, a 3-axis gyroscope and a 3-axis magnetometer can be found. The most affordable ones are those that cointain simply this three sensors integrated in the same circuit board by the manufacturer. The most expensive and precise IMUs integrate specially designed sensors and sometimes include a GPS, a RS232 transceiver and a processor, that runs a real-time Kalman filter in order to provide the most accurate data directly to the CPU. \\
@@ -336,14 +336,24 @@
 		\bm{a}\subb{IMU}= \bm{R}^T_\Theta \ (\bm{\ddot{x}}^E - g \bm{\vec{z}})
 		\end{equation}
 		
-		\subsubsection{Triple axis gyroscope} This sensor can measure angular rates in its three axes. Therefore, it  gives the angular velocity of the body frame relative to the Earth frame, expressed in the body frame (\ref{eq:imu_gyro}).\\
+		\subsubsection{Triple axis gyroscope} This device can measure angular rates in its three axes. Therefore, it  gives the angular velocity of the body frame relative to the Earth frame, expressed in the body frame (\ref{eq:imu_gyro}).\\
 		\begin{equation} \label{eq:imu_gyro}
 		\bm{\omega}\subb{IMU}= \bm{\omega}^B 
 		\end{equation}
 		
-		\subsubsection{Triple axis magnetometer}
+		\subsubsection{Triple axis magnetometer} This kind of sensors are able to measure the ambient magnetic field. Ideally this corresponds to the Earth's magnetic field, therefore the orientation of the vehicle can be measured (\ref{eq:imu_magne}).
+		\begin{equation} \label{eq:imu_magne}
+		\bm{m}\subb{IMU}= \bm{R}^T_\Theta \  \bm{m}\subb{Earth}
+		\end{equation}
+		Where $\bm{m}\subb{Earth}$ corresponds to the Earth's magnetic field expressed in the Earth frame. This measure can be accurate if the bias caused by the local magnetic disturbance $\bm{b}\subb{m}$ is taken into account (\ref{eq:imu_magne_bias}) and the sensor is places as far as possible from the elements that may cause this disturbance onboard the UAV, such as the wires that power the rotors \cite{modelling_control_mahony}.
+		\begin{equation} \label{eq:imu_magne_bias}
+		\bm{m}\subb{IMU}= \bm{R}^T_\Theta \  \bm{m}\subb{Earth} + \bm{b}\subb{m}
+		\end{equation}
+		
+		In all the specified sensors, bias and noise are also present. Gyroscopes are usually robust against this noise. But one placed in an UAV, accelerometers are affected by the vibration, and need filtering for its masurements to be considered reliable.
 		
 		\subsection{GPS receiver}
+		This device is basically a receiver that makes use of the satellite-based GPS system to calculate the vehicle's geographical position (longitude and latitude). Casual and inexpensive GPS devices have some meters of accuracy, therefore suplementary information from other sensors is needed in order to estimate the position of the vehicle as accurately as possible.
 		
 		\subsection{Infrared sensors}
 		
