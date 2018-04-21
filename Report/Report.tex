@@ -9,9 +9,11 @@
 \hyphenation{op-tical net-works semi-conduc-tor}
 \usepackage{graphicx}
 \usepackage{bm}
+\usepackage{siunitx}
 \usepackage{tikz}
 \usetikzlibrary{intersections, calc}
 \graphicspath{ {img/} }
+\pagenumbering{gobble}
 \newcommand*{\subb}[1]{_{\mathrm{#1}}}
 \tikzset{
 	partial ellipse/.style args={#1:#2:#3}{
@@ -227,8 +229,6 @@
 	
 	The UAV is a rigid body quadcopter, with a cross-shaped body and four electrical propellers. Front and rear rotors rotate in a clockwise direction, while right and left rotors rotate in a counterclockwise direction, this is illustrated in \figurename \ref{fig:frames_rotors}. Its motion has 6 degrees of freedom but there are only 4 propellers, therefore the system is underactuated. 
 	
-	\subsection{Notation}
-	
 	\subsection{Kinematics}
 	In order to describe its motion, a kinematic model for the UAV was developed.
 	
@@ -302,7 +302,7 @@
 	\end{equation}  
 	Where the notation $\mathbf{0}_{3\times 3}$ means a matrix filled with zeros with a $3 \times 3$ dimension.
 	
-	In order to relate the derivate of the generalized position in the Earth frame with the generalized velocity on the body frame, the transfer matrix (\ref{eq:transf}) can be used, and that is the final model of the quadrotor's kinematics.
+	In order to relate the derivate of the generalized position in the Earth frame with the generalized velocity on the body frame, the transfer matrix (\ref{eq:transf}) can be used, and that is the final model of the quadrotor's kinematics \cite{SabatinoFrancesco2015Qcmn, mod_control_bresciani}.
 	\begin{equation} \label{eq:derivpos_earth_body}
 	\bm{\dot \xi} %= \left[ {\begin{array}{c}
 	%	\dot x\\
@@ -324,7 +324,10 @@
 	\bm{\tau}^B = \bm{I} \ \bm{\dot \omega}^B + \bm{\omega}^B \times (\bm{I} \ \bm{\omega}^B)
 	\end{equation}
 	
-	\section{Measuring the UAV state}
+	\section{Quadcopter control}
+	The controller used in this project is an LQ-controller. The controller is used to check that our mathematical model of the UAV is controllable and observable.  An LQR utilizes a cost function and minimises said cost function. the reason behind using a LQR is that it usually has smaller errors than a normal PID-controller [SOURCE] and since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting an error as small as possible.   
+	
+	\section{Measuring the UAV state and environment}
 	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that makes this possible, it is really important that the vehicle can acquire precise information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also about the objects the vehicle may encounter throughput its path, as to make the navigation safe and prevent and block possible crashes.\\
 
 		\subsection{Inertial Measurement Unit}
@@ -353,15 +356,39 @@
 		In all the specified sensors, bias and noise are also present. Gyroscopes are usually robust against this noise. But one placed in an UAV, accelerometers are affected by the vibration, and need filtering for its masurements to be considered reliable.
 		
 		\subsection{GPS receiver}
-		This device is basically a receiver that makes use of the satellite-based GPS system to calculate the vehicle's geographical position (longitude and latitude). Casual and inexpensive GPS devices have some meters of accuracy, therefore suplementary information from other sensors is needed in order to estimate the position of the vehicle as accurately as possible.
+		This device is basically a receiver that makes use of the satellite-based Global Positioning System to calculate the vehicle's geographical position (longitude and latitude) thanks to a 24 satellite constellation around Earth and with trilateration. Casual and inexpensive GPS devices have some meters of accuracy, therefore either better GPS devices or suplementary information from other sensors are needed in order to estimate the position of the vehicle as accurately as possible. For example, motion tracking via smart cameras together with Simultaneous Localization and Mapping solver techniques \cite{modelling_control_mahony}. GPS may also not function indoors, so its usefulness is limited.
 		
 		\subsection{Infrared sensors}
+		In order to sense the UAV immediate surroundings, a device that is able to know if there is any obstacle around and its relative position to the drone is needed. An array of active infrared sensors correctly placed on the quadrotor is a good solution for this application. An IR sensor consists basically in a LED acting as a emitter and a photodetector acting as a receiver, both having a peak in the same wavelength for optimal power radiation and sensitivity respectively. The LED emits a light beam in the infrared range (\SI{700}{\nano \meter} to \SI{1}{\milli \meter} wavelength), and when the beam finds an obstacle, it is reflected. The receptor is a Position-Sensitive Device that is able to detect the angle of the received beam, and thefefore the device is able to detect the distance to the obstacle thanks to triangulation, as can be seen in \figurename\ref{fig:ir}.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=2.5in]{ir}
+			\caption{Infrared obstacle detection diagram}
+			\label{fig:ir}
+		\end{figure}
+		Since the light beam needs to be reflected by an object, its reflectance is an important factor to take into account, since poor reflective objects could not be detected on time.  Also, some other natural or artificial sources of radiation such as the Sun may cause interferences. To improve the circuit's response to interferences the signal must be properly conditioned and modulated \cite{mod_control_bresciani, remotecontrol}.
 		
-		\subsection{Ultrasound sensors}
-	
-	\section{Quadcopter control}
-	The controller used in this project is an LQ-controller. The controller is used to check that our mathematical model of the UAV is controllable and observable.  An LQR utilizes a cost function and minimises said cost function. the reason behind using a LQR is that it usually has smaller errors than a normal PID-controller [SOURCE] and since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting an error as small as possible.   
+		\subsection{Ultrasonic sensors}
+		This devices, together with the IR sensors, allow measuring the distance from the vehicle to an obstacle. An ultrasonic sensor consists of a high-frequency sound emitter and a receiver. Both are electrical signals \textendash \ sound wave transducers, and their operation is similar to the IR sensors: the emitted wave is reflected by the obstacle, and when received, the distance to the obstacle can be calculated based on the time of flight (TOF) of the signal in the air, as can be seen in \figurename \ref{fig:ultrasonic}. Since the velocity of the sound in the air is known, just by knowing the time that passed between emission and reception, the distance to the obstacle can be known, according to (\ref{eq:ultrasonic_formula}). 
+		
+		\begin{equation} \label{eq:ultrasonic_formula}
+		d\subb{obstacle} = \text{v}\subb{sound, air} \ \frac{TOF}{2}
+		\end{equation}
+		\begin{figure}
+			\centering
+			\includegraphics[width=2.5in]{ultrasonic2}
+			\caption{Ultrasonic obstacle detection diagram, obtained from \cite{hirata2008cross}}
+			\label{fig:ultrasonic}
+		\end{figure}
+		
+		This sensors may also be used to measure the height of the UAV, that can be combined with a barometer to know both the relative and absolute altitude. According to Adarsh in \cite{AdarshS2016PcoI}, both IR and ultrasonic sensors have usually high correlation between the measured values, except for some specific materials. Both types have proven to be accurate when performing further processing techniques of the acquired data.
+		
 	\section{Quadcopter navigation}
+	There are several methods to find the optimal path to follow from initial position to goal. In the case that is being studied in this paper, there are several UAVs flying towards their goals, in an environment filled with obstacles \cite{potfieldsmethod}.
+	
+	\begin{equation} \label{eq:pot_}
+	cucu
+	\end{equation}
 	
 	\section{Simulation}
 	

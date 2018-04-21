@@ -21,6 +21,11 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{SabatinoFrancesco2015Qcmn}
+F.~Sabatino and K.~H. Johansson, ``\BIBforeignlanguage{eng}{Quadrotor control:
+  modeling, nonlinearcontrol design, and simulation},'' KTH, Skolan för
+  elektro- och systemteknik (EES), Reglerteknik, 2015.
+
 \bibitem{mod_control_bresciani}
 T.~Bresciani, ``\BIBforeignlanguage{eng}{Modelling, identification and control
   of a quadrotor helicopter},'' 2008, student Paper.
@@ -29,5 +34,26 @@ T.~Bresciani, ``\BIBforeignlanguage{eng}{Modelling, identification and control
 R.~Mahony, V.~Kumar, and P.~Corke, ``Multirotor aerial vehicles: Modeling,
   estimation, and control of quadrotor,'' \emph{IEEE Robotics Automation
   Magazine}, vol.~19, no.~3, pp. 20--32, Sept 2012.
+
+\bibitem{remotecontrol}
+J.~A. Chávez and S.~Silvestre, ``\BIBforeignlanguage{eng}{Infrared remote
+  control systems},'' University lecture, UPC, Electronic Engineering
+  Department, 2017.
+
+\bibitem{hirata2008cross}
+S.~Hirata, M.~K. Kurosawa, and T.~Katagiri, ``Cross-correlation by single-bit
+  signal processing for ultrasonic distance measurement,'' \emph{IEICE
+  Transactions on Fundamentals of Electronics, Communications and Computer
+  Sciences}, vol.~91, no.~4, pp. 1031--1037, 2008.
+
+\bibitem{AdarshS2016PcoI}
+S.~Adarsh, S.~M. Kaleemuddin, D.~Bose, and K.~I. Ramachandran, ``Performance
+  comparison of infrared and ultrasonic sensors for obstacles of different
+  materials in vehicle/ robot navigation applications,'' \emph{IOP Conference
+  Series: Materials Science and Engineering}, vol. 149, no.~1, September 2016.
+
+\bibitem{potfieldsmethod}
+N.~Amato, ``\BIBforeignlanguage{eng}{Potential field methods},'' University
+  lecture, Universit\`a degli Studi di Padova, 2004.
 
 \end{thebibliography}
