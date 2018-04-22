@@ -397,10 +397,13 @@
 		This sensors may also be used to measure the height of the UAV, that can be combined with a barometer to know both the relative and absolute altitude. According to Adarsh in \cite{AdarshS2016PcoI}, both IR and ultrasonic sensors have usually high correlation between the measured values, except for some specific materials. Both types have proven to be accurate when performing further processing techniques of the acquired data.
 		
 	\section{Quadcopter navigation}
-	There are several methods to find the optimal path to follow from initial position to goal. In the case that is being studied in this paper, there are several UAVs flying towards their goals, in an environment filled with obstacles \cite{potfieldsmethod}.
+	There are several methods to find the optimal path to follow from an initial position to a goal. In the case that is being studied in this paper, there are many UAVs flying towards their goals, in an environment filled with obstacles. Some proposed methods to solve this problem are Rapidly-exploring Random Tree (RRT) algorithms or A* search algorithms and other Dijkstra extensions.	Nonetheless, these techniques do not perform the greatest when the test environment is constantly changing. These methods have performed exellent when finding the appropriate path to follow in a labyrinth-like environment. But if the environment is different in every iteration, the algorithms is be inefficient since the vehicle may end up following a complex path \cite{lavalle_rrt, lavalle_astar}.\\
 	
+	There is the need of a simple, movement-efficient algorithm that can drive the vehicle to its goal using a short path, while being computationally fast. Our proposal is to use the potential fields method. With this technique, since the main objective is to avoid obstacles in an open environment, computational speed and optimal path following can be achieved, with simple and elegant calculations\cite{Ge2002}. The main objective is to test how a lot of UAVs would move in the same environment and if the potential field method can be considered good enough.\\
+	
+	Potential fields are based in the calculation, for each point in the space, of a function that is the sum of an attractive and a repulsive pottential, that will condition the movement of the vehicle for one iteration \cite{potfieldsmethod}.
 	\begin{equation} \label{eq:pot_}
-	cucu
+	equation
 	\end{equation}
 	
 	\section{Simulation}
