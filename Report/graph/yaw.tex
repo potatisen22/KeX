@@ -1,5 +1,5 @@
 % !TeX root=../Report.tex 
-\begin{tikzpicture}
+\begin{tikzpicture}		
 	\draw[line width=0.25mm, name path=eldownleft] (0,0) ellipse (0.6 and 0.3);
 	\draw[line width=0.25mm, name path=eldownright] (4,0) ellipse(0.6 and 0.3);
 	\draw[line width=0.25mm, name path=elupright] (4,2) ellipse (0.6 and 0.3);
@@ -14,25 +14,12 @@
 	\draw [name intersections={of=eldownright and downright}][line width=0.25mm] (intersection-1) -- (2,1);
 	\draw [name intersections={of=elupright and upright}][line width=0.25mm] (intersection-1) -- (2,1);
 	\draw [name intersections={of=elupleft and upleft}][line width=0.25mm] (intersection-1) -- (2,1);
-	
-	\draw[line width=0.45mm,-latex] (0,0) -- (0,1) node [above] {$F_3$};
-	\draw[line width=0.45mm,-latex] (4,0) -- (4,1) node [above] {$F_2$};;
-	\draw[line width=0.45mm,-latex] (0,2) -- (0,3) node [above] {$F_4$};;
-	\draw[line width=0.45mm,-latex] (4,2) -- (4,3) node [above] {$F_1$};;
-	
-	\draw[line width=0.25mm, ->] (0,0.7) [partial ellipse=40:-230:0.5 and 0.2];
-	\draw[line width=0.25mm, ->] (4,0.7) [partial ellipse=-230:40:0.5 and 0.2];
-	\draw[line width=0.25mm, ->] (0,2.7) [partial ellipse=-230:40:0.5 and 0.2];
-	\draw[line width=0.25mm, ->] (4,2.7) [partial ellipse=40:-230:0.5 and 0.2];
-	
+		
 	\draw [name intersections={of=elupright and upright}][line width=0.6mm, -latex] (2,1) -- ($(2,1)!0.7!(intersection-1)$) node [xshift=-4mm, yshift=2mm] {$x_{\scriptscriptstyle B}$};
 	\draw [name intersections={of=elupleft and upleft}][line width=0.6mm, -latex] (2,1) -- ($(2,1)!0.7!(intersection-1)$) node [xshift=4mm, yshift=2mm] {$y_{\scriptscriptstyle B}$};
-	\draw [line width=0.6mm, -latex] (2,1) node [yshift=-4mm] {$o_{\scriptscriptstyle B}$} -- (2,2.3) node [above] {$z_{\scriptscriptstyle B}$};
-	
-	\draw [line width=0.6mm, -latex] (3.97,-3) node [yshift=-4mm] {$o_{\scriptscriptstyle E}$} -- (5,-2.5) node [above] {$x_{\scriptscriptstyle E}$};
-	\draw [line width=0.6mm, -latex] (4,-3) -- (4,-1.7) node [above] {$z_{\scriptscriptstyle E}$};
-	\draw [line width=0.6mm, -latex] (4,-3) -- (3,-2.5) node [above] {$y_{\scriptscriptstyle E}$};
-	
+	\draw [line width=0.3mm, gray, dotted, -latex] (2,1) -- (2,2.3) node [above] {$z_{\scriptscriptstyle B}$};
+
+	\draw[line width=0.25mm, -latex, red] (2,1) [partial ellipse=40:290:0.8 and 0.5]; 
+	\draw[line width=0.25mm, red] (2,1) node [yshift=-9mm] {Yaw $\psi$};
 	
 \end{tikzpicture}
-

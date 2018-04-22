@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  22 APR 2018 10:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  22 APR 2018 14:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -853,54 +853,57 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
-(./graph/roll_pitch_yaw.tex) [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdf
-tex/updmap/pdftex.map}
+(./graph/roll.tex) (./graph/pitch.tex) (./graph/yaw.tex)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
 
  []
 
 
-Underfull \hbox (badness 2277) in paragraph at lines 343--344
+Underfull \hbox (badness 2277) in paragraph at lines 345--346
 \OT1/ptm/m/n/10 ones are those that coin-tain sim-ply this three sen-sors
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--344
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--347
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 351--352
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
 
  []
 
-[2] <img/ir.png, id=26, 682.55pt x 363.3575pt>
+<img/ir.png, id=26, 682.55pt x 363.3575pt>
 File: img/ir.png Graphic file (type png)
  <use img/ir.png>
-Package pdftex.def Info: img/ir.png used on input line 374.
+Package pdftex.def Info: img/ir.png used on input line 376.
 (pdftex.def)             Requested size: 180.67499pt x 96.17838pt.
 
 <img/ultrasonic2.png, id=28, 1224.575pt x 705.63625pt>
 File: img/ultrasonic2.png Graphic file (type png)
 
 <use img/ultrasonic2.png>
-Package pdftex.def Info: img/ultrasonic2.png used on input line 388.
+Package pdftex.def Info: img/ultrasonic2.png used on input line 390.
 (pdftex.def)             Requested size: 180.67499pt x 104.10736pt.
- (./Report.bbl
+ [3 <./img/ir.png> <./img/ultrasonic2.png>]
+(./Report.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
 Missing character: There is no √ in font ptmr7t!
 Missing character: There is no ∂ in font ptmr7t!
-[3 <./img/ir.png> <./img/ultrasonic2.png>]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
@@ -916,13 +919,13 @@ Missing character: There is no Å in font ptmr7t!
 
 ] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 22766 strings out of 492995
- 486027 string characters out of 6132704
- 495362 words of memory out of 5000000
- 26005 multiletter control sequences out of 15000+600000
+ 22832 strings out of 492995
+ 487337 string characters out of 6132704
+ 511420 words of memory out of 5000000
+ 26065 multiletter control sequences out of 15000+600000
  47768 words of font info for 100 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 63i,8n,344p,10374b,965s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,9n,344p,10374b,963s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.e
 nc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
 b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
@@ -938,7 +941,7 @@ texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/20
 17/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/texmf-
 dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (4 pages, 891279 bytes).
+Output written on Report.pdf (4 pages, 893125 bytes).
 PDF statistics:
  82 PDF objects out of 1000 (max. 8388607)
  57 compressed objects within 1 object stream

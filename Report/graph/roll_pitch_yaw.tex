@@ -1,4 +1,26 @@
 % !TeX root=../Report.tex 
-\begin{tikzpicture}
+\begin{tikzpicture}		
+	\draw[line width=0.25mm, name path=eldownleft] (0,0) ellipse (0.6 and 0.3);
+	\draw[line width=0.25mm, name path=eldownright] (4,0) ellipse(0.6 and 0.3);
+	\draw[line width=0.25mm, name path=elupright] (4,2) ellipse (0.6 and 0.3);
+	\draw[line width=0.25mm, name path=elupleft] (0,2) ellipse (0.6 and 0.3);
+	
+	\path [name path= downleft] (0,0) -- (2,1);
+	\path [name path= upleft] (0,2) -- (2,1);
+	\path [name path= downright] (4,0) -- (2,1);
+	\path [name path= upright] (4,2) -- (2,1);
+	
+	\draw [name intersections={of=eldownleft and downleft}][line width=0.25mm] (intersection-1) --(2,1);
+	\draw [name intersections={of=eldownright and downright}][line width=0.25mm] (intersection-1) -- (2,1);
+	\draw [name intersections={of=elupright and upright}][line width=0.25mm] (intersection-1) -- (2,1);
+	\draw [name intersections={of=elupleft and upleft}][line width=0.25mm] (intersection-1) -- (2,1);
+		
+	\draw [name intersections={of=elupright and upright}][line width=0.6mm, -latex] (2,1) -- ($(2,1)!0.7!(intersection-1)$) node [xshift=-4mm, yshift=2mm] {$x_{\scriptscriptstyle B}$};
+	\draw [name intersections={of=elupleft and upleft}][line width=0.6mm, -latex] (2,1) -- ($(2,1)!0.7!(intersection-1)$) node [xshift=4mm, yshift=2mm] {$y_{\scriptscriptstyle B}$};
+	\draw [line width=0.3mm, gray, dotted, -latex] (2,1) -- (2,2.3) node [above] {$z_{\scriptscriptstyle B}$};
+	
+	\draw[line width=0.25mm, -latex, red] (2,1) [partial ellipse=198:22:0.5 and 0.8];
 	
 \end{tikzpicture}
+
+%\draw[line width=0.25mm, -latex, red] (2,1) [partial ellipse=340:160:0.7 and 1];
