@@ -328,15 +328,17 @@
 	
 	\section{Quadcopter control}
 	The controller used in this project is an LQ-controller. The controller is used to check that our mathematical model of the UAV is controllable and observable.  An LQR utilizes a cost function and minimises said cost function. To be able to create our LQR we first had to construct the steady state form of our model in the following way
-	\begin{equation} \label{eq:steady_state}
+	\begin{equation} \label{eq:steady_state_1}
 			\bm{\dot x} = \bm{A} \bm{x} + \bm{B} \bm{u}
-			\bm{y} = \bm{C} \bm{x}
 	\end{equation}
+	
+	\begin{equation} \label{eq:steady_state_2}
+	\bm{y} = \bm{C} \bm{x}
+	\end{equation}
+	
 	 linearise our kinematics/dynamics model to be able to make a steady state model of our UAV. the linearisation 
-	
-	
-	
-	  the reason behind using a LQR is that it usually has smaller errors than a normal PID-controller [SOURCE] and since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting an error as small as possible.   
+	TEST TEST TEST TEST
+	the reason behind using a LQR is that it usually has smaller errors than a normal PID-controller [SOURCE] and since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting an error as small as possible.   
 	
 	\section{Measuring the UAV state and environment}
 	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that makes this possible, it is really important that the vehicle can acquire precise information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also about the objects the vehicle may encounter throughput its path, as to make the navigation safe and prevent and block possible crashes.\\
