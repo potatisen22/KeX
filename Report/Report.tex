@@ -11,7 +11,7 @@
 \usepackage{bm}
 \usepackage{siunitx}
 \usepackage{tikz}
-\usetikzlibrary{intersections, calc}
+\usetikzlibrary{intersections, calc, shapes, arrows}
 \graphicspath{ {img/} }
 \pagenumbering{gobble}
 \newcommand*{\subb}[1]{_{\mathrm{#1}}}
@@ -20,6 +20,13 @@
 		insert path={+ (#1:#3) arc (#1:#2:#3)}
 	}
 }
+
+\tikzstyle{block} = [draw, fill=blue!20, rectangle, 
+    minimum height=3em, minimum width=6em]
+\tikzstyle{sum} = [draw, fill=blue!20, circle, node distance=1cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
 
 \begin{document}
 	% paper title
@@ -34,10 +41,8 @@
 	% use \thanks{} to gain access to the first footnote area
 	% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
 	% was not built to handle multiple paragraphs
-	%
-	
-	
-	
+	%	
+		
 	% note the % following the last \IEEEmembership and also \thanks -
 	% these prevent an unwanted space from occurring between the last author name
 	% and the end of the author line. i.e., if you had this:
@@ -327,7 +332,15 @@
 	\end{equation}
 	
 	\section{Quadcopter control}
-	The controller used in this project is an LQ-controller. The controller is used to check that our mathematical model of the UAV is controllable and observable.  An LQR utilizes a cost function and minimises said cost function. To be able to create our LQR we first had to construct the steady state form of our model in the following way
+	The individual UAV systems in this project could be described with a block diagram as the one pictured in figure (\ref{fig:block_diagram})
+	\begin{figure}[h]
+		\centering
+		\input{graph/block_diagram}
+		\caption{block diagram for individual quadrotor}
+		\label{fig:block_diagram}
+	\end{figure}	
+	
+	The controller used in this project is an LQ-controller. The controller is used to check that our mathematical model of the UAV is controllable, observable and that it can be controlled well enough to do steady flight operations.  An LQR utilizes a cost function and minimises said cost function to optimise the controller. To be able to create our LQR we first had to construct the steady state form of our model by linearising the mathematical model and rewriting it in the form of equation (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2})
 	\begin{equation} \label{eq:steady_state_1}
 			\bm{\dot x} = \bm{A} \bm{x} + \bm{B} \bm{u}
 	\end{equation}
@@ -336,9 +349,20 @@
 	\bm{y} = \bm{C} \bm{x}
 	\end{equation}
 	
-	 linearise our kinematics/dynamics model to be able to make a steady state model of our UAV. the linearisation 
-	TEST TEST TEST TEST
-	the reason behind using a LQR is that it usually has smaller errors than a normal PID-controller [SOURCE] and since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting an error as small as possible.   
+	To design the LQR we then use some of the constants in the steady state equation to express the Q matrix in the following way.
+	
+	\begin{equation}
+	\bm{Q}=\bm{C^}{T}\bm{C}\alpha_{1}
+	\end{equation}
+	
+	where $\alpha_{1}$ is a scaling factor for our $\bm{Q}$ matrix.
+	the Q matrices is then implemented into the following function J.
+	
+	\begin{equation}
+	J = \int_{0}^{\infty} (\bm{x}^{T}(t)\bm{Q}\bm{x}(t)+\bm{u}^2(t)) dt
+	\end{equation}
+	
+	 J is then minimised to obtain the optimal LQR with the given $\alpha_{1}$. The reason behind using a LQR is that it usually has smaller errors than a normal PID-controller [SOURCE] and since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting the deviations from the optimal track to be as small as possible.   
 	
 	\section{Measuring the UAV state and environment}
 	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that makes this possible, it is really important that the vehicle can acquire precise information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also about the objects the vehicle may encounter throughput its path, as to make the navigation safe and prevent and block possible crashes.\\
@@ -397,13 +421,10 @@
 		This sensors may also be used to measure the height of the UAV, that can be combined with a barometer to know both the relative and absolute altitude. According to Adarsh in \cite{AdarshS2016PcoI}, both IR and ultrasonic sensors have usually high correlation between the measured values, except for some specific materials. Both types have proven to be accurate when performing further processing techniques of the acquired data.
 		
 	\section{Quadcopter navigation}
-	There are several methods to find the optimal path to follow from an initial position to a goal. In the case that is being studied in this paper, there are many UAVs flying towards their goals, in an environment filled with obstacles. Some proposed methods to solve this problem are Rapidly-exploring Random Tree (RRT) algorithms or A* search algorithms and other Dijkstra extensions.	Nonetheless, these techniques do not perform the greatest when the test environment is constantly changing. These methods have performed exellent when finding the appropriate path to follow in a labyrinth-like environment. But if the environment is different in every iteration, the algorithms is be inefficient since the vehicle may end up following a complex path \cite{lavalle_rrt, lavalle_astar}.\\
+	There are several methods to find the optimal path to follow from initial position to goal. In the case that is being studied in this paper, there are several UAVs flying towards their goals, in an environment filled with obstacles \cite{potfieldsmethod}.
 	
-	There is the need of a simple, movement-efficient algorithm that can drive the vehicle to its goal using a short path, while being computationally fast. Our proposal is to use the potential fields method. With this technique, since the main objective is to avoid obstacles in an open environment, computational speed and optimal path following can be achieved, with simple and elegant calculations\cite{Ge2002}. The main objective is to test how a lot of UAVs would move in the same environment and if the potential field method can be considered good enough.\\
-	
-	Potential fields are based in the calculation, for each point in the space, of a function that is the sum of an attractive and a repulsive pottential, that will condition the movement of the vehicle for one iteration \cite{potfieldsmethod}.
 	\begin{equation} \label{eq:pot_}
-	equation
+	cucu
 	\end{equation}
 	
 	\section{Simulation}
@@ -413,7 +434,7 @@
 	It's bloody impossible to do this.
 	
 	\section{Discussion, conclusion and Future development}
-	
+	future projects could try to actually control the simulated drones with the controller we designed to see if it will actually provide a safe control of the drones. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to A*, potential fields and so fort. another interesting application is to actually try to implement the navigation system into a real quadrocopter and see how well it functions.	
 	
 	
 	% if have a single appendix:
