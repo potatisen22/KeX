@@ -339,8 +339,7 @@
 		\caption{block diagram for individual quadrotor}
 		\label{fig:block_diagram}
 	\end{figure}	
-	
-	The controller used in this project is an LQ-controller. The controller is used to check that our mathematical model of the UAV is controllable, observable and that it can be controlled well enough to do steady flight operations.  An LQR utilizes a cost function and minimises said cost function to optimise the controller. To be able to create our LQR we first had to construct the steady state form of our model by linearising the mathematical model and rewriting it in the form of equation (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2})
+	To check that our quadrotor system is controllable and observable we linearise the mathematical model of the quadrotor and then rewrite it to construct the steady state form of our model in the form of equation (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2})
 	\begin{equation} \label{eq:steady_state_1}
 			\bm{\dot x} = \bm{A} \bm{x} + \bm{B} \bm{u}
 	\end{equation}
@@ -349,7 +348,8 @@
 	\bm{y} = \bm{C} \bm{x}
 	\end{equation}
 	
-	To design the LQR we then use some of the constants in the steady state equation to express the Q matrix in the following way.
+	
+	Since all the states of the system is both observable and controlable The controller used in this project is an LQ-controller. The controller is used to check that our mathematical model of the UAV can be controlled well enough to do steady flight operations.  An LQR utilizes a cost function and minimises said cost function to optimise the controller \cite{bokLQ}. To design the LQR we use some of the constants in the steady state equation to express the Q matrix in the following way.
 	
 	\begin{equation}
 	\bm{Q}=\bm{C^}{T}\bm{C}\alpha_{1}
@@ -421,14 +421,14 @@
 		This sensors may also be used to measure the height of the UAV, that can be combined with a barometer to know both the relative and absolute altitude. According to Adarsh in \cite{AdarshS2016PcoI}, both IR and ultrasonic sensors have usually high correlation between the measured values, except for some specific materials. Both types have proven to be accurate when performing further processing techniques of the acquired data.
 		
 	\section{Quadcopter navigation}
-	There are several methods to find the optimal path to follow from initial position to goal. In the case that is being studied in this paper, there are several UAVs flying towards their goals, in an environment filled with obstacles \cite{potfieldsmethod}.
+	There are several methods to find the optimal path to follow from initial position to goal. In the case that is being studied in this paper, there are several UAVs flying towards their goals, in an environment filled with obstacles. One easy to implement method to use is the potentiafieldsmethod.  \cite{potfieldsmethod}.
 	
 	\begin{equation} \label{eq:pot_}
 	cucu
 	\end{equation}
 	
 	\section{Simulation}
-	
+	The simulation is done in Matlab by implementing the potential fields functions in a matlab script 	
 	
 	\section{Results}
 	It's bloody impossible to do this.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6670 64-bit) (preloaded format=pdflatex 2018.4.23)  23 APR 2018 15:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6670 64-bit) (preloaded format=pdflatex 2018.4.23)  24 APR 2018 18:48
 entering extended mode
 **./Report.tex
 (Report.tex
@@ -1118,18 +1118,6 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 ]
-
-LaTeX Warning: Citation `SabatinoFrancesco2015Qcmn' on page  undefined on input
- line 312.
-
-
-LaTeX Warning: Citation `mod_control_bresciani' on page  undefined on input lin
-e 312.
-
-
-LaTeX Warning: Citation `mod_control_bresciani' on page  undefined on input lin
-e 326.
-
 (graph/block_diagram.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 368--369
 
@@ -1146,10 +1134,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 371--372
  []
 
 
-LaTeX Warning: Citation `modelling_control_mahony' on page  undefined on input 
-line 374.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 374--375
 
  []
@@ -1159,78 +1143,75 @@ Underfull \hbox (badness 10000) in paragraph at lines 379--380
 
  []
 
-
-LaTeX Warning: Citation `modelling_control_mahony' on page  undefined on input 
-line 388.
-
-
-LaTeX Warning: Citation `modelling_control_mahony' on page  undefined on input 
-line 396.
-
 <img/ir.png, id=25, 682.55pt x 363.3575pt>
 File: img/ir.png Graphic file (type png)
 <use img/ir.png>
 Package pdftex.def Info: img/ir.png  used on input line 402.
 (pdftex.def)             Requested size: 180.67499pt x 96.17838pt.
-
-LaTeX Warning: Citation `mod_control_bresciani' on page  undefined on input lin
-e 406.
-
-
-LaTeX Warning: Citation `remotecontrol' on page  undefined on input line 406.
-
 [3 <./img/ir.png>]
 <img/ultrasonic2.png, id=31, 1224.575pt x 705.63625pt>
 File: img/ultrasonic2.png Graphic file (type png)
 <use img/ultrasonic2.png>
 Package pdftex.def Info: img/ultrasonic2.png  used on input line 416.
 (pdftex.def)             Requested size: 180.67499pt x 104.10736pt.
+ (Report.bbl
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `eng'. Using the pattern for
+** the default language instead.
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `eng'. Using the pattern for
+** the default language instead.
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `swe'. Using the pattern for
+** the default language instead.
 
+! Package inputenc Error: Unicode character ́ (U+301)
+(inputenc)                not set up for use with LaTeX.
 
-LaTeX Warning: Citation `hirata2008cross' on page  undefined on input line 417.
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.44 J.~A. Chá
+                vez and S.~Silvestre, ``\BIBforeignlanguage{eng}{Infrared re...
 
+You may provide a definition with
+\DeclareUnicodeCharacter 
 
-
-LaTeX Warning: Citation `AdarshS2016PcoI' on page  undefined on input line 421.
-
-
-
-LaTeX Warning: Citation `potfieldsmethod' on page  undefined on input line 424.
-
-
-No file Report.bbl.
-[4 <./img/ultrasonic2.png>] (Report.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `eng'. Using the pattern for
+** the default language instead.
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `eng'. Using the pattern for
+** the default language instead.
+) [4 <./img/ultrasonic2.png>] (Report.aux) ) 
 Here is how much of TeX's memory you used:
- 26259 strings out of 492976
- 584519 string characters out of 3125865
- 632792 words of memory out of 3000000
- 29761 multiletter control sequences out of 15000+200000
- 575478 words of font info for 109 fonts, out of 3000000 for 9000
+ 26279 strings out of 492976
+ 584866 string characters out of 3125865
+ 632814 words of memory out of 3000000
+ 29780 multiletter control sequences out of 15000+200000
+ 574400 words of font info for 108 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
  63i,9n,344p,10376b,947s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.e
-nc}<C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmbx10.pfb><C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmex10.pfb><C:/Users/Vilhelm/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Vilhelm/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Vilhelm
-/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:
-/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmmib10.pfb><C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb><C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Vilhelm/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Vilhelm/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/
-Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/
-Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.p
-fb><C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/ut
-mr8a.pfb><C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/ti
-mes/utmri8a.pfb>
-Output written on Report.pdf (4 pages, 906374 bytes).
+{C:/Users/Vilhelm/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/Vilhelm/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Vilhelm/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
+Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb><C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi5.pfb><C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Vilhelm/AppData/Local/Programs
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Vilhelm/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/
+Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.p
+fb><C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb><C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Vilhelm/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Vilhelm/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Vilhelm/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Vilhelm/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Report.pdf (4 pages, 908868 bytes).
 PDF statistics:
  80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
