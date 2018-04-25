@@ -14,45 +14,45 @@ Database file #1: bib.bib
 Warning--empty journal in lavalle_rrt
 
 Done.
-You've used 11 entries,
+You've used 12 entries,
             4087 wiz_defined-function locations,
-            901 strings with 9328 characters,
-and the built_in function-call counts, 7133 in all, are:
-= -- 581
-> -- 137
-< -- 55
-+ -- 76
-- -- 22
-* -- 354
-:= -- 1118
-add.period$ -- 22
-call.type$ -- 11
-change.case$ -- 12
-chr.to.int$ -- 126
-cite$ -- 12
-duplicate$ -- 527
-empty$ -- 580
-format.name$ -- 29
-if$ -- 1635
+            908 strings with 9560 characters,
+and the built_in function-call counts, 8279 in all, are:
+= -- 665
+> -- 161
+< -- 71
++ -- 89
+- -- 24
+* -- 409
+:= -- 1262
+add.period$ -- 24
+call.type$ -- 12
+change.case$ -- 13
+chr.to.int$ -- 171
+cite$ -- 13
+duplicate$ -- 598
+empty$ -- 676
+format.name$ -- 32
+if$ -- 1913
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 91
-newline$ -- 58
-num.names$ -- 11
-pop$ -- 210
+int.to.str$ -- 12
+missing$ -- 101
+newline$ -- 61
+num.names$ -- 12
+pop$ -- 239
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 541
+skip$ -- 624
 stack$ -- 0
-substring$ -- 294
-swap$ -- 419
-text.length$ -- 13
+substring$ -- 394
+swap$ -- 486
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 11
+type$ -- 12
 warning$ -- 1
-while$ -- 29
-width$ -- 13
-write$ -- 126
+while$ -- 33
+width$ -- 14
+write$ -- 135
 (There was 1 warning)

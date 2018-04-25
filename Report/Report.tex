@@ -425,7 +425,7 @@
  	
 		There is the need of a simple, movement-efficient algorithm that can drive the vehicle to its goal using a short path, while being computationally fast. Our proposal is to use the potential fields method. With this technique, since the main objective is to avoid obstacles in an open environment, computational speed and optimal path following can be achieved, with simple and elegant calculations\cite{Ge2002}. The main objective is to test how a lot of UAVs would move in the same environment and if the potential field method can be considered good enough.\\
 	
-		Potential fields are based in the calculation, for each point in the space, of a function that is the sum of an attractive and a repulsive potential, that will condition the movement of the vehicle for one iteration. The repulsive and the attractive potentials are calculated according to \cite{potfieldsmethod}, as can be seen in equations (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) respectively.
+		Potential fields are based in the calculation, for each point in the space, of a function that is the sum of an attractive and a repulsive potential, that will condition the movement of the vehicle for one iteration. The repulsive and the attractive potentials are calculated according to \cite{potfieldsmethod}, as can be seen in equations (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) respectively. The attractive potential is produced by how close the vehicle is to the goal, and the repulsive potential is produced by how close it is to the nearest obstacle. 
  		\begin{equation} \label{eq:pot_att}
 			U\subb{att}(\bm{q}) =  \left\lbrace  {\begin{array}{cc}
 				\frac{1}{2} \xi \rho\subb{goal}^2(\bm{q})& \textrm{if} \ \rho\subb{goal}(\bm{q})\leq d \\
@@ -441,12 +441,12 @@
  			0 &\textrm{if} \ \rho\subb{obst}(\bm{q})> \rho\subb{0} \\
  			\end{array} } \right.
  		\end{equation}
-	Where $\bm{q}$ is the vehicle's linear position in the space. $\rho\subb{goal}(\bm{q})$ and $\rho\subb{obst}(\bm{q})$ are the distances from the vehicle to the goal or to the nearest obstacle respectively, calculated with the Euclidean norm $\rho\subb{x}(\bm{q}) = \parallel \bm{q} - \bm{q\subb{x}}\parallel$. $d$ is the distance to change from parabolic to conic well as to make the attractive potential smoother, and $\rho\subb{0}$ is the radius of the sphere of influence of the UAV, as to detect near obstacles. Finally, $\xi$ and $\eta$ are positive scaling factors. \\ 
+	Where $\bm{q} = \left[ {\begin{array}{ccc} x \ \ y \ \ z \end{array} } \right]^T $ is the vehicle's linear position in the space for the 3D case. $\rho\subb{goal}(\bm{q})$ and $\rho\subb{obst}(\bm{q})$ are the distances from the vehicle to the goal or to the nearest obstacle respectively, calculated with the Euclidean norm $\rho\subb{x}(\bm{q}) = \parallel \bm{q} - \bm{q\subb{x}}\parallel$. $d$ is the distance to change from 'parabolic' to 'conic well' as to keep the attractive force bounded, and $\rho\subb{0}$ is the radius of the sphere of influence of the UAV, as to detect near obstacles. Finally, $\xi$ and $\eta$ are positive scaling factors. \\
 	
-	After establishing the potential function, the desired force that the vehicle should make in order to advance in space according to the potential function is calculated with equation (\ref{eq:force_from_pot}), leading to equations () and () that show the calculation of this repulsive and attractive forces.
+	After establishing the potential function, the desired force that the vehicle should make in order to advance in space according to the potential function is calculated with (\ref{eq:force_from_pot}), since the $\bm{\nabla} U$ is a vector that points in the direction where U changes faster, while at configuration $\bm{q}$. This leads to (\ref{eq:force_att}) and (\ref{eq:force_rep}), that show the calculation of this repulsive and attractive forces.
 	
 	\begin{equation} \label{eq:force_from_pot}
-		\vec{F}(\bm{q}) = - \nabla U(\bm{q})
+		\vec{F}(\bm{q}) = - \bm{\nabla} U(\bm{q})
 	\end{equation}
 	\begin{equation} \label{eq:force_att}
 		\vec{F}\subb{att}(\bm{q}) =  \left\lbrace  {\begin{array}{cc}
@@ -459,12 +459,26 @@
 	\begin{equation} \label{eq:force_rep}	
 		\resizebox{0.42\textwidth}{!}{ $
 		\vec{F}\subb{rep}(\bm{q}) =  \left\lbrace  {\begin{array}{cc}
-		\eta (\frac{1}{\rho\subb{obst}(\bm{q})}-\frac{1}{\rho\subb{0}})(\frac{1}{\rho\subb{obst}^2(\bm{q})})\frac{(\bm{q}-\bm{q\subb{obst}})}{\parallel\bm{q}-\bm{q\subb{obst}}\parallel} & \textrm{if} \ \rho\subb{obst}(\bm{q})\leq d \\
+		\eta (\frac{1}{\rho\subb{obst}(\bm{q})}-\frac{1}{\rho\subb{0}})(\frac{1}{\rho\subb{obst}^2(\bm{q})})\frac{(\bm{q}-\bm{q\subb{obst}})}{\parallel\bm{q}-\bm{q\subb{obst}}\parallel} & \textrm{if} \ \rho\subb{obst}(\bm{q})\leq \rho\subb{0} \\
 		\\
 		0 &\textrm{if} \ \rho\subb{obst}(\bm{q})> \rho\subb{0} \\
-		\end{array} } \right.
-	$}
+		\end{array} } \right. $}
 	\end{equation}
+	
+	It can be seen how for attractive forces far from the goal, in fucntion of the value of $d$, this force is bounded, with the purpose of not letting the attractive force grow indefinitely when far from the goal. This is the main purpose of separating the attractive potential into a 'conic well' first, and change with a continuous function to the 'parabolic' well when approaching the goal. Finally, the repulsive and attractive potentials and forces are added, according to (\ref{eq:pot_total}) and (\ref{eq:force_total}), in order to obtain the total value. 
+	\begin{equation} \label{eq:pot_total}
+	U\subb{total}(\bm{q}) = U\subb{att}(\bm{q}) + U\subb{rep}(\bm{q})
+	\end{equation}
+	\begin{equation} \label{eq:force_total}
+	\vec{F}\subb{total}(\bm{q}) = \vec{F}\subb{att}(\bm{q}) + \vec{F}\subb{rep}(\bm{q})
+	\end{equation}
+	
+	To simplify the simulations, first order dynamics are assumed for the quadcopter model, resulting in the control signal $\bm{u}(t)$ for the quad being directly the velocity obtained, that would equal the negative gradient of the potential, as can be seen in (\ref{eq:first_order}).
+	\begin{equation} \label{eq:first_order}
+	\bm{u}(t) = \bm{\dot p}(t) = -\bm{\nabla}U(\bm{p}(t))
+	\end{equation}
+	
+	This method, nevertheless, has some clear limitations. The most important problem to solve is the local minima situation, where a vehicle can get stuck and therefore never arriving to its goal. But there are some other limitations, like the difficulty of passing between closely-spaced obstacles or inherent oscilations in the trajectory when near obstacles, as stated by Koren and Borenstein in \cite{koren_pot_fields_limitations}. 
 	\section{Simulation}
 	The simulation is done in Matlab by implementing the potential fields functions in a matlab script 	
 	

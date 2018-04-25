@@ -57,10 +57,6 @@ S.~Adarsh, S.~M. Kaleemuddin, D.~Bose, and K.~I. Ramachandran, ``Performance
   materials in vehicle/ robot navigation applications,'' \emph{IOP Conference
   Series: Materials Science and Engineering}, vol. 149, no.~1, September 2016.
 
-\bibitem{potfieldsmethod}
-N.~Amato, ``\BIBforeignlanguage{eng}{Potential field methods},'' University
-  lecture, Universit\`a degli Studi di Padova, 2004.
-
 \bibitem{lavalle_rrt}
 S.~M.~Lavalle, ``Rapidly-exploring random trees: A new tool for path
   planning,'' 05 1999.
@@ -76,5 +72,15 @@ S.~Ge and Y.~Cui, ``Dynamic motion planning for mobile robots using potential
   field method,'' \emph{Autonomous Robots}, vol.~13, no.~3, pp. 207--222, Nov
   2002. [Online]. Available: \url{https://doi.org/10.1023/A:1020564024509}
 \BIBentrySTDinterwordspacing
+
+\bibitem{potfieldsmethod}
+N.~Amato, ``\BIBforeignlanguage{eng}{Potential field methods},'' University
+  lecture, Universit\`a degli Studi di Padova, 2004.
+
+\bibitem{koren_pot_fields_limitations}
+Y.~Koren and J.~Borenstein, ``Potential field methods and their inherent
+  limitations for mobile robot navigation,'' in \emph{Proceedings. 1991 IEEE
+  International Conference on Robotics and Automation}, Apr 1991, pp.
+  1398--1404 vol.2.
 
 \end{thebibliography}
