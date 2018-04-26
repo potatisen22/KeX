@@ -103,7 +103,7 @@ for i = 1:12
     initial(sys_cl(i,:),x0);
     grid on
 end
-
+S = stepinfo(sys_cl)
 
  %H = tf(sys_cl);
 % clf
