@@ -339,7 +339,7 @@
 		\caption{block diagram for individual quadrotor}
 		\label{fig:block_diagram}
 	\end{figure}	
-	To check that our quadrotor system is controllable and observable we linearise the mathematical model of the quadrotor and then rewrite it to construct the steady state form of our model in the form of equation (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2})
+	To check that our quadrotor system is controllable and observable we linearise the mathematical model of the quadrotor and then rewrite it in the steady state form[SOURCE] of our model seen in equation (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2})
 	\begin{equation} \label{eq:steady_state_1}
 			\bm{\dot x} = \bm{A} \bm{x} + \bm{B} \bm{u}
 	\end{equation}
@@ -356,13 +356,13 @@
 	\end{equation}
 	
 	where $\alpha_{1}$ is a scaling factor for our $\bm{Q}$ matrix.
-	the Q matrices is then implemented into the following function J.
+	the Q matrix is then implemented into the following cost function J.
 	
 	\begin{equation}
 	J = \int_{0}^{\infty} (\bm{x}^{T}(t)\bm{Q}\bm{x}(t)+\bm{u}^2(t)) dt
 	\end{equation}
 	
-	 J is then minimised to obtain the optimal LQR with the given $\alpha_{1}$. The reason behind using a LQR is that it usually has smaller errors than a normal PID-controller [SOURCE] and since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting the deviations from the optimal track to be as small as possible.   
+	 J is then minimised to obtain the optimal LQR with the given $\alpha_{1}$. The reason behind using a LQR is that it usually has smaller errors than a normal PID-controller [SOURCE] and optimises itself. Since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting the deviations from the optimal track to be as small as possible, hence minimise the error.   
 	
 	\section{Measuring the UAV state and environment}
 	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that makes this possible, it is really important that the vehicle can acquire precise information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also about the objects the vehicle may encounter throughput its path, as to make the navigation safe and prevent and block possible crashes.\\
