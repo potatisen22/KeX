@@ -85,9 +85,10 @@ unob = length(A)-rank(Ob)
 %    Rs(i) = laplace(x(i)) 
 %     
 % end
+for t = 1:
 C = eye(12);
 D = 0;
-Ts = 0.05;
+Ts = 0.001;
 q = 50; %gain
 Q = (C'*C)*q;
 R = eye(4);
@@ -101,7 +102,7 @@ x0 = ones(1,12);  % initial state
 for i = 1:12
     figure(i)
     initial(sys_cl(i,:),x0);
-    grid on
+    grid on 
 end
  %H = tf(sys_cl);
 % clf
