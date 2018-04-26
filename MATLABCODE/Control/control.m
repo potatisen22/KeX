@@ -103,6 +103,8 @@ for i = 1:12
     initial(sys_cl(i,:),x0);
     grid on
 end
+
+
  %H = tf(sys_cl);
 % clf
 % for i = 1:12
