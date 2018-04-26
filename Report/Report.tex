@@ -399,7 +399,7 @@
 		
 		This sensors may also be used to measure the height of the UAV, that can be combined with a barometer to know both the relative and absolute altitude. According to Adarsh in \cite{AdarshS2016PcoI}, both IR and ultrasonic sensors have usually high correlation between the measured values, except for some specific materials. Both types have proven to be accurate when performing further processing techniques of the acquired data.
 		
-	\section{Quadcopter navigation}
+	\section{Quadcopter navigation}\label{navigation}
 		There are several methods to find the optimal path to follow from an initial position to a goal. In the case that is being studied in this paper, there are many UAVs flying towards their goals, in an environment filled with obstacles. Some proposed methods to solve this problem are Rapidly-exploring Random Tree (RRT) algorithms or A* search algorithms and other Dijkstra extensions.	Nonetheless, these techniques do not perform very well when the test environment is constantly changing. These methods excel at finding the appropriate path to follow in a labyrinth-like environment. However, if the environment is different in every iteration, these algorithms are inefficient since the UAV may end up following an inefficient path \cite{lavalle_rrt, lavalle_astar}.\\
  	
 		We choose to use the potential fields method because it is a simple, movement-efficient algorithm that can navigate the UAV to its goal using a short path, while being computationally fast. With this technique a high computational speed and an optimised path can be achieved, with simple and elegant calculations\cite{Ge2002}. The main objective is to test how a lot of UAVs would behave in an open, filled with obstacles environment and if the potential field method can be considered good enough.\\
@@ -439,7 +439,7 @@
 	\end{equation}
 
 	\begin{equation} \label{eq:force_rep}	
-		\resizebox{0.42\textwidth}{!}{ $
+		\resizebox{0.5\textwidth}{!}{ $
 		\vec{F}\subb{rep}(\bm{q}) =  \left\lbrace  {\begin{array}{cc}
 		\eta (\frac{1}{\rho\subb{obst}(\bm{q})}-\frac{1}{\rho\subb{0}})(\frac{1}{\rho\subb{obst}^2(\bm{q})})\frac{(\bm{q}-\bm{q\subb{obst}})}{\parallel\bm{q}-\bm{q\subb{obst}}\parallel} & \textrm{if} \ \rho\subb{obst}(\bm{q})\leq \rho\subb{0} \\
 		\\
@@ -459,14 +459,19 @@
 	
 	To simplify the simulations, first order dynamics are assumed for the quadcopter model, resulting in the control signal $\bm{u}(t)$ for the quad being directly the velocity obtained, that would equal the negative gradient of the potential, as can be seen in (\ref{eq:first_order}).
 	\begin{equation} \label{eq:first_order}
-	\bm{u}(t) = \bm{\dot p}(t) = -\bm{\nabla}U(\bm{p}(t))
+	\bm{u}(t) = \bm{\dot p}(t) = -\bm{\nabla}U\subb{total}(\bm{q}(t))
 	\end{equation}
+	\\
+	The potential fields method, nevertheless, has some clear limitations. The most important problem to solve is the local minima situation, where a vehicle can get stuck and therefore never arriving to its goal. But there are some other problems, like the difficulty of passing between closely-spaced obstacles or inherent oscilations in the trajectory when near obstacles, as stated by Koren and Borenstein in \cite{koren_pot_fields_limitations}. 
 	
-	This method, nevertheless, has some clear limitations. The most important problem to solve is the local minima situation, where a vehicle can get stuck and therefore never arriving to its goal. But there are some other problems, like the difficulty of passing between closely-spaced obstacles or inherent oscilations in the trajectory when near obstacles, as stated by Koren and Borenstein in \cite{koren_pot_fields_limitations}. 
 	\section{Simulation}
 	All the necessary formulas described in this report have been implemented in MatLab to test their validity in the context. The parts we have focused more on have been the navigation with potential fields and the control.  \\
 	
-	For the navigation we developed a script to test the guidance of our potential field function by simulating drones and obstacles. All the objects are modelled as spheres, so they have a position, that corresponds to the center of the sphere, and a radius. Drones have a fixed radius, and the script generates them in a random initial position. Each of them has also a specific goal. In the same space, obstacles are generated so that they do not overlap with initial positions or goals. Once the environment is set, the script calculates for each time step the potential function of each UAV, 
+	For the control....\\
+	
+	For the navigation part we developed a script to test the guidance of our potential field function by simulating drones and obstacles. The MatLab script first generates a 3D environment. All the objects are modelled as spheres, so they have a position, that corresponds to the center of the sphere, and a radius. Each UAV has the same radius and the same sphere of influence, these being reasonable numbers relatable to real-life situations. The algorithm works by calculating, for each vehicle, the potential function for where it is situated at that moment. Then as stated in (\ref{eq:first_order}), the drone advances in space for a set time step, which also is appropriately chosen. \\
+	
+	We have implemented some different case scenarios to cover all the possible aspects of the model. In the first one the number of both obstacles and UAVs generated is random, between a minimum and a maximum value. This can help us check how many drones can finally get to their goals without getting stuck, and to detect 
 	
 	\section{Results}
 	It's bloody impossible to do this.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  26 APR 2018 17:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  26 APR 2018 20:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1011,12 +1011,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 422--424
  []
 
 
+Overfull \hbox (6.00496pt too wide) detected at line 448
+[][]
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 450--451
 
  []
 
 [4 <./img/ultrasonic2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 467--468
+Underfull \hbox (badness 10000) in paragraph at lines 468--469
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 470--471
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
 
  []
 
@@ -1024,29 +1039,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 467--468
 File: Results/Controll/Fig1.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig1.jpg>
-Package pdftex.def Info: Results/Controll/Fig1.jpg used on input line 476.
+Package pdftex.def Info: Results/Controll/Fig1.jpg used on input line 481.
 (pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 <Results/Controll/Fig12.jpg, id=43, 562.1pt x 421.575pt>
 File: Results/Controll/Fig12.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig12.jpg>
-Package pdftex.def Info: Results/Controll/Fig12.jpg used on input line 483.
+Package pdftex.def Info: Results/Controll/Fig12.jpg used on input line 488.
 (pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
+ [5 <./Results/Controll/Fig1.jpg> <./Results/Controll/Fig12.jpg>] (./Report.bbl
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-(./Report.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
-[5 <./Results/Controll/Fig1.jpg> <./Results/Controll/Fig12.jpg>]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
@@ -1067,10 +1075,10 @@ Missing character: There is no  in font ptmr7t!
 
 ] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 25255 strings out of 492995
- 557518 string characters out of 6132704
- 606407 words of memory out of 5000000
- 28449 multiletter control sequences out of 15000+600000
+ 25256 strings out of 492995
+ 557530 string characters out of 6132704
+ 606414 words of memory out of 5000000
+ 28450 multiletter control sequences out of 15000+600000
  41532 words of font info for 82 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  63i,16n,344p,10374b,963s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1094,7 +1102,7 @@ live/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (6 pages, 988746 bytes).
+Output written on Report.pdf (6 pages, 989218 bytes).
 PDF statistics:
  110 PDF objects out of 1000 (max. 8388607)
  76 compressed objects within 1 object stream
