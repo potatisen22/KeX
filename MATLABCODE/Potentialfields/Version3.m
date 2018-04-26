@@ -21,8 +21,8 @@ z = 0;
 d = 0.5; %distance to change from conic to parabolic well
 
 %Constants for all the vehicles
-xi = 1; %scale factor for attractive potential
-eta = 5; %scale factor for repulsive potential
+xi = 10; %scale factor for attractive potential
+eta = 10; %scale factor for repulsive potential
 p0 = 2; %radius of sphere of influence for repulsive potential
 
 %Figures to plot
@@ -46,17 +46,17 @@ figure('Name','Norm of velocity (time)','NumberTitle','off')
 grid on
 
 %Generating random # of drones (initial pos+goal) between min and max
-%mindrones = 3;
-%maxdrones = 7;
-%raddrones = 0.3;
-%figure(1)
-%[totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (mindrones, maxdrones, raddrones);
+% mindrones = 5;
+% maxdrones = 10;
+% raddrones = 0.3;
+% figure(1)
+% [totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (mindrones, maxdrones, raddrones);
 
 %Generating random # of obstacles between min and max
-%minobst = 50;
-%maxobst = 100;
-%figure(1)
-%[totalobst, obstpos, obstrad] = obstaclegenerator3d(minobst, maxobst, totaldrones, drones, goaldrones, raddrones);
+% minobst = 20;
+% maxobst = 40;
+% figure(1)
+% [totalobst, obstpos, obstrad] = obstaclegenerator3d(minobst, maxobst, totaldrones, drones, goaldrones, raddrones);
 
 %Multi drone avoidance
 % raddrones = single(0.3);
@@ -75,19 +75,19 @@ grid on
 % obstrad = single(0.4);
 
 %Local minima problem with drone and obstacle
-%raddrones = single(0.3);
-%totaldrones = single(1);
-%drones = single([0, 0, 0]);
-%goaldrones = single([5, 5, 5]);
-%colordrones = single([0.4, 0.2, 0.7]);
-%figure(1)
-%printspherecolor(drones, raddrones, colordrones)
-%scatter3(goaldrones(1,1),goaldrones(1,2),goaldrones(1,3),3,colordrones)
-%hold on
-%totalobst = single(1); 
-%obstpos = single([2.5, 2.5, 2.5]);
-%obstrad = single(1);
-%printsphere(obstpos, obstrad)
+raddrones = single(0.3);
+totaldrones = single(1);
+drones = single([0, 0, 0]);
+goaldrones = single([5, 5, 5]);
+colordrones = single([0.4, 0.2, 0.7]);
+figure(1)
+printspherecolor(drones, raddrones, colordrones)
+scatter3(goaldrones(1,1),goaldrones(1,2),goaldrones(1,3),3,colordrones)
+hold on
+totalobst = single(1); 
+obstpos = single([2.5, 2.5, 2.5]);
+obstrad = single(1);
+printsphere(obstpos, obstrad)
 
 finished = single(zeros(totaldrones, 1));
 completed = single(ones(totaldrones,1));

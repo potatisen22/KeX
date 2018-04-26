@@ -1,11 +1,5 @@
 \documentclass[journal]{IEEEtran}
 
-\ifCLASSINFOpdf
-
-\else
-
-\fi
-
 \hyphenation{op-tical net-works semi-conduc-tor}
 \usepackage{graphicx}
 \usepackage{bm}
@@ -79,16 +73,10 @@
 	% As a general rule, do not put math, special symbols or citations
 	% in the abstract or keywords.
 	\begin{abstract}
-		In this report we investigate how to safely navigate multiple quadrotor UAVs to their goal in a 3D-environment filled with obstacles. This is done by first designing a mathematicalmodel for a UAV using kinematics and dynamics based on mechanics nbqfqln… and sensors….The mathematical model was then linearized so it could be written as a steady state function and the systems observability and controllability was then checked. an LQR was designed to check that we could control the UAV well enough. To navigate the drone to the goal we designed a potentialfield function…… The potentialfield function was then implemented in to a matlab simulation…..The conclusions from the report is that the potentialfield method is a very fast and easy way to implement a navigation system although the drones sometimes get stuck behind obstacles….Future development could be to actually implement the simulation in to a real UAV to see how it performs.
+		The aim of this report is to investigate how to safely navigate multiple quadrotor UAVs to their respective goals in a 3D-environment filled with obstacles. This is done by first designing a mathematical model for a single UAV using kinematics and dynamics based on mechanics....The mathematical model is then linearized so it could be written as a steady state function, and the system's observability and controllability is then checked. An LQR controller is designed .... To navigate the drone to the goal we designed a potentialfield function…… The potentialfield function was then implemented in to a matlab simulation…..The conclusions from the report is that the potentialfield method is a very fast and easy way to implement a navigation system although the drones sometimes get stuck behind obstacles….Future development could be to actually implement the simulation in to a real UAV to see how it performs.
 
 	\end{abstract}
-	
-	% Note that keywords are not normally used for peerreview papers.
-	\begin{IEEEkeywords}
-		IEEEtran, journal, \LaTeX, paper, template.
-	\end{IEEEkeywords}
-	
-	
+		
 	% For peer review papers, you can put extra information on the cover
 	% page as needed:
 	% \ifCLASSOPTIONpeerreview
@@ -398,7 +386,7 @@
 		This device is basically a receiver that makes use of the satellite-based Global Positioning System to calculate the vehicle's geographical position (longitude and latitude) thanks to a 24 satellite constellation around Earth and with trilateration. Casual and inexpensive GPS devices have some meters of accuracy, therefore either better GPS devices or suplementary information from other sensors are needed in order to estimate the position of the vehicle as accurately as possible. For example, motion tracking via smart cameras together with Simultaneous Localization and Mapping solver techniques \cite{modelling_control_mahony}. GPS may also not function indoors, so its usefulness is limited.
 		
 		\subsection{Infrared sensors}
-		In order to sense the UAV immediate surroundings, a device that is able to know if there is any obstacle around and its relative position to the drone is needed. An array of active infrared sensors correctly placed on the quadrotor is a good solution for this application. An IR sensor consists basically in a LED acting as a emitter and a photodetector acting as a receiver, both having a peak in the same wavelength for optimal power radiation and sensitivity respectively. The LED emits a light beam in the infrared range (\SI{700}{\nano \meter} to \SI{1}{\milli \meter} wavelength), and when the beam finds an obstacle, it is reflected. The receptor is a Position-Sensitive Device that is able to detect the angle of the received beam, and thefefore the device is able to detect the distance to the obstacle thanks to triangulation, as can be seen in \figurename\ref{fig:ir}.
+		In order to sense the UAV immediate surroundings, a device that is able to know if there is any obstacle around and its relative position to the drone is needed. An array of active infrared sensors correctly placed on the quadrotor is a good solution for this application. An IR sensor consists basically in a LED acting as a emitter and a photodetector acting as a receiver. Both need to have a peak in the same wavelength for optimal power radiation in the emitter and sensitivity in the receiver. The LED emits a light beam in the infrared range (\SI{700}{\nano \meter} to \SI{1}{\milli \meter} wavelength), and when the beam finds an obstacle, it is reflected. The receptor is a Position-Sensitive Device that is able to detect the angle of the received beam, and thefefore the device is able to detect the distance to the obstacle thanks to triangulation, as can be seen in \figurename\ref{fig:ir}.
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=2.5in]{ir}
@@ -480,7 +468,7 @@
 	\bm{u}(t) = \bm{\dot p}(t) = -\bm{\nabla}U(\bm{p}(t))
 	\end{equation}
 	
-	This method, nevertheless, has some clear limitations. The most important problem to solve is the local minima situation, where a vehicle can get stuck and therefore never arriving to its goal. But there are some other limitations, like the difficulty of passing between closely-spaced obstacles or inherent oscilations in the trajectory when near obstacles, as stated by Koren and Borenstein in \cite{koren_pot_fields_limitations}. 
+	This method, nevertheless, has some clear limitations. The most important problem to solve is the local minima situation, where a vehicle can get stuck and therefore never arriving to its goal. But there are some other problems, like the difficulty of passing between closely-spaced obstacles or inherent oscilations in the trajectory when near obstacles, as stated by Koren and Borenstein in \cite{koren_pot_fields_limitations}. 
 	\section{Simulation}
 	The simulation is done in Matlab by implementing the potential fields functions in a matlab script 	
 	
