@@ -375,7 +375,7 @@
 		This device is basically a receiver that makes use of the satellite-based Global Positioning System to calculate the vehicle's geographical position (longitude and latitude) thanks to a 24 satellite constellation around Earth and with trilateration. Casual and inexpensive GPS devices have some meters of accuracy, therefore either better GPS devices or suplementary information from other sensors are needed in order to estimate the position of the vehicle as accurately as possible. For example, motion tracking via smart cameras together with Simultaneous Localization and Mapping solver techniques \cite{modelling_control_mahony}. GPS may also not function indoors, so its usefulness is limited.
 		
 		\subsection{Infrared sensors}
-		In order to sense the UAV immediate surroundings, a device that is able to know if there is any obstacle around and its relative position to the drone is needed. An array of active infrared sensors correctly placed on the quadrotor is a good solution for this application. An IR sensor consists basically in a LED acting as a emitter and a photodetector acting as a receiver. Both need to have a peak in the same wavelength for optimal power radiation in the emitter and sensitivity in the receiver. The LED emits a light beam in the infrared range (\SI{700}{\nano \meter} to \SI{1}{\milli \meter} wavelength), and when the beam finds an obstacle, it is reflected. The receptor is a Position-Sensitive Device that is able to detect the angle of the received beam, and thefefore the device is able to detect the distance to the obstacle thanks to triangulation, as can be seen in \figurename\ref{fig:ir}.
+		In order to sense the UAV's immediate surroundings, a device that is able to know if there is any obstacle around and its relative position to the drone is needed. An array of active infrared sensors correctly placed on the quadrotor is a good solution for this application. An IR sensor consists basically in a LED acting as a emitter and a photodetector acting as a receiver. Both need to have a peak in the same wavelength for optimal power radiation in the emitter and sensitivity in the receiver. The LED emits a light beam in the infrared range (\SI{700}{\nano \meter} to \SI{1}{\milli \meter} wavelength), and when the beam finds an obstacle, it is reflected. The receptor is a Position-Sensitive Device that is able to detect the angle of the received beam, and thefefore the device is able to detect the distance to the obstacle thanks to triangulation, as can be seen in \figurename\ref{fig:ir}.
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=2.5in]{ir}
@@ -404,7 +404,7 @@
  	
 		We choose to use the potential fields method because it is a simple, movement-efficient algorithm that can navigate the UAV to its goal using a short path, while being computationally fast. With this technique a high computational speed and an optimised path can be achieved, with simple and elegant calculations\cite{Ge2002}. The main objective is to test how a lot of UAVs would behave in an open, filled with obstacles environment and if the potential field method can be considered good enough.\\
 	
-		Potential fields are based in the calculation, for each point in the space, of a function that is the sum of an attractive and a repulsive potential, that will condition the movement of the vehicle for one iteration. The repulsive and the attractive potentials are calculated according to \cite{potfieldsmethod}, as can be seen in equations (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) respectively. The attractive potential is produced by how close the vehicle is to the goal, and the repulsive potential is produced by how close it is to the nearest obstacle. 
+		Potential fields is the sum of an attractive and a repulsive potential. In this case the goal generates the attractive potential and the obstacles generate repulsive potentials. This will determine the movement of the UAV by following the negative gradient of the potential field. The repulsive and the attractive potentials are calculated according to \cite{potfieldsmethod}, as can be seen in equations (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) respectively.
  		\begin{equation} \label{eq:pot_att}
 			U\subb{att}(\bm{q}) =  \left\lbrace  {\begin{array}{cc}
 				\frac{1}{2} \xi \rho\subb{goal}^2(\bm{q})& \textrm{if} \ \rho\subb{goal}(\bm{q})\leq d \\
@@ -420,13 +420,16 @@
  			0 &\textrm{if} \ \rho\subb{obst}(\bm{q})> \rho\subb{0} \\
  			\end{array} } \right.
  		\end{equation}
-	Where $\bm{q} = \left[ {\begin{array}{ccc} x \ \ y \ \ z \end{array} } \right]^T $ is the vehicle's linear position in the space for the 3D case. $\rho\subb{goal}(\bm{q})$ and $\rho\subb{obst}(\bm{q})$ are the distances from the vehicle to the goal or to the nearest obstacle respectively, calculated with the Euclidean norm $\rho\subb{x}(\bm{q}) = \parallel \bm{q} - \bm{q\subb{x}}\parallel$. $d$ is the distance to change from 'parabolic' to 'conic well' as to keep the attractive force bounded, and $\rho\subb{0}$ is the radius of the sphere of influence of the UAV, as to detect near obstacles. Finally, $\xi$ and $\eta$ are positive scaling factors. \\
+	Where $\bm{q} = \left[ {\begin{array}{ccc} x \ \ y \ \ z \end{array} } \right]^T $ is the UAV's linear position in the space for the 3D case. The variables $\rho\subb{goal}(\bm{q})$ and $\rho\subb{obst}(\bm{q})$ are the distances between the vehicle and the goal or the nearest obstacle, calculated with the Euclidean norm $\rho\subb{x}(\bm{q}) = \parallel \bm{q} - \bm{q\subb{x}}\parallel$. The $d$ parameter is the distance from the goal where the attractive function changes from a conic to a parabolic well, because the combination of both configurations resolves the problems each one has separately. The constant $\rho\subb{0}$ is the sensing radius of the UAV. Finally, $\xi$ and $\eta$ are positive scaling factors. \\
 	
-	According to the potential function, the desired force that the vehicle should make in order to advance in space is calculated with (\ref{eq:force_from_pot}), since the $\bm{\nabla} U$ is a vector that points in the direction where U changes faster, while at configuration $\bm{q}$. This leads to (\ref{eq:force_att}) and (\ref{eq:force_rep}), that show the calculation of this repulsive and attractive forces.
+	The potential fields' desired force on the UAV is calculated with (\ref{eq:force_from_pot}), since the negative gradient of a potential field $-\bm{\nabla} U$ is a vector that points in the direction of steepest descent. 
 	
 	\begin{equation} \label{eq:force_from_pot}
 		\vec{F}(\bm{q}) = - \bm{\nabla} U(\bm{q})
 	\end{equation}
+	
+	This leads to (\ref{eq:force_att}) and (\ref{eq:force_rep}), that show how these repulsive and attractive forces are calculated.
+	
 	\begin{equation} \label{eq:force_att}
 		\vec{F}\subb{att}(\bm{q}) =  \left\lbrace  {\begin{array}{cc}
 			- \xi (\bm{q}-\bm{q\subb{goal}})& \textrm{if} \ \rho\subb{goal}(\bm{q})\leq d \\
@@ -444,7 +447,9 @@
 		\end{array} } \right. $}
 	\end{equation}
 	
-	It can be seen how for attractive forces far from the goal, in fucntion of the value of $d$, this force is bounded, with the purpose of not letting the attractive force grow indefinitely when far from the goal. This is the main purpose of separating the attractive potential into a 'conic well' first, and change with a continuous function to the 'parabolic' well when approaching the goal. Finally, the repulsive and attractive potentials and forces are added, according to (\ref{eq:pot_total}) and (\ref{eq:force_total}), in order to obtain the total value. 
+	As mentioned before, there are two reasons for splitting the attractive potential and force functions into two parts. In the case of a parabolic configuration for all the space, there is a linear dependence of the force with the distance between UAV and goal, hence the force grows indefinitely when far from the goal. At the same time, in the case of a conic configuration for all the space, there is a singular point in the goal that could make the UAV oscilate around it. The solution is to combine both configurations to solve this problems, by making the force constant when far from the goal with a conic configuration, and then using a parabolic function when reaching the goal to avoid the singularity.\\
+	
+	Finally, the repulsive and attractive potentials and forces are added, according to (\ref{eq:pot_total}) and (\ref{eq:force_total}), in order to obtain the total value. 
 	\begin{equation} \label{eq:pot_total}
 	U\subb{total}(\bm{q}) = U\subb{att}(\bm{q}) + U\subb{rep}(\bm{q})
 	\end{equation}
@@ -461,7 +466,7 @@
 	\section{Simulation}
 	All the necessary formulas described in this report have been implemented in MatLab to test their validity in the context. The parts we have focused more on have been the navigation with potential fields and the control.  \\
 	
-	For the navigation we developed a script to test the guidance of our potential field function by simulating drones and obstacles. All the objects are modelled as spheres, so they have a position, that corresponds to the center of the sphere, and a radius. Drones have a fixed radius, and the script generates them in a random initial position. Each of them has also a specific goal. In the same space, obstacles are generated with a specific radius so that they do not overlap with initial positions or goals. 
+	For the navigation we developed a script to test the guidance of our potential field function by simulating drones and obstacles. All the objects are modelled as spheres, so they have a position, that corresponds to the center of the sphere, and a radius. Drones have a fixed radius, and the script generates them in a random initial position. Each of them has also a specific goal. In the same space, obstacles are generated so that they do not overlap with initial positions or goals. Once the environment is set, the script calculates for each time step the potential function of each UAV, 
 	
 	\section{Results}
 	It's bloody impossible to do this.

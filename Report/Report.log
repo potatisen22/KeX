@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  26 APR 2018 14:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  26 APR 2018 17:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -991,6 +991,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 403--404
  []
 
 
+Underfull \hbox (badness 4060) in paragraph at lines 405--406
+\OT1/ptm/m/n/10 it is a sim-ple, movement-efficient al-go-rithm that can
+ []
+
+
+Underfull \hbox (badness 1953) in paragraph at lines 405--406
+\OT1/ptm/m/n/10 be-ing com-pu-ta-tion-ally fast. With this tech-nique a high
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 405--406
 
  []
@@ -1000,8 +1010,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 422--424
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 450--451
+
+ []
+
 [4 <./img/ultrasonic2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
+Underfull \hbox (badness 10000) in paragraph at lines 467--468
 
  []
 
@@ -1009,14 +1024,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 462--463
 File: Results/Controll/Fig1.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig1.jpg>
-Package pdftex.def Info: Results/Controll/Fig1.jpg used on input line 471.
+Package pdftex.def Info: Results/Controll/Fig1.jpg used on input line 476.
 (pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 <Results/Controll/Fig12.jpg, id=43, 562.1pt x 421.575pt>
 File: Results/Controll/Fig12.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig12.jpg>
-Package pdftex.def Info: Results/Controll/Fig12.jpg used on input line 478.
+Package pdftex.def Info: Results/Controll/Fig12.jpg used on input line 483.
 (pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
 
 
@@ -1028,6 +1046,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ** the default language instead.
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
+[5 <./Results/Controll/Fig1.jpg> <./Results/Controll/Fig12.jpg>]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
@@ -1036,10 +1055,8 @@ Missing character: There is no ¶ in font ptmr7t!
 ** the default language instead.
 Missing character: There is no Ã in font ptmri7t!
 Missing character: There is no ¤ in font ptmri7t!
-[5 <./Results/Controll/Fig1.jpg> <./Results/Controll/Fig12.jpg>]
 Missing character: There is no Ì in font ptmr7t!
 Missing character: There is no  in font ptmr7t!
-
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
@@ -1077,7 +1094,7 @@ live/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (6 pages, 988540 bytes).
+Output written on Report.pdf (6 pages, 988746 bytes).
 PDF statistics:
  110 PDF objects out of 1000 (max. 8388607)
  76 compressed objects within 1 object stream
