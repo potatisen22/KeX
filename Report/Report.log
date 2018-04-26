@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  26 APR 2018 00:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  26 APR 2018 10:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -920,12 +920,30 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 31.
 \c__siunitx_mathtt_int=\count180
+Missing character: There is no â in font ptmb7t!
+Missing character: There is no € in font ptmb7t!
+Missing character: There is no ¦ in font ptmb7t!
+Missing character: There is no â in font ptmb7t!
+Missing character: There is no € in font ptmb7t!
+Missing character: There is no ¦ in font ptmb7t!
+Missing character: There is no â in font ptmb7t!
+Missing character: There is no € in font ptmb7t!
+Missing character: There is no ¦ in font ptmb7t!
+Missing character: There is no â in font ptmb7t!
+Missing character: There is no € in font ptmb7t!
+Missing character: There is no ¦ in font ptmb7t!
+Missing character: There is no â in font ptmb7t!
+Missing character: There is no € in font ptmb7t!
+Missing character: There is no ¦ in font ptmb7t!
+Missing character: There is no â in font ptmb7t!
+Missing character: There is no € in font ptmb7t!
+Missing character: There is no ¦ in font ptmb7t!
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 87.
+(Font)              <9> on input line 88.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 87.
+(Font)              <6> on input line 88.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 88.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
@@ -942,59 +960,62 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 ]
-(./graph/block_diagram.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 368--369
+(./graph/block_diagram.tex) [2]
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
 
  []
 
-[2]
-Underfull \hbox (badness 2277) in paragraph at lines 371--372
+
+Underfull \hbox (badness 2277) in paragraph at lines 373--374
 \OT1/ptm/m/n/10 ones are those that coin-tain sim-ply this three sen-sors
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 376--377
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 379--380
+Underfull \hbox (badness 10000) in paragraph at lines 381--382
 
  []
 
 <img/ir.png, id=26, 682.55pt x 363.3575pt>
 File: img/ir.png Graphic file (type png)
  <use img/ir.png>
-Package pdftex.def Info: img/ir.png used on input line 402.
+Package pdftex.def Info: img/ir.png used on input line 404.
 (pdftex.def)             Requested size: 180.67499pt x 96.17838pt.
- [3 <./img/ir.png>]
-<img/ultrasonic2.png, id=32, 1224.575pt x 705.63625pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3] <img/ultrasonic2.png, id=31, 1224.575pt x 705.63625pt>
 File: img/ultrasonic2.png Graphic file (type png)
 
 <use img/ultrasonic2.png>
-Package pdftex.def Info: img/ultrasonic2.png used on input line 416.
+Package pdftex.def Info: img/ultrasonic2.png used on input line 418.
 (pdftex.def)             Requested size: 180.67499pt x 104.10736pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 424--425
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 426--427
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--445
+Underfull \hbox (badness 10000) in paragraph at lines 428--429
 
  []
 
-[4 <./img/ultrasonic2.png>] (./Report.bbl
+
+Underfull \hbox (badness 10000) in paragraph at lines 445--447
+
+ []
+
+[4 <./img/ir.png> <./img/ultrasonic2.png>] (./Report.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
@@ -1018,10 +1039,10 @@ Missing character: There is no  in font ptmr7t!
 ** the default language instead.
 ) [5] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 25274 strings out of 492995
- 557526 string characters out of 6132704
- 603334 words of memory out of 5000000
- 28458 multiletter control sequences out of 15000+600000
+ 25275 strings out of 492995
+ 557537 string characters out of 6132704
+ 605464 words of memory out of 5000000
+ 28459 multiletter control sequences out of 15000+600000
  47768 words of font info for 100 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  63i,16n,344p,10374b,963s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1045,7 +1066,7 @@ al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local
 017/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/font
 s/type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (5 pages, 946278 bytes).
+Output written on Report.pdf (5 pages, 950499 bytes).
 PDF statistics:
  105 PDF objects out of 1000 (max. 8388607)
  74 compressed objects within 1 object stream

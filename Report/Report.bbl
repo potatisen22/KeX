@@ -35,6 +35,11 @@ T.~Glad, \emph{\BIBforeignlanguage{swe}{Reglerteknik : grundläggande teori}},
   4th~ed.\hskip 1em plus 0.5em minus 0.4em\relax Lund: Studentlitteratur, 2006,
   pp. 187--188.
 
+\bibitem{lqr_error}
+L.~M. Argentim, W.~C. Rezende, P.~E. Santos, and R.~A. Aguiar, ``Pid, lqr and
+  lqr-pid on a quadcopter platform,'' in \emph{2013 International Conference on
+  Informatics, Electronics and Vision (ICIEV)}, May 2013, pp. 1--6.
+
 \bibitem{modelling_control_mahony}
 R.~Mahony, V.~Kumar, and P.~Corke, ``Multirotor aerial vehicles: Modeling,
   estimation, and control of quadrotor,'' \emph{IEEE Robotics Automation

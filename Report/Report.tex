@@ -119,10 +119,11 @@
 	
 	There are many different manufacturers and a vast amount of different UAV models, all with different motors, weights, sensors and lift-to-weight ratio. To make a standard autonomous flight applicable to all these kinds of UAVs, a simple and easy-to-implement multi-UAV mathematical model, that will still be able to avoid obstacles with as few sensors as possible, is needed.
 	
-	This project aims to study and develop a mathematical model of a quadrotor UAV and the available sensors in it.  From the trajectory and pose tracking a state feedback controller will be designed. In order to facilitate the multi-UAV navigation, potential fields will be used to make several quads fly to their goals while maintaining collision avoidance with respect to other quads and obstacles. To check the validity of the models, a controller will be constructed and evaluated and a simulated test environment in MatLab filled with a random reasonable amount of static obstacles and autonomous UAVs will be used.
-	% !TeX AoP in the introduction: We can consider improving this last paragraph, and expanding it so everything we do through the report is explained
-	\hfill 
+	This project aims to develop a navigation method that can make multiple UAVs fly safely to their goals in an environment filled with obstacles. To assure that the vehicles move according to what is desired, a fast and reliable controller is needed. For this purpose a mathematical description of the UAV and the sensors onboard it is needed. The mathematical model's controllabillity and observability have to be verified. 
 	
+	The  section II where the mathematical model for the quad is developed. In section III, an LQR controlled is studied. Section IV analyses the recommended sensors onboard the UAV and how to measure the state accurately with them. In section V, the navigation method applied in our case, potential fields, is explained and described. The simulation performed is explained in section VI. Finally, in the last two sections of this paper, the results are presented, explained and discussed. 
+
+	\hfill 
 	
 	%\subsection{The Issue}
 	%How make super small propeller things not smash into each other or other things.
@@ -340,7 +341,7 @@
 		\caption{block diagram for individual quadrotor}
 		\label{fig:block_diagram}
 	\end{figure}	
-	To check that our quadrotor system is controllable and observable we linearise the mathematical model of the quadrotor and then rewrite it in the steady state form[SOURCE] of our model seen in equation (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2})
+	To check that our quadrotor system is controllable and observable we linearise the mathematical model of the quadrotor according to \cite{SabatinoFrancesco2015Qcmn} and then rewrite it in the steady state form[SOURCE] of our model seen in equation (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2})
 	\begin{equation} \label{eq:steady_state_1}
 			\bm{\dot x} = \bm{A} \bm{x} + \bm{B} \bm{u}
 	\end{equation}
@@ -363,7 +364,7 @@
 	J = \int_{0}^{\infty} (\bm{x}^{T}(t)\bm{Q}\bm{x}(t)+\bm{u}^2(t)) dt
 	\end{equation}
 	
-	 J is then minimised to obtain the optimal LQR with the given $\alpha_{1}$. The reason behind using a LQR is that it usually has smaller errors than a normal PID-controller [SOURCE] and optimises itself. Since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting the deviations from the optimal track to be as small as possible, hence minimise the error.   
+	 J is then minimised to obtain the optimal LQR with the given $\alpha_{1}$. The reason behind using a LQR is that it usually has small steady-state errors as stated in \cite{lqr_error}. Since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting the deviations from the optimal track to be as small as possible, hence minimising the error.   
 	
 	\section{Measuring the UAV state and environment}
 	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that makes this possible, it is really important that the vehicle can acquire precise information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also about the objects the vehicle may encounter throughput its path, as to make the navigation safe and prevent and block possible crashes.\\
