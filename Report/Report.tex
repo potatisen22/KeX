@@ -467,35 +467,87 @@
 	\section{Simulation}
 	All the necessary formulas described in this report have been implemented in MatLab to test their validity in the context. The parts we have focused more on have been the navigation with potential fields and the control.  \\
 	
-	For the control....\\
+	For the navigation part we developed a script to test the guidance of our potential field function by simulating drones and obstacles. The MatLab script first generates a 3D environment. All the objects are modelled as spheres, so they have a position, that corresponds to the center of the sphere, and a radius. Each UAV has the same radius and the same sphere of influence, these having reasonable values relatable to real-life situations. The algorithm works by calculating, for each vehicle, the potential function for where it is situated at that moment. Then, as stated in (\ref{eq:first_order}), the drone advances in space for a set time step, which also is appropriately chosen. \\
 	
-	For the navigation part we developed a script to test the guidance of our potential field function by simulating drones and obstacles. The MatLab script first generates a 3D environment. All the objects are modelled as spheres, so they have a position, that corresponds to the center of the sphere, and a radius. Each UAV has the same radius and the same sphere of influence, these being reasonable numbers relatable to real-life situations. The algorithm works by calculating, for each vehicle, the potential function for where it is situated at that moment. Then as stated in (\ref{eq:first_order}), the drone advances in space for a set time step, which also is appropriately chosen. \\
-	
-	We have implemented some different case scenarios to cover all the possible aspects of the model. In the first one the number of both obstacles and UAVs generated is random, between a minimum and a maximum value. This can help us check how many drones can finally get to their goals without getting stuck, and to detect 
+	In this script we have implemented some different case scenarios to cover all the possible issues of the model. In the first one the number of both obstacles and UAVs generated is random, between a minimum and a maximum value. This can help us check how many drones can finally get to their goals without getting stuck, in a random environment where the local minima geometries are not corrected. The second case is to test how different UAVs react to each other, since they are perceived as moving obstacles. Finally, the last case shows a local minima configuration and analyses this problem.
 	
 	\section{Results}
-	It's bloody impossible to do this.
-	\subsection{Control}
-		\begin{figure}[h]
-  			\centering
-  			\includegraphics[width=5cm]{Results/Controll/Fig1}
-  			\caption{Step response for $\varphi$}
-  			\label{fig:contresphi}
-		\end{figure}	
+		\subsection{Control}
+			\begin{figure}[h]
+	  			\centering
+	  			\includegraphics[width=6cm]{Results/Controll/Fig1}
+	  			\caption{Step response for $\varphi$}
+	  			\label{fig:contresphi}
+			\end{figure}	
+			
+			\begin{figure}[h]
+	  			\centering
+	  			\includegraphics[width=6cm]{Results/Controll/Fig12}
+	  			\caption{Step response for x}
+	  			\label{fig:contresx}
+			\end{figure}	
 		
+		\subsection{Navigation}
+
 		\begin{figure}[h]
-  			\centering
-  			\includegraphics[width=5cm]{Results/Controll/Fig12}
-  			\caption{Step response for x}
-  			\label{fig:contresx}
+			\centering
+			\includegraphics[width=8cm]{Results/Potentialfields/env_1}
+			\caption{Random case environment from first perspective for the potential fields simulation}
+			\label{fig:env_1}
 		\end{figure}	
-		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=8cm]{Results/Potentialfields/env_2}
+			\caption{Random case environment from second perspective}
+			\label{fig:env_2}
+		\end{figure}	
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=8cm]{Results/Potentialfields/env_3}
+			\caption{Random case environment from third perspective}
+			\label{fig:env_3}
+		\end{figure}	
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=8cm]{Results/Potentialfields/goal}
+			\caption{Random case environment - Distance from vehicles to their respective goal}
+			\label{fig:goal}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=8cm]{Results/Potentialfields/obst}
+			\caption{Random case environment - Distance from vehicles' surface to any other obstacle's surface}
+			\label{fig:obst}
+		\end{figure}
+	
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=8cm]{Results/Potentialfields/vel}
+			\caption{Random case environment - Velocities for each vehicle}
+			\label{fig:vel}
+		\end{figure}
+
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=8cm]{Results/Potentialfields/multi_uav_avoidance}
+			\caption{Multi UAV avoidance case}
+			\label{fig:multi_uav_avoidance}
+		\end{figure}
+
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=8cm]{Results/Potentialfields/localminima}
+			\caption{Local minima problem for the symmetric case}
+			\label{fig:localminima}
+		\end{figure}
 		
 		
 	\section{Discussion, conclusion and Future development}
-	One can see that in figures  (\ref{fig:contresphi}) and (\ref{fig:contresx}) both step responses have a steady state error of zero which is the case for all 12 outputs from the feedback system. This implies that the LQR is working the way it was intended to and that we actually have full control of the UAVs.  The settling time and, in some cases, the overshoot is very high, therefore being able to control a real drone in an effective way could prove difficult with this controller. This is probably due to a heuristic choice of the parameters Q and R. The focus of this report was to show an effective way of controlling a UAV and not to find an optimal control, optimizing Q and R could be a subject to study in a  future projects within the field.
-
-	future projects could try to actually control the simulated drones with the controller we designed to see if it will actually provide a safe control of the drones. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to A*, potential fields and so fort. another interesting application is to actually try to implement the navigation system into a real quadrocopter and see how well it functions.	
+	One can see that in figures  (\ref{fig:contresphi}) and (\ref{fig:contresx}) both step responses have a steady state error of zero which is the case for all 12 outputs from the feedback system. This implies that the LQR is working the way it was intended to and that we actually have full control of the UAVs.  The settling time and, in some cases, the overshoot is very high, therefore being able to control a real drone in an effective way could prove difficult with this controller. This is probably due to a heuristic choice of the parameters Q and R. The focus of this report was to show an effective way of controlling a UAV and not to find an optimal control, optimizing Q and R could be a subject to study in a  future projects within the field.\\
+	
+	The potential field method has been proved to be reliable by not allowing UAVs to crash with each other or other obstacles in any situation, as can be seen in the multi-drone-avoidance case in \figurename{\ref{fig:multi_uav_avoidance}}. It also provides good enough safe margins of more than $\SI{0.5}{\meter}$ of minimum distance between a moving UAV and any other type of static or dynamic obstacle, as can be seen in \figurename{\ref{fig:obst}}. The velocities the different UAVs follow, as seen in \figurename{\ref{fig:vel}}, are appropriate for this case study. The vehicles should not be slow but neither really fast, as to assure obstacle detection with enough margin to avoid them. Therefore, an 'open environment' velocity of around $\SI{0.4}{\frac{\meter}{\second}}$ is considerated appropriate. However, as explained in the last sections, potential fields have some big issues that should be solved before this method can be used to test how UAVs would move in more realistic environments, e.g a city-live environment. As can be seen in \figurename{\ref{fig:localminima}}, the geometries where a UAV can get stuck when a plain potential field function is in charge of the navigation are not complex. Apart from this obvious local minima problem, scaling factors $\xi$ and $\eta$ seen in (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) could be tuned to establish maximum force (therefore velocity) more appropriate for each environment. This environment could be known making use of the GPS and barometer sensors onboard the drone, and for example with an offline version of a certain Google Maps area. In this case, the vehicle would know if its situated inside a residential area or over a highway, and the maximum flying velocity could be adjusted.\\
+	
+	Future projects could try to actually control the simulated drones with the controller designed, to see if it would actually provide a safe navigation for the drones. When the controller and the navigation parts are implemented together and the simulation results are positive, another project could be based on the complete implementation of the whole system into a real quadrocopter. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to RRT, potential fields and so on, and develop more tools and tests to compare them. Even further down in the topic, a project could be developed to explain how to analyse the images resulting from a camera a UAV could carry, and how this information could be useful to help the drone navigate.
 	
 	
 	% if have a single appendix:
@@ -513,40 +565,37 @@
 	%
 	
 	
-	\appendices
-	\section{Dynamics or something that's heavy on the maths goes here}
-	Appendix one text goes here.
-	
-		\begin{equation} \label{eq:derivpos_earth_body}
-	\bm{\dot \xi} = \left[ {\begin{array}{c}
-		\dot \phi\\
-		\dot \theta\\
-		\dot \psi\\
-		\dot p\\
-		\dot q\\
-		\dot r\\
-		\dot u\\
-		\dot v\\
-		\dot w\\
-		\dot x\\
-		\dot y\\
-		\dot z\\
-		
-		\end{array} } \right]
-	%= \bm{J}_\Theta \ \bm{\nu}
-	\end{equation}
-	
-	% you can choose not to have a title for an appendix
-	% if you want by leaving the argument blank
-	\section{Something else but similar here, matlab code?}
-	Appendix two text goes here.
-	
-	
-	% use section* for acknowledgement
+%	\appendices
+%	\section{Dynamics or something that's heavy on the maths goes here}
+%	Appendix one text goes here.
+%	
+%		\begin{equation} \label{eq:derivpos_earth_body}
+%	\bm{\dot \xi} = \left[ {\begin{array}{c}
+%		\dot \phi\\
+%		\dot \theta\\
+%		\dot \psi\\
+%		\dot p\\
+%		\dot q\\
+%		\dot r\\
+%		\dot u\\
+%		\dot v\\
+%		\dot w\\
+%		\dot x\\
+%		\dot y\\
+%		\dot z\\
+%		
+%		\end{array} } \right]
+%	%= \bm{J}_\Theta \ \bm{\nu}
+%	\end{equation}
+%	
+%	% you can choose not to have a title for an appendix
+%	% if you want by leaving the argument blank
+%	\section{Something else but similar here, matlab code?}
+%	Appendix two text goes here.
+%	
+%	
+%	% use section* for acknowledgement
 	\section*{Acknowledgment}
-	
-	Praising of Christos goes here!
-	The authors would like to thank...
 	TEST
 	
 	
@@ -596,5 +645,8 @@
 	
 	% that's all folks
 \end{document}
++	For the navigation part we developed a script to test the guidance of our potential field function by simulating drones and obstacles. The MatLab script first generates a 3D environment. All the objects are modelled as spheres, so they have a position, that corresponds to the center of the sphere, and a radius. Each UAV has the same radius and the same sphere of influence, these having reasonable values relatable to real-life situations. The algorithm works by calculating, for each vehicle, the potential function for where it is situated at that moment. Then, as stated in (\ref{eq:first_order}), the drone advances in space for a set time step, which also is appropriately chosen. \\
 
+We have implemented some different case scenarios to cover all the possible aspects of the model. In the first one the number of both obstacles and UAVs generated is random, between a minimum and a maximum value. This can help us check how many drones can finally get to their goals without getting stuck, and to detect 
+We have implemented some different case scenarios to cover all the possible issues of the model. In the first one the number of both obstacles and UAVs generated is random, between a minimum and a maximum value. This can help us check how many drones can finally get to their goals without getting stuck, in a random environment where the local minima geometries are not corrected. The second case test how different UAVs react to each other, since they are also seen as moving obstacles.
 

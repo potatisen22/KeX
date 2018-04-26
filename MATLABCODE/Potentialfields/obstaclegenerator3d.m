@@ -18,7 +18,7 @@ function [totalobst, obstpos, obstrad] = obstaclegenerator3d(min, max, totaldron
         j=1;
         deleted = 0;
         while(j<=totaldrones && ~deleted)
-           if ((norm(obstpos(i,:) - drones(j,:)) < (raddrones + 0.3 + obstrad(i,1))) || (norm(obstpos(i,:) - goaldrones(j,:)) < (raddrones + 0.3 + obstrad(i,1)))) 
+           if ((norm(obstpos(i,:) - drones(j,:)) < (raddrones + 1 + obstrad(i,1))) || (norm(obstpos(i,:) - goaldrones(j,:)) < (raddrones + 1.7 + obstrad(i,1)))) 
                %0.3 safe margin
                %The obstacle is deleted because it is too close to a spawn
                %or a goal

@@ -21,8 +21,9 @@ z = 0;
 d = 0.5; %distance to change from conic to parabolic well
 
 %Constants for all the vehicles
-xi = 10; %scale factor for attractive potential
-eta = 10; %scale factor for repulsive potential
+xi1 = 8; %scale factor for attractive potential
+xi2 = 5;
+eta = 9; %scale factor for repulsive potential
 p0 = 2; %radius of sphere of influence for repulsive potential
 
 %Figures to plot
@@ -47,14 +48,14 @@ grid on
 
 %Generating random # of drones (initial pos+goal) between min and max
 % mindrones = 5;
-% maxdrones = 10;
+% maxdrones = 7;
 % raddrones = 0.3;
 % figure(1)
 % [totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (mindrones, maxdrones, raddrones);
 
 %Generating random # of obstacles between min and max
-% minobst = 20;
-% maxobst = 40;
+% minobst = 50;
+% maxobst = 100;
 % figure(1)
 % [totalobst, obstpos, obstrad] = obstaclegenerator3d(minobst, maxobst, totaldrones, drones, goaldrones, raddrones);
 
@@ -62,14 +63,14 @@ grid on
 % raddrones = single(0.3);
 % totaldrones = single(3);
 % drones = single([0, 0, 0;
-%           3, 3, 3,
-%           0, 3, 0]);
-% goaldrones = single([2.8, 2.8, 2;
-%               0, 0, 0.5,
-%               3, 0, 1.5]);
-% colordrones = single([0.1, 0.1, 0.1;
-%                0.9, 0.9, 0.9;
-%                0.5, 0.2, 0.1]);
+%           6, 6, 6,
+%           0, 6, 0]);
+% goaldrones = single([5.6, 5.6, 4;
+%               0, 0, 1,
+%               5, 0, 3]);
+% colordrones = single([0.3, 0.5, 0.15;
+%                0.3, 0.2, 0.6;
+%                0.2, 0.8, 0.1]);
 % totalobst = single(1); 
 % obstpos = single([7, 7, 7]);
 % obstrad = single(0.4);
@@ -78,14 +79,14 @@ grid on
 raddrones = single(0.3);
 totaldrones = single(1);
 drones = single([0, 0, 0]);
-goaldrones = single([5, 5, 5]);
+goaldrones = single([10, 10, 10]);
 colordrones = single([0.4, 0.2, 0.7]);
 figure(1)
 printspherecolor(drones, raddrones, colordrones)
-scatter3(goaldrones(1,1),goaldrones(1,2),goaldrones(1,3),3,colordrones)
+scatter3(goaldrones(1,1),goaldrones(1,2),goaldrones(1,3), 60, colordrones, 'filled', 'd')
 hold on
 totalobst = single(1); 
-obstpos = single([2.5, 2.5, 2.5]);
+obstpos = single([5, 5, 5]);
 obstrad = single(1);
 printsphere(obstpos, obstrad)
 
@@ -99,7 +100,7 @@ while(~ isequal(finished,completed))
             finished(i,1) = 1;
         else
             %Attractive force and potential calculation
-            [Uatt, Fatt] = attractive(d, xi, drones(i,:), goaldrones(i,:), rhogoal);
+            [Uatt, Fatt] = attractive(d, xi1, xi2, drones(i,:), goaldrones(i,:), rhogoal);
 
             %Static repulsive force and potential calculation
             [Ureptotstatic, Freptotstatic, closestdiststat] = repulsivesurface(p0, eta, drones(i,:), raddrones, totalobst, obstpos, obstrad);
