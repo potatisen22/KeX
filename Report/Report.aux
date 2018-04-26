@@ -9,8 +9,8 @@
 \citation{mod_control_bresciani}
 \citation{mod_control_bresciani}
 \citation{SabatinoFrancesco2015Qcmn}
+\citation{SabatinoFrancesco2015Qcmn}
 \citation{bokLQ}
-\citation{lqr_error}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Euler angles}}{}}
 \newlabel{fig:roll_pitch_yaw}{{2}{}}
 \newlabel{eq:pos}{{1}{}}
@@ -21,14 +21,16 @@
 \newlabel{eq:rot}{{6}{}}
 \newlabel{eq:transf}{{7}{}}
 \newlabel{eq:gen}{{8}{}}
+\newlabel{eq:total_kinematics}{{9}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Dynamics}{}}
-\newlabel{eq:newton_euler_forces}{{9}{}}
-\newlabel{eq:newton_euler_torques}{{10}{}}
+\newlabel{eq:newton_euler_forces}{{10}{}}
+\newlabel{eq:newton_euler_torques}{{11}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {III}Quadcopter control}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces block diagram for individual quadrotor}}{}}
 \newlabel{fig:block_diagram}{{3}{}}
-\newlabel{eq:steady_state_1}{{11}{}}
-\newlabel{eq:steady_state_2}{{12}{}}
+\newlabel{eq:steady_state_1}{{12}{}}
+\newlabel{eq:steady_state_2}{{13}{}}
+\citation{lqr_error}
 \citation{modelling_control_mahony}
 \citation{modelling_control_mahony}
 \citation{modelling_control_mahony}
@@ -37,37 +39,37 @@
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Measuring the UAV state and environment}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Inertial Measurement Unit}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}1}Triple axis accelerometer}{}}
-\newlabel{eq:imu_accel}{{15}{}}
+\newlabel{eq:imu_accel}{{16}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}2}Triple axis gyroscope}{}}
-\newlabel{eq:imu_gyro}{{16}{}}
+\newlabel{eq:imu_gyro}{{17}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}3}Triple axis magnetometer}{}}
-\newlabel{eq:imu_magne}{{17}{}}
-\newlabel{eq:imu_magne_bias}{{18}{}}
+\newlabel{eq:imu_magne}{{18}{}}
+\newlabel{eq:imu_magne_bias}{{19}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}GPS receiver}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Infrared sensors}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Infrared obstacle detection diagram}}{}}
-\newlabel{fig:ir}{{4}{}}
 \citation{hirata2008cross}
 \citation{AdarshS2016PcoI}
 \citation{lavalle_rrt}
 \citation{lavalle_astar}
 \citation{Ge2002}
 \citation{potfieldsmethod}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Infrared obstacle detection diagram}}{}}
+\newlabel{fig:ir}{{4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Ultrasonic obstacle detection diagram, obtained from \cite  {hirata2008cross}}}{}}
 \newlabel{fig:ultrasonic}{{5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Ultrasonic sensors}{}}
-\newlabel{eq:ultrasonic_formula}{{19}{}}
+\newlabel{eq:ultrasonic_formula}{{20}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {V}Quadcopter navigation}{}}
 \newlabel{navigation}{{V}{}}
-\newlabel{eq:pot_att}{{20}{}}
-\newlabel{eq:pot_rep}{{21}{}}
-\newlabel{eq:force_from_pot}{{22}{}}
-\newlabel{eq:force_att}{{23}{}}
-\newlabel{eq:force_rep}{{24}{}}
+\newlabel{eq:pot_att}{{21}{}}
+\newlabel{eq:pot_rep}{{22}{}}
+\newlabel{eq:force_from_pot}{{23}{}}
+\newlabel{eq:force_att}{{24}{}}
+\newlabel{eq:force_rep}{{25}{}}
 \citation{koren_pot_fields_limitations}
-\newlabel{eq:pot_total}{{25}{}}
-\newlabel{eq:force_total}{{26}{}}
-\newlabel{eq:first_order}{{27}{}}
+\newlabel{eq:pot_total}{{26}{}}
+\newlabel{eq:force_total}{{27}{}}
+\newlabel{eq:first_order}{{28}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {VI}Simulation}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {VII}Results}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-A}}Control}{}}
@@ -76,25 +78,36 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Step response for x}}{}}
 \newlabel{fig:contresx}{{7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}}Navigation}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Discussion, conclusion and Future development}{}}
+\bibstyle{IEEEtran}
+\bibdata{bib}
+\bibcite{SabatinoFrancesco2015Qcmn}{1}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Random case environment from first perspective for the potential fields simulation}}{}}
 \newlabel{fig:env_1}{{8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Random case environment from second perspective}}{}}
 \newlabel{fig:env_2}{{9}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Random case environment from third perspective}}{}}
 \newlabel{fig:env_3}{{10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {VIII}Discussion, conclusion and Future development}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Random case environment - Distance from vehicles to their respective goal}}{}}
 \newlabel{fig:goal}{{11}{}}
+\bibcite{mod_control_bresciani}{2}
+\bibcite{bokLQ}{3}
+\bibcite{lqr_error}{4}
+\bibcite{modelling_control_mahony}{5}
+\bibcite{remotecontrol}{6}
+\bibcite{hirata2008cross}{7}
+\bibcite{AdarshS2016PcoI}{8}
+\bibcite{lavalle_rrt}{9}
+\bibcite{lavalle_astar}{10}
+\bibcite{Ge2002}{11}
+\bibcite{potfieldsmethod}{12}
+\bibcite{koren_pot_fields_limitations}{13}
 \@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Random case environment - Distance from vehicles' surface to any other obstacle's surface}}{}}
 \newlabel{fig:obst}{{12}{}}
-\bibstyle{IEEEtran}
-\bibdata{bib}
 \@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Random case environment - Velocities for each vehicle}}{}}
 \newlabel{fig:vel}{{13}{}}
+\@writefile{toc}{\contentsline {section}{References}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Multi UAV avoidance case}}{}}
 \newlabel{fig:multi_uav_avoidance}{{14}{}}
-\@writefile{toc}{\contentsline {section}{Appendix\nobreakspace  A: Dynamics or something that's heavy on the maths goes here}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Local minima problem for the symmetric case}}{}}
 \newlabel{fig:localminima}{{15}{}}
-\newlabel{eq:derivpos_earth_body}{{28}{}}
-\@writefile{toc}{\contentsline {section}{Appendix\nobreakspace  B: Something else but similar here, matlab code?}{}}

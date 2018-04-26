@@ -73,7 +73,7 @@
 	% As a general rule, do not put math, special symbols or citations
 	% in the abstract or keywords.
 	\begin{abstract}
-		The aim of this report is to investigate how to safely navigate multiple quadrotor UAVs to their respective goals in a 3D-environment filled with obstacles. This is done by first designing a mathematical model for a single UAV using kinematics and dynamics based on mechanics....The mathematical model is then linearized so it could be written as a steady state function, and the system's observability and controllability is then checked. An LQR controller is designed .... To navigate the drone to the goal we designed a potentialfield function…… The potentialfield function was then implemented in to a matlab simulation…..The conclusions from the report is that the potentialfield method is a very fast and easy way to implement a navigation system although the drones sometimes get stuck behind obstacles….Future development could be to actually implement the simulation in to a real UAV to see how it performs.
+		The aim of this report is to investigate how to safely navigate multiple quadrotor UAVs to their respective goals in a 3D-environment filled with obstacles. This is done by first designing a mathematical model for a single UAV, for its kinematics and dynamics. The mathematical model is then simplified and linearized so it can be written as a steady state function, and then the system’s observability and controllability are checked. We have developed an LQR controller. Also, a brief study of the sensors needed to estimate the UAV’s state is done. To navigate the drone to the goal we designed a potential field function. From this report, we can conclude that potential fields are a good choice to avoid collisions, but it involves some problems that should be fixed in order to assure that the UAVs never get stuck. We also discuss future research and ideas that could be easily implemented in order to improve the safety and the path planning for an UAV flight.
 
 	\end{abstract}
 		
@@ -299,7 +299,10 @@
 	\end{equation}  
 	Where the notation $\mathbf{0}_{3\times 3}$ means a matrix filled with zeros with a $3 \times 3$ dimension.
 	
-	In order to relate the derivate of the generalized position in the Earth frame with the generalized velocity on the body frame, the transfer matrix (\ref{eq:transf}) can be used, and that is the final model of the quadrotor's kinematics \cite{SabatinoFrancesco2015Qcmn, mod_control_bresciani}.
+	In order to relate the derivate of the generalized position in the Earth frame with the generalized velocity on the body frame, the generalized matrix (\ref{eq:gen}) can be used as seen in (\ref{eq:total_kinematics}), and that is the final model of the quadrotor's kinematics \cite{SabatinoFrancesco2015Qcmn, mod_control_bresciani}.
+	\begin{equation} \label{eq:total_kinematics}
+	\bm{\dot\xi} = \bm{J}_\Theta \ 	\bm{\nu} 
+	\end{equation} 
 	
 	\subsection{Dynamics}
 	The dynamic model for the UAV relates the acceleration of the vehicle with the forces and torques acting on the quadrotor. The Newton-Euler formulation allows to express these variables in the body frame, as in equations (\ref{eq:newton_euler_forces}) and (\ref{eq:newton_euler_torques}), as clearly stated by Bresciani in \cite{mod_control_bresciani}.
@@ -311,14 +314,14 @@
 	\end{equation}
 	
 	\section{Quadcopter control}
-	The individual UAV systems in this project could be described with a block diagram as the one pictured in figure (\ref{fig:block_diagram})
+	The individual UAV systems in this project could be described with a block diagram as the one pictured in \figurename{\ref{fig:block_diagram}}.
 	\begin{figure}[h]
 		\centering
 		\input{graph/block_diagram}
 		\caption{block diagram for individual quadrotor}
 		\label{fig:block_diagram}
 	\end{figure}	
-	To check that our quadrotor system is controllable and observable we linearise the mathematical model of the quadrotor according to \cite{SabatinoFrancesco2015Qcmn} and then rewrite it in the state-space form[SOURCE] of our model seen in equation (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2})
+	To check that our quadrotor system is controllable and observable we linearise the mathematical model of the quadrotor according to \cite{SabatinoFrancesco2015Qcmn} and then rewrite it in the state-space form \cite{SabatinoFrancesco2015Qcmn} of our model seen in equations (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2}).
 	\begin{equation} \label{eq:steady_state_1}
 			\bm{\dot x} = \bm{A} \bm{x} + \bm{B} \bm{u}
 	\end{equation}
@@ -327,8 +330,7 @@
 	\bm{y} = \bm{C} \bm{x}
 	\end{equation}
 	
-	
-	Since all the states of the system is both observable and controlable The controller used in this project is an LQR. The controller is used to check that our mathematical model of the UAV can be controlled well enough to do steady flight operations.  An LQR utilizes a cost function and minimises said cost function to optimise the controller \cite{bokLQ}. To design the LQR we use some of the constants in the state-space equations to express the Q matrix in the following way.
+	All the states of the system are both observable and controlable. The controller used in this project is an LQR. It is used to check that our mathematical model of the UAV can be controlled well enough to do steady flight operations.  An LQR utilizes a cost function and minimises said cost function to optimise the controller \cite{bokLQ}. To design the LQR we use some of the constants in the state-space equations to express the Q matrix in the following way.
 	
 	\begin{equation}
 	\bm{Q}=\bm{C^}{T}\bm{C}\alpha_{1}
@@ -489,8 +491,7 @@
   			\label{fig:contresx}
 		\end{figure}	
 		
-				\subsection{Navigation}
-
+	\subsection{Navigation}
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/env_1}
@@ -548,11 +549,9 @@
 	\section{Discussion, conclusion and Future development}
 	One can see that in figures  (\ref{fig:contresphi}) and (\ref{fig:contresx}) both step responses have a steady state error of zero which is the case for all 12 outputs from the feedback system. This implies that the LQR is working the way it was intended to and that we actually have full control of the UAVs.  The settling time and, in some cases, the overshoot is very high, therefore being able to control a real drone in an effective way could prove difficult with this controller. This is probably due to a heuristic choice of the parameters Q and R. The focus of this report was to show an effective way of controlling a UAV and not to find an optimal control, optimizing Q and R could be a subject to study in a  future projects within the field. \\
 
-	The potential field method has been proved to be reliable by not allowing UAVs to crash with each other or other obstacles in any situation, as can be seen in the multi-drone-avoidance case in \figurename{\ref{fig:multi_uav_avoidance}}. It also provides good enough safe margins of more than $\SI{0.5}{\meter}$ of minimum distance between a moving UAV and any other type of static or dynamic obstacle, as can be seen in \figurename{\ref{fig:obst}}. The velocities og the different UAVs, as seen in \figurename{\ref{fig:vel}}, are appropriate for this case study. The vehicles should not be slow but neither too fast to assure obstacle detection with enough margin to avoid them in time. Therefore, an 'open environment' velocity of around $\SI{0.4}{\frac{\meter}{\second}}$ is considered appropriate. However, as explained in the last sections, potential fields have some big issues that should be solved before this method can be used to test how UAVs would move in more realistic environments, e.g a city-live environment. As can be seen in \figurename{\ref{fig:localminima}}, the geometries where a UAV can get stuck in a local minima of a plain potential field function is not complex. Apart from this obvious local minima problem, scaling factors $\xi$ and $\eta$ seen in (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) could be tuned to establish maximum force (therefore velocity) more appropriate for each environment. This environment could be known making use of the GPS and barometer sensors onboard the drone, and for example with an offline version of a certain Google Maps area. In this case, the vehicle would know if its situated inside a residential area or over a highway, and the maximum flying velocity could be adjusted.\\
+	The potential field method has been proved to be reliable by not allowing UAVs to crash with each other or other obstacles in any situation, as can be seen in the multi-drone-avoidance case in \figurename{\ref{fig:multi_uav_avoidance}}. It also provides good enough safe margins of more than $\SI{0.5}{\meter}$ of minimum distance between a moving UAV and any other type of static or dynamic obstacle, as can be seen in \figurename{\ref{fig:obst}}. The velocities of the different UAVs, as seen in \figurename{\ref{fig:vel}}, are appropriate for this case study. The vehicles should not be slow but neither too fast to assure obstacle detection with enough margin to avoid them in time. Therefore, an 'open environment' velocity of around $\SI{0.4}{\frac{\meter}{\second}}$ is considered appropriate. However, as explained in the last sections, potential fields have some big issues that should be solved before this method can be used to test how UAVs would move in more realistic environments, e.g a city-live environment. As can be seen in \figurename{\ref{fig:localminima}}, the geometries where a UAV can get stuck in a local minima of a plain potential field function is not complex. Apart from this obvious local minima problem, scaling factors $\xi$ and $\eta$ seen in (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) could be tuned to establish maximum force (therefore velocity) more appropriate for each environment. This environment could be known making use of the GPS and barometer sensors onboard the drone, and for example with an offline version of a certain Google Maps area. In this case, the vehicle would know if its situated inside a residential area or over a highway, and the maximum flying velocity could be adjusted.\\
 
-
-
-	Future research could focus on actually controlling the simulated drones with the controller we designed to see if it will actually provide a safe control of the drones. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to A*, potential fields and so fort. another interesting application is to actually try to implement the navigation system into a real quad copter and see how well it functions.	
+	Future projects could try to actually control the simulated drones with the controller designed, to see if it would actually provide a safe navigation for the drones. When the controller and the navigation parts are implemented together and the simulation results are positive, another project could be based on the complete implementation of the whole system into a real quadrocopter. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to RRT, potential fields and so on, and develop more tools and tests to compare them. Even further down in the topic, a project could be developed to explain how to analyse the images resulting from a camera a UAV could carry, and how this information could be useful to help the drone navigate.\\
 	
 	
 	% if have a single appendix:
@@ -570,40 +569,38 @@
 	%
 	
 	
-	\appendices
-	\section{Dynamics or something that's heavy on the maths goes here}
-	Appendix one text goes here.
-	
-		\begin{equation} \label{eq:derivpos_earth_body}
-	\bm{\dot \xi} = \left[ {\begin{array}{c}
-		\dot \phi\\
-		\dot \theta\\
-		\dot \psi\\
-		\dot p\\
-		\dot q\\
-		\dot r\\
-		\dot u\\
-		\dot v\\
-		\dot w\\
-		\dot x\\
-		\dot y\\
-		\dot z\\
-		
-		\end{array} } \right]
-	%= \bm{J}_\Theta \ \bm{\nu}
-	\end{equation}
-	
-	% you can choose not to have a title for an appendix
-	% if you want by leaving the argument blank
-	\section{Something else but similar here, matlab code?}
-	Appendix two text goes here.
-	
+%	\appendices
+%	\section{Dynamics or something that's heavy on the maths goes here}
+%	Appendix one text goes here.
+%	
+%		\begin{equation} \label{eq:derivpos_earth_body}
+%	\bm{\dot \xi} = \left[ {\begin{array}{c}
+%		\dot \phi\\
+%		\dot \theta\\
+%		\dot \psi\\
+%		\dot p\\
+%		\dot q\\
+%		\dot r\\
+%		\dot u\\
+%		\dot v\\
+%		\dot w\\
+%		\dot x\\
+%		\dot y\\
+%		\dot z\\
+%		
+%		\end{array} } \right]
+%	%= \bm{J}_\Theta \ \bm{\nu}
+%	\end{equation}
+%	
+%	% you can choose not to have a title for an appendix
+%	% if you want by leaving the argument blank
+%	\section{Something else but similar here, matlab code?}
+%	Appendix two text goes here.
+%	
 	
 	% use section* for acknowledgement
 	\section*{Acknowledgment}
 	
-	Praising of Christos goes here!
-	The authors would like to thank...
 	
 	
 	% Can use something like this to put references on a page
