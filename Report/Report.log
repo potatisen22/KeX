@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  26 APR 2018 14:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  26 APR 2018 14:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1001,18 +1001,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 422--424
  []
 
 [4 <./img/ultrasonic2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
+
+ []
+
 <Results/Controll/Fig1.jpg, id=42, 562.1pt x 421.575pt>
 File: Results/Controll/Fig1.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig1.jpg>
-Package pdftex.def Info: Results/Controll/Fig1.jpg used on input line 469.
+Package pdftex.def Info: Results/Controll/Fig1.jpg used on input line 471.
 (pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
 
 <Results/Controll/Fig12.jpg, id=43, 562.1pt x 421.575pt>
 File: Results/Controll/Fig12.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig12.jpg>
-Package pdftex.def Info: Results/Controll/Fig12.jpg used on input line 476.
+Package pdftex.def Info: Results/Controll/Fig12.jpg used on input line 478.
 (pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
 
 
@@ -1032,12 +1036,13 @@ Missing character: There is no ∂ in font ptmr7t!
 ** the default language instead.
 Missing character: There is no √ in font ptmri7t!
 Missing character: There is no § in font ptmri7t!
+[5 <./Results/Controll/Fig1.jpg> <./Results/Controll/Fig12.jpg>]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no Å in font ptmr7t!
+
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
-[5 <./Results/Controll/Fig1.jpg> <./Results/Controll/Fig12.jpg>]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
@@ -1072,7 +1077,7 @@ live/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (6 pages, 988274 bytes).
+Output written on Report.pdf (6 pages, 988540 bytes).
 PDF statistics:
  110 PDF objects out of 1000 (max. 8388607)
  76 compressed objects within 1 object stream
