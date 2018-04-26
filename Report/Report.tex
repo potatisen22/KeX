@@ -300,17 +300,6 @@
 	Where the notation $\mathbf{0}_{3\times 3}$ means a matrix filled with zeros with a $3 \times 3$ dimension.
 	
 	In order to relate the derivate of the generalized position in the Earth frame with the generalized velocity on the body frame, the transfer matrix (\ref{eq:transf}) can be used, and that is the final model of the quadrotor's kinematics \cite{SabatinoFrancesco2015Qcmn, mod_control_bresciani}.
-	\begin{equation} \label{eq:derivpos_earth_body}
-	\bm{\dot \xi} %= \left[ {\begin{array}{c}
-	%	\dot x\\
-	%	\dot y\\
-	%	\dot z\\
-	%	\dot \phi\\
-	%	\dot \theta\\
-	%	\dot \psi\\
-	%	\end{array} } \right]
-	= \bm{J}_\Theta \ \bm{\nu}
-	\end{equation}
 	
 	\subsection{Dynamics}
 	The dynamic model for the UAV relates the acceleration of the vehicle with the forces and torques acting on the quadrotor. The Newton-Euler formulation allows to express the variables in the body frame, as in equations (\ref{eq:newton_euler_forces}) and (\ref{eq:newton_euler_torques}), as clearly stated by Bresciani in \cite{mod_control_bresciani}.
@@ -513,6 +502,25 @@
 	\appendices
 	\section{Dynamics or something that's heavy on the maths goes here}
 	Appendix one text goes here.
+	
+		\begin{equation} \label{eq:derivpos_earth_body}
+	\bm{\dot \xi} = \left[ {\begin{array}{c}
+		\dot \phi\\
+		\dot \theta\\
+		\dot \psi\\
+		\dot p\\
+		\dot q\\
+		\dot r\\
+		\dot u\\
+		\dot v\\
+		\dot w\\
+		\dot x\\
+		\dot y\\
+		\dot z\\
+		
+		\end{array} } \right]
+	%= \bm{J}_\Theta \ \bm{\nu}
+	\end{equation}
 	
 	% you can choose not to have a title for an appendix
 	% if you want by leaving the argument blank

@@ -2,6 +2,7 @@ clc;
 clear all;
 close all;
 %% Linear state space equation dx = Ax + Bu
+% x = [phi theta psi p q r u v w x y z]^T
 g = 9.8; %Gravity
 Ix=1; %Inertia x
 Iy=1; %Intertia y
