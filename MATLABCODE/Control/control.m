@@ -100,9 +100,29 @@ Dc = [D];
 sys_cl = ss(Ac,Bc,Cc,Dc);
 x0 = ones(1,12);  % initial state
 for i = 1:12
-    figure(i)
-    initial(sys_cl(i,:),x0);
-    grid on
+    if i < 4 
+        figure(1)
+        initial(sys_cl(i,:),x0);
+        grid on
+        hold on
+   
+    elseif i < 7
+        figure(2)
+        initial(sys_cl(i,:),x0);
+        grid on
+        hold on
+    elseif i < 10
+        figure(3)
+        initial(sys_cl(i,:),x0);
+        grid on
+        hold on
+    else
+       figure(4)
+        initial(sys_cl(i,:),x0);
+        grid on
+        hold on
+    end
+        
 end
 S = stepinfo(sys_cl)
 
