@@ -124,16 +124,17 @@ for i = 1:12
     end
         
 end
-set(groot, 'defaultLegendInterpreter','latex');
-%[phi theta psi p q r u v w x y z]
+[phi theta psi p q r u v w x y z]
 figure(1)
-legend('$\phi$','$\theta$','$\psi$')
+legend('\phi','\theta','\psi')
 figure(2)
-legend('p','q','r')
+legend('','','')
 figure(3)
-legend('u','v','w')
+legend('','','')
 figure(4)
-legend('x','y','z')
+legend('','','')
+S = stepinfo(sys_cl)
+
  %H = tf(sys_cl);
 % clf
 % for i = 1:12
