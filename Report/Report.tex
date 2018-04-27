@@ -7,6 +7,7 @@
 \usepackage{tikz}
 \usetikzlibrary{intersections, calc, shapes, arrows}
 \graphicspath{ {img/} }
+\usepackage{float}
 \pagenumbering{gobble}
 \newcommand*{\subb}[1]{_{\mathrm{#1}}}
 \tikzset{
@@ -73,7 +74,7 @@
 	% As a general rule, do not put math, special symbols or citations
 	% in the abstract or keywords.
 	\begin{abstract}
-		The aim of this report is to investigate how to safely navigate multiple quadrotor UAVs to their respective goals in a 3D-environment filled with obstacles. This is done by first designing a mathematical model for a single UAV, for its kinematics and dynamics. The mathematical model is then simplified and linearized so it can be written as a steady state function, and then the system’s observability and controllability are checked. We have developed an LQR controller. Also, a brief study of the sensors needed to estimate the UAV’s state is done. To navigate the drone to the goal we designed a potential field function. From this report, we can conclude that potential fields are a good choice to avoid collisions, but it involves some problems that should be fixed in order to assure that the UAVs never get stuck. We also discuss future research and ideas that could be easily implemented in order to improve the safety and the path planning for an UAV flight.
+		The aim of this report is to investigate how to safely navigate multiple quadrotor UAVs to their respective goals in a 3D-environment filled with obstacles. This is done by first designing a mathematical model for a single UAV, for its kinematics and dynamics. The mathematical model is then simplified and linearized so it can be written as a steady state function, and then the system’s observability and controllability are checked. We have developed an LQR controller for the quadcopter tracking. Also, a brief study of the sensors needed to estimate the UAV’s state is done. To navigate the drone to the goal we designed a potential field function. From this report, we can conclude that potential fields are a good choice to avoid collisions, but it involves some problems that should be fixed in order to assure that the UAVs never get stuck. We also discuss future research and ideas that could be easily implemented in order to improve the safety and the path planning for an UAV flight.
 
 	\end{abstract}
 		
@@ -103,13 +104,13 @@
 	%
 	% Here we have the typical use of a "T" for an initial drop letter
 	% and "HIS" in caps to complete the first word.
-	\IEEEPARstart{U}{nmanned} aerial vehicles, also known as UAVs, are becoming more and more popular  nowadays because they are small, cheap to produce, have low operating and maintenance cost, have great maneuverability, can perform steady flight operations and are able to enter high-risk areas without having to compromise human safety. Most applications that involve UAVs have been used in open areas without any obstacles and with a human in control of the UAV. But in recent years people have come up with more modern applications of UAVs that will need UAVs to fly autonomously in densely populated areas, with a lot of other autonomous vehicles around, e.g. Amazon Prime Air delivery system, AltiGator drones services for inspection and data adquisition, or multi-UAVs used to deploy an aerial communications network. This places high demands on UAVs’ obstacle avoidance capabilities for both moving and static obstacles.
+	\IEEEPARstart{U}{nmanned} aerial vehicles, also known as UAVs, are becoming more and more popular nowadays because they are small, cheap to produce, have low operating and maintenance cost, have great maneuverability, can perform steady flight operations and are able to enter high-risk areas without having to compromise human safety. Most applications that involve UAVs have been used in open areas without any obstacles and with a human in control of the UAV. But in recent years people have come up with more modern applications of UAVs that will need them to fly autonomously in densely populated areas, with a lot of other autonomous vehicles around, e.g. Amazon Prime Air delivery system, AltiGator drones services for inspection and data adquisition, or multi-UAVs used to deploy an aerial communications network. This places high demands on UAVs’ obstacle avoidance capabilities for both moving and static obstacles.
 	
 	There are many different UAV manufacturers and a vast amount of different models, all with different motors, weights, sensors and lift-to-weight ratio. To make a standard autonomous flight applicable to all these kinds of UAVs, a simple and easy-to-implement multi-UAV mathematical model, that will still be able to avoid obstacles with as few sensors as possible, is needed.
 	
-	This project aims to develop a navigation method that can make multiple UAVs fly safely to their goals in an environment filled with obstacles. To assure that the vehicles move along the desired trajectory, a reliable controller is needed. For this purpose a mathematical description of the UAV and the sensors on board is needed. The mathematical model's controllability and observability also have to be verified. 
+	This project aims to develop a navigation method that can make multiple UAVs fly safely to their goals in an environment filled with obstacles. To assure that the vehicles move along the desired trajectory, a reliable controller is needed. For this purpose a mathematical description of the UAV and the sensors on board is necessary. The mathematical model's controllability and observability also have to be verified. 
 	
-	In  section II the development of the mathematical model for the quad is explained. In section III, the controller of the UAV is studied. Section IV analyses different sensors on board the UAV and how they could be used to measure the state of the UAV accurately. In section V, the navigation method applied in this project is explained and described. The simulations performed is explained in section VI. Finally, in the last two sections of this paper, the results are presented, explained and discussed. 
+	In section II the development of the mathematical model for the quad is explained. In section III, the tracking controller of the UAV is studied. Section IV analyses different sensors on board the UAV and how they could be used to measure the state of the UAV accurately. In section V, the navigation method applied is explained and described. The simulations performed are explained in section VI. Finally, in the last two sections of this paper, the results are presented, explained and discussed. Future works and ideas derived from the work done on this project are also mentioned.
 
 	\hfill 
 	
@@ -378,7 +379,7 @@
 		
 		\subsection{Infrared sensors}
 		In order to sense the UAV's immediate surroundings, a device that is able to know if there is any obstacle around and its relative position to the drone is needed. An array of active infrared sensors correctly placed on the quadrotor is a good solution for this application. An IR sensor consists basically of a LED acting as a emitter and a photo detector acting as a receiver. Both need to have a peak in the same wavelength for optimal power radiation in the emitter and sensitivity in the receiver. The LED emits a light beam in the infrared range (\SI{700}{\nano \meter} to \SI{1}{\milli \meter} wavelength), and when the beam finds an obstacle, it is reflected. The receptor is a Position-Sensitive Device that is able to detect the angle of the received beam, and therefore the device is able to detect the distance to the obstacle thanks to triangulation, as can be seen in \figurename\ref{fig:ir}.
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=2.5in]{ir}
 			\caption{Infrared obstacle detection diagram}
@@ -392,7 +393,7 @@
 		\begin{equation} \label{eq:ultrasonic_formula}
 		d\subb{obstacle} = \textrm{v}\subb{sound, air} \ \frac{TOF}{2}
 		\end{equation}
-		\begin{figure}
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=2.5in]{ultrasonic2}
 			\caption{Ultrasonic obstacle detection diagram, obtained from \cite{hirata2008cross}}
@@ -409,9 +410,9 @@
 		Potential fields is the sum of an attractive and a repulsive potential. In this case the goal generates the attractive potential and the obstacles generate repulsive potentials. This will determine the movement of the UAV by following the negative gradient of the potential field. The repulsive and the attractive potentials are calculated according to \cite{potfieldsmethod}, as can be seen in equations (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) respectively.
  		\begin{equation} \label{eq:pot_att}
 			U\subb{att}(\bm{q}) =  \left\lbrace  {\begin{array}{cc}
-				\frac{1}{2} \xi \rho\subb{goal}^2(\bm{q})& \textrm{if} \ \rho\subb{goal}(\bm{q})\leq d \\
+				\frac{1}{2} \xi\subb{1} \rho\subb{goal}^2(\bm{q})& \textrm{if} \ \rho\subb{goal}(\bm{q})\leq d \\
 				\\
-				d \xi \rho\subb{goal}(\bm{q}) &\textrm{if} \ \rho\subb{goal}(\bm{q})> d \\
+				d \xi\subb{2} \rho\subb{goal}(\bm{q}) &\textrm{if} \ \rho\subb{goal}(\bm{q})> d \\
 				\end{array} } \right.
  		\end{equation}
  		
@@ -422,7 +423,7 @@
  			0 &\textrm{if} \ \rho\subb{obst}(\bm{q})> \rho\subb{0} \\
  			\end{array} } \right.
  		\end{equation}
-	Where $\bm{q} = \left[ {\begin{array}{ccc} x \ \ y \ \ z \end{array} } \right]^T $ is the UAV's linear position in the space for the 3D case. The variables $\rho\subb{goal}(\bm{q})$ and $\rho\subb{obst}(\bm{q})$ are the distances between the vehicle and the goal or the nearest obstacle, calculated with the Euclidean norm $\rho\subb{x}(\bm{q}) = \parallel \bm{q} - \bm{q\subb{x}}\parallel$. The $d$ parameter is the distance from the goal where the attractive function changes from a conic to a parabolic well, because the combination of both configurations resolves the problems each one has separately. The constant $\rho\subb{0}$ is the sensing radius of the UAV. Finally, $\xi$ and $\eta$ are positive scaling factors. \\
+	Where $\bm{q} = \left[ {\begin{array}{ccc} x \ \ y \ \ z \end{array} } \right]^T $ is the UAV's linear position in the space for the 3D case. The variables $\rho\subb{goal}(\bm{q})$ and $\rho\subb{obst}(\bm{q})$ are the distances between the vehicle and the goal or the nearest obstacle, calculated with the Euclidean norm $\rho\subb{x}(\bm{q}) = \parallel \bm{q} - \bm{q\subb{x}}\parallel$. The $d$ parameter is the distance from the goal where the attractive function changes from a conic to a parabolic well, because the combination of both configurations resolves the problems each one has separately. The constant $\rho\subb{0}$ is the sensing radius of the UAV. Finally, $\xi\subb{1}$, $\xi\subb{2}$ and $\eta$ are positive scaling factors that allow potential adjustment. \\
 	
 	The potential fields' desired force on the UAV is calculated with (\ref{eq:force_from_pot}), since the negative gradient of a potential field $-\bm{\nabla} U$ is a vector that points in the direction of steepest descent. 
 	
@@ -434,9 +435,9 @@
 	
 	\begin{equation} \label{eq:force_att}
 		\vec{F}\subb{att}(\bm{q}) =  \left\lbrace  {\begin{array}{cc}
-			- \xi (\bm{q}-\bm{q\subb{goal}})& \textrm{if} \ \rho\subb{goal}(\bm{q})\leq d \\
+			- \xi\subb{1} (\bm{q}-\bm{q\subb{goal}})& \textrm{if} \ \rho\subb{goal}(\bm{q})\leq d \\
 			\\
-			-d \xi \frac{(\bm{q}-\bm{q\subb{goal}})}{\parallel\bm{q}-\bm{q\subb{goal}}\parallel}&\textrm{if} \ \rho\subb{goal}(\bm{q})> d \\
+			-d \xi\subb{2} \frac{(\bm{q}-\bm{q\subb{goal}})}{\parallel\bm{q}-\bm{q\subb{goal}}\parallel}&\textrm{if} \ \rho\subb{goal}(\bm{q})> d \\
 			\end{array} } \right.
 	\end{equation}
 
@@ -471,85 +472,87 @@
 	
 	For the control we constructed the state-space equations in a MatLab script and used basic algebraic operations to analyse the controllability and observability of the model.  We then used MatLab tools to design an LQR and analysed the step responses of the system.  \\
 	
-	For the navigation part we developed a script to test the guidance of our potential field function by simulating drones and obstacles. The MatLab script first generates a 3D environment. All the objects are modelled as spheres and have a position, that corresponds to the center of the sphere, and a radius. Each UAV has the same radius and the same sphere of influence, these being reasonable numbers relatable to real-life situations. The algorithm works by calculating, for each vehicle, the potential function for where it is situated at that moment and what it can detect. Then as stated in (\ref{eq:first_order}), the drone advances in space with a set discrete time step, which also is appropriately chosen with the performance of the sensors in mind. \\
+	For the navigation part we developed a script to test the guidance of our potential field function by simulating drones and obstacles. The MatLab script first generates a 3D environment, with UAVs initial position, goals, and obstacles. Obstacles can not appear too close to the quadcopters or their goals. All the objects are modelled as spheres and have a position, that corresponds to the center of the sphere, and a radius. \\
 	
-	We have implemented some different special case scenarios to cover all the possible aspects of the model. In the first one the number of both obstacles and UAVs generated is random, between a minimum and a maximum value. This can help us check how many drones can finally get to their goals without getting stuck, and to detect 
+	Obstacles usually have a random radius between $\SI{0.3}{m}$ and $\SI{2}{m}$. Each UAV has the same radius of $\SI{25}{\centi\meter}$ and the same radius of the sphere of influence of $\SI{2}{m}$. These are reasonable numbers relatable to real-life situations, in the case we considered a quite big UAV. For the sphere of influence, the most common IR and ultrasonic sensors, placed in the adequate places, allow sensing up to $\SI{2}{\meter}$ without any problem. For the scaling factors, $\xi\subb{1} = 10$, $\xi\subb{2} = 5$ and $\eta = 10$. The value of $\xi\subb{1}$ is assigned so the UAVs, when far from the goal, have a desired velocity of around $\SI{0.5}{\frac{\meter}{\second}}$. Both the attractive and the repulsive potentials have the same scaling by establishing $\eta$ with the same value, as to prevent crashes. When closer to the goal, the scaling factor is lower to avoid oscillation around the goal. The distance to change from conic to parabolic well is set to $d = 1$ so the velocity of the UAV is restricted most part of its flight, to guarantee safety.\\
+	
+	The algorithm works by calculating, for each vehicle, the distance to the goal and if an obstacle is close enough to be detected. The potential function is calculated consequently. Then as stated in (\ref{eq:first_order}), the drone advances in space with a set discrete time step of $\SI{0.05}{\second}$, to assure that the UAVs does not advance for a long period of time without checking the state and the environment.\\
+	
+	We have implemented some different special case scenarios to cover all the possible aspects of the model. In the first one the number of both obstacles and UAVs generated is random, between a minimum and a maximum value (average values of 6 UAVs and 75 obstacles). This can help us check how many drones can finally get to their goals without getting stuck.
 	
 	\section{Results}
 	\subsection{Control}
-		\begin{figure}[h]
+		\begin{figure}[H]
   			\centering
-  			\includegraphics[width=5cm]{Results/Controll/Fig1}
+  			\includegraphics[width=7cm]{Results/Controll/Fig1}
   			\caption{Step response for $\varphi$}
   			\label{fig:contresphi}
 		\end{figure}	
 		
-		\begin{figure}[h]
+		\begin{figure}[H]
   			\centering
-  			\includegraphics[width=5cm]{Results/Controll/Fig12}
+  			\includegraphics[width=7cm]{Results/Controll/Fig12}
   			\caption{Step response for x}
   			\label{fig:contresx}
 		\end{figure}	
 		
 	\subsection{Navigation}
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/env_1}
 			\caption{Random case environment from first perspective for the potential fields simulation}
 			\label{fig:env_1}
 		\end{figure}	
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/env_2}
 			\caption{Random case environment from second perspective}
 			\label{fig:env_2}
 		\end{figure}	
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/env_3}
 			\caption{Random case environment from third perspective}
 			\label{fig:env_3}
 		\end{figure}	
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/goal}
 			\caption{Random case environment - Distance from vehicles to their respective goal}
 			\label{fig:goal}
 		\end{figure}
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/obst}
 			\caption{Random case environment - Distance from vehicles' surface to any other obstacle's surface}
 			\label{fig:obst}
 		\end{figure}
 	
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/vel}
 			\caption{Random case environment - Velocities for each vehicle}
 			\label{fig:vel}
 		\end{figure}
 
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/multi_uav_avoidance}
 			\caption{Multi UAV avoidance case}
 			\label{fig:multi_uav_avoidance}
 		\end{figure}
 
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/localminima}
 			\caption{Local minima problem for the symmetric case}
 			\label{fig:localminima}
 		\end{figure}
 		
-		
-		
 	\section{Discussion, conclusion and Future development}
-	One can see that in figures  (\ref{fig:contresphi}) and (\ref{fig:contresx}) both step responses have a steady state error of zero which is the case for all 12 outputs from the feedback system. This implies that the LQR is working the way it was intended to and that we actually have full control of the UAVs.  The settling time and, in some cases, the overshoot is very high, therefore being able to control a real drone in an effective way could prove difficult with this controller. This is probably due to a heuristic choice of the parameters Q and R. The focus of this report was to show an effective way of controlling a UAV and not to find an optimal control, optimizing Q and R could be a subject to study in a  future projects within the field. \\
+	One can see that in \figurename{\ref{fig:contresphi}} and \figurename{\ref{fig:contresx}} both step responses have a steady state error of zero which is the case for all 12 outputs from the feedback system. This implies that the LQR is working the way it was intended to and that we actually have full control of the UAVs.  The settling time and, in some cases, the overshoot is very high, therefore being able to control a real drone in an effective way could prove difficult with this controller. This is probably due to a heuristic choice of the parameters Q and R. The focus of this report was to show an effective way of controlling a UAV and not to find an optimal control, optimizing Q and R could be a subject to study in a  future projects within the field. \\
 
-	The potential field method has been proved to be reliable by not allowing UAVs to crash with each other or other obstacles in any situation, as can be seen in the multi-drone-avoidance case in \figurename{\ref{fig:multi_uav_avoidance}}. It also provides good enough safe margins of more than $\SI{0.5}{\meter}$ of minimum distance between a moving UAV and any other type of static or dynamic obstacle, as can be seen in \figurename{\ref{fig:obst}}. The velocities of the different UAVs, as seen in \figurename{\ref{fig:vel}}, are appropriate for this case study. The vehicles should not be slow but neither too fast to assure obstacle detection with enough margin to avoid them in time. Therefore, an 'open environment' velocity of around $\SI{0.4}{\frac{\meter}{\second}}$ is considered appropriate. However, as explained in the last sections, potential fields have some big issues that should be solved before this method can be used to test how UAVs would move in more realistic environments, e.g a city-live environment. As can be seen in \figurename{\ref{fig:localminima}}, the geometries where a UAV can get stuck in a local minima of a plain potential field function is not complex. Apart from this obvious local minima problem, scaling factors $\xi$ and $\eta$ seen in (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) could be tuned to establish maximum force (therefore velocity) more appropriate for each environment. This environment could be known making use of the GPS and barometer sensors onboard the drone, and for example with an offline version of a certain Google Maps area. In this case, the vehicle would know if its situated inside a residential area or over a highway, and the maximum flying velocity could be adjusted.\\
+	The potential field method has been proved to be reliable by not allowing UAVs to crash with each other or other obstacles in any situation, as can be seen in the multi-drone-avoidance case in \figurename{\ref{fig:multi_uav_avoidance}}. It also provides good enough safe margins of more than $\SI{0.5}{\meter}$ of minimum distance between a moving UAV and any other type of static or dynamic obstacle, as can be seen in \figurename{\ref{fig:obst}}. The velocities of the different UAVs, as seen in \figurename{\ref{fig:vel}}, are appropriate for this case study. The vehicles should not be slow but neither too fast to assure obstacle detection with enough margin to avoid them in time. Therefore, an 'open environment' velocity of around $\SI{0.5}{\frac{\meter}{\second}}$ is considered appropriate. However, as explained in the last sections, potential fields have some big issues that should be solved before this method can be used to test how UAVs would move in more realistic environments, e.g a city-live environment. As can be seen in \figurename{\ref{fig:localminima}}, the geometries where a UAV can get stuck in a local minima of a plain potential field function is not complex. Apart from this obvious local minima problem, scaling factors $\xi\subb{1}$, $\xi\subb{2}$ and $\eta$ seen in (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) could be tuned to establish maximum force (therefore velocity) more appropriate for each environment. This environment could be known making use of the GPS and barometer sensors onboard the drone, and for example with an offline version of a certain Google Maps area. In this case, the vehicle would know if its situated inside a residential area or over a highway, and the maximum flying velocity could be adjusted in consequence.\\
 
 	Future projects could try to actually control the simulated drones with the controller designed, to see if it would actually provide a safe navigation for the drones. When the controller and the navigation parts are implemented together and the simulation results are positive, another project could be based on the complete implementation of the whole system into a real quadrocopter. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to RRT, potential fields and so on, and develop more tools and tests to compare them. Even further down in the topic, a project could be developed to explain how to analyse the images resulting from a camera a UAV could carry, and how this information could be useful to help the drone navigate.\\
 	
@@ -602,14 +605,11 @@
 	\section*{Acknowledgment}
 	
 	
-	
 	% Can use something like this to put references on a page
 	% by themselves when using endfloat and the captionsoff option.
 	\ifCLASSOPTIONcaptionsoff
 	\newpage
 	\fi
-	
-	
 	
 	% trigger a \newpage just before the given reference
 	% number - used to balance the columns on the last page
@@ -631,8 +631,6 @@
 	%\bibliography{Report}
 	\bibliography{bib}
 	
-	
-	
 	% You can push biographies down or up by placing
 	% a \vfill before or after them. The appropriate
 	% use of \vfill depends on what kind of text is
@@ -640,13 +638,11 @@
 	% are being equalized.
 	
 	%\vfill
-	
+
 	% Can be used to pull up biographies so that the bottom of the last one
 	% is flush with the other column.
 	%\enlargethispage{-5in}
-	
-	
-	
+
 	% that's all folks
 \end{document}
 

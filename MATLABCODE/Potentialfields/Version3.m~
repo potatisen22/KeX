@@ -14,12 +14,12 @@ clc;
 clear all;
 close all;
 tstep = 0.05; %time step
-d = 1; %distance to change from conic to parabolic well
+d = 0.5; %distance to change from conic to parabolic well
 
 %Constants for all the vehicles
-xi1 = 10; %scale factor for attractive potential
+xi1 = 8; %scale factor for attractive potential
 xi2 = 5;
-eta = 10; %scale factor for repulsive potential
+eta = 9; %scale factor for repulsive potential
 p0 = 2; %radius of sphere of influence for repulsive potential
 
 %Figures to plot
@@ -45,7 +45,7 @@ grid on
 %Generating random # of drones (initial pos+goal) between min and max
 mindrones = 5;
 maxdrones = 7;
-raddrones = 0.25;
+raddrones = 0.3;
 figure(1)
 [totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (mindrones, maxdrones, raddrones);
 
