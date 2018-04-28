@@ -74,7 +74,7 @@
 	% As a general rule, do not put math, special symbols or citations
 	% in the abstract or keywords.
 	\begin{abstract}
-		The aim of this report is to investigate how to safely navigate multiple quadrotor UAVs to their respective goals in a 3D-environment filled with obstacles. This is done by first designing a mathematical model for a single UAV, for its kinematics and dynamics. The mathematical model is then simplified and linearized so it can be written as a state-space equation, and then the system’s observability and controllability are checked. We have developed an LQR controller for the quadcopter tracking. Also, a brief study of the sensors needed to estimate the UAV’s state is done. To navigate the drone to the goal we designed a potential field function. From this report, we can conclude that potential fields are a good choice to avoid collisions, but it involves some problems that should be fixed in order to assure that the UAVs never get stuck. We also discuss future research and ideas that could be easily implemented in order to improve the safety and the path planning for an UAV flight.
+		The aim of this report is to investigate how to safely navigate multiple quadrotor UAVs to their respective goals in a 3D-environment filled with obstacles. This is done by first designing a mathematical model for a single UAV, for its kinematics and dynamics. The mathematical model is then simplified and linearized so it can be written as a linear state-space equation, and then the system’s observability and controllability are checked. We have developed an LQR controller for the quadcopter tracking. Also, a brief study of the sensors needed to estimate the UAV’s state is done. To navigate the drone to the goal we designed a potential field function. From this report, we can conclude that potential fields are a good choice to avoid collisions, but it involves some problems that should be fixed in order to assure that the UAVs never get stuck. We also discuss future research and ideas that could be easily implemented in order to improve the safety and the path planning for an UAV flight.
 
 	\end{abstract}
 		
@@ -322,7 +322,7 @@
 		\caption{block diagram for individual quadrotor}
 		\label{fig:block_diagram}
 	\end{figure}	
-	To check that our quadrotor system is controllable and observable we linearise the mathematical model of the quadrotor according to \cite{SabatinoFrancesco2015Qcmn} and then rewrite it in the state-space form \cite{SabatinoFrancesco2015Qcmn} of our model seen in equations (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2}).
+	We linearise the mathematical modell according to \cite{SabatinoFrancesco2015Qcmn}, to do optimal control with LQR [WHY???]. Then we rewrite the linearisation in the linear state-space form \cite{SabatinoFrancesco2015Qcmn} of our model seen in equations (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2}).
 	\begin{equation} \label{eq:steady_state_1}
 			\bm{\dot x} = \bm{A} \bm{x} + \bm{B} \bm{u}
 	\end{equation}
@@ -330,8 +330,7 @@
 	\begin{equation} \label{eq:steady_state_2}
 	\bm{y} = \bm{C} \bm{x}
 	\end{equation}
-	
-	All the states of the system are both observable and controlable. The controller used in this project is an LQR. It is used to check that our mathematical model of the UAV can be controlled well enough to do steady flight operations.  An LQR utilizes a cost function and minimises said cost function to optimise the controller \cite{bokLQ}. To design the LQR we use some of the constants in the state-space equations to express the Q matrix in the following way.
+	With the model rewritten according to \ref{eq:steady_state_1} and \ref{eq:steady_state_2} we verifie that all the states of the system are both observable and controlable by....[EQUATION FOR OBSERVABEL AND CONTROLABLE]. The controller used in this section is as mentioned above an LQR. [It is used to check that our mathematical model of the UAV can be controlled well enough to do steady flight operations]<--wrong.  An LQR utilizes a cost function and minimises said cost function to optimise the controller \cite{bokLQ}. To design the LQR we use some of the constants in the state-space equations to express the Q matrix in the following way.
 	
 	\begin{equation}
 	\bm{Q}=\bm{C^}{T}\bm{C}\alpha_{1}
@@ -344,7 +343,7 @@
 	J = \int_{0}^{\infty} (\bm{x}^{T}(t)\bm{Q}\bm{x}(t)+\bm{u}^2(t)) dt
 	\end{equation}
 	
-	 J is then minimised to obtain the optimal LQR with the given $\alpha_{1}$. The reason behind using a LQR is that it usually has small steady-state errors as stated in \cite{lqr_error}. Since the main goal of this project is to avoid colliding any of our UAVs it would be reasonable to focus on getting the deviations from the optimal track to be as small as possible, hence minimising the error.   
+	 J is then minimised to obtain the optimal LQR with the given $\alpha_{1}$. The motivation behind using a LQR is that it usually has small steady-state errors as stated in \cite{lqr_error}. It would be reasonable to focus on getting the deviations from the optimal track to be as small as possible, hence minimising the error.   
 	
 	\section{Measuring the UAV state and environment}
 	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that makes this possible, it is important that the vehicle can acquire accurate information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also provide information about the objects the vehicle may encounter throughout its path, as to make the navigation safe and prevent collisions.\\
@@ -467,23 +466,17 @@
 	\\
 	The potential fields method, nevertheless, has some clear limitations. The most important problem to solve is the local minima situation, where a vehicle can get stuck and therefore never arriving to its goal. But there are some other problems, like the difficulty of passing between closely-spaced obstacles or inherent oscilations in the trajectory when near obstacles, as stated by Koren and Borenstein in \cite{koren_pot_fields_limitations}. 
 	
-	\section{Simulation}
+	\section{Simulation and results}
 	All the necessary formulas described in this report have been implemented in MatLab to test their validity in the context. The parts we have focused more on have been the navigation with potential fields and the control.\\
 	
-	For the trajectory tracking we constructed the state-space equations of the linearised mathematical model in a MatLab script and used basic algebraic operations to analyse the controllability and observability of the model.  We then used MatLab tools to design an LQR and analysed the step responses of the system.  \\
-	
-	For the navigation part we developed a script to test the guidance of our potential field function by simulating drones and obstacles. The MatLab script first generates a 3D environment, with UAVs initial position, goals, and obstacles. Obstacles can not appear too close to the quadcopters or their goals. All the objects are modelled as spheres and have a position, that corresponds to the center of the sphere, and a radius.\\
-	
-	Obstacles usually have a random radius between $\SI{0.3}{m}$ and $\SI{2}{m}$. Each UAV has the same radius of $\SI{25}{\centi\meter}$ and the same radius of the sphere of influence of $\SI{2}{m}$. These are reasonable numbers relatable to real-life situations, in the case we considered a quite big UAV. For the sphere of influence, the most common IR and ultrasonic sensors, placed in the adequate places, allow sensing up to $\SI{2}{\meter}$ without any problem. For the scaling factors, $\xi\subb{1} = 10$, $\xi\subb{2} = 5$ and $\eta = 10$. The value of $\xi\subb{1}$ is assigned so the UAVs, when far from the goal, have a desired velocity of around $\SI{0.5}{\frac{\meter}{\second}}$. Both the attractive and the repulsive potentials have the same scaling by establishing $\eta$ with the same value, as to prevent crashes. When closer to the goal, the scaling factor is lower to avoid oscillation around the goal. The distance to change from conic to parabolic well is set to $d = 1$ so the velocity of the UAV is restricted most part of its flight, to guarantee safety.\\
-	
-	The algorithm works by calculating, for each vehicle, the distance to the goal and if an obstacle is close enough to be detected. The potential function is calculated consequently. Then as stated in (\ref{eq:first_order}), the drone advances in space with a set discrete time step of $\SI{0.05}{\second}$, to assure that the UAVs do not move for a long period of time without checking again the state and the environment.\\
-	
-	We have implemented some different special case scenarios to cover all the possible aspects of the model. In the first one the number of both obstacles and UAVs generated is random, between a minimum and a maximum value (average values of 6 UAVs and 75 obstacles). This can help us check how many drones can finally get to their goals without getting stuck.
+	For the trajectory tracking we constructed the linear state-space equations of the mathematical model in a MatLab script and used the equations described in section [INSERT SECTION] to analyse the controllability and observability of the model.  We then used MatLab tools to design an LQR and analysed the step responses of the system which produced the results shown in figures \figurename{\ref{fig:contresangles}}, \figurename{\ref{fig:contresangvel}}, \figurename{\ref{fig:contresvel}} and \figurename{\ref{fig:contrespos}}.  \\
+
+
 	
 		\begin{figure}[H]
   			\centering
   			\includegraphics[width=7cm]{Results/Controll/Fig1}
-  			\caption{Step response for the Euler angles}
+  			\caption{Step response for the Euler angles.}
   			\label{fig:contresangles}
 		\end{figure}	
 		
@@ -504,11 +497,22 @@
 		\begin{figure}[H]
   			\centering
   			\includegraphics[width=7cm]{Results/Controll/Fig4}
-  			\caption{Step response for position}
+  			\caption{Step response for positions}
   			\label{fig:contrespos}
 		\end{figure}	
 		
 		\begin{figure}[H]
+
+
+	
+	For the navigation part we developed a script to test the guidance of our potential field function by simulating drones and obstacles. The MatLab script first generates a 3D environment, with UAVs initial position, goals, and obstacles. Obstacles can not appear too close to the quadcopters or their goals. All the objects are modelled as spheres and have a position, that corresponds to the center of the sphere, and a radius.\\
+	
+	Obstacles usually have a random radius between $\SI{0.3}{m}$ and $\SI{2}{m}$. Each UAV has the same radius of $\SI{25}{\centi\meter}$ and the same radius of the sphere of influence of $\SI{2}{m}$. These are reasonable numbers relatable to real-life situations, in the case we considered a quite big UAV. For the sphere of influence, the most common IR and ultrasonic sensors, placed in the adequate places, allow sensing up to $\SI{2}{\meter}$ without any problem. For the scaling factors, $\xi\subb{1} = 10$, $\xi\subb{2} = 5$ and $\eta = 10$. The value of $\xi\subb{1}$ is assigned so the UAVs, when far from the goal, have a desired velocity of around $\SI{0.5}{\frac{\meter}{\second}}$. Both the attractive and the repulsive potentials have the same scaling by establishing $\eta$ with the same value, as to prevent crashes. When closer to the goal, the scaling factor is lower to avoid oscillation around the goal. The distance to change from conic to parabolic well is set to $d = 1$ so the velocity of the UAV is restricted most part of its flight, to guarantee safety.\\
+	
+	The algorithm works by calculating, for each vehicle, the distance to the goal and if an obstacle is close enough to be detected. The potential function is calculated consequently. Then as stated in (\ref{eq:first_order}), the drone advances in space with a set discrete time step of $\SI{0.05}{\second}$, to assure that the UAVs do not move for a long period of time without checking again the state and the environment.\\
+	
+	We have implemented some different special case scenarios to cover all the possible aspects of the model. In the first one the number of both obstacles and UAVs generated is random, between a minimum and a maximum value (average values of 6 UAVs and 75 obstacles). This can help us check how many drones can finally get to their goals without getting stuck.
+
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/env_1}
 			\caption{Random case environment from first perspective for the potential fields simulation}
@@ -561,7 +565,7 @@
 		\end{figure}
 		
 	\section{Discussion, conclusion and Future development}
-	One can see that in \figurename{\ref{fig:contresangles}}, \figurename{\ref{fig:contresangvel}}, \figurename{\ref{fig:contresvel}} and \figurename{\ref{fig:contrespos}} all step responses have a steady state error of zero, which is the case for all 12 outputs from the feedback system. This implies that the LQR is working the way it was intended to and that we actually have full control of the UAVs. The parameters Q and R were heuristically, therefore the settling time and overshoot can probably be improved upon. The focus of this report was to show an effective way of controlling a UAV and not to find an optimal control, optimizing Q and R could be a subject to study in a  future projects within the field. \\
+	As mentioned in the Simulation and results section \figurename{\ref{fig:contresangles}}, \figurename{\ref{fig:contresangvel}}, \figurename{\ref{fig:contresvel}} and \figurename{\ref{fig:contrespos}} all show a steady state error of zero, which is the case for all 12 outputs from the feedback system. This implies that the LQR is working the way it was intended to and that we actually have full control of the UAVs. The parameters Q and R were heuristically, therefore the settling time and overshoot can probably be improved upon. The focus of this report was to show an effective way of controlling a UAV and not to find an optimal control, optimizing Q and R could be a subject to study in a  future projects within the field. \\
 
 	The potential field method has been proved to be reliable by not allowing UAVs to crash with each other or other obstacles in any situation, as can be seen in the multi-drone-avoidance case in \figurename{\ref{fig:multi_uav_avoidance}}. It also provides good enough safe margins of more than $\SI{0.5}{\meter}$ of minimum distance between a moving UAV and any other type of static or dynamic obstacle, as can be seen in \figurename{\ref{fig:obst}}. The velocities of the different UAVs, as seen in \figurename{\ref{fig:vel}}, are appropriate for this case study. The vehicles should not be slow but neither too fast to assure obstacle detection with enough margin to avoid them in time. Therefore, an 'open environment' velocity of around $\SI{0.5}{\frac{\meter}{\second}}$ is considered appropriate. However, as explained in the last sections, potential fields have some big issues that should be solved before this method can be used to test how UAVs would move in more realistic environments, e.g a city-live environment. As can be seen in \figurename{\ref{fig:localminima}}, the geometries where a UAV can get stuck in a local minima of a plain potential field function is not complex. Apart from this obvious local minima problem, scaling factors $\xi\subb{1}$, $\xi\subb{2}$ and $\eta$ seen in (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) could be tuned to establish maximum force (therefore velocity) more appropriate for each environment. This environment could be known making use of the GPS and barometer sensors onboard the drone, and for example with an offline version of a certain Google Maps area. In this case, the vehicle would know if its situated inside a residential area or over a highway, and the maximum flying velocity could be adjusted in consequence.\\
 
