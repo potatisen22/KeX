@@ -476,12 +476,10 @@
 	
 	Obstacles usually have a random radius between $\SI{0.3}{m}$ and $\SI{2}{m}$. Each UAV has the same radius of $\SI{25}{\centi\meter}$ and the same radius of the sphere of influence of $\SI{2}{m}$. These are reasonable numbers relatable to real-life situations, in the case we considered a quite big UAV. For the sphere of influence, the most common IR and ultrasonic sensors, placed in the adequate places, allow sensing up to $\SI{2}{\meter}$ without any problem. For the scaling factors, $\xi\subb{1} = 10$, $\xi\subb{2} = 5$ and $\eta = 10$. The value of $\xi\subb{1}$ is assigned so the UAVs, when far from the goal, have a desired velocity of around $\SI{0.5}{\frac{\meter}{\second}}$. Both the attractive and the repulsive potentials have the same scaling by establishing $\eta$ with the same value, as to prevent crashes. When closer to the goal, the scaling factor is lower to avoid oscillation around the goal. The distance to change from conic to parabolic well is set to $d = 1$ so the velocity of the UAV is restricted most part of its flight, to guarantee safety.\\
 	
-	The algorithm works by calculating, for each vehicle, the distance to the goal and if an obstacle is close enough to be detected. The potential function is calculated consequently. Then as stated in (\ref{eq:first_order}), the drone advances in space with a set discrete time step of $\SI{0.05}{\second}$, to assure that the UAVs does not advance for a long period of time without checking the state and the environment.\\
+	The algorithm works by calculating, for each vehicle, the distance to the goal and if an obstacle is close enough to be detected. The potential function is calculated consequently. Then as stated in (\ref{eq:first_order}), the drone advances in space with a set discrete time step of $\SI{0.05}{\second}$, to assure that the UAVs do not move for a long period of time without checking again the state and the environment.\\
 	
 	We have implemented some different special case scenarios to cover all the possible aspects of the model. In the first one the number of both obstacles and UAVs generated is random, between a minimum and a maximum value (average values of 6 UAVs and 75 obstacles). This can help us check how many drones can finally get to their goals without getting stuck.
 	
-	\section{Results}
-	\subsection{Trajectory Tracking}
 		\begin{figure}[H]
   			\centering
   			\includegraphics[width=7cm]{Results/Controll/Fig1}
@@ -510,7 +508,6 @@
   			\label{fig:contrespos}
 		\end{figure}	
 		
-	\subsection{Navigation}
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/env_1}

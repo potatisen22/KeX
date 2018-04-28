@@ -1,12 +1,3 @@
-%TO DO LIST
-%DONE repulsive surface with other drones too
-%implement ODE
-%DONE make it so obstacles can't appear near initial position/goal of drones
-%DONE method to find if there's a collision or not ->plot distances
-
-%for the report
-%plot distances to the goal (t)
-%plot distances between drones -> they should always be positive
 %test local minima -> do a symetrial case and show it in the report -> cite
 %works that try to solve it as references
 
