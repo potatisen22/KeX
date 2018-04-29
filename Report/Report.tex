@@ -27,7 +27,7 @@
 	% paper title
 	% can use linebreaks \\ within to get better formatting as desired
 	% Do not put math or special symbols in the title.
-	\title{Motion Control of Unmanned Aerial Vehicle}
+	\title{Motion Planning and Control of Unmanned Aerial Vehicles}
 	\author{Vilhelm~Dinevik and Paula~Carb\'o}
 	% author names and IEEE memberships
 	% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
@@ -104,117 +104,21 @@
 	%
 	% Here we have the typical use of a "T" for an initial drop letter
 	% and "HIS" in caps to complete the first word.
-	\IEEEPARstart{U}{nmanned} aerial vehicles, also known as UAVs, are becoming more and more popular nowadays because they are small, cheap to produce, have low operating and maintenance cost, have great maneuverability, can perform steady flight operations and are able to enter high-risk areas without having to compromise human safety. Most applications that involve UAVs have been used in open areas without any obstacles and with a human in control of the UAV. But in recent years people have come up with more modern applications of UAVs that will need them to fly autonomously in densely populated areas, with a lot of other autonomous vehicles around, e.g. Amazon Prime Air delivery system, AltiGator drones services for inspection and data adquisition, or multi-UAVs used to deploy an aerial communications network. This places high demands on UAVs’ obstacle avoidance capabilities for both moving and static obstacles.
+	\IEEEPARstart{U}{nmanned} aerial vehicles, also known as UAVs, are becoming more and more popular nowadays because they are small, cheap to produce, have low operating and maintenance cost, great maneuverability, can perform steady flight operations and are able to enter high-risk areas without having to compromise human safety. Most applications that involve UAVs have been used in open areas without any obstacles and with a human in control of the UAV. But in recent years people have come up with more modern applications of UAVs that will need them to fly autonomously in densely populated areas, with a lot of other autonomous vehicles around, e.g. Amazon Prime Air delivery system, AltiGator drones services for inspection and data adquisition, or multi-UAVs used to deploy an aerial communications network \cite{intro_network}. This places high demands on UAVs’ obstacle avoidance capabilities for both moving and static obstacles.\\
 	
-	There are many different UAV manufacturers and a vast amount of different models, all with different motors, weights, sensors and lift-to-weight ratio. To make a standard autonomous flight applicable to all these kinds of UAVs, a simple and easy-to-implement multi-UAV mathematical model, that will still be able to avoid obstacles with as few sensors as possible, is needed.
+	There are many different UAV manufacturers and a vast amount of different models, all with different motors, weights, sensors and lift-to-weight ratio. To make a standard autonomous flight applicable to all these kinds of UAVs, a simple and easy-to-implement multi-UAV mathematical model, that will still be able to avoid obstacles with as few sensors as possible, is needed. There is plenty of previous work that has focused on modelling and controlling a single UAV in great detail \cite{intro_nolinear_model_control}, on simulating high-fidelity multi-UAV scenarios \cite{intro_3d_unity} and on finding the most precise sensing techniques to create indoor and outdoor capability \cite{intro_indoor_sensing}. \\
 	
-	This project aims to develop a navigation method that can make multiple UAVs fly safely to their goals in an environment filled with obstacles. To assure that the vehicles move along the desired trajectory, a reliable controller is needed. For this purpose a mathematical description of the UAV and the sensors on board is necessary. The mathematical model's controllability and observability also have to be verified. 
+	Based on all this previous work, the main focus of this project is to develop a control method that can make multiple quadrotor UAVs fly safely to their goals in an environment filled with obstacles.  Therefore, this report aims to study the mathematical model for a single vehicle, the sensors placed in the UAV that provide all the information of its state, a linearisation-based tracking controler and a navigation controler based on potential fields. \\
 	
-	In section II the development of the mathematical model for the quad is explained. In section III, the tracking controller of the UAV is studied. Section IV analyses different sensors on board the UAV and how they could be used to measure the state of the UAV accurately. In section V, the navigation method applied is explained and described. The simulations performed are explained in section VI. Finally, in the last two sections of this paper, the results are presented, explained and discussed. Future works and ideas derived from the work done on this project are also mentioned.
+	In section II the development of the mathematical model for the quad is explained. Section III analyses different sensors on board the UAV and how they could be used to measure the state of the UAV accurately. In section IV, the tracking controller of the UAV is studied. In section V, the navigation method  is explained and described. The simulations performed and the results obteined are explained in section VI. Finally, in the last section of this paper, the results are explained and discussed. Future works and ideas derived from the work done on this project are also mentioned.
 
-	\hfill 
+	\hfill 	
 	
-	%\subsection{The Issue}
-	%How make super small propeller things not smash into each other or other things.
-	%
-	%% needed in second column of first page if using \IEEEpubid
-	%%\IEEEpubidadjcol
-	%
-	%\subsubsection{Subsubsection of the Issue}
-	%How do we do dis?.
-	
-	
-	% An example of a floating figure using the graphicx package.
-	% Note that \label must occur AFTER (or within) \caption.
-	% For figures, \caption should occur after the \includegraphics.
-	% Note that IEEEtran v1.7 and later has special internal code that
-	% is designed to preserve the operation of \label within \caption
-	% even when the captionsoff option is in effect. However, because
-	% of issues like this, it may be the safest practice to put all your
-	% \label just after \caption rather than within \caption{}.
-	%
-	% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-	% option should be used if it is desired that the figures are to be
-	% displayed while in draft mode.
-	%
-	%\begin{figure}[!t]
-	%\centering
-	%\includegraphics[width=2.5in]{myfigure}
-	% where an .eps filename suffix will be assumed under latex,
-	% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-	% via \DeclareGraphicsExtensions.
-	%\caption{Simulation Results.}
-	%\label{fig_sim}
-	%\end{figure}
-	
-	% Note that IEEE typically puts floats only at the top, even when this
-	% results in a large percentage of a column being occupied by floats.
-	
-	
-	% An example of a double column floating figure using two subfigures.
-	% (The subfig.sty package must be loaded for this to work.)
-	% The subfigure \label commands are set within each subfloat command,
-	% and the \label for the overall figure must come after \caption.
-	% \hfil is used as a separator to get equal spacing.
-	% Watch out that the combined width of all the subfigures on a
-	% line do not exceed the text width or a line break will occur.
-	%
-	%\begin{figure*}[!t]
-	%\centering
-	%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
-	%\label{fig_first_case}}
-	%\hfil
-	%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
-	%\label{fig_second_case}}
-	%\caption{Simulation results.}
-	%\label{fig_sim}
-	%\end{figure*}
-	%
-	% Note that often IEEE papers with subfigures do not employ subfigure
-	% captions (using the optional argument to \subfloat[]), but instead will
-	% reference/describe all of them (a), (b), etc., within the main caption.
-	
-	
-	% An example of a floating table. Note that, for IEEE style tables, the
-	% \caption command should come BEFORE the table. Table text will default to
-	% \footnotesize as IEEE normally uses this smaller font for tables.
-	% The \label must come after \caption as always.
-	%
-	%\begin{table}[!t]
-	%% increase table row spacing, adjust to taste
-	%\renewcommand{\arraystretch}{1.3}
-	% if using array.sty, it might be a good idea to tweak the value of
-	% \extrarowheight as needed to properly center the text within the cells
-	%\caption{An Example of a Table}
-	%\label{table_example}
-	%\centering
-	%% Some packages, such as MDW tools, offer better commands for making tables
-	%% than the plain LaTeX2e tabular which is used here.
-	%\begin{tabular}{|c||c|}
-	%\hline
-	%One & Two\\
-	%\hline
-	%Three & Four\\
-	%\hline
-	%\end{tabular}
-	%\end{table}
-	
-	
-	% Note that IEEE does not put floats in the very first column - or typically
-	% anywhere on the first page for that matter. Also, in-text middle ("here")
-	% positioning is not used. Most IEEE journals use top floats exclusively.
-	% Note that, LaTeX2e, unlike IEEE journals, places footnotes above bottom
-	% floats. This can be corrected via the \fnbelowfloat command of the
-	% stfloats package.
 	
 	\section{Quadcopter modelling}
 	\subsection{Overview}
 	
 	The UAV is a rigid body quad copter, with a cross-shaped body and four electrical propellers. Front and rear rotors rotate in a clockwise direction, while right and left rotors rotate in a counter clockwise direction, this is illustrated in \figurename \ref{fig:frames_rotors}. Its motion has 6 degrees of freedom but there are only 4 propellers, therefore the system is under actuated. 
-	
-	\subsection{Kinematics}
-	In order to describe the motion of the UAV, a kinematic model for was developed.
-	Two right-hand reference frames are defined: the Earth frame and the body frame, as can be seen in \figurename{\ref{fig:frames_rotors}}. 
 	
 	\begin{figure}[h]
 		\centering
@@ -223,6 +127,10 @@
 		\label{fig:frames_rotors}
 	\end{figure}
 	
+	\subsection{Kinematics}
+	In order to describe the motion of the UAV, a kinematic model for was developed.
+	Two right-hand reference frames are defined: the Earth frame and the body frame, as can be seen in \figurename{\ref{fig:frames_rotors}}. \\
+
 	The Earth frame is static, with the $x_E$ axis pointing towards the North, the $y_E$ axis pointing towards the West, and $z_E$ pointing upwards w.r.t. the Earth. The body frame is attached to the UAV, with the $x_B$ axis pointing towards the quadrotor's front, the $y_B$ axis pointing towards the left, and the $z_B$ axis pointing upwards. In this case, the axis origin $o_B$ coincides with the quadrotor's center of mass.
 	
 	\begin{figure}[h]
@@ -314,6 +222,63 @@
 	\bm{\tau}^B = \bm{I} \ \bm{\dot \omega}^B + \bm{\omega}^B \times (\bm{I} \ \bm{\omega}^B)
 	\end{equation}
 	
+	\section{Measuring the UAV state and environment}
+	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that makes this possible, it is important that the vehicle can acquire accurate information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also provide information about the objects the vehicle may encounter throughout its path, as to make the navigation safe and prevent collisions.\\
+	
+	\subsection{Inertial Measurement Unit}
+	This module is in charge of measuring almost all the variables related to the movement of the vehicle. Usually inside this module  a 3-axis accelerometer, gyroscope and magnetometer can be found. The most affordable IMUs are those that contain these three sensors integrated in the same circuit board by the manufacturer. The most expensive and precise IMUs integrate specially designed sensors and sometimes include a GPS, a RS232 transceiver and a processor, that runs a real-time Kalman filter in order to provide the most accurate data directly to the CPU. \\
+	
+	
+	\subsubsection{Triple axis accelerometer} This sensor measures proper acceleration along the three axes on the body frame if the accelerometer's axes match these. It can measure dynamic acceleration as a result of the motion of the drone.  As shown in (\ref{eq:imu_accel}), the rotation matrix is used to change from acceleration provided by the IMU to the acceleration in the Earth frame \cite{modelling_control_mahony}.\\
+	\begin{equation} \label{eq:imu_accel}
+	\bm{a}\subb{IMU}= \bm{R}^T_\Theta \ (\bm{\ddot{x}}^E - g \bm{\vec{z}})
+	\end{equation}
+	
+	\subsubsection{Triple axis gyroscope} This device can measure angular rates in its three axes. Therefore, it  gives the angular velocity of the body frame relative to the Earth frame, expressed in the body frame (\ref{eq:imu_gyro}).\\
+	\begin{equation} \label{eq:imu_gyro}
+	\bm{\omega}\subb{IMU}= \bm{\omega}^B 
+	\end{equation}
+	
+	\subsubsection{Triple axis magnetometer} This kind of sensors are able to measure the ambient magnetic field. Ideally this corresponds to the Earth's magnetic field, therefore the orientation of the vehicle can be measured (\ref{eq:imu_magne}).
+	\begin{equation} \label{eq:imu_magne}
+	\bm{m}\subb{IMU}= \bm{R}^T_\Theta \  \bm{m}\subb{Earth}
+	\end{equation}
+	Where $\bm{m}\subb{Earth}$ corresponds to the Earth's magnetic field expressed in the Earth frame. This measure can be accurate if the bias caused by the local magnetic disturbance $\bm{b}\subb{m}$ is taken into account (\ref{eq:imu_magne_bias}) and the sensor is places as far as possible from the elements that may cause this disturbance onboard the UAV, such as the wires that power the rotors \cite{modelling_control_mahony}.
+	\begin{equation} \label{eq:imu_magne_bias}
+	\bm{m}\subb{IMU}= \bm{R}^T_\Theta \  \bm{m}\subb{Earth} + \bm{b}\subb{m}
+	\end{equation}
+	
+	In all the specified sensors, bias and noise are also present. Gyroscopes are usually robust against this noise. But one placed in an UAV, accelerometers are affected by the vibration, and need filtering for its measurements to be considered reliable.
+	
+	\subsection{GPS receiver}
+	This device is basically a receiver that makes use of the satellite-based Global Positioning System to calculate the vehicle's geographical position (longitude and latitude) thanks to a 24 satellite constellation around Earth and with trilateration. Casual and inexpensive GPS devices have some meters of accuracy, therefore either better GPS devices or suplementary information from other sensors are needed in order to estimate the position of the vehicle as accurately as possible. For example, motion tracking via smart cameras together with Simultaneous Localization and Mapping solver techniques \cite{modelling_control_mahony}. GPS may also not function indoors, so its usefulness is limited.
+	
+	\subsection{Infrared sensors}
+	In order to sense the UAV's immediate surroundings, a device that is able to know if there is any obstacle around and its relative position to the drone is needed. An array of active infrared sensors correctly placed on the quadrotor is a good solution for this application. An IR sensor consists basically of a LED acting as a emitter and a photo detector acting as a receiver. Both need to have a peak in the same wavelength for optimal power radiation in the emitter and sensitivity in the receiver. The LED emits a light beam in the infrared range (\SI{700}{\nano \meter} to \SI{1}{\milli \meter} wavelength), and when the beam finds an obstacle, it is reflected. The receptor is a Position-Sensitive Device that is able to detect the angle of the received beam, and therefore the device is able to detect the distance to the obstacle thanks to triangulation, as can be seen in \figurename\ref{fig:ir}.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=2.5in]{ir}
+		\caption{Infrared obstacle detection diagram}
+		\label{fig:ir}
+	\end{figure}
+	Since the light beam needs to be reflected by an object, its reflectance is an important factor to take into account, since poor reflective objects could not be detected on time.  Also, some other natural or artificial sources of radiation such as the Sun may cause interferences. To improve the circuit's response to interferences the signal must be properly conditioned and modulated \cite{mod_control_bresciani, remotecontrol}.
+	
+	\subsection{Ultrasonic sensors}
+	This device, together with the IR sensors, allow measuring the distance from the vehicle to an obstacle. An ultrasonic sensor consists of a high-frequency sound emitter and a receiver. Both are electrical signals \textendash \ sound wave transducers, and their operation is similar to the IR sensors: the emitted wave is reflected by the obstacle, and when received, the distance to the obstacle can be calculated based on the time of flight (TOF) of the signal in the air, as can be seen in \figurename \ref{fig:ultrasonic}. Since the velocity of the sound in the air is known, just by knowing the time that passed between emission and reception, the distance to the obstacle can be known, according to (\ref{eq:ultrasonic_formula}). 
+	
+	\begin{equation} \label{eq:ultrasonic_formula}
+	d\subb{obstacle} = \textrm{v}\subb{sound, air} \ \frac{TOF}{2}
+	\end{equation}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=2.5in]{ultrasonic2}
+		\caption{Ultrasonic obstacle detection diagram, obtained from \cite{hirata2008cross}}
+		\label{fig:ultrasonic}
+	\end{figure}
+	
+	This sensors may also be used to measure the altitude of the UAV, that can be combined with a barometer to know both the relative and absolute altitude. According to Adarsh in \cite{AdarshS2016PcoI}, both IR and ultrasonic sensors usually have high correlation between the measured values, except for some specific materials. Both types have proven to be accurate when performing further processing techniques of the acquired data.
+	
+	
 	\section{Trajectory tracking}
 	In order for us to be able to make the UAV follow a given path we have to implement a controller into the UAV system controll. The individual UAV systems in this project could be described with a block diagram as the one pictured in \figurename{\ref{fig:block_diagram}}.
 	\begin{figure}[h]
@@ -345,61 +310,6 @@
 	
 	 J is then minimised to obtain the optimal LQR with the given $\alpha_{1}$. The motivation behind using a LQR is that it usually has small steady-state errors as stated in \cite{lqr_error}. It would be reasonable to focus on getting the deviations from the optimal track to be as small as possible, hence minimising the error.   
 	
-	\section{Measuring the UAV state and environment}
-	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that makes this possible, it is important that the vehicle can acquire accurate information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also provide information about the objects the vehicle may encounter throughout its path, as to make the navigation safe and prevent collisions.\\
-
-		\subsection{Inertial Measurement Unit}
-		This module is in charge of measuring almost all the variables related to the movement of the vehicle. Usually inside this module  a 3-axis accelerometer, gyroscope and magnetometer can be found. The most affordable IMUs are those that contain these three sensors integrated in the same circuit board by the manufacturer. The most expensive and precise IMUs integrate specially designed sensors and sometimes include a GPS, a RS232 transceiver and a processor, that runs a real-time Kalman filter in order to provide the most accurate data directly to the CPU. \\
-		
-
-		\subsubsection{Triple axis accelerometer} This sensor measures proper acceleration along the three axes on the body frame if the accelerometer's axes match these. It can measure dynamic acceleration as a result of the motion of the drone.  As shown in (\ref{eq:imu_accel}), the rotation matrix is used to change from acceleration provided by the IMU to the acceleration in the Earth frame \cite{modelling_control_mahony}.\\
-		\begin{equation} \label{eq:imu_accel}
-		\bm{a}\subb{IMU}= \bm{R}^T_\Theta \ (\bm{\ddot{x}}^E - g \bm{\vec{z}})
-		\end{equation}
-		
-		\subsubsection{Triple axis gyroscope} This device can measure angular rates in its three axes. Therefore, it  gives the angular velocity of the body frame relative to the Earth frame, expressed in the body frame (\ref{eq:imu_gyro}).\\
-		\begin{equation} \label{eq:imu_gyro}
-		\bm{\omega}\subb{IMU}= \bm{\omega}^B 
-		\end{equation}
-		
-		\subsubsection{Triple axis magnetometer} This kind of sensors are able to measure the ambient magnetic field. Ideally this corresponds to the Earth's magnetic field, therefore the orientation of the vehicle can be measured (\ref{eq:imu_magne}).
-		\begin{equation} \label{eq:imu_magne}
-		\bm{m}\subb{IMU}= \bm{R}^T_\Theta \  \bm{m}\subb{Earth}
-		\end{equation}
-		Where $\bm{m}\subb{Earth}$ corresponds to the Earth's magnetic field expressed in the Earth frame. This measure can be accurate if the bias caused by the local magnetic disturbance $\bm{b}\subb{m}$ is taken into account (\ref{eq:imu_magne_bias}) and the sensor is places as far as possible from the elements that may cause this disturbance onboard the UAV, such as the wires that power the rotors \cite{modelling_control_mahony}.
-		\begin{equation} \label{eq:imu_magne_bias}
-		\bm{m}\subb{IMU}= \bm{R}^T_\Theta \  \bm{m}\subb{Earth} + \bm{b}\subb{m}
-		\end{equation}
-		
-		In all the specified sensors, bias and noise are also present. Gyroscopes are usually robust against this noise. But one placed in an UAV, accelerometers are affected by the vibration, and need filtering for its measurements to be considered reliable.
-		
-		\subsection{GPS receiver}
-		This device is basically a receiver that makes use of the satellite-based Global Positioning System to calculate the vehicle's geographical position (longitude and latitude) thanks to a 24 satellite constellation around Earth and with trilateration. Casual and inexpensive GPS devices have some meters of accuracy, therefore either better GPS devices or suplementary information from other sensors are needed in order to estimate the position of the vehicle as accurately as possible. For example, motion tracking via smart cameras together with Simultaneous Localization and Mapping solver techniques \cite{modelling_control_mahony}. GPS may also not function indoors, so its usefulness is limited.
-		
-		\subsection{Infrared sensors}
-		In order to sense the UAV's immediate surroundings, a device that is able to know if there is any obstacle around and its relative position to the drone is needed. An array of active infrared sensors correctly placed on the quadrotor is a good solution for this application. An IR sensor consists basically of a LED acting as a emitter and a photo detector acting as a receiver. Both need to have a peak in the same wavelength for optimal power radiation in the emitter and sensitivity in the receiver. The LED emits a light beam in the infrared range (\SI{700}{\nano \meter} to \SI{1}{\milli \meter} wavelength), and when the beam finds an obstacle, it is reflected. The receptor is a Position-Sensitive Device that is able to detect the angle of the received beam, and therefore the device is able to detect the distance to the obstacle thanks to triangulation, as can be seen in \figurename\ref{fig:ir}.
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=2.5in]{ir}
-			\caption{Infrared obstacle detection diagram}
-			\label{fig:ir}
-		\end{figure}
-		Since the light beam needs to be reflected by an object, its reflectance is an important factor to take into account, since poor reflective objects could not be detected on time.  Also, some other natural or artificial sources of radiation such as the Sun may cause interferences. To improve the circuit's response to interferences the signal must be properly conditioned and modulated \cite{mod_control_bresciani, remotecontrol}.
-		
-		\subsection{Ultrasonic sensors}
-		This device, together with the IR sensors, allow measuring the distance from the vehicle to an obstacle. An ultrasonic sensor consists of a high-frequency sound emitter and a receiver. Both are electrical signals \textendash \ sound wave transducers, and their operation is similar to the IR sensors: the emitted wave is reflected by the obstacle, and when received, the distance to the obstacle can be calculated based on the time of flight (TOF) of the signal in the air, as can be seen in \figurename \ref{fig:ultrasonic}. Since the velocity of the sound in the air is known, just by knowing the time that passed between emission and reception, the distance to the obstacle can be known, according to (\ref{eq:ultrasonic_formula}). 
-		
-		\begin{equation} \label{eq:ultrasonic_formula}
-		d\subb{obstacle} = \textrm{v}\subb{sound, air} \ \frac{TOF}{2}
-		\end{equation}
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=2.5in]{ultrasonic2}
-			\caption{Ultrasonic obstacle detection diagram, obtained from \cite{hirata2008cross}}
-			\label{fig:ultrasonic}
-		\end{figure}
-		
-		This sensors may also be used to measure the altitude of the UAV, that can be combined with a barometer to know both the relative and absolute altitude. According to Adarsh in \cite{AdarshS2016PcoI}, both IR and ultrasonic sensors usually have high correlation between the measured values, except for some specific materials. Both types have proven to be accurate when performing further processing techniques of the acquired data.
 		
 	\section{Quadcopter navigation}\label{navigation}
 		There are several methods to find the optimal path to follow from an initial position to a goal. In the case that is being studied in this paper, there are many UAVs flying towards their goals, in an environment filled with obstacles. Some proposed methods to solve this problem are Rapidly-exploring Random Tree (RRT) algorithms or A* search algorithms and other Dijkstra extensions.	Nonetheless, these techniques do not perform very well when the test environment is constantly changing. These methods excel at finding the appropriate path to follow in a labyrinth-like environment. However, if the environment is different in every iteration, these algorithms are inefficient since the UAV may end up following an inefficient path \cite{lavalle_rrt, lavalle_astar}.\\
@@ -475,33 +385,33 @@
 	
 		\begin{figure}[H]
   			\centering
-  			\includegraphics[width=7cm]{Results/Controll/Fig1}
+  			\includegraphics[width=2.5in]{Results/Controll/Fig1}
   			\caption{Step response for the Euler angles.}
   			\label{fig:contresangles}
 		\end{figure}	
 		
 		\begin{figure}[H]
   			\centering
-  			\includegraphics[width=7cm]{Results/Controll/Fig2}
+  			\includegraphics[width=2.5in]{Results/Controll/Fig2}
   			\caption{Step response for angular velocities}
   			\label{fig:contresangvel}
 		\end{figure}	
 
 		\begin{figure}[H]
   			\centering
-  			\includegraphics[width=7cm]{Results/Controll/Fig3}
+  			\includegraphics[width=2.5in]{Results/Controll/Fig3}
   			\caption{Step response for velocities}
   			\label{fig:contresvel}
 		\end{figure}	
 		
 		\begin{figure}[H]
   			\centering
-  			\includegraphics[width=7cm]{Results/Controll/Fig4}
+  			\includegraphics[width=2.5in]{Results/Controll/Fig4}
   			\caption{Step response for positions}
   			\label{fig:contrespos}
 		\end{figure}	
 		
-		\begin{figure}[H]
+		
 
 
 	
@@ -512,7 +422,8 @@
 	The algorithm works by calculating, for each vehicle, the distance to the goal and if an obstacle is close enough to be detected. The potential function is calculated consequently. Then as stated in (\ref{eq:first_order}), the drone advances in space with a set discrete time step of $\SI{0.05}{\second}$, to assure that the UAVs do not move for a long period of time without checking again the state and the environment.\\
 	
 	We have implemented some different special case scenarios to cover all the possible aspects of the model. In the first one the number of both obstacles and UAVs generated is random, between a minimum and a maximum value (average values of 6 UAVs and 75 obstacles). This can help us check how many drones can finally get to their goals without getting stuck.
-
+	
+	\begin{figure}[H]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/env_1}
 			\caption{Random case environment from first perspective for the potential fields simulation}
@@ -618,6 +529,89 @@
 	
 	% use section* for acknowledgement
 	\section*{Acknowledgment}
+	
+		% An example of a floating figure using the graphicx package.
+	% Note that \label must occur AFTER (or within) \caption.
+	% For figures, \caption should occur after the \includegraphics.
+	% Note that IEEEtran v1.7 and later has special internal code that
+	% is designed to preserve the operation of \label within \caption
+	% even when the captionsoff option is in effect. However, because
+	% of issues like this, it may be the safest practice to put all your
+	% \label just after \caption rather than within \caption{}.
+	%
+	% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+	% option should be used if it is desired that the figures are to be
+	% displayed while in draft mode.
+	%
+	%\begin{figure}[!t]
+	%\centering
+	%\includegraphics[width=2.5in]{myfigure}
+	% where an .eps filename suffix will be assumed under latex,
+	% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+	% via \DeclareGraphicsExtensions.
+	%\caption{Simulation Results.}
+	%\label{fig_sim}
+	%\end{figure}
+	
+	% Note that IEEE typically puts floats only at the top, even when this
+	% results in a large percentage of a column being occupied by floats.
+	
+	
+	% An example of a double column floating figure using two subfigures.
+	% (The subfig.sty package must be loaded for this to work.)
+	% The subfigure \label commands are set within each subfloat command,
+	% and the \label for the overall figure must come after \caption.
+	% \hfil is used as a separator to get equal spacing.
+	% Watch out that the combined width of all the subfigures on a
+	% line do not exceed the text width or a line break will occur.
+	%
+	%\begin{figure*}[!t]
+	%\centering
+	%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
+	%\label{fig_first_case}}
+	%\hfil
+	%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
+	%\label{fig_second_case}}
+	%\caption{Simulation results.}
+	%\label{fig_sim}
+	%\end{figure*}
+	%
+	% Note that often IEEE papers with subfigures do not employ subfigure
+	% captions (using the optional argument to \subfloat[]), but instead will
+	% reference/describe all of them (a), (b), etc., within the main caption.
+	
+	
+	% An example of a floating table. Note that, for IEEE style tables, the
+	% \caption command should come BEFORE the table. Table text will default to
+	% \footnotesize as IEEE normally uses this smaller font for tables.
+	% The \label must come after \caption as always.
+	%
+	%\begin{table}[!t]
+	%% increase table row spacing, adjust to taste
+	%\renewcommand{\arraystretch}{1.3}
+	% if using array.sty, it might be a good idea to tweak the value of
+	% \extrarowheight as needed to properly center the text within the cells
+	%\caption{An Example of a Table}
+	%\label{table_example}
+	%\centering
+	%% Some packages, such as MDW tools, offer better commands for making tables
+	%% than the plain LaTeX2e tabular which is used here.
+	%\begin{tabular}{|c||c|}
+	%\hline
+	%One & Two\\
+	%\hline
+	%Three & Four\\
+	%\hline
+	%\end{tabular}
+	%\end{table}
+	
+	
+	% Note that IEEE does not put floats in the very first column - or typically
+	% anywhere on the first page for that matter. Also, in-text middle ("here")
+	% positioning is not used. Most IEEE journals use top floats exclusively.
+	% Note that, LaTeX2e, unlike IEEE journals, places footnotes above bottom
+	% floats. This can be corrected via the \fnbelowfloat command of the
+	% stfloats package.
 	
 	
 	% Can use something like this to put references on a page
