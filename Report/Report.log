@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  29 APR 2018 18:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  29 APR 2018 23:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1031,166 +1031,190 @@ Underfull \hbox (badness 10000) in paragraph at lines 317--318
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
+
+ []
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 321--322
+[]\OT1/ptm/m/n/10 In our case we have a ran-dom num-ber of ve-hi-cles
+ []
+
+
+Underfull \hbox (badness 3769) in paragraph at lines 321--322
+\OML/cmm/m/it/10 v[] \OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 2 f
+\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; :::M\OMS/cmsy/m/n/10 g$ \OT1/ptm/m/n/10 (ea
+ch with its re-spec-tive goal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 321--322
 
  []
 
 [4 <./img/ultrasonic2.png>]
-Overfull \hbox (6.00496pt too wide) detected at line 361
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
+
+ []
+
+
+Overfull \hbox (6.00293pt too wide) detected at line 373
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 381--382
+Underfull \hbox (badness 10000) in paragraph at lines 396--397
 
  []
 
 
-Underfull \hbox (badness 1831) in paragraph at lines 383--384
+Underfull \hbox (badness 1831) in paragraph at lines 398--399
 []\OT1/ptm/m/n/10 For the tra-jec-tory track-ing we con-structed the lin-ear
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
+Underfull \hbox (badness 10000) in paragraph at lines 398--399
 
  []
 
-<Results/Controll/Fig1.jpg, id=40, 562.1pt x 421.575pt>
+<Results/Controll/Fig1.jpg, id=39, 562.1pt x 421.575pt>
 File: Results/Controll/Fig1.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig1.jpg>
-Package pdftex.def Info: Results/Controll/Fig1.jpg used on input line 389.
+Package pdftex.def Info: Results/Controll/Fig1.jpg used on input line 404.
 (pdftex.def)             Requested size: 180.67499pt x 135.50499pt.
 
-<Results/Controll/Fig2.jpg, id=41, 562.1pt x 421.575pt>
+<Results/Controll/Fig2.jpg, id=40, 562.1pt x 421.575pt>
 File: Results/Controll/Fig2.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig2.jpg>
-Package pdftex.def Info: Results/Controll/Fig2.jpg used on input line 396.
-(pdftex.def)             Requested size: 180.67499pt x 135.50499pt.
-
-<Results/Controll/Fig3.jpg, id=42, 562.1pt x 421.575pt>
-File: Results/Controll/Fig3.jpg Graphic file (type jpg)
-
-<use Results/Controll/Fig3.jpg>
-Package pdftex.def Info: Results/Controll/Fig3.jpg used on input line 403.
+Package pdftex.def Info: Results/Controll/Fig2.jpg used on input line 411.
 (pdftex.def)             Requested size: 180.67499pt x 135.50499pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5 <./Results/Controll/Fig1.jpg> <./Results/Controll/Fig2.jpg>]
-<Results/Controll/Fig4.jpg, id=49, 562.1pt x 421.575pt>
+ [5 <./Results/Controll/Fig1.jpg>]
+<Results/Controll/Fig3.jpg, id=46, 562.1pt x 421.575pt>
+File: Results/Controll/Fig3.jpg Graphic file (type jpg)
+
+<use Results/Controll/Fig3.jpg>
+Package pdftex.def Info: Results/Controll/Fig3.jpg used on input line 418.
+(pdftex.def)             Requested size: 180.67499pt x 135.50499pt.
+
+<Results/Controll/Fig4.jpg, id=47, 562.1pt x 421.575pt>
 File: Results/Controll/Fig4.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig4.jpg>
-Package pdftex.def Info: Results/Controll/Fig4.jpg used on input line 410.
+Package pdftex.def Info: Results/Controll/Fig4.jpg used on input line 425.
 (pdftex.def)             Requested size: 180.67499pt x 135.50499pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--420
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
+Underfull \hbox (badness 10000) in paragraph at lines 433--434
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--424
+Underfull \hbox (badness 10000) in paragraph at lines 435--436
 
  []
 
-<Results/Potentialfields/env_1.png, id=50, 2009.5075pt x 1523.6925pt>
+<Results/Potentialfields/env_1.png, id=48, 2009.5075pt x 1523.6925pt>
 File: Results/Potentialfields/env_1.png Graphic file (type png)
 
 <use Results/Potentialfields/env_1.png>
 Package pdftex.def Info: Results/Potentialfields/env_1.png used on input line 4
-29.
+41.
 (pdftex.def)             Requested size: 227.62204pt x 172.5821pt.
 
-<Results/Potentialfields/env_2.png, id=51, 2009.5075pt x 1523.6925pt>
+<Results/Potentialfields/env_2.png, id=49, 2009.5075pt x 1523.6925pt>
 File: Results/Potentialfields/env_2.png Graphic file (type png)
 
 <use Results/Potentialfields/env_2.png>
 Package pdftex.def Info: Results/Potentialfields/env_2.png used on input line 4
-35.
+47.
 (pdftex.def)             Requested size: 227.62204pt x 172.5821pt.
 
-<Results/Potentialfields/env_3.png, id=52, 2009.5075pt x 1523.6925pt>
+<Results/Potentialfields/env_3.png, id=50, 2009.5075pt x 1523.6925pt>
 File: Results/Potentialfields/env_3.png Graphic file (type png)
 
 <use Results/Potentialfields/env_3.png>
 Package pdftex.def Info: Results/Potentialfields/env_3.png used on input line 4
-41.
+53.
 (pdftex.def)             Requested size: 227.62204pt x 172.5821pt.
 
-<Results/Potentialfields/goal.png, id=53, 1124.2pt x 843.15pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6 <./Results/Controll/Fig2.jpg> <./Results/Controll/Fig3.jpg> <./Results/Cont
+roll/Fig4.jpg> <./Results/Potentialfields/env_1.png (PNG copy)>]
+<Results/Potentialfields/goal.png, id=54, 1124.2pt x 843.15pt>
 File: Results/Potentialfields/goal.png Graphic file (type png)
 
 <use Results/Potentialfields/goal.png>
-Package pdftex.def Info: Results/Potentialfields/goal.png used on input line 44
-7.
+Package pdftex.def Info: Results/Potentialfields/goal.png used on input line 45
+9.
 (pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6 <./Results/Controll/Fig3.jpg> <./Results/Controll/Fig4.jpg> <./Results/Pote
-ntialfields/env_1.png (PNG copy)> <./Results/Potentialfields/env_2.png (PNG cop
-y)>]
-<Results/Potentialfields/obst.png, id=57, 1124.2pt x 843.15pt>
+<Results/Potentialfields/obst.png, id=55, 1124.2pt x 843.15pt>
 File: Results/Potentialfields/obst.png Graphic file (type png)
 
 <use Results/Potentialfields/obst.png>
-Package pdftex.def Info: Results/Potentialfields/obst.png used on input line 45
-3.
-(pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
-
-<Results/Potentialfields/vel.png, id=58, 1124.2pt x 843.15pt>
-File: Results/Potentialfields/vel.png Graphic file (type png)
-
-<use Results/Potentialfields/vel.png>
-Package pdftex.def Info: Results/Potentialfields/vel.png used on input line 460
-.
+Package pdftex.def Info: Results/Potentialfields/obst.png used on input line 46
+5.
 (pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-<Results/Potentialfields/multi_uav_avoidance.png, id=59, 1124.2pt x 843.15pt>
+<Results/Potentialfields/vel.png, id=56, 1124.2pt x 843.15pt>
+File: Results/Potentialfields/vel.png Graphic file (type png)
+
+<use Results/Potentialfields/vel.png>
+Package pdftex.def Info: Results/Potentialfields/vel.png used on input line 472
+.
+(pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
+
+<Results/Potentialfields/multi_uav_avoidance.png, id=57, 1124.2pt x 843.15pt>
 File: Results/Potentialfields/multi_uav_avoidance.png Graphic file (type png)
 
 <use Results/Potentialfields/multi_uav_avoidance.png>
 Package pdftex.def Info: Results/Potentialfields/multi_uav_avoidance.png used o
-n input line 467.
+n input line 479.
 (pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
 
-<Results/Potentialfields/localminima.png, id=60, 1124.2pt x 843.15pt>
+<Results/Potentialfields/localminima.png, id=58, 1124.2pt x 843.15pt>
 File: Results/Potentialfields/localminima.png Graphic file (type png)
 
 <use Results/Potentialfields/localminima.png>
 Package pdftex.def Info: Results/Potentialfields/localminima.png used on input 
-line 474.
+line 486.
 (pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 480--481
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./Results/Potentialfields/env_2.png (PNG copy)> <./Results/Potentialfields
+/env_3.png (PNG copy)> <./Results/Potentialfields/goal.png (PNG copy)> <./Resul
+ts/Potentialfields/obst.png (PNG copy)> <./Results/Potentialfields/vel.png (PNG
+ copy)> <./Results/Potentialfields/multi_uav_avoidance.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 
  []
 
-[7 <./Results/Potentialfields/env_3.png (PNG copy)> <./Results/Potentialfields/
-goal.png (PNG copy)> <./Results/Potentialfields/obst.png (PNG copy)> <./Results
-/Potentialfields/vel.png (PNG copy)> <./Results/Potentialfields/multi_uav_avoid
-ance.png (PNG copy)> <./Results/Potentialfields/localminima.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 482--483
+
+Underfull \hbox (badness 10000) in paragraph at lines 494--495
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--485
+Underfull \hbox (badness 10000) in paragraph at lines 496--497
 
  []
 
@@ -1216,20 +1240,20 @@ Missing character: There is no ¤ in font ptmri7t!
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
-) [8] (./Report.aux) ) 
+[8 <./Results/Potentialfields/localminima.png (PNG copy)>]) [9
+
+] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 25411 strings out of 492995
- 560485 string characters out of 6132704
- 596678 words of memory out of 5000000
- 28578 multiletter control sequences out of 15000+600000
+ 25413 strings out of 492995
+ 560511 string characters out of 6132704
+ 596694 words of memory out of 5000000
+ 28580 multiletter control sequences out of 15000+600000
  46140 words of font info for 98 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 63i,16n,344p,10374b,965s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/
-8r.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy
-10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
-0.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.
-pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pf
+ 63i,12n,344p,10374b,965s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.e
+nc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.p
+fb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
 b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
@@ -1246,10 +1270,10 @@ exlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (8 pages, 2885111 bytes).
+Output written on Report.pdf (9 pages, 2876366 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
+ 127 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
