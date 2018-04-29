@@ -21,16 +21,21 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{intro_network}
+A.~Guillen-Perez, R.~Sanchez-Iborra, M.~D. Cano, J.~C. Sanchez-Aarnoutse, and
+  J.~Garcia-Haro, ``Wifi networks on drones,'' in \emph{2016 ITU Kaleidoscope:
+  ICTs for a Sustainable World (ITU WT)}, Nov 2016, pp. 1--8.
+
 \bibitem{intro_nolinear_model_control}
 M.~Costandin, P.~Dobra, and B.~Costandin, ``Nonlinear model and control of a
   quadcopter,'' in \emph{2017 21st International Conference on System Theory,
   Control and Computing (ICSTCC)}, Oct 2017, pp. 687--692.
 
 \bibitem{intro_3d_unity}
-W.~Meng, Y.~Hu, J.~Lin, F.~Lin, and R.~Teo, ``Ros #x002b;unity: An efficient
-  high-fidelity 3d multi-uav navigation and control simulator in gps-denied
-  environments,'' in \emph{IECON 2015 - 41st Annual Conference of the IEEE
-  Industrial Electronics Society}, Nov 2015, pp. 002\,562--002\,567.
+W.~Meng, Y.~Hu, J.~Lin, F.~Lin, and R.~Teo, ``An efficient high-fidelity 3d
+  multi-uav navigation and control simulator in gps-denied environments,'' in
+  \emph{IECON 2015 - 41st Annual Conference of the IEEE Industrial Electronics
+  Society}, Nov 2015, pp. 002\,562--002\,567.
 
 \bibitem{intro_indoor_sensing}
 E.~Chirtel, R.~Knoll, C.~Le, B.~Mason, N.~Peck, J.~Robarge, and G.~C. Lewin,
