@@ -4,19 +4,35 @@
 clc;
 clear all;
 close all;
-tstep = 0.05; %time step
+tstep = 0.1; %time step
 d = 1; %distance to change from conic to parabolic well
 
+%Video
+environment_video_1 = VideoWriter('environment_1.avi'); 
+environment_video_1.FrameRate = 60;
+open(environment_video_1); 
+
+environment_video_2 = VideoWriter('environment_2.avi'); 
+environment_video_2.FrameRate = 60;
+open(environment_video_2);
+
+environment_video_3 = VideoWriter('environment_3.avi'); 
+environment_video_3.FrameRate = 60;
+open(environment_video_3); 
+
 %Constants for all the vehicles
-xi1 = 10; %scale factor for attractive potential
-xi2 = 5;
-eta = 10; %scale factor for repulsive potential
+xi1 = 1; %scale factor for attractive potential
+xi2 = 0.3;
+eta = 1; %scale factor for repulsive potential
 p0 = 2; %radius of sphere of influence for repulsive potential
 
 %Figures to plot
 %Real time environment with drones flying to goals
 %Figure 1
 figure('Name','Environment','NumberTitle','off')
+xlabel('x / m')
+ylabel('y /m') 
+ylabel('z /m')
 
 %Distance from drone surface to goal
 %Figure 2
@@ -103,14 +119,19 @@ while(~ isequal(finished,completed))
             F = Fatt + Freptotstatic + Freptotdynamic;
 
             %Moving vehicle according to the force vector obtained
-            vvec = F*tstep;
-            drones(i,:) = vvec + drones(i,:);
+            vvec = F;
+            drones(i,:) = vvec*tstep + drones(i,:);
             figure(1)
+            xlabel('x / m')
+            ylabel('y /m') 
+            zlabel('z /m')
             printspherecolor(drones(i,:), raddrones, colordrones(i,:))
-            
+
             %Printing distance to goal from the surface of the drone
             disttogoal = norm(drones(i,:)-goaldrones(i,:)-raddrones);
             figure(2)
+            xlabel('time / s')
+            ylabel('distance to goal / m') 
             scatter(iteration*tstep, disttogoal, 10, colordrones(i,:))
             hold on
             grid on
@@ -118,6 +139,8 @@ while(~ isequal(finished,completed))
             %Printing distance to closest obstacle, dynamic or static
             closestdist = min(closestdiststat, closestdistdynam)- raddrones;
             figure(3)
+            xlabel('time / s')
+            ylabel('distance to closest obstacle / m') 
             scatter(iteration*tstep, closestdist, 10, colordrones(i,:))
             hold on
             grid on
@@ -125,12 +148,29 @@ while(~ isequal(finished,completed))
             %Printing velocity (norm)
             vel = norm(vvec);
             figure(4)
+            xlabel('time / s')
+            ylabel('Norm of velocity / m/s') 
             scatter(iteration*tstep, vel, 10, colordrones(i,:))
             hold on
             grid on
             
         end
     end
+
     pause(0.01)
+    figure(1)
+    frame1 = getframe(gcf);
+    writeVideo(environment_video_1, frame1);
+    view([150 30])
+    frame2 = getframe(gcf);
+    writeVideo(environment_video_2, frame2);
+    view([-160 30])
+    frame3 = getframe(gcf);
+    writeVideo(environment_video_3, frame3);
     iteration = iteration + 1 ;
 end
+
+close(environment_video_1);
+close(environment_video_2);
+close(environment_video_3);
+
