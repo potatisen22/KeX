@@ -8,17 +8,17 @@ tstep = 0.1; %time step
 d = 1; %distance to change from conic to parabolic well
 
 %Video
-environment_video_1 = VideoWriter('environment_1.avi'); 
-environment_video_1.FrameRate = 60;
-open(environment_video_1); 
-
-environment_video_2 = VideoWriter('environment_2.avi'); 
-environment_video_2.FrameRate = 60;
-open(environment_video_2);
-
-environment_video_3 = VideoWriter('environment_3.avi'); 
-environment_video_3.FrameRate = 60;
-open(environment_video_3); 
+% environment_video_1 = VideoWriter('environment_1.avi'); 
+% environment_video_1.FrameRate = 60;
+% open(environment_video_1); 
+% 
+% environment_video_2 = VideoWriter('environment_2.avi'); 
+% environment_video_2.FrameRate = 60;
+% open(environment_video_2);
+% 
+% environment_video_3 = VideoWriter('environment_3.avi'); 
+% environment_video_3.FrameRate = 60;
+% open(environment_video_3); 
 
 %Constants for all the vehicles
 xi1 = 1; %scale factor for attractive potential
@@ -50,17 +50,17 @@ figure('Name','Norm of velocity (time)','NumberTitle','off')
 grid on
 
 %Generating random # of drones (initial pos+goal) between min and max
-mindrones = 5;
-maxdrones = 7;
-raddrones = 0.25;
-figure(1)
-[totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (mindrones, maxdrones, raddrones);
-
-%Generating random # of obstacles between min and max
-minobst = 50;
-maxobst = 100;
-figure(1)
-[totalobst, obstpos, obstrad] = obstaclegenerator3d(minobst, maxobst, totaldrones, drones, goaldrones, raddrones);
+% mindrones = 5;
+% maxdrones = 7;
+% raddrones = 0.25;
+% figure(1)
+% [totaldrones, drones, goaldrones, colordrones] = uavgenerator3d (mindrones, maxdrones, raddrones);
+% 
+% %Generating random # of obstacles between min and max
+% minobst = 50;
+% maxobst = 100;
+% figure(1)
+% [totalobst, obstpos, obstrad] = obstaclegenerator3d(minobst, maxobst, totaldrones, drones, goaldrones, raddrones);
 
 %Multi drone avoidance
 % raddrones = single(0.3);
@@ -79,19 +79,19 @@ figure(1)
 % obstrad = single(0.4);
 
 %Local minima problem with drone and obstacle
-% raddrones = single(0.3);
-% totaldrones = single(1);
-% drones = single([0, 0, 0]);
-% goaldrones = single([10, 10, 10]);
-% colordrones = single([0.4, 0.2, 0.7]);
-% figure(1)
-% printspherecolor(drones, raddrones, colordrones)
-% scatter3(goaldrones(1,1),goaldrones(1,2),goaldrones(1,3), 60, colordrones, 'filled', 'd')
-% hold on
-% totalobst = single(1); 
-% obstpos = single([5, 5, 5]);
-% obstrad = single(1);
-% printsphere(obstpos, obstrad)
+raddrones = single(0.3);
+totaldrones = single(1);
+drones = single([0, 0, 0]);
+goaldrones = single([10, 10, 10]);
+colordrones = single([0.4, 0.2, 0.7]);
+figure(1)
+printspherecolor(drones, raddrones, colordrones)
+scatter3(goaldrones(1,1),goaldrones(1,2),goaldrones(1,3), 60, colordrones, 'filled', 'd')
+hold on
+totalobst = single(1); 
+obstpos = single([5, 5, 5]);
+obstrad = single(1);
+printsphere(obstpos, obstrad)
 
 
 finished = single(zeros(totaldrones, 1));
@@ -158,19 +158,19 @@ while(~ isequal(finished,completed))
     end
 
     pause(0.01)
-    figure(1)
-    frame1 = getframe(gcf);
-    writeVideo(environment_video_1, frame1);
-    view([150 30])
-    frame2 = getframe(gcf);
-    writeVideo(environment_video_2, frame2);
-    view([-160 30])
-    frame3 = getframe(gcf);
-    writeVideo(environment_video_3, frame3);
+%     figure(1)
+%     frame1 = getframe(gcf);
+%     writeVideo(environment_video_1, frame1);
+%     view([150 30])
+%     frame2 = getframe(gcf);
+%     writeVideo(environment_video_2, frame2);
+%     view([-160 30])
+%     frame3 = getframe(gcf);
+%     writeVideo(environment_video_3, frame3);
     iteration = iteration + 1 ;
 end
 
-close(environment_video_1);
-close(environment_video_2);
-close(environment_video_3);
+% close(environment_video_1);
+% close(environment_video_2);
+% close(environment_video_3);
 

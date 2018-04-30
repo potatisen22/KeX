@@ -276,7 +276,7 @@
 	\begin{equation} \label{eq:ultrasonic_formula}
 	d\subb{obstacle} = \textrm{v}\subb{sound, air} \ \frac{TOF}{2}
 	\end{equation}
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=2.5in]{ultrasonic2}
 		\caption{Ultrasonic obstacle detection diagram, obtained from \cite{hirata2008cross}.}
@@ -291,7 +291,7 @@
 	\begin{figure}[h]
 		\centering
 		\input{graph/block_diagram}
-		\caption{Block diagram for individual quadrotor}
+		\caption{Block diagram for individual quadrotor.}
 		\label{fig:block_diagram}
 	\end{figure}	
 	where $\bm{r}$ is our reference signal and $\bm{u}$ is the output from the controller $\bm{K}$ defined as
@@ -515,70 +515,76 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 	
 	The algorithm works by calculating, for each vehicle, the distance to the goal and if an obstacle is close enough to be detected. The potential function is calculated consequently. Then as stated in (\ref{eq:first_order}), the drone advances in space with a set discrete time step of $\SI{0.1}{\second}$, to assure that the UAVs do not move for a long period of time without checking the state and the environment.\\
 
-	\begin{figure}[H]
+	\begin{figure}[h]
 			\centering
-			\includegraphics[width=8cm]{Results/Potentialfields/env_1}
-			\caption{Random case environment from first perspective for the potential fields simulation.}
+			\includegraphics[width=2.5in]{Results/Potentialfields/env_1}
+			\caption{Environment from first perspective.}
 			\label{fig:env_1}
 		\end{figure}	
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
-			\includegraphics[width=8cm]{Results/Potentialfields/env_2}
-			\caption{Random case environment from second perspective.}
+			\includegraphics[width=2.5in]{Results/Potentialfields/env_2}
+			\caption{Environment from second perspective.}
 			\label{fig:env_2}
 		\end{figure}	
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
-			\includegraphics[width=8cm]{Results/Potentialfields/env_3}
-			\caption{Random case environment from third perspective.}
+			\includegraphics[width=2.5in]{Results/Potentialfields/env_3}
+			\caption{Environment from third perspective.}
 			\label{fig:env_3}
 		\end{figure}	
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
-			\includegraphics[width=8cm]{Results/Potentialfields/goal}
-			\caption{Random case environment - Distance from vehicles to their respective goal.}
+			\includegraphics[width=2.5in]{Results/Potentialfields/goal}
+			\caption{Distance from vehicles to their respective goal.}
 			\label{fig:goal}
 		\end{figure}
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
-			\includegraphics[width=8cm]{Results/Potentialfields/obst}
-			\caption{Random case environment - Distance from vehicles' surface to any other obstacle's surface.}
+			\includegraphics[width=2.5in]{Results/Potentialfields/obst}
+			\caption{Distance from vehicles' surface to any other obstacle's surface.}
 			\label{fig:obst}
 		\end{figure}
 	
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
-			\includegraphics[width=8cm]{Results/Potentialfields/vel}
-			\caption{Random case environment - Velocities for each vehicle.}
+			\includegraphics[width=2.5in]{Results/Potentialfields/vel}
+			\caption{Velocities for each vehicle.}
 			\label{fig:vel}
 		\end{figure}
 
 			
-		In \figurename{ \ref{fig:env_1}}, \figurename{ \ref{fig:env_2}} and \figurename{ \ref{fig:env_3}}, it can be seen that each UAV (represented by a colour) reaches its goal (represented by a $\blacklozenge$ of the same colour) while avoiding the obstacles that it encounters throughout its path. In \figurename{ \ref{fig:goal}} we can see the distance from the vehicle to its goal at each time step. The distance between the surface of an UAV and its closest obstacle's surface (static or dynamic) its always above zero, as can be seen in \figurename{ \ref{fig:obst}}. In \figurename{ \ref{fig:vel}}, we can see the velocity for all UAVs in each time step.
+		In \figurename{ \ref{fig:env_1}}, \figurename{ \ref{fig:env_2}} and \figurename{ \ref{fig:env_3}}, it can be seen that each UAV (represented by a colour) reaches its goal (represented by a $\blacklozenge$ of the same colour) while avoiding the obstacles that it encounters throughout its path. In \figurename{ \ref{fig:goal}} we can see the distance from the vehicle's surface to its goal at each time step. The distance between the surface of an UAV and its closest obstacle's surface (static or dynamic) its always above zero, as can be seen in \figurename{ \ref{fig:obst}}. In \figurename{ \ref{fig:vel}}, we can see the velocity for all UAVs in each time step.\\
 		
-		We further performed a specific simulation with three UAVs, with fixed values for their initial positions and goals, to study how they interact when in a small space. In \figurename{ \ref{fig:multi_uav_avoidance}} and \figurename{ \ref{fig:multi_uav_avoidance_distance}}, we can see that they arrived to their goals while mantaining a minimum safe margin $\SI{}{}$ .
+		We further performed a specific simulation with three UAVs, with fixed values for their initial positions and goals, to study how they interact when in a small space. In \figurename{ \ref{fig:multi_uav_avoidance}} and \figurename{ \ref{fig:multi_uav_avoidance_distance}}, we can see that they arrived to their goals while mantaining a minimum safe margin of $\SI{0.5}{\meter}$ .\\
 		
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/multi_uav_avoidance}
-			\caption{Multi UAV avoidance case.}
+			\caption{Multi-UAV avoidance case.}
 			\label{fig:multi_uav_avoidance}
 		\end{figure}
 	
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
-			\includegraphics[width=8cm]{Results/Potentialfields/multi_uav_avoidance}
-			\caption{Multi UAV avoidance case.}
+			\includegraphics[width=2.5in]{Results/Potentialfields/multi_uav_avoidance_obstacle}
+			\caption{Distances to the other UAVs' surfaces from the vehicle's surface in the multi-UAV avoidance case.}
 			\label{fig:multi_uav_avoidance_distance}
 		\end{figure}
 	
-		Finally, we also performed another specific simulation to test the local minima situation explained in the last part of Section V. As can be seen in \figurename{ \ref{fig:localminima}}, the UAV  \figurename{ \ref{fig:localminima_velocity}} , 
+		Finally, we also performed another specific simulation to test the local minima situation explained in the last part of Section V. As can be seen in \figurename{ \ref{fig:localminima}} and \figurename{ \ref{fig:localminima_velocity}}, the UAV gets stuck in a local minima configuration and can not move from that position. 
 		
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
-			\includegraphics[width=8cm]{Results/Potentialfields/localminima}
-			\caption{Local minima problem for the symmetric case.}
+			\includegraphics[width=2.5in]{Results/Potentialfields/localminima}
+			\caption{Local minima scenario.}
 			\label{fig:localminima}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=2.5in]{Results/Potentialfields/localminima_velocity}
+			\caption{UAV's velocity for the local minima scenario.}
+			\label{fig:localminima_velocity}
 		\end{figure}
 		
 	\section{Discussion, conclusion and Future development}
@@ -588,8 +594,7 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 	
 	As explained in the last sections, potential fields can be problematic in some specific cases, this should be solved before this method can be used to test how UAVs would move in more realistic environments, e.g a city-like environment. As can be seen in \figurename{ \ref{fig:localminima}}, the geometries where a UAV can get stuck in a local minima of a plain potential field function are not complex, but also not likely to happen.\\
 
-	Future projects could try to control the simulated drones with the full dynamic model designed, to see if it would actually provide a safe navigation for the drones and test it out in a real quad copter. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to RRT, potential fields and so on, and also develop more tools and tests to compare them. Further research could try implementing smart cameras for navigational purposes.\\
-	
+	Future projects could try to control the simulated drones with the full dynamic model designed, to see if it would actually provide a safe navigation for the drones and test it out in a real quad copter. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to RRT, potential fields and so on, and also develop more tools and tests to compare them. Further research could try implementing smart cameras for navigational purposes.
 	
 	% if have a single appendix:
 	%\appendix[Proof of the Zonklar Equations]
