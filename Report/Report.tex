@@ -27,7 +27,7 @@
 	% paper title
 	% can use linebreaks \\ within to get better formatting as desired
 	% Do not put math or special symbols in the title.
-	\title{Motion Planning and Control of Unmanned Aerial Vehicles}
+	\title{A3.Motion Planning and Control of Unmanned Aerial Vehicles}
 	\author{Vilhelm~Dinevik and Paula~Carb\'o}
 	% author names and IEEE memberships
 	% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
@@ -287,15 +287,35 @@ The core of this project focuses on how to make aerial vehicles fly autonomously
 		\caption{block diagram for individual quadrotor}
 		\label{fig:block_diagram}
 	\end{figure}	
-	We linearise the mathematical modell according to \cite{SabatinoFrancesco2015Qcmn}, to do optimal control with LQR [WHY???]. Then we rewrite the linearisation in the linear state-space form \cite{SabatinoFrancesco2015Qcmn} of our model seen in equations (\ref{eq:steady_state_1}) and (\ref{eq:steady_state_2}).
-	\begin{equation} \label{eq:steady_state_1}
+	We linearise the mathematical modell  and write it on the linear state space form according to \cite{SabatinoFrancesco2015Qcmn} seen in equations (\ref{eq:state_space_1}) and (\ref{eq:state_space_2}), to do optimal control with LQR.
+
+
+	\begin{equation} \label{eq:state_space_1}
 			\bm{\dot x} = \bm{A} \bm{x} + \bm{B} \bm{u}
 	\end{equation}
 	
-	\begin{equation} \label{eq:steady_state_2}
+	\begin{equation} \label{eq:state_space_2}
 	\bm{y} = \bm{C} \bm{x}
+	\end{equation}	
+	
+In order to linearise the mathematical model we define a $\hat{x}(t)$ and $\hat{u}(t)$ to be the desired trajectory, we then define $\Delta x(t)$ and a $\Delta u(t)$ as
+\begin{equation} \label{eq:linearisation}
+	\left\lbrace {\begin{array}{c}	
+	\Delta x(t) = x(t) - \hat{x}(t) \\
+	 \Delta u(t) = u(t) - \hat{u}(t)
+	\end{array} }\right.
+\end{equation}	 
+This gives us the linearised state-space model form \cite{SabatinoFrancesco2015Qcmn}
+\begin{equation} \label{eq:linerstate}
+	\Delta \dot{x(t)} = A(t) \Delta x(t) + B(t) \Delta u(t)
+\end{equation}	
+	\begin{equation} \label{eq:linearstate_2}
+		\Delta y = C \Delta x
 	\end{equation}
-	With the model rewritten according to \ref{eq:steady_state_1} and \ref{eq:steady_state_2} we verifie that all the states of the system are both observable and controlable by....[EQUATION FOR OBSERVABEL AND CONTROLABLE]. The controller used in this section is as mentioned above an LQR. [It is used to check that our mathematical model of the UAV can be controlled well enough to do steady flight operations]<--wrong.  An LQR utilizes a cost function and minimises said cost function to optimise the controller \cite{bokLQ}. To design the LQR we use some of the constants in the state-space equations to express the Q matrix in the following way.
+	We then estimate $\Delta x(t)$ and $\Delta u(t)$ using a first order taylor approximation around an equilibrium point.
+	With the model rewritten according to \ref{eq:state_space_1} and \ref{eq:state_space_2} we verify that all the states of the system are both observable and controllable....
+	
+	The controller used in this section is as mentioned above an LQR,  An LQR utilizes a cost function and minimises said cost function to optimise the controller \cite{bokLQ}. To design the LQR we use some of the constants in the state-space equations to express the Q matrix in the following way.
 	
 	\begin{equation}
 	\bm{Q}=\bm{C^}{T}\bm{C}\alpha_{1}
@@ -305,10 +325,10 @@ The core of this project focuses on how to make aerial vehicles fly autonomously
 	the Q matrix is then implemented into the following cost function J.
 	
 	\begin{equation}
-	J = \int_{0}^{\infty} (\bm{x}^{T}(t)\bm{Q}\bm{x}(t)+\bm{u}^2(t)) dt
+	J = \int_{0}^{\infty} (\bm{x}^{T}(t)\bm{Q}\bm{x}(t)+\bm{u}^{T}(t)\bm{R}\bm{u}(t)) dt
 	\end{equation}
 	
-	 J is then minimised to obtain the optimal LQR with the given $\alpha_{1}$. The motivation behind using a LQR is that it usually has small steady-state errors as stated in \cite{lqr_error}. It would be reasonable to focus on getting the deviations from the optimal track to be as small as possible, hence minimising the error.   
+	J is then minimised to obtain the optimal LQR with the given $\alpha_{1}$. The motivation behind using a LQR is that it usually has small steady-state errors as stated in \cite{lqr_error}. It would be reasonable to focus on getting the deviations from the optimal track to be as small as possible, hence minimising the error.   
 	
 		
 	\section{Multi-UAV Navigation with Collision Avoidance}\label{navigation}
