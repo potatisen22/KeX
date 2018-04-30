@@ -8,10 +8,10 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Overview}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Quadrotor with propellers and the two reference frames.}}{}}
 \newlabel{fig:frames_rotors}{{1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Kinematics}{}}
 \citation{SabatinoFrancesco2015Qcmn}
 \citation{mod_control_bresciani}
 \citation{mod_control_bresciani}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Kinematics}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Euler angles $\phi , \theta , \psi $.}}{}}
 \newlabel{fig:roll_pitch_yaw}{{2}{}}
 \newlabel{eq:pos}{{1}{}}
@@ -23,9 +23,10 @@
 \newlabel{eq:transf}{{7}{}}
 \newlabel{eq:gen}{{8}{}}
 \newlabel{eq:total_kinematics}{{9}{}}
+\newlabel{eq:state_vector}{{10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Dynamics}{}}
-\newlabel{eq:newton_euler_forces}{{10}{}}
-\newlabel{eq:newton_euler_torques}{{11}{}}
+\newlabel{eq:newton_euler_forces}{{11}{}}
+\newlabel{eq:newton_euler_torques}{{12}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {III}Sensor modelling and feedback}{}}
 \citation{modelling_control_mahony}
 \citation{modelling_control_mahony}
@@ -35,20 +36,19 @@
 \citation{hirata2008cross}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Inertial Measurement Unit}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-A}1}Triple axis accelerometer}{}}
-\newlabel{eq:imu_accel}{{12}{}}
+\newlabel{eq:imu_accel}{{13}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-A}2}Triple axis gyroscope}{}}
-\newlabel{eq:imu_gyro}{{13}{}}
+\newlabel{eq:imu_gyro}{{14}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-A}3}Triple axis magnetometer}{}}
-\newlabel{eq:imu_magne}{{14}{}}
-\newlabel{eq:imu_magne_bias}{{15}{}}
+\newlabel{eq:imu_magne}{{15}{}}
+\newlabel{eq:imu_magne_bias}{{16}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}GPS receiver}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Infrared sensors}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Infrared obstacle detection diagram.}}{}}
 \newlabel{fig:ir}{{3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-D}}Ultrasonic sensors}{}}
-\newlabel{eq:ultrasonic_formula}{{16}{}}
+\newlabel{eq:ultrasonic_formula}{{17}{}}
 \citation{AdarshS2016PcoI}
-\citation{SabatinoFrancesco2015Qcmn}
 \citation{SabatinoFrancesco2015Qcmn}
 \citation{bokLQ}
 \citation{mod_control_bresciani}
@@ -58,38 +58,38 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Ultrasonic obstacle detection diagram, obtained from \cite  {hirata2008cross}.}}{}}
 \newlabel{fig:ultrasonic}{{4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Trajectory tracking}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces block diagram for individual quadrotor}}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Block diagram for individual quadrotor}}{}}
 \newlabel{fig:block_diagram}{{5}{}}
-\newlabel{eq:uvect}{{17}{}}
-\newlabel{eq:state_space_1}{{18}{}}
-\newlabel{eq:state_space_2}{{19}{}}
-\newlabel{eq:linearisation}{{20}{}}
-\newlabel{eq:linerstate}{{21}{}}
-\newlabel{eq:linearstate_2}{{22}{}}
-\newlabel{eq:observability}{{23}{}}
-\newlabel{eq:controlability}{{24}{}}
-\newlabel{eq:costfunctionJ}{{26}{}}
-\newlabel{eq:linearstatefeedback}{{27}{}}
-\newlabel{eq:linearstatefeedback2}{{28}{}}
-\newlabel{eq:linearstatefeedback3}{{29}{}}
+\newlabel{eq:uvect}{{18}{}}
+\newlabel{eq:state_space_1}{{19}{}}
+\newlabel{eq:state_space_2}{{20}{}}
+\newlabel{eq:linearisation}{{21}{}}
+\newlabel{eq:linerstate}{{22}{}}
+\newlabel{eq:linearstate_2}{{23}{}}
+\newlabel{eq:observability}{{24}{}}
+\newlabel{eq:controlability}{{25}{}}
+\newlabel{eq:costfunctionJ}{{27}{}}
+\newlabel{eq:linearstatefeedback}{{28}{}}
+\newlabel{eq:linearstatefeedback2}{{29}{}}
+\newlabel{eq:linearstatefeedback3}{{30}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {V}Multi-UAV Navigation with Collision Avoidance}{}}
 \newlabel{navigation}{{V}{}}
 \citation{Ge2002}
 \citation{potfieldsmethod}
-\newlabel{eq:rho_goal}{{30}{}}
-\newlabel{eq:rho_obst}{{31}{}}
-\newlabel{eq:a_def}{{32}{}}
-\newlabel{eq:pot_att}{{33}{}}
-\newlabel{eq:pot_rep}{{34}{}}
-\newlabel{eq:force_from_pot}{{35}{}}
-\newlabel{eq:force_att}{{36}{}}
-\newlabel{eq:force_rep}{{37}{}}
-\newlabel{eq:pot_total}{{38}{}}
-\newlabel{eq:force_total}{{39}{}}
-\newlabel{eq:first_order}{{40}{}}
+\newlabel{eq:rho_goal}{{31}{}}
+\newlabel{eq:rho_obst}{{32}{}}
+\newlabel{eq:a_def}{{33}{}}
+\newlabel{eq:pot_att}{{34}{}}
+\newlabel{eq:pot_rep}{{35}{}}
+\newlabel{eq:force_from_pot}{{36}{}}
+\newlabel{eq:force_att}{{37}{}}
+\newlabel{eq:force_rep}{{38}{}}
+\newlabel{eq:pot_total}{{39}{}}
+\newlabel{eq:force_total}{{40}{}}
+\newlabel{eq:first_order}{{41}{}}
 \citation{koren_pot_fields_limitations}
-\newlabel{eq:force_total_example}{{41}{}}
-\newlabel{eq:cancel_example}{{42}{}}
+\newlabel{eq:force_total_example}{{42}{}}
+\newlabel{eq:cancel_example}{{43}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {VI}Simulation and results}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Step response for the Euler angles 1 rad from desired position.}}{}}
 \newlabel{fig:contresangles}{{6}{}}
@@ -113,8 +113,10 @@
 \newlabel{fig:vel}{{15}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Multi UAV avoidance case.}}{}}
 \newlabel{fig:multi_uav_avoidance}{{16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Local minima problem for the symmetric case.}}{}}
-\newlabel{fig:localminima}{{17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Multi UAV avoidance case.}}{}}
+\newlabel{fig:multi_uav_avoidance_distance}{{17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Local minima problem for the symmetric case.}}{}}
+\newlabel{fig:localminima}{{18}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {VII}Discussion, conclusion and Future development}{}}
 \bibstyle{IEEEtran}
 \bibdata{bib}

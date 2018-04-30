@@ -30,7 +30,7 @@
 	% paper title
 	% can use linebreaks \\ within to get better formatting as desired
 	% Do not put math or special symbols in the title.
-	\title{A3.Motion Planning and Control of Unmanned Aerial Vehicles}
+	\title{Motion Planning and Control of Unmanned Aerial Vehicles}
 	\author{Vilhelm~Dinevik and Paula~Carb\'o}
 	% author names and IEEE memberships
 	% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
@@ -59,7 +59,6 @@
 	% this is a minor point as most people would not even notice if the said evil
 	% space somehow managed to creep in.
 	
-	
 	% The paper headers
 	\markboth{A3. Smart Autonomous Systems in Robotics}%
 	{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
@@ -77,7 +76,7 @@
 	% As a general rule, do not put math, special symbols or citations
 	% in the abstract or keywords.
 	\begin{abstract}
-The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. This is done by making a mathematical model for the UAV, a brief study of the sensors needed to estimate the UAV’s state, then designing an LQR controller for the trajectory tracking and finally using an artificial potential field function for the navigation. The mathematical model is done by studying the kinematics and dynamics for a single UAV, it is then linearised and the system’s observability and controllability are checked to develop the LQR. We conduct computer simulation to test the theoretical findings and evalue the proposed methods. Finally, we conclude the paper with some discussion and provide future directions and ideas to do further research on the topic.
+		The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. This is done by making a mathematical model for the UAV, a brief study of the sensors needed to estimate the UAV’s state, then designing an LQR controller for the trajectory tracking and finally using an artificial potential field function for the navigation. The mathematical model is done by studying the kinematics and dynamics for a single UAV, it is then linearised and the system's observability and controllability are checked to develop the LQR. We conduct computer simulation to test the theoretical findings and evaluate the proposed methods. Finally, we conclude the paper with the discussion and the results, and provide directions and ideas to do further research on the topic.
 	\end{abstract}
 		
 	% For peer review papers, you can put extra information on the cover
@@ -108,9 +107,9 @@ The core of this project focuses on how to make aerial vehicles fly autonomously
 	% and "HIS" in caps to complete the first word.
 	\IEEEPARstart{U}{nmanned} aerial vehicles, also known as UAVs, are becoming more and more popular nowadays because they are small, cheap to produce, have low operating and maintenance cost, great maneuverability, can perform steady flight operations and are able to enter high-risk areas without having to compromise human safety. Most applications that involve UAVs have been used in open areas without any obstacles and with a human in control of the UAV. But in recent years people have come up with more modern applications of UAVs that will need them to fly autonomously in densely populated areas, with a lot of other autonomous vehicles around, e.g. Amazon Prime Air delivery system, AltiGator drones services for inspection and data adquisition, or multi-UAVs used to deploy an aerial communications network \cite{intro_network}. This places high demands on UAVs’ obstacle avoidance capabilities for both moving and static obstacles.\\
 	
-	There are many different UAV manufacturers and a vast amount of different models, all with different motors, weights, sensors and lift-to-weight ratio. To make a standard autonomous flight applicable to all these kinds of UAVs, a simple and easy-to-implement multi-UAV mathematical model, that will still be able to avoid obstacles with as few sensors as possible, is needed.\\
+	There are many different UAV manufacturers and a vast amount of different models, all with different motors, weights, sensors and lift-to-weight ratio. To make standard autonomous flight applicable to all these kinds of UAVs, a simple and easy-to-implement multi-UAV mathematical model, that will still be able to avoid obstacles with as few sensors as possible, is needed.\\
 	
-	 There is plenty of previous work that has focused on modelling and controlling a single UAV in great detail \cite{intro_nolinear_model_control}, on simulating high-fidelity multi-UAV scenarios \cite{intro_3d_unity} and on finding the most precise sensing techniques to create indoor and outdoor capability \cite{intro_indoor_sensing}. Based on all this previous research, the core of this project is to develop a control method that can make multiple quadrotor UAVs fly safely to their goals in an environment filled with obstacles. To develop this simple but complete and comprehensive solution, this report aims to study the mathematical model for a single vehicle, the sensors placed in the UAV that provide all the information of its state, a linearisation-based tracking controler and a navigation controler based on potential fields. \\
+	 There is plenty of previous work that has focused on modelling and controlling a single UAV in great detail \cite{intro_nolinear_model_control}, on simulating high-fidelity multi-UAV scenarios \cite{intro_3d_unity} and on finding the most precise sensing techniques to create indoor and outdoor capability \cite{intro_indoor_sensing}. Based on all this previous research, the core of this project is to develop a control method that can make multiple quadrotor UAVs fly safely to their goals in an environment filled with obstacles. To develop this simple but complete and comprehensive solution, the aim of this report is therefore to study the mathematical model for a single vehicle, the sensors placed in the UAV that provide all the information of its state, a linearisation-based tracking controler and a navigation controler based on potential fields. \\
 	
 	In section II the development of the mathematical model for the quad is explained. Section III analyses different sensors on board the UAV and how they could be used to measure the state of the UAV accurately. In section IV, the tracking controller of the UAV is studied. In section V, the navigation method  is explained and described. The simulations performed and the results obteined are explained in section VI. Finally, in the last section of this paper, the results are explained and discussed. Future works and ideas derived from the work done on this project are also mentioned.
 
@@ -120,7 +119,7 @@ The core of this project focuses on how to make aerial vehicles fly autonomously
 	\section{Quadcopter modelling}
 	\subsection{Overview}
 	
-	The UAV is a rigid body quad copter, with a cross-shaped body and four electrical propellers. Front and rear rotors rotate in a clockwise direction, while right and left rotors rotate in a counter clockwise direction (see \figurename  \ref{fig:frames_rotors}). Its motion has 6 degrees of freedom but there are only 4 propellers, therefore the system is under actuated. 
+	The UAV studied in this report is a rigid body quad copter, with a cross-shaped body and four electrical propellers. Front and rear rotors rotate in a clockwise direction, while right and left rotors rotate in a counter clockwise direction (see \figurename  \ref{fig:frames_rotors}). This system has 6 degrees of freedom but there are only 4 propellers, therefore the system is under actuated. 
 	
 	\begin{figure}[h]
 		\centering
@@ -130,12 +129,9 @@ The core of this project focuses on how to make aerial vehicles fly autonomously
 	\end{figure}
 	
 	\subsection{Kinematics}
-	In order to describe the motion of the UAV, a kinematic model for was developed.
-	Two right-hand reference frames are defined: the Earth frame and the body frame, as can be seen in \figurename{ {}\ref{fig:frames_rotors}}. \\
+	In order to describe the motion of the UAV, a kinematic model for  developed. Two right-hand reference frames are defined: the Earth frame and the body frame, as can be seen in \figurename{ {}\ref{fig:frames_rotors}}. The Earth frame is static, while the body frame is attached to the UAV. In this case, the axis origin $o_B$ coincides with the quadrotor's center of mass.\\
 
-	The Earth frame is static, while the body frame is attached to the UAV. In this case, the axis origin $o_B$ coincides with the quadrotor's center of mass.
-
-	The generalized position $\bm{\xi}$ contains the inertial position and Euler-angle orientation, and is described in the Earth frame, as in (\ref{eq:pos}). The linear position $\bm{x}^E$ of the UAV is the vector between the origin of the Earth frame $o_E$ and the origin of the body frame $o_B$, and the Euler angles $\bm{\eta}^E$ are defined as stated in \figurename{ \ref{fig:roll_pitch_yaw}}.
+	The generalized position $\bm{\xi}$ contains the inertial position and Euler-angle orientation, and it is described in the Earth frame, as in (\ref{eq:pos}). The linear position $\bm{x}^E$ of the UAV is the vector between the origin of the Earth frame $o_E$ and the origin of the body frame $o_B$, and the Euler angles $\bm{\eta}^E$ are defined as stated in \figurename{ \ref{fig:roll_pitch_yaw}}.
 	
 	\begin{figure}[h]
 		\centering
@@ -209,12 +205,20 @@ The core of this project focuses on how to make aerial vehicles fly autonomously
 		\mathbf{0}_{3\times 3} & \bm{T}_\Theta \\
 		\end{array} } \right]
 	\end{equation}  
-	Where the notation $\mathbf{0}_{3\times 3}$ means a matrix filled with zeros with a $3 \times 3$ dimension.
+	Where the notation $\mathbf{0}_{3\times 3}$ means a matrix filled with zeros with a $3 \times 3$ dimension.\\
 	
-	In order to relate the derivative of the generalized position in the Earth frame with the generalized velocity on the body frame, the generalized matrix (\ref{eq:gen}) can be used as seen in (\ref{eq:total_kinematics}), and that is the final model of the quadrotor's kinematics \cite{SabatinoFrancesco2015Qcmn, mod_control_bresciani}.
+	In order to relate the derivative of the generalized position in the Earth frame with the generalized velocity in the body frame, the generalized matrix (\ref{eq:gen}) can be used as seen in (\ref{eq:total_kinematics}), and that is the final model of the quadrotor's kinematics \cite{SabatinoFrancesco2015Qcmn, mod_control_bresciani}.
 	\begin{equation} \label{eq:total_kinematics}
 	\bm{\dot\xi} = \bm{J}_\Theta \ 	\bm{\nu} 
 	\end{equation} 
+	
+	Both $\bm{\xi}$ and $\bm{\nu}$ are combined to define the state's vector $\bm{x}$ (\ref{eq:state_vector}), that will be used in further sections of this report.
+	
+	\begin{equation} \label{eq:state_vector}
+		\bm{x} = \left[ \begin{array}{cccccccccccc}
+			\phi & \theta & \psi & p & q & r & u & v & w & x & y & z
+			\end{array}\right] ^T
+		\end{equation}
 	
 	\subsection{Dynamics}
 	The dynamic model for the UAV relates the acceleration of the vehicle with the forces and torques acting on the quadrotor. The Newton-Euler formulation allows to express these variables in the body frame, as in equations (\ref{eq:newton_euler_forces}) and (\ref{eq:newton_euler_torques}), as clearly stated by Bresciani in \cite{mod_control_bresciani}.
@@ -226,27 +230,27 @@ The core of this project focuses on how to make aerial vehicles fly autonomously
 	\end{equation}
 	
 	\section{Sensor modelling and feedback}
-	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that makes this possible, it is important that the vehicle can acquire accurate information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the controller, but also provide information about the objects the vehicle may encounter throughout its path, as to make the navigation safe and prevent collisions. The sensors analised that make this possible are Inertial Measurement Units (IMU), GPS devices, infrared and ultrasonic sensors.\\
+	The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. Therefore, apart from the main algorithm that makes this possible, it is important that the vehicle can acquire accurate information about its condition and its surroundings. Sensors do not only have to provide information about the state of the UAV as to close the loop for the tracking controller, but also provide information about the objects the vehicle may encounter throughout its path, as to make the navigation safe and prevent collisions. The sensors analysed that make this possible are Inertial Measurement Units (IMU), GPS devices, infrared and ultrasonic sensors.\\
 	
 	\subsection{Inertial Measurement Unit}
-	This module is in charge of measuring almost all the variables related to the motion of the vehicle. Usually inside this module  a 3-axis accelerometer, gyroscope and magnetometer can be found. The most precise IMUs integrate specially designed sensors and sometimes include a GPS, a RS232 transceiver and a processor, that runs a real-time Kalman filter in order to provide the most accurate data directly to the CPU. \\
+	This module is in charge of measuring almost all the variables related to the motion of the vehicle. There are usually a 3-axis accelerometer, gyroscope and magnetometer inside this module. The most precise IMUs integrate specially designed sensors and sometimes include a GPS, a RS232 transceiver and a processor, that runs a real-time Kalman filter in order to provide the most accurate data directly to the CPU. \\
 	
 	
-	\subsubsection{Triple axis accelerometer} This sensor measures proper acceleration along the three axes on the body frame. It has to be placed so its three axes match the axes established for the body frame. It can measure dynamic acceleration as a result of the motion of the drone.  As shown in (\ref{eq:imu_accel}), the rotation matrix is used to change from acceleration provided by the IMU to the acceleration in the Earth frame \cite{modelling_control_mahony}.\\
+	\subsubsection{Triple axis accelerometer} This sensor measures proper acceleration along the three axes on the body frame. It can measure dynamic acceleration as a result of the motion of the drone.  As shown in (\ref{eq:imu_accel}), the rotation matrix is used to convert from acceleration provided by the IMU to acceleration in the Earth frame \cite{modelling_control_mahony}.\\
 	\begin{equation} \label{eq:imu_accel}
 	\bm{a}\subb{IMU}= \bm{R}^T_\Theta \ (\bm{\ddot{x}}^E - g \ \bm{\vec{z}_E})
 	\end{equation}
 	
-	\subsubsection{Triple axis gyroscope} This device can measure angular rates in its three axes. Therefore, it  gives the angular velocity of the body frame relative to the Earth frame, expressed in the body frame (\ref{eq:imu_gyro}).\\
+	\subsubsection{Triple axis gyroscope} This device can measure angular rates in three axes. Therefore, it can give the angular velocity of the body frame relative to the Earth frame, expressed in the body frame (\ref{eq:imu_gyro}).\\
 	\begin{equation} \label{eq:imu_gyro}
 	\bm{\omega}\subb{IMU}= \bm{\omega}^B 
 	\end{equation}
 	
-	\subsubsection{Triple axis magnetometer} This kind of sensors are able to measure the ambient magnetic field. Ideally this corresponds to the Earth's magnetic field, therefore the orientation of the vehicle can be measured (\ref{eq:imu_magne}).
+	\subsubsection{Triple axis magnetometer} This kind of sensors are able to measure ambient magnetic field. Ideally this corresponds to the Earth's magnetic field, therefore the orientation of the vehicle can be measured, according to (\ref{eq:imu_magne}).
 	\begin{equation} \label{eq:imu_magne}
 	\bm{m}\subb{IMU}= \bm{R}^T_\Theta \  \bm{m}\subb{Earth}
 	\end{equation}
-	Where $\bm{m}\subb{Earth}$ corresponds to the Earth's magnetic field expressed in the Earth frame. This measurement can be accurate if the bias caused by the local magnetic disturbance $\bm{b}\subb{m}$ is taken into account (\ref{eq:imu_magne_bias}) and the sensor is placed as far as possible from the elements that may cause this disturbance onboard the UAV, such as the wires that power the rotors \cite{modelling_control_mahony}.
+	Where $\bm{m}\subb{Earth}$ corresponds to the Earth's magnetic field expressed in the Earth frame. This measurement is not accurate if the bias caused by the local magnetic disturbance $\bm{b}\subb{m}$ is not taken into account (\ref{eq:imu_magne_bias}). The sensor has to be placed as far as possible from the elements that may cause this disturbance onboard the UAV, such as the wires that power the rotors \cite{modelling_control_mahony}.
 	\begin{equation} \label{eq:imu_magne_bias}
 	\bm{m}\subb{IMU}= \bm{R}^T_\Theta \  \bm{m}\subb{Earth} + \bm{b}\subb{m}
 	\end{equation}
@@ -254,20 +258,20 @@ The core of this project focuses on how to make aerial vehicles fly autonomously
 	In all the specified sensors, bias and noise are also present. Gyroscopes are usually robust against this noise. But once placed in an UAV, accelerometers are affected by the vibration, and need filtering for its measurements to be considered reliable.
 	
 	\subsection{GPS receiver}
-	This device is basically a receiver that makes use of the satellite-based Global Positioning System to calculate the vehicle's geographical position (longitude and latitude) thanks to a 24 satellite constellation around Earth and with trilateration. Casual and inexpensive GPS devices have some meters of accuracy, therefore either better GPS devices or suplementary information from other sensors are needed in order to estimate the position of the vehicle as accurately as possible. For example, motion tracking via smart cameras together with Simultaneous Localization and Mapping solver techniques \cite{modelling_control_mahony}. GPS may also not function indoors, so its usefulness is limited.
+	This device is basically a receiver that makes use of the satellite-based Global Positioning System to calculate the vehicle's geographical position (longitude and latitude) thanks to a 24 satellite constellation around Earth and trilateration. Casual and inexpensive GPS devices are accurate down to a couple of meters, therefore either better GPS devices or suplementary information from other sensors are needed in order to estimate the position of the vehicle as accurately as possible using GPS. For example, motion tracking via smart cameras together with Simultaneous Localization and Mapping solver techniques \cite{modelling_control_mahony}. GPS may also not function indoors, so its usefulness is limited.
 	
 	\subsection{Infrared sensors}
-	In order to sense the UAV's immediate surroundings, a device that is able to know if there is any obstacle around and its relative position to the drone is needed. An array of active infrared sensors correctly placed on the quadrotor is a good solution for this application. An IR sensor consists basically of a LED acting as an emitter and a photo detector acting as a receiver. Both need to have a peak in the same wavelength for optimal power radiation in the emitter and sensitivity in the receiver. The LED emits a light beam in the infrared range (\SI{700}{\nano \meter} to \SI{1}{\milli \meter} wavelength), and when the beam finds an obstacle, it is reflected. The receptor is a Position-Sensitive Device that is able to detect the angle of the received beam, and therefore the device is able to detect the distance to the obstacle thanks to triangulation, as can be seen in \figurename{ \ref{fig:ir}}.
+	In order to sense the UAV's immediate surroundings, a device that is able to know if there is any obstacle around its relative position to the drone is needed. An array of active infrared sensors correctly placed on the quadrotor is a good solution for this application. An IR sensor basically consists of a LED acting as an emitter and a photo detector acting as a receiver. Both need to have a peak in the same wavelength for optimal power radiation in the emitter and sensitivity in the receiver. The LED emits a light beam in the infrared range (\SI{700}{\nano \meter} to \SI{1}{\milli \meter} wavelength), and when the beam finds an obstacle, it is reflected. The receptor is a Position-Sensitive Device that is able to detect the angle of the received beam, and therefore the device is able to detect the distance to the obstacle using triangulation, as can be seen in \figurename{ \ref{fig:ir}}.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=2.5in]{ir}
 		\caption{Infrared obstacle detection diagram.}
 		\label{fig:ir}
 	\end{figure}
-	Since the light beam needs to be reflected by an object, its reflectance is an important factor to take into account, since poor reflective objects could not be detected on time.  Also, some other natural or artificial sources of radiation such as the Sun may cause interferences. To improve the circuit's response to interferences the signal must be properly conditioned and modulated \cite{mod_control_bresciani, remotecontrol}.
+	Since the emitted light beam needs to be reflected by an object, the object's reflectance is an important factor to take into account, since poor reflective objects may not be detected in time.  Also, some other natural or artificial sources of radiation such as the Sun may cause interferences. To improve the circuit's response to interferences the signal must be properly conditioned and modulated \cite{mod_control_bresciani, remotecontrol}.
 	
 	\subsection{Ultrasonic sensors}
-	This device, together with the IR sensors, allow measuring the distance from the vehicle to an obstacle. An ultrasonic sensor consists of a high-frequency sound emitter and a receiver. Both are electrical signals \textendash \ sound wave transducers, and their operation is similar to the IR sensors: the emitted wave is reflected by the obstacle, and when received, the distance to the obstacle can be calculated based on the time of flight (TOF) of the signal in the air, as can be seen in \figurename{} \ref{fig:ultrasonic}. Since the velocity of the sound in the air is known, just by knowing the time that passed between emission and reception, the distance to the obstacle can be known, according to (\ref{eq:ultrasonic_formula}). 
+	This device, together with IR sensors, allows for measuring the distance from the vehicle to an obstacle. An ultrasonic sensor consists of a high-frequency sound emitter and a receiver. Both are electrical signals \textendash \ sound wave transducers, and their operation is similar to the IR sensors: the emitted wave is reflected by the obstacle, and when received, the distance to the obstacle can be calculated based on the time of flight (TOF) for the signal in the air, as can be seen in \figurename{} \ref{fig:ultrasonic}. Just by knowing the time that passed between emission and reception the distance to the obstacle can be known, since the velocity of the sound in the air is known, according to (\ref{eq:ultrasonic_formula}). 
 	
 	\begin{equation} \label{eq:ultrasonic_formula}
 	d\subb{obstacle} = \textrm{v}\subb{sound, air} \ \frac{TOF}{2}
@@ -283,20 +287,20 @@ The core of this project focuses on how to make aerial vehicles fly autonomously
 	
 	
 	\section{Trajectory tracking}
-	In order for us to be able to make the UAV follow a given path we have to implement a controller into the UAV system controll. The individual UAV systems in this project could be described with a block diagram as the one pictured in \figurename{\ref{fig:block_diagram}}.
+	In order for us to be able to make the UAV follow a given path we have to implement a controller into the UAV system. The individual UAV systems in this project could be described with a block diagram as the one pictured in \figurename{\ref{fig:block_diagram}},
 	\begin{figure}[h]
 		\centering
 		\input{graph/block_diagram}
-		\caption{block diagram for individual quadrotor}
+		\caption{Block diagram for individual quadrotor}
 		\label{fig:block_diagram}
 	\end{figure}	
-	Where $\bm{r}$ is our reference signal and $\bm{u}$ is the output from the controller $\bm{K}$ defined as
+	where $\bm{r}$ is our reference signal and $\bm{u}$ is the output from the controller $\bm{K}$ defined as
 	\begin{equation} \label{eq:uvect}
 		\bm{u} = \left[ {\begin{array}{cccc}	
     f\subb{t} & \tau\subb{x} & \tau\subb{y} & \tau\subb{z}
 	\end{array} } \right]^T
 	\end{equation}
-	 We linearise the mathematical modell  and write it on the linear state space form according to \cite{SabatinoFrancesco2015Qcmn} seen in equations (\ref{eq:state_space_1}) and (\ref{eq:state_space_2}), to do optimal control with LQR.
+	 We linearise the mathematical model and express it on the linear state space form seen in equations (\ref{eq:state_space_1}) and (\ref{eq:state_space_2}), according to \cite{SabatinoFrancesco2015Qcmn},  to do optimal control with LQR.
 
 
 	\begin{equation} \label{eq:state_space_1}
@@ -307,14 +311,14 @@ The core of this project focuses on how to make aerial vehicles fly autonomously
 	\bm{y} = \bm{C} \bm{x}
 	\end{equation}	
 	
-In order to linearise the mathematical model we define a $\hat{x}(t)$ and $\hat{u}(t)$ to be the desired trajectory, we then define $\Delta x(t)$ and a $\Delta u(t)$ as
+In order to linearise the mathematical model we define a $\hat{x}(t)$ and $\hat{u}(t)$ to match the desired trajectory, we then define $\Delta x(t)$ and a $\Delta u(t)$ such as
 \begin{equation} \label{eq:linearisation}
 	\left\lbrace {\begin{array}{c}	
 	\Delta x(t) = x(t) - \hat{x}(t) \\
 	 \Delta u(t) = u(t) - \hat{u}(t)
 	\end{array} }\right.
 \end{equation}	 
-This gives us the linearised state-space model form \cite{SabatinoFrancesco2015Qcmn}
+Using equations (\ref{eq:state_space_1}) and (\ref{eq:state_space_2}), this gives us
 \begin{equation} \label{eq:linerstate}
 	\Delta \dot{x(t)} = A(t) \Delta x(t) + B(t) \Delta u(t)
 \end{equation}	
@@ -345,20 +349,20 @@ This gives us the linearised state-space model form \cite{SabatinoFrancesco2015Q
 	\end{equation}
 The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has full rank.\\
 	
-	The controller used in this section is as mentioned above an LQR,  An LQR utilizes a cost function and minimises said cost function to optimise the controller \cite{bokLQ}. To design the LQR we use some of the constants in the state-space equations to express the Q matrix in the following way.
+	The controller used in this section is, as mentioned above, an LQR, it utilizes a cost function and minimises said cost function to optimise the controller \cite{bokLQ}. To design the LQR we use some of the constants in the state-space equations to express the Q matrix in the following way.
 	
 	\begin{equation}
 	\bm{Q}=\bm{C^}{T}\bm{C}\alpha_{1}
 	\end{equation}
 	
-	where $\alpha_{1}$ is a scaling factor for our $\bm{Q}$ matrix.
-	the $\bm{Q}$ matrix and the identity matrix $\bm{R}$ is then implemented into the following cost function J.
+	Where $\alpha_{1}$ is a scaling factor for the $\bm{Q}$ matrix.
+	The $\bm{Q}$ matrix and the identity matrix $\bm{R}$ are then implemented into the following cost function $J$.
 	
 	\begin{equation}\label{eq:costfunctionJ}
 	J = \int_{0}^{\infty} (\bm{x}^{T}(t)\bm{Q}\bm{x}(t)+\bm{u}^{T}(t)\bm{R}\bm{u}(t)) dt
 	\end{equation}
 	
-	J is then minimised to obtain the optimal LQR controller $\bm{K}$ with the given $\alpha_{1}$. This gives us the	linear state  feedback
+	$J$ is then minimised to obtain the optimal LQR controller $\bm{K}$ with the given $\alpha_{1}$. This gives us the	linear state  feedback
 	\begin{equation}\label{eq:linearstatefeedback}
 	\bm{u(t)} = -\bm{K}[\bm{x}(t)-\bm{r}(t)]
 \end{equation}
@@ -366,7 +370,7 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 	\begin{equation}\label{eq:linearstatefeedback2}
 		\bm{K} = \bm{R}^{-1}\bm{B}^T\bm{S}
 	\end{equation}
-		$\bm{S}$ is as stated in \cite{mod_control_bresciani} the solution of the Riccati's algebraic equation: 
+		$\bm{S}$ is, as stated in \cite{mod_control_bresciani}, the solution of the Riccati's algebraic equation: 
 	\begin{equation}\label{eq:linearstatefeedback3}
 		\bm{S}\bm{A} + \bm{A}^T\bm{S} - \bm{S}\bm{B}\bm{R}^{-1}\bm{B}^T\bm{S} + \bm{C}^T\bm{Q}\bm{C} = 0
 	\end{equation}	
@@ -374,15 +378,15 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 	
 		
 	\section{Multi-UAV Navigation with Collision Avoidance}\label{navigation}
-		This section studies aims to study one method to find the optimal path to follow from an initial position to a goal. In the case presented in this paper, we consider multiple UAVs flying towards their goals, in an environment filled with obstacles. Some proposed graph-search methods to solve this problem are Rapidly-exploring Random Tree (RRT) algorithms or A* search algorithms and other Dijkstra extensions.	Nonetheless, these techniques do not perform very well when the test environment is constantly changing. These methods excel at finding the appropriate path to follow in a labyrinth-like environment. However, if the environment is different in every iteration, these algorithms are inefficient since the UAV may end up following an inefficient path \cite{lavalle_rrt, lavalle_astar}.\\
+		This section studies one method to find the optimal path to follow from an initial position to a goal. In the case presented in this paper, we consider multiple UAVs flying towards their respective goals, in an environment filled with obstacles. Some proposed graph-search methods to solve this problem are Rapidly-exploring Random Tree (RRT) algorithms or A* search algorithms and other Dijkstra extensions.	Nonetheless, these techniques do not perform very well when the test environment is constantly changing. These methods excel at finding the appropriate path to follow in a labyrinth-like environment. However, if the environment is different in every iteration, these algorithms are inefficient since the UAV may end up following an inefficient path \cite{lavalle_rrt, lavalle_astar}.\\
 		
-		Another way of dealing with this specific problem, which is considered in this work, is based on artificial potential fields. We choose to use this method because it is a simple, movement-efficient algorithm that can navigate the UAV to its goal using a short path. It provides a closed form solution, therefore it is computationally efficient. With this technique a high computational speed and an optimised path can be achieved, with simple and elegant calculations\cite{Ge2002}. The main objective is to provide an efficient solution for multi-UAV navigation to points of interest while avoiding collisions with each other and the obstacles in the environment.\\
+		Another way of dealing with this specific problem is based on artificial potential fields, which is used in this report. We choose this method because it is a simple and efficient algorithm that can navigate the UAV to its goal. It provides a closed form solution, therefore it is computationally efficient. With this technique a high computational speed and an optimised path can be achieved, with simple and elegant calculations\cite{Ge2002}. The main objective in this section is to provide an efficient solution for multi-UAV navigation while avoiding collisions with each other and the obstacles in the environment.\\
 		
 		Artificial potential fields consist of the sum of an attractive and a repulsive potential. In this case the goal generates the attractive potential and the obstacles generate repulsive potentials. This will determine the motion of the UAV by following the negative gradient of the potential field. \\
 		
-		In our case we have a random number of vehicles $v\subb{i} \ \forall \ i \in \{1, ...M\}$ (each with its respective goal $g\subb{i} \ \forall \ i \in \{1, ...M\}$) and also a random number of obstacles $o\subb{j} \ \forall \ j \in \{1, ...N\}$, all of them considered as spheres. Each UAV has a radius of $r_i = r$, since we consider all the UAVs to have the same size, and each obstacle of $R_j$. We can define the position of one UAV in space by $\bm{q}_i $, of a goal by $\bm{q}_{goal,i}$ and of an obstacle by $\bm{q}_{obst,j} $.\\
+		In our case we have a random number of vehicles $v\subb{i} \ \forall \ i \in \{1, ...M\}$, each with its respective goal $g\subb{i} \ \forall \ i \in \{1, ...M\}$, and also a random number of obstacles $o\subb{j} \ \forall \ j \in \{1, ...N\}$. All the vehicles and obstacles are modelled as spheres. All UAVs have the same radius $r_i = r$, while obstacles have different radiuses $R_j$. We can define the position of one UAV with $\bm{q}_i $, of a goal with $\bm{q}_{goal,i}$ and of an obstacle with $\bm{q}_{obst,j} $.\\
 		
-		The distances from the center of a UAV to a goal or obstacle are calculated with the Euclidean norm, according to (\ref{eq:rho_goal}) and (\ref{eq:rho_obst}) respectively. For the distance to an obstacle, the radius of the object is taken into account, either if it is an obstacle or another UAV ()
+		The distances from the center of a UAV to a goal or an obstacle is calculated with the Euclidean norm, according to (\ref{eq:rho_goal}) and (\ref{eq:rho_obst}) respectively. In the calculation of the distance to an obstacle, the radius of the object is taken into account, if it is an obstacle or another UAV (\ref{eq:a_def}).
 		\begin{equation} \label{eq:rho_goal}
 		\rho\subb{goal, i}(\bm{q}\subb{i}) = \parallel \bm{q}\subb{i} - \bm{q}\subb{goal,i}\parallel
 		\end{equation}
@@ -437,11 +441,11 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 				\end{array} } \right. $}
 		\end{equation}
 		
-		As mentioned before, there are two reasons for splitting the attractive potential and force functions into two parts. In the case of a parabolic configuration for all the space, there is a linear dependence of the force with the distance between UAV and goal, hence the force grows indefinitely when far from the goal. At the same time, in the case of a conic configuration for all the space, there is a singular point in the goal that could make the UAV oscilate around it. The solution is to combine both configurations to solve this problems, by making the force constant when far from the goal with a conic configuration, and then using a parabolic function when reaching the goal to avoid the singularity.\\
+		There are two reasons for splitting the attractive potential and force functions into two parts. In the case of a parabolic configuration for all the space, there is a linear dependence on the force with the distance between the UAV and the goal, hence the force grows indefinitely when the UAV is far from the goal. At the same time, in the case of a conic configuration for all the space, there is a singular point in the goal that could make the UAV oscilate around it. The solution is to combine both configurations to solve these problems, by making the force constant when far from the goal with a conic configuration, and then using a parabolic function when reaching the goal to avoid the singularity.\\
 		
-		When an UAV is moving, it also considers other vehicles as obstacles. We can define another set of obstacles $v'\subb{k} \ \forall \ k \in \{1, ...M\}$, that correspond to all the vehicles but considered as obstacles.
+		When an UAV is moving, it also considers other vehicles as obstacles. We can define another set of obstacles $v'\subb{k} \ \forall \ k \in \{1, ...M\}$, that correspond to all the vehicles considered as obstacles.\\
 		
-		Finally, the repulsive and attractive potentials and forces are added, according to (\ref{eq:pot_total}) and (\ref{eq:force_total}), in order to obtain the total value. 
+		Finally, the repulsive and attractive potentials and forces are added, according to (\ref{eq:pot_total}) and (\ref{eq:force_total}), in order to obtain the total potential field and force. 
 		\begin{equation} \label{eq:pot_total}
 		U\subb{total, i}(\bm{q}\subb{i}) = U\subb{att, i}(\bm{q}\subb{i}) + \sum \limits_{\forall j}U\subb{rep,i,j}(\bm{q}\subb{i}) + \sum \limits_{\forall k \neq i}U\subb{rep,i,k}(\bm{q}\subb{i}) 
 		\end{equation}
@@ -455,11 +459,11 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 		\bm{u}\subb{i}(t) = \bm{\dot p}\subb{i}(t) = -\bm{\nabla}U\subb{total, i}(\bm{q}\subb{i}(t))
 		\end{equation}
 		\\
-		The potential fields method, nevertheless, has some clear limitations. The most important problem to solve is the local minima situation, where a vehicle can get stuck and therefore never arriving to its goal. To exemplify this case, we consider a case with a vehicle  $v\subb{1}$ perceiving its goal $g\subb{1}$ and only one obstacle $o\subb{1}$. We can rewrite (\ref{eq:force_total}) for this example as (\ref{eq:force_total_example}).
+		The potential fields method has some clear limitations. The most important problem to solve is the local minima situation, where a vehicle can get stuck and therefore never arriving to its goal. To exemplify this case, we consider a vehicle $v\subb{1}$, its goal $g\subb{1}$ and only one obstacle $o\subb{1}$. We can rewrite (\ref{eq:force_total}) for this example as (\ref{eq:force_total_example}).
 		\begin{equation} \label{eq:force_total_example}
 			\vec{F}\subb{total, 1}(\bm{q}\subb{1}) = \vec{F}\subb{att,1}(\bm{q}\subb{1}) + \vec{F}\subb{rep,1,1}(\bm{q}\subb{1})
 		\end{equation}
-		Since the attractive and repulsive forces, determined by (\ref{eq:force_att}) and (\ref{eq:force_rep}), have different signs, there is a certain configuration where they cancel each other. This means that the gradient of the potential field is zero (\ref{eq:cancel_example}) and that there is a local minimum in the potential function. Therefore the vehicle will not move from such a point since its force vector will be zero.
+		Since the attractive and repulsive forces, determined by (\ref{eq:force_att}) and (\ref{eq:force_rep}), have different signs, there is a certain configuration where they cancel each other. This means that the gradient of the potential field is zero (\ref{eq:cancel_example}) and that there is a local minimum in the potential function. Therefore the vehicle will not move from such a point since the gradient of the potential field will be zero.
 	
 		\begin{equation} \label{eq:cancel_example}
 		\begin{split} 
@@ -472,7 +476,7 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 	\section{Simulation and results}
 	All the necessary formulas described in this report have been implemented in MatLab to test their validity in the context. We have tested both the LQR controller developed in section IV and the multi-UAV navigation controller studied in section V. \\
 	
-	For the trajectory tracking we constructed the linear state-space equations of the mathematical model in a MatLab script using the initial starting position as the equilibrium point. The equations described in section IV for controllability and observability was then used to check that the system was observable and controllable.  We then used MatLab tools to design an LQR with R as an identity matrix and the scaling factor for Q, $\alpha$ set to 50. We then analysed the step responses of the system which produced the results shown in figures \figurename{\ref{fig:contresangles}}, \figurename{\ref{fig:contresangvel}}, \figurename{\ref{fig:contresvel}} and \figurename{\ref{fig:contrespos}} where one can see that the steady state error is zero for all step responses.\\
+	For the trajectory tracking we constructed the linear state-space equations of the mathematical model in a MatLab script using the initial starting position as the equilibrium point. The equations described in section IV for controllability and observability were then used to check that the system was observable and controllable.  We then used MatLab tools to design a LQR with $\bm{R}$ as an identity matrix and the scaling factor $\alpha\subb{1}$ for $\bm{Q}$ set to 50. The step responses of the system were analysed, which produced the results shown in \figurename{ \ref{fig:contresangles}}, \figurename{ \ref{fig:contresangvel}}, \figurename{ \ref{fig:contresvel}} and \figurename{ \ref{fig:contrespos}} where one can see that the steady state error is zero for all step responses.\\
 
 
 	
@@ -507,9 +511,9 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 	
 	For the navigation part we developed a script to test the guidance of our potential field function by simulating a random number of UAVs in the range $[5,7]$ and obstacles in the range $[50,100]$. The initial and goal configurations for the UAVs, and the center of the obstacles are random within a $30\times 30\times 30   \ \SI{}{\meter^3}$ cube. Obstacles can not appear too close to the quadcopters or their goals.\\
 	
-	Obstacles have a random radius between $\SI{0.3}{m}$ and $\SI{2}{m}$. Each UAV has the same radius of $\SI{25}{\centi\meter}$ and the same radius of the sphere of influence of $\SI{2}{m}$. These values are inspired by real-life situations, in the case we considered a relatively large UAV. For the sphere of influence, the most common IR and ultrasonic sensors, placed in the adequate places, allow sensing up to $\SI{2}{\meter}$ without any problem. For the scaling factors, we used $\xi\subb{1} = 1$, $\xi\subb{2} = 0.3$ and $\eta = 1$. The value of $\xi\subb{1}$ is assigned so the UAVs, when far from the goal, have a desired velocity of around $\SI{0.5}{\frac{\meter}{\second}}$. Both the attractive and the repulsive potentials have the same scaling by establishing $\eta$ with the same value, as to prevent crashes. When closer to the goal, the scaling factor is lower to avoid oscillation around the goal. The distance to change from conic to parabolic well is set to $d = \SI{1}{\meter}$ so the velocity of the UAV is restricted most part of its flight, to guarantee safety.\\
+	Obstacles have a random radius between $\SI{0.3}{m}$ and $\SI{2}{m}$. Each UAV has a radius of $\SI{25}{\centi\meter}$ and the sphere of influence of $\SI{2}{m}$. These values are inspired by real-life situations, in the case we considered a relatively large UAV. For the sphere of influence, the most common IR and ultrasonic sensors, placed in the adequate places, allow sensing up to $\SI{2}{\meter}$ without any problem. For the scaling factors, we used $\xi\subb{1} = 1$, $\xi\subb{2} = 0.3$ and $\eta = 1$. The value of $\xi\subb{1}$ is assigned so the UAVs have a desired velocity of around $\SI{0.5}{\frac{\meter}{\second}}$ when far from the goal. Both the attractive and the repulsive potentials have the same scaling by setting $\eta$ to the same value as $\xi\subb{1}$, to prevent collisions with obstacles. When closer to the goal, the scaling factor is lowered to avoid oscillations around the goal. The distance to change from conic to parabolic well is set to $d = \SI{1}{\meter}$ so the velocity of the UAV is restricted most part of its flight.\\
 	
-	The algorithm works by calculating, for each vehicle, the distance to the goal and if an obstacle is close enough to be detected. The potential function is calculated consequently. Then as stated in (\ref{eq:first_order}), the drone advances in space with a set discrete time step of $\SI{0.1}{\second}$, to assure that the UAVs do not move for a long period of time without checking again the state and the environment.\\
+	The algorithm works by calculating, for each vehicle, the distance to the goal and if an obstacle is close enough to be detected. The potential function is calculated consequently. Then as stated in (\ref{eq:first_order}), the drone advances in space with a set discrete time step of $\SI{0.1}{\second}$, to assure that the UAVs do not move for a long period of time without checking the state and the environment.\\
 
 	\begin{figure}[H]
 			\centering
@@ -550,7 +554,9 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 		\end{figure}
 
 			
-		As can be seen in \figurename{ \ref{fig:env_1}}, \figurename{ \ref{fig:env_2}} and \figurename{ \ref{fig:env_3}}, each UAV (represented by a colour) reaches its goal (represented by a $\blacklozenge$ of the same colour) while avoiding the obstacles that it encounters throughout its path. In \figurename{ \ref{fig:goal}} we can see the distance from the vehicle to its goal at each time step. As can be seen in \figurename{ \ref{fig:obst}}, the distance between a the surface of a UAV and its closest obstacle's surface (static or dynamic) its always above zero. In \figurename{ \ref{fig:vel}}, we can see the velocity for all UAVs in each time step.
+		In \figurename{ \ref{fig:env_1}}, \figurename{ \ref{fig:env_2}} and \figurename{ \ref{fig:env_3}}, it can be seen that each UAV (represented by a colour) reaches its goal (represented by a $\blacklozenge$ of the same colour) while avoiding the obstacles that it encounters throughout its path. In \figurename{ \ref{fig:goal}} we can see the distance from the vehicle to its goal at each time step. The distance between the surface of an UAV and its closest obstacle's surface (static or dynamic) its always above zero, as can be seen in \figurename{ \ref{fig:obst}}. In \figurename{ \ref{fig:vel}}, we can see the velocity for all UAVs in each time step.
+		
+		We further performed a specific simulation with three UAVs, with fixed values for their initial positions and goals, to study how they interact when in a small space. In \figurename{ \ref{fig:multi_uav_avoidance}} and \figurename{ \ref{fig:multi_uav_avoidance_distance}}, we can see that they arrived to their goals while mantaining a minimum safe margin $\SI{}{}$ .
 		
 		\begin{figure}[H]
 			\centering
@@ -558,7 +564,16 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 			\caption{Multi UAV avoidance case.}
 			\label{fig:multi_uav_avoidance}
 		\end{figure}
-
+	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=8cm]{Results/Potentialfields/multi_uav_avoidance}
+			\caption{Multi UAV avoidance case.}
+			\label{fig:multi_uav_avoidance_distance}
+		\end{figure}
+	
+		Finally, we also performed another specific simulation to test the local minima situation explained in the last part of Section V. As can be seen in \figurename{ \ref{fig:localminima}}, the UAV  \figurename{ \ref{fig:localminima_velocity}} , 
+		
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=8cm]{Results/Potentialfields/localminima}
@@ -567,13 +582,13 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 		\end{figure}
 		
 	\section{Discussion, conclusion and Future development}
-	As mentioned in the Simulation and results section \figurename{ \ref{fig:contresangles}}, \figurename{ \ref{fig:contresangvel}}, \figurename{ \ref{fig:contresvel}} and \figurename{ \ref{fig:contrespos}} all show a steady state error of zero, which is the case for all 12 outputs from the feedback system. This implies that the LQR is working the way it was intended to and that we actually have full control of the UAV. The parameters Q and R were heuristically chosen, the rise, settling and overshoot times can be further improved by changing the values of Q and R, this could be a subject to study in a  future projects within the field. \\
+	As mentioned in the Simulation and Results section, \figurename{ \ref{fig:contresangles}}, \figurename{ \ref{fig:contresangvel}}, \figurename{ \ref{fig:contresvel}} and \figurename{ \ref{fig:contrespos}} all show a steady state error of zero, which is the case for all 12 outputs from the feedback system. This implies that the LQR is working the way it was intended to and that we actually have full control of the UAV. The parameters Q and R were heuristically chosen, the rise, settling and overshoot times can therefore be further improved by changing the values of Q and R. This could be a subject to study in a  future projects within the field. \\
 
-	The potential field method has been proved to be reliable by not allowing UAVs to crash with each other or other obstacles, as can be seen in the multi-drone-avoidance case in \figurename{ \ref{fig:multi_uav_avoidance}}. It also provides good enough safe margins of more than $\SI{0.5}{\meter}$ of minimum distance between a moving UAV and any other type of static or dynamic obstacle, as can be seen in \figurename{ \ref{fig:obst}}. The velocities of the different UAVs, as seen in \figurename{ \ref{fig:vel}}, are appropriate for this case study, in terms of real life UAV capabilities. The vehicles should not be slow but neither too fast to assure obstacle detection with enough margin to avoid them in time. This is due to the discrete nature of the computer unit that implements the controller and the sensor's measurements. Therefore, an 'open environment' velocity of around $\SI{1}{\frac{\meter}{\second}}$ in our case is considered to be safe. Since we can see in \figurename{ \ref{fig:obst}} that the safe margin is large, the velocity could also be increased. \\
+	The potential field method has been proved to be reliable in not allowing UAVs to collide with each other or other obstacles, as can be seen in the multi-drone-avoidance case in \figurename{ \ref{fig:multi_uav_avoidance}}. It also provides good enough safe margins of more than $\SI{0.5}{\meter}$ of minimum distance between a moving UAV and any other type of static or dynamic obstacle, as can be seen in \figurename{ \ref{fig:obst}}. The velocities of the different UAVs, as seen in \figurename{ \ref{fig:vel}}, are appropriate for this case study, in terms of real life UAV capabilities. The vehicles should not be slow but neither too fast to assure obstacle detection with enough margin to avoid them in time. This is due to the discrete nature of the computer unit that implements the controller and the sensor's measurements. Therefore, an 'open environment' velocity of around $\SI{1}{\frac{\meter}{\second}}$ in our case is considered to be safe. Since we can see in \figurename{ \ref{fig:obst}} that the safe margin is large, the velocity could also be increased. \\
 	
-	However, as explained in the last sections, potential fields can be problematic in some specific cases, this should be solved before this method can be used to test how UAVs would move in more realistic environments, e.g a city-live environment. As can be seen in \figurename{ \ref{fig:localminima}}, the geometries where a UAV can get stuck in a local minima of a plain potential field function are not complex, but also not likely to happen.
+	As explained in the last sections, potential fields can be problematic in some specific cases, this should be solved before this method can be used to test how UAVs would move in more realistic environments, e.g a city-like environment. As can be seen in \figurename{ \ref{fig:localminima}}, the geometries where a UAV can get stuck in a local minima of a plain potential field function are not complex, but also not likely to happen.\\
 
-	Future projects could try to control the simulated drones with the full dynamic model designed, to see if it would actually provide a safe navigation for the drones and test it out in a real quad copter. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to RRT, potential fields and so on, and develop more tools and tests to compare them. Even further down in the topic, a project could be developed to explain how to analyse the images resulting from a camera a UAV could carry, and how this information could be useful to help the drone navigate.\\
+	Future projects could try to control the simulated drones with the full dynamic model designed, to see if it would actually provide a safe navigation for the drones and test it out in a real quad copter. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to RRT, potential fields and so on, and also develop more tools and tests to compare them. Further research could try implementing smart cameras for navigational purposes.\\
 	
 	
 	% if have a single appendix:
@@ -622,7 +637,7 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 	
 	% use section* for acknowledgement
 	\section*{Acknowledgment}
-	
+	We would like to thank Christos Verginis, our supervisor, for his guidance, help and support during this project.
 		% An example of a floating figure using the graphicx package.
 	% Note that \label must occur AFTER (or within) \caption.
 	% For figures, \caption should occur after the \includegraphics.
