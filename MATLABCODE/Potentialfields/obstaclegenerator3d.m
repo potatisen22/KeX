@@ -5,7 +5,7 @@ function [totalobst, obstpos, obstrad] = obstaclegenerator3d(min, max, totaldron
     obstrad = single(zeros(totalobst,1));
     for i=1:totalobst
         %Obstacle center position: integer between 5 and 25 for X, Y and Z
-        obstpos(i,:) = single(randi([5,25],1,3));
+        obstpos(i,:) = single(randi([0,30],1,3));
         %Obstacle radius between 0.3 and 2
         obstrad(i,1) = single(rand * 1.7 + 0.3); 
     end
