@@ -127,13 +127,21 @@ end
 set(groot, 'defaultLegendInterpreter','latex');
 %[phi theta psi p q r u v w x y z]
 figure(1)
+ylabel('Angle[rad]')
 legend('$\phi$','$\theta$','$\psi$')
+xlabel('Time[s]')
 figure(2)
+ylabel('Angular velocity[rad/s]')
 legend('p','q','r')
+xlabel('Time[s]')
 figure(3)
+ylabel('Velocity[m/s]')
 legend('u','v','w')
+xlabel('Time[s]')
 figure(4)
+ylabel('Position[m]')
 legend('x','y','z')
+xlabel('Time[s]')
  %H = tf(sys_cl);
 % clf
 % for i = 1:12

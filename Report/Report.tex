@@ -288,7 +288,13 @@ The core of this project focuses on how to make aerial vehicles fly autonomously
 		\caption{block diagram for individual quadrotor}
 		\label{fig:block_diagram}
 	\end{figure}	
-	We linearise the mathematical modell  and write it on the linear state space form according to \cite{SabatinoFrancesco2015Qcmn} seen in equations (\ref{eq:state_space_1}) and (\ref{eq:state_space_2}), to do optimal control with LQR.
+	Where $\bm{r}$ is our reference signal and $\bm{u}$ is the output from the controller $\bm{K}$ defined as
+	\begin{equation} \label{eq:uvect}
+		\bm{u} = \left[ {\begin{array}{cccc}	
+    f\subb{t} & \tau\subb{x} & \tau\subb{y} & \tau\subb{z}
+	\end{array} } \right]^T
+	\end{equation}
+	 We linearise the mathematical modell  and write it on the linear state space form according to \cite{SabatinoFrancesco2015Qcmn} seen in equations (\ref{eq:state_space_1}) and (\ref{eq:state_space_2}), to do optimal control with LQR.
 
 
 	\begin{equation} \label{eq:state_space_1}
@@ -314,7 +320,28 @@ This gives us the linearised state-space model form \cite{SabatinoFrancesco2015Q
 		\Delta y = C \Delta x
 	\end{equation}
 	We then estimate $\Delta x(t)$ and $\Delta u(t)$ using a first order taylor approximation around an equilibrium point.
-	With the model rewritten according to \ref{eq:state_space_1} and \ref{eq:state_space_2} we verify that all the states of the system are both observable and controllable....
+	With the model rewritten according to \ref{eq:state_space_1} and \ref{eq:state_space_2} we verify that all the states of the system are both observable and controllable. In order to check the observability and controllability of the system we have to design two matrices, $\mathcal{O}$ and $\mathcal{C}$ defined as following.
+	\begin{equation}\label{eq:observability}
+	\mathcal{O} = 
+	\left[ {\begin{array}{c}	
+    \bm{C}\\
+    \bm{CA}\\
+    \bm{CA}^2\\
+    \bm{CA}^3\\
+    \vdots \\
+    \bm{CA}^{11}
+	\end{array} } \right] \in 
+	\mathbb{R}
+	\end{equation}
+	
+	
+	\begin{equation}\label{eq:controlability}
+	\mathcal{C} = \left[ {\begin{array}{cccccc}	
+    \bm{B} & \bm{BA} & \bm{BA}^2 & \bm{BA}^3 & \cdots & \bm{BA}^{11}
+	\end{array} } \right] \in 
+	\mathbb{R}
+	\end{equation}
+The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has full rank.\\
 	
 	The controller used in this section is as mentioned above an LQR,  An LQR utilizes a cost function and minimises said cost function to optimise the controller \cite{bokLQ}. To design the LQR we use some of the constants in the state-space equations to express the Q matrix in the following way.
 	
@@ -323,13 +350,25 @@ This gives us the linearised state-space model form \cite{SabatinoFrancesco2015Q
 	\end{equation}
 	
 	where $\alpha_{1}$ is a scaling factor for our $\bm{Q}$ matrix.
-	the Q matrix is then implemented into the following cost function J.
+	the $\bm{Q}$ matrix and the identity matrix $\bm{R}$ is then implemented into the following cost function J.
 	
-	\begin{equation}
+	\begin{equation}\label{eq:costfunctionJ}
 	J = \int_{0}^{\infty} (\bm{x}^{T}(t)\bm{Q}\bm{x}(t)+\bm{u}^{T}(t)\bm{R}\bm{u}(t)) dt
 	\end{equation}
 	
-	J is then minimised to obtain the optimal LQR with the given $\alpha_{1}$. The motivation behind using a LQR is that it usually has small steady-state errors as stated in \cite{lqr_error}. It would be reasonable to focus on getting the deviations from the optimal track to be as small as possible, hence minimising the error.   
+	J is then minimised to obtain the optimal LQR controller $\bm{K}$ with the given $\alpha_{1}$. This gives us the	linear state  feedback
+	\begin{equation}\label{eq:linearstatefeedback}
+	\bm{u(t)} = -\bm{K}[\bm{x}(t)-\bm{r}(t)]
+\end{equation}
+	where $\bm{K}$ can be written as		
+	\begin{equation}\label{eq:linearstatefeedback2}
+		\bm{K} = \bm{R}^{-1}\bm{B}^T\bm{S}
+	\end{equation}
+		$\bm{S}$ is as stated in \cite{mod_control_bresciani} the solution of the Riccati's algebraic equation: 
+	\begin{equation}\label{eq:linearstatefeedback3}
+		\bm{S}\bm{A} + \bm{A}^T\bm{S} - \bm{S}\bm{B}\bm{R}^{-1}\bm{B}^T\bm{S} + \bm{C}^T\bm{Q}\bm{C} = 0
+	\end{equation}	
+	 The motivation behind using a LQR is that it usually has small steady-state errors\cite{lqr_error}. It would be reasonable to focus on getting the deviations from the optimal track to be as small as possible, hence minimising the error.   
 	
 		
 	\section{Multi-UAV Navigation with Collision Avoidance}\label{navigation}
@@ -416,35 +455,35 @@ This gives us the linearised state-space model form \cite{SabatinoFrancesco2015Q
 	\section{Simulation and results}
 	All the necessary formulas described in this report have been implemented in MatLab to test their validity in the context. The parts we have focused more on have been the navigation with potential fields and the control.\\
 	
-	For the trajectory tracking we constructed the linear state-space equations of the mathematical model in a MatLab script and used the equations described in section [INSERT SECTION] to analyse the controllability and observability of the model.  We then used MatLab tools to design an LQR and analysed the step responses of the system which produced the results shown in figures \figurename{\ref{fig:contresangles}}, \figurename{\ref{fig:contresangvel}}, \figurename{\ref{fig:contresvel}} and \figurename{\ref{fig:contrespos}}.  \\
+	For the trajectory tracking we constructed the linear state-space equations of the mathematical model in a MatLab script using the initial starting position as the equilibrium point. The equations described in section IV for controllability and observability was then used to check that the system was observable and controllable.  We then used MatLab tools to design an LQR with R as an identity matrix and the scaling factor for Q, $\alpha$ set to 50. We then analysed the step responses of the system which produced the results shown in figures \figurename{\ref{fig:contresangles}}, \figurename{\ref{fig:contresangvel}}, \figurename{\ref{fig:contresvel}} and \figurename{\ref{fig:contrespos}} where one can see that the steady state error is zero for all step responses.\\
 
 
 	
 		\begin{figure}[H]
   			\centering
   			\includegraphics[width=2.5in]{Results/Controll/Fig1}
-  			\caption{Step response for the Euler angles.}
+  			\caption{Step response for the Euler angles 1 rad from desired position.}
   			\label{fig:contresangles}
 		\end{figure}	
 		
 		\begin{figure}[H]
   			\centering
   			\includegraphics[width=2.5in]{Results/Controll/Fig2}
-  			\caption{Step response for angular velocities.}
+  			\caption{Step response for angular velocities 1 rad/s from desired angular velocity.}
   			\label{fig:contresangvel}
 		\end{figure}	
 
 		\begin{figure}[H]
   			\centering
   			\includegraphics[width=2.5in]{Results/Controll/Fig3}
-  			\caption{Step response for velocities.}
+  			\caption{Step response for velocities 1 m/s from desired velocity.}
   			\label{fig:contresvel}
 		\end{figure}	
 		
 		\begin{figure}[H]
   			\centering
   			\includegraphics[width=2.5in]{Results/Controll/Fig4}
-  			\caption{Step response for positions.}
+  			\caption{Step response for positions 1 meter from desired position.}
   			\label{fig:contrespos}
 		\end{figure}	
 
