@@ -3,6 +3,7 @@
 \hyphenation{op-tical net-works semi-conduc-tor}
 \usepackage{graphicx}
 \usepackage{bm}
+\usepackage{amssymb}
 \usepackage{siunitx}
 \usepackage{tikz}
 \usetikzlibrary{intersections, calc, shapes, arrows}
@@ -74,7 +75,7 @@
 	% As a general rule, do not put math, special symbols or citations
 	% in the abstract or keywords.
 	\begin{abstract}
-The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. This is done by making a mathematical model for the UAV, a brief study of the sensors needed to estimate the UAV’s state, then designing an LQR controller for the trajectory tracking and finally using a potential field function for navigation. The mathematical model is done by studying the kinematics and dynamics for a single UAV, it is then linearised and the system’s observability and controllability are checked to develop the LQR. From this report, we can conclude that potential fields are a good choice to avoid collisions, but it involves some problems that should be fixed in order to assure that the UAVs never get stuck. We also discuss future research and ideas that could be easily implemented in order to improve the safety and the path planning for an UAV flight.
+The core of this project focuses on how to make aerial vehicles fly autonomously from an initial position to a goal. This is done by making a mathematical model for the UAV, a brief study of the sensors needed to estimate the UAV’s state, then designing an LQR controller for the trajectory tracking and finally using an artificial potential field function for the navigation. The mathematical model is done by studying the kinematics and dynamics for a single UAV, it is then linearised and the system’s observability and controllability are checked to develop the LQR. We conduct computer simulation to test the theoretical findings and evalue the proposed methods. Finally, we conclude the paper with some discussion and provide future directions and ideas to do further research on the topic.
 	\end{abstract}
 		
 	% For peer review papers, you can put extra information on the cover
@@ -338,14 +339,14 @@ This gives us the linearised state-space model form \cite{SabatinoFrancesco2015Q
 	
 		Artificial potential fields consist of the sum of an attractive and a repulsive potential. In this case the goal generates the attractive potential and the obstacles generate repulsive potentials. This will determine the motion of the UAV by following the negative gradient of the potential field. \\
 		
-		In our case we have a random number of vehicles $v\subb{i} \ \forall \ i \in \{1, ...M\}$ (each with its respective goal $g\subb{i} \ \forall \ i \in \{1, ...M\}$) and also a random number of obstacles $o\subb{j} \ \forall \ j \in \{1, ...N\}$, all of them considered as spheres. Each UAV has a radius of $r_i$ and each obstacle of $R_j$. We can define the position of one UAV in space by $\bm{q}_i $, of a goal by $\bm{q}_{goal,i}$ and of an obstacle by $\bm{q}_{obst,j} $.\\
+		In our case we have a random number of vehicles $v\subb{i} \ \forall \ i \in \{1, ...M\}$ (each with its respective goal $g\subb{i} \ \forall \ i \in \{1, ...M\}$) and also a random number of obstacles $o\subb{j} \ \forall \ j \in \{1, ...N\}$, all of them considered as spheres. Each UAV has a radius of $r_i = r$, since we consider all the UAVs to have the same size, and each obstacle of $R_j$. We can define the position of one UAV in space by $\bm{q}_i $, of a goal by $\bm{q}_{goal,i}$ and of an obstacle by $\bm{q}_{obst,j} $.\\
 		
-		The distances from a UAV to a goal or obstacle are calculated with the Euclidean norm, according to (\ref{eq:rho_goal}) and (\ref{eq:rho_obst}) respectively.
+		The distances from the center of a UAV to a goal or obstacle are calculated with the Euclidean norm, according to (\ref{eq:rho_goal}) and (\ref{eq:rho_obst}) respectively.
 		\begin{equation} \label{eq:rho_goal}
 			\rho\subb{goal, i}(\bm{q}\subb{i}) = \parallel \bm{q}\subb{i} - \bm{q}\subb{goal,i}\parallel
 		\end{equation}
 		\begin{equation} \label{eq:rho_obst}
-			\rho\subb{obst, i, j}(\bm{q}\subb{i}) = \parallel \bm{q}\subb{i} - \bm{q}\subb{obst, j}\parallel
+			\rho\subb{obst, i, j}(\bm{q}\subb{i}) = \parallel \bm{q}\subb{i} - \bm{q}\subb{obst, j} -R_j\parallel
 		\end{equation}
 		
 		The repulsive and the attractive potentials are calculated according to \cite{potfieldsmethod}, and are described by equations (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) respectively.
@@ -386,7 +387,7 @@ This gives us the linearised state-space model form \cite{SabatinoFrancesco2015Q
 	\begin{equation} \label{eq:force_rep}	
 		\resizebox{0.5\textwidth}{!}{ $
 		\vec{F}\subb{rep, i,j}(\bm{q}\subb{i}) =  \left\lbrace  {\begin{array}{cc}
-		\eta (\frac{1}{\rho\subb{obst,i,j}(\bm{q}\subb{i})}-\frac{1}{\rho\subb{0}})(\frac{1}{\rho\subb{obst,i,j}^2(\bm{q}\subb{i})})\frac{(\bm{q}\subb{i}-\bm{q}\subb{obst,i,j})}{\parallel\bm{q}\subb{i}-\bm{q}\subb{obst,i,j}\parallel} & \textrm{if} \ \rho\subb{obst,i,j}(\bm{q}\subb{i})\leq \rho\subb{0} \\
+		\eta (\frac{1}{\rho\subb{obst,i,j}(\bm{q}\subb{i})}-\frac{1}{\rho\subb{0}})(\frac{1}{\rho\subb{obst,i,j}^2(\bm{q}\subb{i})})\frac{(\bm{q}\subb{i}-\bm{q}\subb{obst,i,j}-R_j)}{\parallel\bm{q}\subb{i}-\bm{q}\subb{obst,i,j} - R_j\parallel} & \textrm{if} \ \rho\subb{obst,i,j}(\bm{q}\subb{i})\leq \rho\subb{0} \\
 		\\
 		0 &\textrm{if} \ \rho\subb{obst,i,j}(\bm{q}\subb{i})> \rho\subb{0} \\
 		\end{array} } \right. $}
