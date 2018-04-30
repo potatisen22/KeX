@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  30 APR 2018 18:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  30 APR 2018 19:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1197,7 +1197,7 @@ File: Results/Potentialfields/env_1.png Graphic file (type png)
 
 <use Results/Potentialfields/env_1.png>
 Package pdftex.def Info: Results/Potentialfields/env_1.png used on input line 5
-17.
+16.
 (pdftex.def)             Requested size: 227.62204pt x 172.5821pt.
 
 <Results/Potentialfields/env_2.png, id=53, 2009.5075pt x 1523.6925pt>
@@ -1205,7 +1205,7 @@ File: Results/Potentialfields/env_2.png Graphic file (type png)
 
 <use Results/Potentialfields/env_2.png>
 Package pdftex.def Info: Results/Potentialfields/env_2.png used on input line 5
-23.
+22.
 (pdftex.def)             Requested size: 227.62204pt x 172.5821pt.
 
 <Results/Potentialfields/env_3.png, id=54, 2009.5075pt x 1523.6925pt>
@@ -1213,7 +1213,7 @@ File: Results/Potentialfields/env_3.png Graphic file (type png)
 
 <use Results/Potentialfields/env_3.png>
 Package pdftex.def Info: Results/Potentialfields/env_3.png used on input line 5
-29.
+28.
 (pdftex.def)             Requested size: 227.62204pt x 172.5821pt.
 
 <Results/Potentialfields/goal.png, id=55, 1124.2pt x 843.15pt>
@@ -1221,7 +1221,7 @@ File: Results/Potentialfields/goal.png Graphic file (type png)
 
 <use Results/Potentialfields/goal.png>
 Package pdftex.def Info: Results/Potentialfields/goal.png used on input line 53
-5.
+4.
 (pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
 
 Underfull \vbox (badness 3386) has occurred while \output is active []
@@ -1232,14 +1232,14 @@ File: Results/Potentialfields/obst.png Graphic file (type png)
 
 <use Results/Potentialfields/obst.png>
 Package pdftex.def Info: Results/Potentialfields/obst.png used on input line 54
-1.
+0.
 (pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
 
 <Results/Potentialfields/vel.png, id=57, 1124.2pt x 843.15pt>
 File: Results/Potentialfields/vel.png Graphic file (type png)
 
 <use Results/Potentialfields/vel.png>
-Package pdftex.def Info: Results/Potentialfields/vel.png used on input line 548
+Package pdftex.def Info: Results/Potentialfields/vel.png used on input line 547
 .
 (pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
 
@@ -1254,7 +1254,7 @@ File: Results/Potentialfields/multi_uav_avoidance.png Graphic file (type png)
 
 <use Results/Potentialfields/multi_uav_avoidance.png>
 Package pdftex.def Info: Results/Potentialfields/multi_uav_avoidance.png used o
-n input line 555.
+n input line 557.
 (pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
 
 <Results/Potentialfields/localminima.png, id=63, 1124.2pt x 843.15pt>
@@ -1262,12 +1262,10 @@ File: Results/Potentialfields/localminima.png Graphic file (type png)
 
 <use Results/Potentialfields/localminima.png>
 Package pdftex.def Info: Results/Potentialfields/localminima.png used on input 
-line 562.
+line 564.
 (pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--569
-
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 570--571
@@ -1279,9 +1277,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 572--573
 
  []
 
-(./Report.bbl [8 <./Results/Potentialfields/vel.png (PNG copy)> <./Results/Pote
-ntialfields/multi_uav_avoidance.png (PNG copy)> <./Results/Potentialfields/loca
-lminima.png (PNG copy)>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 576--577
+
+ []
+
+[8 <./Results/Potentialfields/vel.png (PNG copy)> <./Results/Potentialfields/mu
+lti_uav_avoidance.png (PNG copy)> <./Results/Potentialfields/localminima.png (P
+NG copy)>] (./Report.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
@@ -1327,15 +1330,16 @@ r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/l
 ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
 l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/t
-exlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loc
-al/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive
-/2017/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017/tex
-mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fo
-nts/type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (9 pages, 2887372 bytes).
+exlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loc
+al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr
+/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/tex
+live/2017/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2017
+/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dis
+t/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Report.pdf (9 pages, 2894806 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
+ 135 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
