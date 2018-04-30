@@ -3,13 +3,15 @@
 \hyphenation{op-tical net-works semi-conduc-tor}
 \usepackage{graphicx}
 \usepackage{bm}
-\usepackage{amssymb}
 \usepackage{siunitx}
 \usepackage{tikz}
 \usetikzlibrary{intersections, calc, shapes, arrows}
 \graphicspath{ {img/} }
 \usepackage{float}
 \pagenumbering{gobble}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \newcommand*{\subb}[1]{_{\mathrm{#1}}}
 \tikzset{
 	partial ellipse/.style args={#1:#2:#3}{
@@ -373,84 +375,99 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 		
 	\section{Multi-UAV Navigation with Collision Avoidance}\label{navigation}
 		This section studies aims to study one method to find the optimal path to follow from an initial position to a goal. In the case presented in this paper, we consider multiple UAVs flying towards their goals, in an environment filled with obstacles. Some proposed graph-search methods to solve this problem are Rapidly-exploring Random Tree (RRT) algorithms or A* search algorithms and other Dijkstra extensions.	Nonetheless, these techniques do not perform very well when the test environment is constantly changing. These methods excel at finding the appropriate path to follow in a labyrinth-like environment. However, if the environment is different in every iteration, these algorithms are inefficient since the UAV may end up following an inefficient path \cite{lavalle_rrt, lavalle_astar}.\\
- 	
+		
 		Another way of dealing with this specific problem, which is considered in this work, is based on artificial potential fields. We choose to use this method because it is a simple, movement-efficient algorithm that can navigate the UAV to its goal using a short path. It provides a closed form solution, therefore it is computationally efficient. With this technique a high computational speed and an optimised path can be achieved, with simple and elegant calculations\cite{Ge2002}. The main objective is to provide an efficient solution for multi-UAV navigation to points of interest while avoiding collisions with each other and the obstacles in the environment.\\
-	
+		
 		Artificial potential fields consist of the sum of an attractive and a repulsive potential. In this case the goal generates the attractive potential and the obstacles generate repulsive potentials. This will determine the motion of the UAV by following the negative gradient of the potential field. \\
 		
 		In our case we have a random number of vehicles $v\subb{i} \ \forall \ i \in \{1, ...M\}$ (each with its respective goal $g\subb{i} \ \forall \ i \in \{1, ...M\}$) and also a random number of obstacles $o\subb{j} \ \forall \ j \in \{1, ...N\}$, all of them considered as spheres. Each UAV has a radius of $r_i = r$, since we consider all the UAVs to have the same size, and each obstacle of $R_j$. We can define the position of one UAV in space by $\bm{q}_i $, of a goal by $\bm{q}_{goal,i}$ and of an obstacle by $\bm{q}_{obst,j} $.\\
 		
-		The distances from the center of a UAV to a goal or obstacle are calculated with the Euclidean norm, according to (\ref{eq:rho_goal}) and (\ref{eq:rho_obst}) respectively.
+		The distances from the center of a UAV to a goal or obstacle are calculated with the Euclidean norm, according to (\ref{eq:rho_goal}) and (\ref{eq:rho_obst}) respectively. For the distance to an obstacle, the radius of the object is taken into account, either if it is an obstacle or another UAV ()
 		\begin{equation} \label{eq:rho_goal}
-			\rho\subb{goal, i}(\bm{q}\subb{i}) = \parallel \bm{q}\subb{i} - \bm{q}\subb{goal,i}\parallel
+		\rho\subb{goal, i}(\bm{q}\subb{i}) = \parallel \bm{q}\subb{i} - \bm{q}\subb{goal,i}\parallel
 		\end{equation}
 		\begin{equation} \label{eq:rho_obst}
-			\rho\subb{obst, i, j}(\bm{q}\subb{i}) = \parallel \bm{q}\subb{i} - \bm{q}\subb{obst, j} -R_j\parallel
+		\rho\subb{obst, i, j}(\bm{q}\subb{i}) = \parallel \bm{q}\subb{i} - \bm{q}\subb{obst, j}\parallel - \ a
+		\end{equation}
+		\begin{equation} \label{eq:a_def}
+		\ a \in \{R_j, \ r\ |\ \forall j\}
 		\end{equation}
 		
 		The repulsive and the attractive potentials are calculated according to \cite{potfieldsmethod}, and are described by equations (\ref{eq:pot_att}) and (\ref{eq:pot_rep}) respectively.
- 		\begin{equation} \label{eq:pot_att}
-			U\subb{att, i}(\bm{q}\subb{i}) =  \left\lbrace  {\begin{array}{cc}
-				\frac{1}{2} \xi\subb{1} \rho\subb{goal, i}^2(\bm{q}\subb{i})& \textrm{if} \ \rho\subb{goal, i}(\bm{q}\subb{i})\leq d \\
-				\\
-				d \xi\subb{2} \rho\subb{goal, i}(\bm{q}\subb{i}) &\textrm{if} \ \rho\subb{goal, i}(\bm{q}\subb{i})> d \\
-				\end{array} } \right.
- 		\end{equation}
- 		
- 		\begin{equation} \label{eq:pot_rep}
- 		U\subb{rep, i,j}(\bm{q}\subb{i}) =  \left\lbrace  {\begin{array}{cc}
- 			\frac{1}{2} \eta (\frac{1}{\rho\subb{obst,i,j}(\bm{q}\subb{i})} - \frac{1}{\rho\subb{0}}) &\textrm{if} \ \rho\subb{obst,i,j}(\bm{q}\subb{i})\leq \rho\subb{0} \\
- 			\\
- 			0 &\textrm{if} \ \rho\subb{obst,i,j}(\bm{q}\subb{i})> \rho\subb{0} \\
- 			\end{array} } \right.
- 		\end{equation}		
- 		
-	 The $d$ parameter is the distance from the goal where the attractive function changes from a conic to a parabolic well configuration. The constant $\rho\subb{0}$ is the sensing radius of the UAV. Finally, $\xi\subb{1}$, $\xi\subb{2}$ and $\eta$ are positive scaling factors that allow potential adjustment. \\
-	
-	The potential fields' desired force on the UAV is calculated by (\ref{eq:force_from_pot}), since the negative gradient of a potential field $-\bm{\nabla} U$ is a vector that points in the direction of steepest descent. 
-	
-	\begin{equation} \label{eq:force_from_pot}
+		\begin{equation} \label{eq:pot_att}
+		U\subb{att, i}(\bm{q}\subb{i}) =  \left\lbrace  {\begin{array}{cc}
+			\frac{1}{2} \xi\subb{1} \rho\subb{goal, i}^2(\bm{q}\subb{i})& \textrm{if} \ \rho\subb{goal, i}(\bm{q}\subb{i})\leq d \\
+			\\
+			d \xi\subb{2} \rho\subb{goal, i}(\bm{q}\subb{i}) &\textrm{if} \ \rho\subb{goal, i}(\bm{q}\subb{i})> d \\
+			\end{array} } \right.
+		\end{equation}
+		
+		\begin{equation} \label{eq:pot_rep}
+		U\subb{rep, i,j}(\bm{q}\subb{i}) =  \left\lbrace  {\begin{array}{cc}
+			\frac{1}{2} \eta (\frac{1}{\rho\subb{obst,i,j}(\bm{q}\subb{i})} - \frac{1}{\rho\subb{0}}) &\textrm{if} \ \rho\subb{obst,i,j}(\bm{q}\subb{i})\leq \rho\subb{0} \\
+			\\
+			0 &\textrm{if} \ \rho\subb{obst,i,j}(\bm{q}\subb{i})> \rho\subb{0} \\
+			\end{array} } \right.
+		\end{equation}		
+		
+		The $d$ parameter is the distance from the goal where the attractive function changes from a conic to a parabolic well configuration. The constant $\rho\subb{0}$ is the sensing radius of the UAV. Finally, $\xi\subb{1}$, $\xi\subb{2}$ and $\eta$ are positive scaling factors that allow potential adjustment. \\
+		
+		The potential fields' desired force on the UAV is calculated by (\ref{eq:force_from_pot}), since the negative gradient of a potential field $-\bm{\nabla} U$ is a vector that points in the direction of steepest descent. 
+		
+		\begin{equation} \label{eq:force_from_pot}
 		\vec{F}(\bm{q}) = - \bm{\nabla} U(\bm{q})
-	\end{equation}
-	
-	This leads to (\ref{eq:force_att}) and (\ref{eq:force_rep}), that show how these repulsive and attractive forces are calculated.
-	
-	\begin{equation} \label{eq:force_att}
+		\end{equation}
+		
+		This leads to (\ref{eq:force_att}) and (\ref{eq:force_rep}), that show how these repulsive and attractive forces are calculated.
+		
+		\begin{equation} \label{eq:force_att}
 		\vec{F}\subb{att, i}(\bm{q}\subb{i}) =  \left\lbrace  {\begin{array}{cc}
 			- \xi\subb{1} (\bm{q}\subb{i}-\bm{q}\subb{goal, i})& \textrm{if} \ \rho\subb{goal, i}(\bm{q}\subb{i})\leq d \\
 			\\
 			-d \xi\subb{2} \frac{(\bm{q}\subb{i}-\bm{q}\subb{goal, i})}{\parallel\bm{q}\subb{i}-\bm{q}\subb{goal,i}\parallel}&\textrm{if} \ \rho\subb{goal, i}(\bm{q}\subb{i})> d \\
 			\end{array} } \right.
-	\end{equation}
-
-	\begin{equation} \label{eq:force_rep}	
+		\end{equation}
+		
+		\begin{equation} \label{eq:force_rep}	
 		\resizebox{0.5\textwidth}{!}{ $
-		\vec{F}\subb{rep, i,j}(\bm{q}\subb{i}) =  \left\lbrace  {\begin{array}{cc}
-		\eta (\frac{1}{\rho\subb{obst,i,j}(\bm{q}\subb{i})}-\frac{1}{\rho\subb{0}})(\frac{1}{\rho\subb{obst,i,j}^2(\bm{q}\subb{i})})\frac{(\bm{q}\subb{i}-\bm{q}\subb{obst,i,j}-R_j)}{\parallel\bm{q}\subb{i}-\bm{q}\subb{obst,i,j} - R_j\parallel} & \textrm{if} \ \rho\subb{obst,i,j}(\bm{q}\subb{i})\leq \rho\subb{0} \\
+			\vec{F}\subb{rep, i,j}(\bm{q}\subb{i}) =  \left\lbrace  {\begin{array}{cc}
+				\eta (\frac{1}{\rho\subb{obst,i,j}(\bm{q}\subb{i})}-\frac{1}{\rho\subb{0}})(\frac{1}{\rho\subb{obst,i,j}^2(\bm{q}\subb{i})})\frac{(\bm{q}\subb{i}-\bm{q}\subb{obst,i,j})}{\parallel\bm{q}\subb{i}-\bm{q}\subb{obst,i,j} \parallel} & \textrm{if} \ \rho\subb{obst,i,j}(\bm{q}\subb{i})\leq \rho\subb{0} \\
+				\\
+				0 &\textrm{if} \ \rho\subb{obst,i,j}(\bm{q}\subb{i})> \rho\subb{0} \\
+				\end{array} } \right. $}
+		\end{equation}
+		
+		As mentioned before, there are two reasons for splitting the attractive potential and force functions into two parts. In the case of a parabolic configuration for all the space, there is a linear dependence of the force with the distance between UAV and goal, hence the force grows indefinitely when far from the goal. At the same time, in the case of a conic configuration for all the space, there is a singular point in the goal that could make the UAV oscilate around it. The solution is to combine both configurations to solve this problems, by making the force constant when far from the goal with a conic configuration, and then using a parabolic function when reaching the goal to avoid the singularity.\\
+		
+		When an UAV is moving, it also considers other vehicles as obstacles. We can define another set of obstacles $v'\subb{k} \ \forall \ k \in \{1, ...M\}$, that correspond to all the vehicles but considered as obstacles.
+		
+		Finally, the repulsive and attractive potentials and forces are added, according to (\ref{eq:pot_total}) and (\ref{eq:force_total}), in order to obtain the total value. 
+		\begin{equation} \label{eq:pot_total}
+		U\subb{total, i}(\bm{q}\subb{i}) = U\subb{att, i}(\bm{q}\subb{i}) + \sum \limits_{\forall j}U\subb{rep,i,j}(\bm{q}\subb{i}) + \sum \limits_{\forall k \neq i}U\subb{rep,i,k}(\bm{q}\subb{i}) 
+		\end{equation}
+		\begin{equation} \label{eq:force_total}
+		\vec{F}\subb{total, i}(\bm{q}\subb{i}) = \vec{F}\subb{att,i}(\bm{q}\subb{i}) + \sum\limits_{\forall j} \vec{F}\subb{rep,i,j}(\bm{q}\subb{i}) + \sum\limits_{\forall k \neq i} \vec{F}\subb{rep,i,k}(\bm{q}\subb{i})
+		\end{equation}
+		
+		
+		To simplify the simulations, first order dynamics are assumed for the quadcopter model. This means that the control signal $\bm{u}(t)$ can be estimated as the velocity obtained from the negative gradient of the potential, as can be seen in (\ref{eq:first_order}).
+		\begin{equation} \label{eq:first_order}
+		\bm{u}\subb{i}(t) = \bm{\dot p}\subb{i}(t) = -\bm{\nabla}U\subb{total, i}(\bm{q}\subb{i}(t))
+		\end{equation}
 		\\
-		0 &\textrm{if} \ \rho\subb{obst,i,j}(\bm{q}\subb{i})> \rho\subb{0} \\
-		\end{array} } \right. $}
-	\end{equation}
+		The potential fields method, nevertheless, has some clear limitations. The most important problem to solve is the local minima situation, where a vehicle can get stuck and therefore never arriving to its goal. To exemplify this case, we consider a case with a vehicle  $v\subb{1}$ perceiving its goal $g\subb{1}$ and only one obstacle $o\subb{1}$. We can rewrite (\ref{eq:force_total}) for this example as (\ref{eq:force_total_example}).
+		\begin{equation} \label{eq:force_total_example}
+			\vec{F}\subb{total, 1}(\bm{q}\subb{1}) = \vec{F}\subb{att,1}(\bm{q}\subb{1}) + \vec{F}\subb{rep,1,1}(\bm{q}\subb{1})
+		\end{equation}
+		Since the attractive and repulsive forces, determined by (\ref{eq:force_att}) and (\ref{eq:force_rep}), have different signs, there is a certain configuration where they cancel each other. This means that the gradient of the potential field is zero (\ref{eq:cancel_example}) and that there is a local minimum in the potential function. Therefore the vehicle will not move from such a point since its force vector will be zero.
 	
-	As mentioned before, there are two reasons for splitting the attractive potential and force functions into two parts. In the case of a parabolic configuration for all the space, there is a linear dependence of the force with the distance between UAV and goal, hence the force grows indefinitely when far from the goal. At the same time, in the case of a conic configuration for all the space, there is a singular point in the goal that could make the UAV oscilate around it. The solution is to combine both configurations to solve this problems, by making the force constant when far from the goal with a conic configuration, and then using a parabolic function when reaching the goal to avoid the singularity.\\
-	
-	When an UAV is moving, it also considers other vehicles as obstacles. We can define another set of obstacles $v'\subb{k} \ \forall \ k \in \{1, ...M\}$, that correspond to all the vehicles but considered as obstacles.
-
-	Finally, the repulsive and attractive potentials and forces are added, according to (\ref{eq:pot_total}) and (\ref{eq:force_total}), in order to obtain the total value. 
-	\begin{equation} \label{eq:pot_total}
-	U\subb{total, i}(\bm{q}\subb{i}) = U\subb{att, i}(\bm{q}\subb{i}) + \sum \limits_{\forall j}U\subb{rep,i,j}(\bm{q}\subb{i}) + \sum \limits_{\forall k \neq i}U\subb{rep,i,k}(\bm{q}\subb{i}) 
-	\end{equation}
-	\begin{equation} \label{eq:force_total}
-	\vec{F}\subb{total, i}(\bm{q}\subb{i}) = \vec{F}\subb{att,i}(\bm{q}\subb{i}) + \sum\limits_{\forall j} \vec{F}\subb{rep,i,j}(\bm{q}\subb{i}) + \sum\limits_{\forall k \neq i} \vec{F}\subb{rep,i,k}(\bm{q}\subb{i})
-	\end{equation}
-	
-
-	To simplify the simulations, first order dynamics are assumed for the quadcopter model. This means that the control signal $\bm{u}(t)$ for the quadcopter can be directly considered the velocity obtained from the potential fields, that would equal the negative gradient of the potential, as can be seen in (\ref{eq:first_order}).
-	\begin{equation} \label{eq:first_order}
-	\bm{u}\subb{i}(t) = \bm{\dot p}\subb{i}(t) = -\bm{\nabla}U\subb{total, i}(\bm{q}\subb{i}(t))
-	\end{equation}
-	\\
-	The potential fields method, nevertheless, has some clear limitations. The most important problem to solve is the local minima situation, where a vehicle can get stuck and therefore never arriving to its goal. But there are some other problems, like the difficulty of passing between closely-spaced obstacles or inherent oscilations in the trajectory when near obstacles, as stated by Koren and Borenstein in \cite{koren_pot_fields_limitations}. 
+		\begin{equation} \label{eq:cancel_example}
+		\begin{split} 
+					\vec{F}\subb{att,1}(\bm{q}\subb{1}) &= -\vec{F}\subb{rep,1,1}(\bm{q}\subb{1}) \\ \vec{F}\subb{total, 1}(\bm{q}\subb{1}) &= 0 \\   \bm{\nabla} U\subb{total, 1}(\bm{q}\subb{1})  &= 0
+		\end{split}
+		\end{equation}
+		
+		There are some other problems, like the difficulty of passing between closely-spaced obstacles or inherent oscilations in the trajectory when near obstacles, as stated by Koren and Borenstein in \cite{koren_pot_fields_limitations}. 
 	
 	\section{Simulation and results}
 	All the necessary formulas described in this report have been implemented in MatLab to test their validity in the context. The parts we have focused more on have been the navigation with potential fields and the control.\\
