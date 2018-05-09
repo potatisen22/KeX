@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  30 APR 2018 23:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  9 MAY 2018 14:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -894,39 +894,156 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
+(/usr/local/texlive/2017/texmf-dist/tex/latex/breqn/breqn.sty
+Package: breqn 2017/01/27 v0.98e Breaking equations
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/breqn/flexisym.sty
+Package: flexisym 2017/01/27 v0.98e Make math characters macros
+LaTeX Info: Redefining \textprime on input line 300.
+LaTeX Info: Redefining \not on input line 358.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/breqn/cmbase.sym
+File: cmbase.sym 2007/12/19 v0.92
+LaTeX Info: Redefining \hbar on input line 325.
+LaTeX Info: Redefining \surd on input line 327.
+LaTeX Info: Redefining \angle on input line 335.
+LaTeX Info: Redefining \neq on input line 336.
+LaTeX Info: Redefining \mapsto on input line 337.
+LaTeX Info: Redefining \cong on input line 338.
+LaTeX Info: Redefining \notin on input line 341.
+LaTeX Info: Redefining \rightleftharpoons on input line 342.
+LaTeX Info: Redefining \doteq on input line 343.
+LaTeX Info: Redefining \hookrightarrow on input line 344.
+LaTeX Info: Redefining \hookleftarrow on input line 345.
+LaTeX Info: Redefining \bowtie on input line 346.
+LaTeX Info: Redefining \models on input line 347.
+LaTeX Info: Redefining \Longrightarrow on input line 348.
+LaTeX Info: Redefining \longrightarrow on input line 349.
+LaTeX Info: Redefining \Longleftarrow on input line 350.
+LaTeX Info: Redefining \longleftarrow on input line 351.
+LaTeX Info: Redefining \longmapsto on input line 352.
+LaTeX Info: Redefining \longleftrightarrow on input line 353.
+LaTeX Info: Redefining \Longleftrightarrow on input line 354.
+LaTeX Info: Redefining \cdots on input line 358.
+LaTeX Info: Redefining \vdots on input line 361.
+LaTeX Info: Redefining \ddots on input line 366.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/breqn/mathstyle.sty
+Package: mathstyle 2017/01/27 0.98e Tracking mathstyle implicitly
+LaTeX Info: Redefining \displaystyle on input line 93.
+LaTeX Info: Redefining \textstyle on input line 95.
+LaTeX Info: Redefining \scriptstyle on input line 97.
+LaTeX Info: Redefining \scriptscriptstyle on input line 99.
+LaTeX Info: Redefining \genfrac on input line 145.
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count186
+\calc@Bcount=\count187
+\calc@Adimen=\dimen285
+\calc@Bdimen=\dimen286
+\calc@Askip=\skip59
+\calc@Bskip=\skip60
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count188
+\calc@Cskip=\skip61
+)
+\inf@bad=\count189
+\maxint=\count190
+\listwidth=\dimen287
+\eqnumsep=\dimen288
+\eqmargin=\dimen289
+\eqlinespacing=\skip62
+\eqlineskip=\skip63
+\eqlineskiplimit=\dimen290
+\eqbinoffset=\muskip17
+\eqdelimoffset=\muskip18
+\eqindentstep=\dimen291
+\eqstyle=\toks36
+\eqbreakdepth=\count191
+\eqinterlinepenalty=\count192
+\intereqpenalty=\count193
+\intereqskip=\skip64
+\prerelpenalty=\count194
+\prebinoppenalty=\count195
+\Dmedmuskip=\muskip19
+\Dthickmuskip=\muskip20
+\eqleftskip=\skip65
+\eqrightskip=\skip66
+\eq@vspan=\skip67
+\eq@binoffset=\muskip21
+\EQ@box=\box86
+\EQ@copy=\box87
+\EQ@numbox=\box88
+\eq@wdNum=\dimen292
+\GRP@numbox=\box89
+\grp@wdNum=\dimen293
+\eq@lines=\count196
+\eq@curline=\count197
+\eq@badness=\count198
+\EQ@vims=\count199
+\eq@dp=\dimen294
+\eq@wdL=\dimen295
+\eq@wdT=\dimen296
+\eq@wdMin=\dimen297
+\grp@wdL=\dimen298
+\grp@wdR=\dimen299
+\grp@wdT=\dimen300
+\eq@wdRmax=\dimen301
+\eq@firstht=\dimen302
+\eq@wdCond=\dimen303
+\eq@indentstep=\dimen304
+\eq@linewidth=\dimen305
+\grp@linewidth=\dimen306
+\eq@hshift=\dimen307
+\eq@given@sidespace=\dimen308
+\mathindent=\dimen309
+\eq@final@linecount=\count266
+\eq@wdR=\dimen310
+\EQ@continue=\toks37
+\lr@level=\count267
+\GRP@queue=\toks38
+\GRP@box=\box90
+\GRP@wholebox=\box91
+\darraycolsep=\skip68
+\cur@row=\count268
+\cur@col=\count269
+\conditionsep=\skip69
+)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
 (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 -- Lines per column: 58 (exact).
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count186
-\scratchdimen=\dimen285
-\scratchbox=\box86
-\nofMPsegments=\count187
-\nofMParguments=\count188
-\everyMPshowfont=\toks36
-\MPscratchCnt=\count189
-\MPscratchDim=\dimen286
-\MPnumerator=\count190
-\makeMPintoPDFobject=\count191
-\everyMPtoPDFconversion=\toks37
+\scratchcounter=\count270
+\scratchdimen=\dimen311
+\scratchbox=\box92
+\nofMPsegments=\count271
+\nofMParguments=\count272
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count273
+\MPscratchDim=\dimen312
+\MPnumerator=\count274
+\makeMPintoPDFobject=\count275
+\everyMPtoPDFconversion=\toks40
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -983,18 +1100,18 @@ Dictionary: translator-basic-dictionary, Language: English
 (/usr/local/texlive/2017/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
 File: siunitx-abbreviations.cfg 2017/05/19 v2.7g siunitx: Abbreviated units
 ) ABD: EveryShipout initializing macros
-\c__siunitx_mathsf_int=\count192
-LaTeX Font Info:    Try loading font information for U+msa on input line 27.
+\c__siunitx_mathsf_int=\count276
+LaTeX Font Info:    Try loading font information for U+msa on input line 28.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 27.
+LaTeX Font Info:    Try loading font information for U+msb on input line 28.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\c__siunitx_mathtt_int=\count193
+\c__siunitx_mathtt_int=\count277
 Missing character: There is no ‚ in font ptmb7t!
 Missing character: There is no Ä in font ptmb7t!
 Missing character: There is no ô in font ptmb7t!
@@ -1002,22 +1119,22 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 
  []
 
 
-Underfull \hbox (badness 1389) in paragraph at lines 111--112
+Underfull \hbox (badness 1389) in paragraph at lines 112--113
 \OT1/ptm/m/n/10 on sim-u-lat-ing high-fidelity multi-UAV sce-nar-ios [[]] and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
 
@@ -1026,7 +1143,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
@@ -1035,101 +1152,96 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
 ]
 (./graph/roll.tex) (./graph/pitch.tex) (./graph/yaw.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 206--208
+Underfull \hbox (badness 10000) in paragraph at lines 207--209
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 235--236
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 243--244
+Underfull \hbox (badness 10000) in paragraph at lines 244--245
 
  []
 
 <img/ir.png, id=27, 682.55pt x 363.3575pt>
 File: img/ir.png Graphic file (type png)
  <use img/ir.png>
-Package pdftex.def Info: img/ir.png used on input line 266.
+Package pdftex.def Info: img/ir.png used on input line 267.
 (pdftex.def)             Requested size: 180.67499pt x 96.17838pt.
 
 <img/ultrasonic2.png, id=29, 1224.575pt x 705.63625pt>
 File: img/ultrasonic2.png Graphic file (type png)
 
 <use img/ultrasonic2.png>
-Package pdftex.def Info: img/ultrasonic2.png used on input line 280.
+Package pdftex.def Info: img/ultrasonic2.png used on input line 281.
 (pdftex.def)             Requested size: 180.67499pt x 104.10736pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 (./graph/block_diagram.tex) [3 <./img/ir.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 348--350
+Underfull \hbox (badness 10000) in paragraph at lines 349--351
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
+Underfull \hbox (badness 10000) in paragraph at lines 381--382
 
  []
 
 [4 <./img/ultrasonic2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 382--383
+Underfull \hbox (badness 10000) in paragraph at lines 383--384
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--385
+Underfull \hbox (badness 10000) in paragraph at lines 385--386
 
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 386--387
+Underfull \hbox (badness 1728) in paragraph at lines 387--388
 []\OT1/ptm/m/n/10 In our case we have a ran-dom num-ber of ve-hi-cles
  []
 
 
-Underfull \hbox (badness 3942) in paragraph at lines 386--387
+Underfull \hbox (badness 4316) in paragraph at lines 387--388
 \OML/cmm/m/it/10 v[] \OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 2 f
-\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; :::M\OMS/cmsy/m/n/10 g$\OT1/ptm/m/n/10 , ea
+\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; :::N\OMS/cmsy/m/n/10 g$\OT1/ptm/m/n/10 , ea
 ch with its re-spec-tive goal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--387
+Underfull \hbox (badness 10000) in paragraph at lines 387--388
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
-
- []
-
-
-Overfull \hbox (6.00293pt too wide) detected at line 441
+Overfull \hbox (6.00552pt too wide) detected at line 416
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
 
  []
 
 
-Underfull \hbox (badness 3428) in paragraph at lines 445--446
-\OT1/ptm/m/n/10 as ob-sta-cles. We can de-fine an-other set of ob-sta-cles
+Overfull \hbox (5.99733pt too wide) detected at line 443
+[]
  []
 
 
@@ -1137,28 +1249,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 445--446
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--448
+
+ []
+
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 476--477
+Underfull \hbox (badness 10000) in paragraph at lines 474--475
 
  []
 
 
-Underfull \hbox (badness 1831) in paragraph at lines 478--479
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
+
+ []
+
+
+Underfull \hbox (badness 1831) in paragraph at lines 493--494
 []\OT1/ptm/m/n/10 For the tra-jec-tory track-ing we con-structed the lin-ear
  []
 
 
-Underfull \hbox (badness 3281) in paragraph at lines 478--479
+Underfull \hbox (badness 3281) in paragraph at lines 493--494
 \OT1/ptm/m/n/10 state-space equa-tions of the math-e-mat-i-cal model in a
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 478--479
+Underfull \hbox (badness 1577) in paragraph at lines 493--494
 \OT1/ptm/m/n/10 Mat-Lab script us-ing the ini-tial start-ing po-si-tion as the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--479
+Underfull \hbox (badness 10000) in paragraph at lines 493--494
 
  []
 
@@ -1166,45 +1288,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 478--479
 File: Results/Controll/Fig1.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig1.jpg>
-Package pdftex.def Info: Results/Controll/Fig1.jpg used on input line 484.
+Package pdftex.def Info: Results/Controll/Fig1.jpg used on input line 499.
 (pdftex.def)             Requested size: 180.67499pt x 135.50499pt.
 
 <Results/Controll/Fig2.jpg, id=46, 562.1pt x 421.575pt>
 File: Results/Controll/Fig2.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig2.jpg>
-Package pdftex.def Info: Results/Controll/Fig2.jpg used on input line 491.
+Package pdftex.def Info: Results/Controll/Fig2.jpg used on input line 506.
 (pdftex.def)             Requested size: 180.67499pt x 135.50499pt.
-
-Underfull \vbox (badness 3482) has occurred while \output is active []
-
 
 <Results/Controll/Fig3.jpg, id=47, 562.1pt x 421.575pt>
 File: Results/Controll/Fig3.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig3.jpg>
-Package pdftex.def Info: Results/Controll/Fig3.jpg used on input line 498.
+Package pdftex.def Info: Results/Controll/Fig3.jpg used on input line 513.
 (pdftex.def)             Requested size: 180.67499pt x 135.50499pt.
 
 <Results/Controll/Fig4.jpg, id=48, 562.1pt x 421.575pt>
 File: Results/Controll/Fig4.jpg Graphic file (type jpg)
 
 <use Results/Controll/Fig4.jpg>
-Package pdftex.def Info: Results/Controll/Fig4.jpg used on input line 505.
+Package pdftex.def Info: Results/Controll/Fig4.jpg used on input line 520.
 (pdftex.def)             Requested size: 180.67499pt x 135.50499pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 511--512
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--514
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
 
  []
 
 [6 <./Results/Controll/Fig1.jpg> <./Results/Controll/Fig2.jpg> <./Results/Contr
 oll/Fig3.jpg> <./Results/Controll/Fig4.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 515--516
+Underfull \hbox (badness 10000) in paragraph at lines 530--531
 
  []
 
@@ -1213,7 +1332,7 @@ File: Results/Potentialfields/env_1.png Graphic file (type png)
 
 <use Results/Potentialfields/env_1.png>
 Package pdftex.def Info: Results/Potentialfields/env_1.png used on input line 5
-19.
+34.
 (pdftex.def)             Requested size: 180.67499pt x 173.27419pt.
 
 <Results/Potentialfields/env_2.png, id=53, 1259.70625pt x 1339.0025pt>
@@ -1221,7 +1340,7 @@ File: Results/Potentialfields/env_2.png Graphic file (type png)
 
 <use Results/Potentialfields/env_2.png>
 Package pdftex.def Info: Results/Potentialfields/env_2.png used on input line 5
-25.
+40.
 (pdftex.def)             Requested size: 180.67499pt x 192.03572pt.
 
 <Results/Potentialfields/env_3.png, id=54, 1250.6725pt x 1372.12625pt>
@@ -1229,7 +1348,7 @@ File: Results/Potentialfields/env_3.png Graphic file (type png)
 
 <use Results/Potentialfields/env_3.png>
 Package pdftex.def Info: Results/Potentialfields/env_3.png used on input line 5
-31.
+46.
 (pdftex.def)             Requested size: 180.67499pt x 198.20995pt.
 
 
@@ -1239,8 +1358,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Results/Potentialfields/goal.png Graphic file (type png)
 
 <use Results/Potentialfields/goal.png>
-Package pdftex.def Info: Results/Potentialfields/goal.png used on input line 53
-7.
+Package pdftex.def Info: Results/Potentialfields/goal.png used on input line 55
+2.
 (pdftex.def)             Requested size: 180.67499pt x 138.50136pt.
 
 
@@ -1250,8 +1369,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Results/Potentialfields/obst.png Graphic file (type png)
 
 <use Results/Potentialfields/obst.png>
-Package pdftex.def Info: Results/Potentialfields/obst.png used on input line 54
-3.
+Package pdftex.def Info: Results/Potentialfields/obst.png used on input line 55
+8.
 (pdftex.def)             Requested size: 180.67499pt x 144.23216pt.
 
 
@@ -1261,7 +1380,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Results/Potentialfields/vel.png Graphic file (type png)
 
 <use Results/Potentialfields/vel.png>
-Package pdftex.def Info: Results/Potentialfields/vel.png used on input line 550
+Package pdftex.def Info: Results/Potentialfields/vel.png used on input line 565
 .
 (pdftex.def)             Requested size: 180.67499pt x 144.88646pt.
 
@@ -1269,12 +1388,12 @@ Package pdftex.def Info: Results/Potentialfields/vel.png used on input line 550
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 556--557
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 558--559
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
 
  []
 
@@ -1284,7 +1403,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 558--559
 File: Results/Potentialfields/multi_uav_avoidance.png Graphic file (type png)
  <use Results/Potentialfields/multi_uav_avoidance.png>
 Package pdftex.def Info: Results/Potentialfields/multi_uav_avoidance.png used o
-n input line 562.
+n input line 577.
 (pdftex.def)             Requested size: 227.62204pt x 178.86835pt.
 
 
@@ -1297,7 +1416,7 @@ File: Results/Potentialfields/multi_uav_avoidance_obstacle.png Graphic file (ty
 pe png)
  <use Results/Potentialfields/multi_uav_avoidance_obstacle.png>
 Package pdftex.def Info: Results/Potentialfields/multi_uav_avoidance_obstacle.p
-ng used on input line 569.
+ng used on input line 584.
 (pdftex.def)             Requested size: 180.67499pt x 135.49857pt.
 
 
@@ -1308,7 +1427,7 @@ File: Results/Potentialfields/localminima.png Graphic file (type png)
 
 <use Results/Potentialfields/localminima.png>
 Package pdftex.def Info: Results/Potentialfields/localminima.png used on input 
-line 578.
+line 593.
 (pdftex.def)             Requested size: 180.67499pt x 135.49857pt.
 
 
@@ -1320,14 +1439,14 @@ File: Results/Potentialfields/localminima_velocity.png Graphic file (type png)
 
 <use Results/Potentialfields/localminima_velocity.png>
 Package pdftex.def Info: Results/Potentialfields/localminima_velocity.png used 
-on input line 584.
+on input line 599.
 (pdftex.def)             Requested size: 180.67499pt x 135.49857pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 590--591
+Underfull \hbox (badness 10000) in paragraph at lines 605--606
 
  []
 
@@ -1337,12 +1456,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [7 <./Results/Potentialfields/env_1.png> <./Results/Potentialfields/env_2.png>
  <./Results/Potentialfields/env_3.png> <./Results/Potentialfields/goal.png (PNG
  copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 592--593
+Underfull \hbox (badness 10000) in paragraph at lines 607--608
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 594--595
+Underfull \hbox (badness 10000) in paragraph at lines 609--610
 
  []
 
@@ -1372,13 +1491,13 @@ Missing character: There is no Å in font ptmr7t!
 ) [9 <./Results/Potentialfields/localminima.png (PNG copy)> <./Results/Potentia
 lfields/localminima_velocity.png (PNG copy)>] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 26281 strings out of 492995
- 570772 string characters out of 6132704
- 607170 words of memory out of 5000000
- 29416 multiletter control sequences out of 15000+600000
+ 27043 strings out of 492995
+ 580445 string characters out of 6132704
+ 620142 words of memory out of 5000000
+ 30162 multiletter control sequences out of 15000+600000
  49116 words of font info for 112 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 63i,16n,344p,10374b,969s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,13n,344p,10374b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texli
 ve/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2017/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2017/texmf-d
@@ -1401,7 +1520,7 @@ s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/ur
 w/times/utmbi8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/u
 tmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
 >
-Output written on Report.pdf (9 pages, 2311683 bytes).
+Output written on Report.pdf (9 pages, 2311850 bytes).
 PDF statistics:
  140 PDF objects out of 1000 (max. 8388607)
  87 compressed objects within 1 object stream
