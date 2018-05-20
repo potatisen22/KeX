@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  20 MAY 2018 17:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.24)  20 MAY 2018 18:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1327,62 +1327,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 531--532
 
  []
 
-<Results/Potentialfields/env_1.png, id=52, 1126.2075pt x 933.4875pt>
+<Results/Potentialfields/env_1.png, id=52, 889.3225pt x 824.07875pt>
 File: Results/Potentialfields/env_1.png Graphic file (type png)
 
 <use Results/Potentialfields/env_1.png>
 Package pdftex.def Info: Results/Potentialfields/env_1.png used on input line 5
 35.
-(pdftex.def)             Requested size: 180.67499pt x 149.74564pt.
+(pdftex.def)             Requested size: 180.67499pt x 167.41573pt.
 
-<Results/Potentialfields/env_2.png, id=53, 1126.2075pt x 933.4875pt>
+<Results/Potentialfields/env_2.png, id=53, 902.37125pt x 863.225pt>
 File: Results/Potentialfields/env_2.png Graphic file (type png)
 
 <use Results/Potentialfields/env_2.png>
 Package pdftex.def Info: Results/Potentialfields/env_2.png used on input line 5
 41.
-(pdftex.def)             Requested size: 180.67499pt x 149.74564pt.
+(pdftex.def)             Requested size: 180.67499pt x 172.82634pt.
 
-<Results/Potentialfields/env_3.png, id=54, 1126.2075pt x 933.4875pt>
+<Results/Potentialfields/env_3.png, id=54, 859.21pt x 841.1425pt>
 File: Results/Potentialfields/env_3.png Graphic file (type png)
 
 <use Results/Potentialfields/env_3.png>
 Package pdftex.def Info: Results/Potentialfields/env_3.png used on input line 5
 47.
-(pdftex.def)             Requested size: 180.67499pt x 149.74564pt.
+(pdftex.def)             Requested size: 180.67499pt x 176.87616pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Results/Potentialfields/goal.png, id=55, 1124.2pt x 833.1125pt>
+<Results/Potentialfields/goal.png, id=55, 993.7125pt x 765.86125pt>
 File: Results/Potentialfields/goal.png Graphic file (type png)
 
 <use Results/Potentialfields/goal.png>
 Package pdftex.def Info: Results/Potentialfields/goal.png used on input line 55
 3.
-(pdftex.def)             Requested size: 180.67499pt x 133.88548pt.
+(pdftex.def)             Requested size: 180.67499pt x 139.23972pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Results/Potentialfields/obst.png, id=56, 1124.2pt x 843.15pt>
+<Results/Potentialfields/obst.png, id=56, 993.7125pt x 765.86125pt>
 File: Results/Potentialfields/obst.png Graphic file (type png)
 
 <use Results/Potentialfields/obst.png>
 Package pdftex.def Info: Results/Potentialfields/obst.png used on input line 55
 9.
-(pdftex.def)             Requested size: 180.67499pt x 135.49857pt.
+(pdftex.def)             Requested size: 180.67499pt x 139.23972pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Results/Potentialfields/vel.png, id=57, 1124.2pt x 843.15pt>
+<Results/Potentialfields/vel.png, id=57, 993.7125pt x 766.865pt>
 File: Results/Potentialfields/vel.png Graphic file (type png)
 
 <use Results/Potentialfields/vel.png>
 Package pdftex.def Info: Results/Potentialfields/vel.png used on input line 566
 .
-(pdftex.def)             Requested size: 180.67499pt x 135.49857pt.
+(pdftex.def)             Requested size: 180.67499pt x 139.42221pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1397,49 +1397,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 574--575
 
  []
 
-<Results/Potentialfields/multi_uav_avoidance.png, id=58, 1124.2pt x 843.15pt>
-File: Results/Potentialfields/multi_uav_avoidance.png Graphic file (type png)
 
-<use Results/Potentialfields/multi_uav_avoidance.png>
+<Results/Potentialfields/multi_uav_avoidance.png, id=58, 838.13126pt x 771.8837
+4pt>
+File: Results/Potentialfields/multi_uav_avoidance.png Graphic file (type png)
+ <use Results/Potentialfields/multi_uav_avoidance.png>
 Package pdftex.def Info: Results/Potentialfields/multi_uav_avoidance.png used o
 n input line 578.
-(pdftex.def)             Requested size: 227.62204pt x 170.7112pt.
+(pdftex.def)             Requested size: 227.62204pt x 209.62453pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-<Results/Potentialfields/multi_uav_avoidance_obstacle.png, id=59, 1124.2pt x 84
-3.15pt>
+<Results/Potentialfields/multi_uav_avoidance_obstacle.png, id=59, 993.7125pt x 
+765.86125pt>
 File: Results/Potentialfields/multi_uav_avoidance_obstacle.png Graphic file (ty
 pe png)
  <use Results/Potentialfields/multi_uav_avoidance_obstacle.png>
 Package pdftex.def Info: Results/Potentialfields/multi_uav_avoidance_obstacle.p
 ng used on input line 585.
-(pdftex.def)             Requested size: 180.67499pt x 135.49857pt.
+(pdftex.def)             Requested size: 180.67499pt x 139.23972pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Results/Potentialfields/localminima.png, id=60, 1124.2pt x 843.15pt>
+<Results/Potentialfields/localminima.png, id=60, 834.11626pt x 785.93625pt>
 File: Results/Potentialfields/localminima.png Graphic file (type png)
 
 <use Results/Potentialfields/localminima.png>
 Package pdftex.def Info: Results/Potentialfields/localminima.png used on input 
 line 594.
-(pdftex.def)             Requested size: 180.67499pt x 135.49857pt.
+(pdftex.def)             Requested size: 180.67499pt x 170.2322pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-<Results/Potentialfields/localminima_velocity.png, id=61, 1124.2pt x 843.15pt>
+<Results/Potentialfields/localminima_velocity.png, id=61, 993.7125pt x 765.8612
+5pt>
 File: Results/Potentialfields/localminima_velocity.png Graphic file (type png)
-
-<use Results/Potentialfields/localminima_velocity.png>
+ <use Results/Potentialfields/localminima_velocity.png>
 Package pdftex.def Info: Results/Potentialfields/localminima_velocity.png used 
 on input line 600.
-(pdftex.def)             Requested size: 180.67499pt x 135.49857pt.
+(pdftex.def)             Requested size: 180.67499pt x 139.23972pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1449,19 +1450,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 606--607
 
  []
 
-
+[7 <./Results/Potentialfields/env_1.png> <./Results/Potentialfields/env_2.png> 
+<./Results/Potentialfields/env_3.png> <./Results/Potentialfields/goal.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 608--609
 
  []
 
-[7 <./Results/Potentialfields/env_1.png (PNG copy)> <./Results/Potentialfields/
-env_2.png (PNG copy)> <./Results/Potentialfields/env_3.png (PNG copy)> <./Resul
-ts/Potentialfields/goal.png (PNG copy)>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 610--611
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 612--613
+
+ []
+
 (./Report.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8 <./Results/Potentialfields/obst.png> <./Results/Potentialfields/vel.png> <.
+/Results/Potentialfields/multi_uav_avoidance.png> <./Results/Potentialfields/mu
+lti_uav_avoidance_obstacle.png>]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
@@ -1470,12 +1480,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 610--611
 ** the default language instead.
 Missing character: There is no √ in font ptmr7t!
 Missing character: There is no ∂ in font ptmr7t!
-[8 <./Results/Potentialfields/obst.png (PNG copy)> <./Results/Potentialfields/v
-el.png (PNG copy)> <./Results/Potentialfields/multi_uav_avoidance.png (PNG copy
-)> <./Results/Potentialfields/multi_uav_avoidance_obstacle.png (PNG copy)>]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no Å in font ptmr7t!
-
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
@@ -1485,10 +1491,8 @@ Missing character: There is no Å in font ptmr7t!
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
-) [9
-
- <./Results/Potentialfields/localminima.png (PNG copy)> <./Results/Potentialfie
-lds/localminima_velocity.png (PNG copy)>] (./Report.aux) ) 
+) [9 <./Results/Potentialfields/localminima.png> <./Results/Potentialfields/loc
+alminima_velocity.png>] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
  27043 strings out of 492995
  580445 string characters out of 6132704
@@ -1497,30 +1501,30 @@ Here is how much of TeX's memory you used:
  49116 words of font info for 112 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  63i,13n,344p,10374b,984s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2
-017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2017/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2017/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2017/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2017/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/typ
-e1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2017/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
-ic/amsfonts/symbols/msam10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
-pe1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/ti
-mes/utmbi8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8
-a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (9 pages, 2025024 bytes).
+{/usr/local/texlive/2017/texmf-dist/fon
+ts/enc/dvips/base/8r.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
+/cmextra/cmmib7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbol
+s/msam10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/sy
+mbols/msbm10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb
+8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/
+texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Report.pdf (9 pages, 1679400 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
+ 147 PDF objects out of 1000 (max. 8388607)
  87 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
