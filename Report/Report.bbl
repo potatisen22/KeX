@@ -31,6 +31,10 @@ M.~Costandin, P.~Dobra, and B.~Costandin, ``Nonlinear model and control of a
   quadcopter,'' in \emph{2017 21st International Conference on System Theory,
   Control and Computing (ICSTCC)}, Oct 2017, pp. 687--692.
 
+\bibitem{mod_control_bresciani}
+T.~Bresciani, ``\BIBforeignlanguage{eng}{Modelling, identification and control
+  of a quadrotor helicopter},'' 2008, student Paper.
+
 \bibitem{intro_3d_unity}
 W.~Meng, Y.~Hu, J.~Lin, F.~Lin, and R.~Teo, ``An efficient high-fidelity 3d
   multi-uav navigation and control simulator in gps-denied environments,'' in
@@ -47,10 +51,6 @@ E.~Chirtel, R.~Knoll, C.~Le, B.~Mason, N.~Peck, J.~Robarge, and G.~C. Lewin,
 F.~Sabatino and K.~H. Johansson, ``\BIBforeignlanguage{eng}{Quadrotor control:
   modeling, nonlinearcontrol design, and simulation},'' KTH, Skolan för
   elektro- och systemteknik (EES), Reglerteknik, 2015.
-
-\bibitem{mod_control_bresciani}
-T.~Bresciani, ``\BIBforeignlanguage{eng}{Modelling, identification and control
-  of a quadrotor helicopter},'' 2008, student Paper.
 
 \bibitem{modelling_control_mahony}
 R.~Mahony, V.~Kumar, and P.~Corke, ``Multirotor aerial vehicles: Modeling,
@@ -75,9 +75,9 @@ S.~Adarsh, S.~M. Kaleemuddin, D.~Bose, and K.~I. Ramachandran, ``Performance
   Series: Materials Science and Engineering}, vol. 149, no.~1, September 2016.
 
 \bibitem{bokLQ}
-T.~Glad, \emph{\BIBforeignlanguage{swe}{Reglerteknik : grundl{\"a}ggande
-  teori}}, 4th~ed.\hskip 1em plus 0.5em minus 0.4em\relax Lund:
-  Studentlitteratur, 2006, pp. 187--188.
+T.~Glad, \emph{\BIBforeignlanguage{swe}{"Reglerteknik : grundl{\"a}ggande
+  teori"}}, 4th~ed.\hskip 1em plus 0.5em minus 0.4em\relax Studentlitteratur,
+  2006, pp. 187--188.
 
 \bibitem{lqr_error}
 L.~M. Argentim, W.~C. Rezende, P.~E. Santos, and R.~A. Aguiar, ``Pid, lqr and

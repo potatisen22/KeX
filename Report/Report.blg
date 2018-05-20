@@ -16,24 +16,24 @@ Warning--empty journal in lavalle_rrt
 Done.
 You've used 17 entries,
             4087 wiz_defined-function locations,
-            936 strings with 10691 characters,
-and the built_in function-call counts, 12911 in all, are:
+            935 strings with 10689 characters,
+and the built_in function-call counts, 12908 in all, are:
 = -- 994
 > -- 293
 < -- 107
 + -- 167
 - -- 54
-* -- 637
+* -- 636
 := -- 1868
 add.period$ -- 34
 call.type$ -- 17
 change.case$ -- 18
 chr.to.int$ -- 264
 cite$ -- 18
-duplicate$ -- 925
-empty$ -- 1093
+duplicate$ -- 924
+empty$ -- 1092
 format.name$ -- 61
-if$ -- 3029
+if$ -- 3028
 int.to.chr$ -- 0
 int.to.str$ -- 17
 missing$ -- 165
@@ -43,10 +43,10 @@ pop$ -- 411
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 966
+skip$ -- 968
 stack$ -- 0
 substring$ -- 632
-swap$ -- 751
+swap$ -- 750
 text.length$ -- 19
 text.prefix$ -- 0
 top$ -- 5
