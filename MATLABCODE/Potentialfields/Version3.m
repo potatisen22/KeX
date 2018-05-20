@@ -30,9 +30,9 @@ p0 = 2; %radius of sphere of influence for repulsive potential
 %Real time environment with drones flying to goals
 %Figure 1
 figure('Name','Environment','NumberTitle','off')
-xlabel('x / m')
-ylabel('y /m') 
-ylabel('z /m')
+xlabel('x / m', 'FontSize', 15)
+ylabel('y / m', 'FontSize', 15) 
+zlabel('z / m', 'FontSize', 15)
 
 %Distance from drone surface to goal
 %Figure 2
@@ -58,7 +58,7 @@ grid on
 % 
 % %Generating random # of obstacles between min and max
 % minobst = 50;
-% maxobst = 100;
+% maxobst = 75;
 % figure(1)
 % [totalobst, obstpos, obstrad] = obstaclegenerator3d(minobst, maxobst, totaldrones, drones, goaldrones, raddrones);
 
@@ -122,16 +122,16 @@ while(~ isequal(finished,completed))
             vvec = F;
             drones(i,:) = vvec*tstep + drones(i,:);
             figure(1)
-            xlabel('x / m')
-            ylabel('y /m') 
-            zlabel('z /m')
+            xlabel('x / m', 'FontSize', 15)
+            ylabel('y / m', 'FontSize', 15) 
+            zlabel('z / m', 'FontSize', 15)
             printspherecolor(drones(i,:), raddrones, colordrones(i,:))
 
             %Printing distance to goal from the surface of the drone
             disttogoal = norm(drones(i,:)-goaldrones(i,:)-raddrones);
             figure(2)
-            xlabel('time / s')
-            ylabel('distance to goal / m') 
+            xlabel('time / s', 'FontSize', 15)
+            ylabel('distance to goal / m', 'FontSize', 15) 
             scatter(iteration*tstep, disttogoal, 10, colordrones(i,:))
             hold on
             grid on
@@ -139,8 +139,8 @@ while(~ isequal(finished,completed))
             %Printing distance to closest obstacle, dynamic or static
             closestdist = min(closestdiststat, closestdistdynam)- raddrones;
             figure(3)
-            xlabel('time / s')
-            ylabel('distance to closest obstacle / m') 
+            xlabel('time / s', 'FontSize', 15)
+            ylabel('distance to closest obstacle / m', 'FontSize', 15) 
             scatter(iteration*tstep, closestdist, 10, colordrones(i,:))
             hold on
             grid on
@@ -148,8 +148,8 @@ while(~ isequal(finished,completed))
             %Printing velocity (norm)
             vel = norm(vvec);
             figure(4)
-            xlabel('time / s')
-            ylabel('Norm of velocity / m/s') 
+            xlabel('time / s', 'FontSize', 15)
+            ylabel('Norm of velocity / m/s', 'FontSize', 15) 
             scatter(iteration*tstep, vel, 10, colordrones(i,:))
             hold on
             grid on
