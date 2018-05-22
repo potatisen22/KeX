@@ -7,12 +7,12 @@
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {II}Quadcopter modelling}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Overview}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Quadrotor with propellers and the two reference frames.}}{}}
-\newlabel{fig:frames_rotors}{{1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Kinematics}{}}
 \citation{SabatinoFrancesco2015Qcmn}
 \citation{mod_control_bresciani}
 \citation{mod_control_bresciani}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Kinematics}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Quadrotor with propellers and the two reference frames.}}{}}
+\newlabel{fig:frames_rotors}{{1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Euler angles $\phi , \theta , \psi $.}}{}}
 \newlabel{fig:roll_pitch_yaw}{{2}{}}
 \newlabel{eq:pos}{{1}{}}
@@ -34,8 +34,6 @@
 \citation{modelling_control_mahony}
 \citation{mod_control_bresciani}
 \citation{remotecontrol}
-\citation{hirata2008cross}
-\citation{AdarshS2016PcoI}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Inertial Measurement Unit}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-A}1}Triple axis accelerometer}{}}
 \newlabel{eq:imu_accel}{{13}{}}
@@ -49,13 +47,15 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Infrared obstacle detection diagram.}}{}}
 \newlabel{fig:ir}{{3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-D}}Ultrasonic sensors}{}}
-\newlabel{eq:ultrasonic_formula}{{17}{}}
+\citation{hirata2008cross}
+\citation{AdarshS2016PcoI}
 \citation{SabatinoFrancesco2015Qcmn}
 \citation{bokLQ}
 \citation{mod_control_bresciani}
 \citation{lqr_error}
 \citation{lavalle_rrt}
 \citation{lavalle_astar}
+\newlabel{eq:ultrasonic_formula}{{17}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Ultrasonic obstacle detection diagram, obtained from \cite  {hirata2008cross}.}}{}}
 \newlabel{fig:ultrasonic}{{4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Trajectory tracking}{}}
@@ -73,10 +73,10 @@
 \newlabel{eq:linearstatefeedback}{{28}{}}
 \newlabel{eq:linearstatefeedback2}{{29}{}}
 \newlabel{eq:linearstatefeedback3}{{30}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Multi-UAV Navigation with Collision Avoidance}{}}
-\newlabel{navigation}{{V}{}}
 \citation{Ge2002}
 \citation{potfieldsmethod}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Multi-UAV Navigation with Collision Avoidance}{}}
+\newlabel{navigation}{{V}{}}
 \newlabel{eq:rho_goal}{{31}{}}
 \newlabel{eq:rho_obst}{{32}{}}
 \newlabel{eq:a_def}{{33}{}}
@@ -85,10 +85,10 @@
 \newlabel{eq:force_from_pot}{{36}{}}
 \newlabel{eq:force_att}{{37}{}}
 \newlabel{eq:force_rep}{{38}{}}
+\citation{koren_pot_fields_limitations}
 \newlabel{eq:pot_total}{{39}{}}
 \newlabel{eq:force_total}{{40}{}}
 \newlabel{eq:first_order}{{41}{}}
-\citation{koren_pot_fields_limitations}
 \@writefile{toc}{\contentsline {section}{\numberline {VI}Simulation and results}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Step response for the Euler angles 1 rad from desired position.}}{}}
 \newlabel{fig:contresangles}{{6}{}}
@@ -104,19 +104,17 @@
 \newlabel{fig:env_2}{{11}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Environment from third perspective.}}{}}
 \newlabel{fig:env_3}{{12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Distance from vehicles to their respective goal.}}{}}
-\newlabel{fig:goal}{{13}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {VII}Discussion, conclusion and Future development}{}}
 \bibstyle{IEEEtran}
 \bibdata{bib}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Distance from vehicles to their respective goal.}}{}}
+\newlabel{fig:goal}{{13}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Distance from vehicles' surface to any other obstacle's surface.}}{}}
 \newlabel{fig:obst}{{14}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Velocities for each vehicle.}}{}}
 \newlabel{fig:vel}{{15}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Multi-UAV avoidance case.}}{}}
 \newlabel{fig:multi_uav_avoidance}{{16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Distances to the other UAVs' surfaces from the vehicle's surface in the multi-UAV avoidance case.}}{}}
-\newlabel{fig:multi_uav_avoidance_distance}{{17}{}}
 \bibcite{intro_network}{1}
 \bibcite{intro_nolinear_model_control}{2}
 \bibcite{mod_control_bresciani}{3}
@@ -134,8 +132,10 @@
 \bibcite{Ge2002}{15}
 \bibcite{potfieldsmethod}{16}
 \bibcite{koren_pot_fields_limitations}{17}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Distances to the other UAVs' surfaces from the vehicle's surface in the multi-UAV avoidance case.}}{}}
+\newlabel{fig:multi_uav_avoidance_distance}{{17}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Local minima scenario.}}{}}
 \newlabel{fig:localminima}{{18}{}}
+\@writefile{toc}{\contentsline {section}{References}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces UAV's velocity for the local minima scenario.}}{}}
 \newlabel{fig:localminima_velocity}{{19}{}}
-\@writefile{toc}{\contentsline {section}{References}{}}

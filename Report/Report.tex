@@ -123,7 +123,7 @@
 	
 	 The UAV studied in this report is a rigid body quadcopter, with a cross-shaped body and four electrical propellers. Front and rear rotors rotate in a clockwise direction, while right and left rotors rotate in a counter clockwise direction (see \figurename  \ref{fig:frames_rotors}). This system has 6 degrees of freedom but there are only 4 propellers, therefore the system is under actuated. 
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\input{graph/frames_propellers}
 		\caption{Quadrotor with propellers and the two reference frames.}
@@ -135,7 +135,7 @@
 
 	The generalized position $\bm{\xi}$ contains the inertial position and Euler-angle orientation, and it is described in the Earth frame, as in (\ref{eq:pos}). The linear position $\bm{x}^E$ of the UAV is the vector between the origin of the Earth frame $o_E$ and the origin of the body frame $o_B$, and the Euler angles $\bm{\eta}^E$ are defined as stated in \figurename{ \ref{fig:roll_pitch_yaw}}.
 	
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\input{graph/roll}
 		\input{graph/pitch}
@@ -266,7 +266,7 @@
 	In order to sense the UAV's immediate surroundings, a device that is able to know if there is any obstacle around its relative position to the drone is needed. An array of active infrared sensors correctly placed on the quadrotor is a good solution for this application. An IR sensor basically consists of a LED acting as an emitter and a photo detector acting as a receiver. Both need to have a peak in the same wavelength for optimal power radiation in the emitter and sensitivity in the receiver. The LED emits a light beam in the infrared range (\SI{700}{\nano \meter} to \SI{1}{\milli \meter} wavelength), and when the beam finds an obstacle, it is reflected. The receptor is a Position-Sensitive Device that is able to detect the angle of the received beam, and therefore the device is able to detect the distance to the obstacle using triangulation, as can be seen in \figurename{ \ref{fig:ir}}.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=2.5in]{ir}
+		\includegraphics[width=2.1in]{ir}
 		\caption{Infrared obstacle detection diagram.}
 		\label{fig:ir}
 	\end{figure}
@@ -386,7 +386,8 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 		
 		Artificial potential fields consist of the sum of an attractive and a repulsive potential. In this case the goal generates the attractive potential and the obstacles generate repulsive potentials. This will determine the motion of the UAV by following the negative gradient of the potential field. \\
 		
-		In our case we have a random number of vehicles $v\subb{i} \ \forall \ i \in \{1, ...N\}$, each with its respective goal $g\subb{i} \ \forall \ i \in \{1, ...N\}$, and also a random number of obstacles $o\subb{j} \ \forall \ j \in \{1, ...M\}$. All the vehicles and obstacles are modelled as spheres. All UAVs have the same radius $r_i = r$, while obstacles have different radiuses $R_j$. We can define the position of one UAV with $\bm{q}_i $, of a goal with $\bm{q}_{goal,i}$ and of an obstacle with $\bm{q}_{obst,j} $.\\
+		In our case we have a random number of vehicles $v\subb{i} \ \forall \ i \in \{1, ...N\}$, each with its respective goal $g\subb{i} \ \forall \ i \in \{1, ...N\}$, and also a random number of obstacles $o\subb{j} \ \forall \ j \in \{1, ...M\}$. All the vehicles and obstacles are modelled as spheres. All UAVs have the same radius $r_i = r$, while obstacles have different radiuses $R_j$. We can define a new variable $\bm{q}_i = \left[ \begin{array}{ccc}
+		x\subb{i} & y\subb{i} & z\subb{i} \end{array} \right] ^T $ with the linear position of one UAV, of a goal with $\bm{q}_{goal,i}$ and of an obstacle with $\bm{q}_{obst,j} $.\\
 		
 		The distances from the center of a UAV to a goal or an obstacle are calculated with the Euclidean norm, according to (\ref{eq:rho_goal}) and (\ref{eq:rho_obst}) respectively. In the calculation of the distance to an obstacle, the radius of the object is taken into account, if it is an obstacle or another UAV (\ref{eq:a_def}).
 		\begin{equation} \label{eq:rho_goal}
@@ -461,7 +462,7 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 		
 		To simplify the simulations, first order dynamics are assumed for the quadcopter model. This means that the control signal $\bm{u}(t)$ can be estimated as the velocity obtained from the negative gradient of the potential, as can be seen in (\ref{eq:first_order}).
 		\begin{equation} \label{eq:first_order}
-		\bm{u}\subb{i}(t) = \bm{\dot p}\subb{i}(t) = -\bm{\nabla}U\subb{total, i}(\bm{q}\subb{i}(t))
+		\bm{u}\subb{i}(t) = \bm{\dot q}\subb{i}(t) = -\bm{\nabla}U\subb{total, i}(\bm{q}\subb{i}(t))
 		\end{equation}
 		\\
 		The potential fields method has some clear limitations. The most important problem to solve is the local minima situation, where a vehicle can get stuck and therefore never arriving to its goal. This means that 
