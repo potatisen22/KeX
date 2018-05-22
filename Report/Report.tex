@@ -110,7 +110,7 @@
 	
 	There are many different UAV manufacturers and a vast amount of different models, all with different motors, weights, sensors and lift-to-weight ratio. To make standard autonomous flight applicable to all these kinds of UAVs, a simple and easy-to-implement multi-UAV mathematical model, that will still be able to avoid obstacles with as few sensors as possible, is needed.\\
 	
-	 There is plenty of previous work that has focused on modelling and controlling a single UAV in great detail \cite{intro_nolinear_model_control, mod_control_bresciani}, on simulating high-fidelity multi-UAV scenarios \cite{intro_3d_unity} and on finding the most precise sensing techniques to create indoor and outdoor capability \cite{intro_indoor_sensing}. Based on all this previous research, the core of this project is to develop a control method that can make multiple quadrotor UAVs fly safely to their goals in an environment filled with obstacles. To develop this simple but complete and comprehensive solution, the aim of this report is therefore to study the mathematical model for a single vehicle, the sensors placed in the UAV that provide all the information of its state, a linearisation-based tracking controler and a navigation controler based on potential fields. \\
+	 There is plenty of previous work that has focused on modelling and controlling a single UAV in great detail \cite{intro_nolinear_model_control, mod_control_bresciani}, on simulating high-fidelity multi-UAV scenarios \cite{intro_3d_unity} and on finding the most precise sensing techniques to create indoor and outdoor capability \cite{intro_indoor_sensing}. Based on all this previous research, the core of this project is to develop a control method that can make multiple quadrotor UAVs fly safely to their goals in an environment filled with obstacles. To develop this simple but complete and comprehensive solution, the aim of this report is therefore to study the mathematical model for a single vehicle, the sensors placed in the UAV that provide all the information of its state, a linearisation-based tracking controller that can follow a path provided by a navigation controller based on potential fields. \\
 	
 	In section II the development of the mathematical model for the quad is explained. Section III is a literature study of different sensors on board the UAV and how they could be used to measure the state of the UAV accurately. In section IV, the tracking controller of the UAV is studied. In section V, the navigation method  is explained and described. The simulations performed and the results obteined are explained in section VI. Finally, in the last section of this paper, the results are explained and discussed. Future works and ideas derived from the work done on this project are also mentioned.
 
@@ -296,7 +296,7 @@
 		\caption{Block diagram for individual quadrotor.}
 		\label{fig:block_diagram}
 	\end{figure}	
-	where $\bm{r}$ is our reference signal and $\bm{u}$ is the output from the controller $\bm{K}$ defined as
+	where $\bm{r}$ is our reference signal, ideally obtained from a path planning algorithm for navigation, and $\bm{u}$ is the output from the controller $\bm{K}$ defined as
 	\begin{equation} \label{eq:uvect}
 		\bm{u} = \left[ {\begin{array}{cccc}	
     f\subb{t} & \tau\subb{x} & \tau\subb{y} & \tau\subb{z}
@@ -612,7 +612,7 @@ The system is controllable and observable if $\mathcal{C}$ and $\mathcal{O}$ has
 	
 	To conclude, we can say that all the project goals have been met by developing a mathematical model for a single vehicle and successfully implementing a full control with a linearisation-based LQR controller and a potential fields-based navigation controller.\\
 
-	Future projects could try to control the simulated drones with the full dynamic model designed, to see if it would actually provide a safe navigation for the drones and test it out in a real quadcopter. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to RRT, potential fields and so on, and also develop more tools and tests to compare them. Further research could try implementing smart cameras for navigational purposes.
+	Future projects could try to control the simulated drones with the full dynamic model designed, to see if it would actually provide a safe navigation for the drones and test it out in a real quadcopter. This can be done by setting the LQRs reference input equal to the path computed by the potential field method. Another future project could be to focus on the difference between different navigation algorithms, i.e. Djikstra compared to RRT, potential fields and so on, and also develop more tools and tests to compare them. Further research could try implementing smart cameras for navigational purposes.
 	
 	% if have a single appendix:
 	%\appendix[Proof of the Zonklar Equations]
